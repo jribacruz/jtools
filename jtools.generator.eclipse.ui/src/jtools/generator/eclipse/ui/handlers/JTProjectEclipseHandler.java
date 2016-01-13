@@ -1,21 +1,19 @@
 package jtools.generator.eclipse.ui.handlers;
 
-import java.io.File;
-
-import jtools.generator.context.JTContext;
-import jtools.generator.context.MessageContext;
-import jtools.generator.eclipse.ui.Activator;
-import jtools.generator.menu.JTAbstractHandler;
+import org.eclipse.core.commands.AbstractHandler;
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.resources.IProject;
 
 /**
  * 
  * @author jcruz
  *
  */
-public class JTProjectEclipseHandler extends JTAbstractHandler {
+public class JTProjectEclipseHandler extends AbstractHandler {
 
-	public void execute() {
-		File file = JTContext.getCurrentInstance().load(Activator.PLUGIN_ID, "templates/AbstractHandler.vm");
-		MessageContext.add("Arquivo Carregado", file.getName());
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		return null;
 	}
 }

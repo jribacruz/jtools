@@ -8,6 +8,8 @@ import java.net.URL;
 import jtools.generator.context.MessageContext.SeverityType;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
@@ -35,6 +37,16 @@ public class JTContext {
 
 	public void setSelectedProject(IProject selectedProject) {
 		this.selectedProject = selectedProject;
+	}
+
+	public void refreshSelectedProject() {
+		if (selectedProject != null) {
+			try {
+				selectedProject.refreshLocal(IResource.DEPTH_ZERO, null);
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public File load(String bundleId, String location) {

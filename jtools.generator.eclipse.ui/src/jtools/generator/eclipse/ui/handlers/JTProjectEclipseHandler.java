@@ -19,11 +19,11 @@ import org.eclipse.ui.handlers.HandlerUtil;
  * @author jcruz
  *
  */
-public class JtoolsProjectEclipseHandler extends AbstractHandler {
+public class JTProjectEclipseHandler extends AbstractHandler {
 	/**
 	 * The constructor.
 	 */
-	public JtoolsProjectEclipseHandler() {
+	public JTProjectEclipseHandler() {
 	}
 
 	/*
@@ -50,7 +50,7 @@ public class JtoolsProjectEclipseHandler extends AbstractHandler {
 		ProjectListSelectionDialog dialog = new ProjectListSelectionDialog();
 		dialog.open(window);
 
-		MessageDialog.openInformation(window.getShell(), "Projeto Selecionado", JTContext.getInstance().getSelectedProject().getName());
+		MessageDialog.openInformation(window.getShell(), "Projeto Selecionado", JTContext.getCurrentInstance().getSelectedProject().getName());
 
 		return null;
 	}

@@ -25,7 +25,7 @@ public class ProjectListSelectionDialog {
 		dialog.setElements(projects);
 		dialog.open();
 		IProject selectedProject = (IProject) dialog.getFirstResult();
-		JTContext.getInstance().setSelectedProject(selectedProject);
+		JTContext.getCurrentInstance().setSelectedProject(selectedProject);
 	}
 
 	protected class ProjectLabelProvider extends LabelProvider {

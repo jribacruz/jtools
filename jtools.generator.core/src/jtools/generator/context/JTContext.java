@@ -12,7 +12,7 @@ public class JTContext {
 
 	}
 
-	public static JTContext getInstance() {
+	public static JTContext getCurrentInstance() {
 		if (instance == null) {
 			instance = new JTContext();
 		}

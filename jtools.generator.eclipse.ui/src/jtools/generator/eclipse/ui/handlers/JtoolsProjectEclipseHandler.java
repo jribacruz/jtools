@@ -1,16 +1,23 @@
 package jtools.generator.eclipse.ui.handlers;
 
+import jtools.generator.context.JTContext;
+import jtools.generator.dialog.ProjectListSelectionDialog;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.handlers.HandlerUtil;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.dialogs.ElementListSelectionDialog;
+import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
- * Our sample handler extends AbstractHandler, an IHandler base class.
- * @see org.eclipse.core.commands.IHandler
- * @see org.eclipse.core.commands.AbstractHandler
+ * 
+ * @author jcruz
+ *
  */
 public class JtoolsProjectEclipseHandler extends AbstractHandler {
 	/**
@@ -19,16 +26,33 @@ public class JtoolsProjectEclipseHandler extends AbstractHandler {
 	public JtoolsProjectEclipseHandler() {
 	}
 
-	/**
-	 * the command has been executed, so extract extract the needed information
-	 * from the application context.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands
+	 * .ExecutionEvent)
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		MessageDialog.openInformation(
-				window.getShell(),
-				"Ui",
-				"Hello, Eclipse world");
+		/*
+		 * IStructuredSelection selection = (IStructuredSelection)
+		 * window.getSelectionService().getSelection(); if (selection != null) {
+		 * Object firstElement = selection.getFirstElement(); if (firstElement
+		 * instanceof IAdaptable) { IProject project =
+		 * (IProject)((IAdaptable)firstElement).getAdapter(IProject.class);
+		 * IPath path = project.getFullPath(); System.out.println(path);
+		 * MessageDialog.openInformation(window.getShell(), "Ui",
+		 * path.toString()); } }
+		 */
+
+		ProjectListSelectionDialog dialog = new ProjectListSelectionDialog();
+		dialog.open(window);
+
+		MessageDialog.openInformation(window.getShell(), "Projeto Selecionado", JTContext.getInstance().getSelectedProject().getName());
+
 		return null;
 	}
+
 }

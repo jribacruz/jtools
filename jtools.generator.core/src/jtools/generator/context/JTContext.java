@@ -1,6 +1,16 @@
 package jtools.generator.context;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+
+import jtools.generator.context.MessageContext.SeverityType;
+
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Platform;
+import org.osgi.framework.Bundle;
 
 public class JTContext {
 
@@ -25,6 +35,20 @@ public class JTContext {
 
 	public void setSelectedProject(IProject selectedProject) {
 		this.selectedProject = selectedProject;
+	}
+
+	public File load(String bundleId, String location) {
+		Bundle bundle = Platform.getBundle(bundleId);
+		URL fileURL = bundle.getEntry(location);
+		File file = null;
+		try {
+			file = new File(FileLocator.resolve(fileURL).toURI());
+		} catch (URISyntaxException e1) {
+			MessageContext.add("Aviso", SeverityType.ERROR, "Arquivo não encontrado: " + location);
+		} catch (IOException e1) {
+			MessageContext.add("Aviso", SeverityType.ERROR, "Erro ao abrir arquivo: " + location);
+		}
+		return file;
 	}
 
 }

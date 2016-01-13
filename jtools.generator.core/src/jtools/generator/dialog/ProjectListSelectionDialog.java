@@ -11,12 +11,13 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.ide.IDE;
 
-public class ProjectListSelectionDialog {
+public class ProjectListSelectionDialog implements JTDialog {
 
 	public ProjectListSelectionDialog() {
 		super();
 	}
 
+	@Override
 	public void open(IWorkbenchWindow window) {
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(window.getShell(), new ProjectLabelProvider());
@@ -28,6 +29,12 @@ public class ProjectListSelectionDialog {
 		JTContext.getCurrentInstance().setSelectedProject(selectedProject);
 	}
 
+	/**
+	 * LabelProvider Implementation
+	 * 
+	 * @author jcruz
+	 *
+	 */
 	protected class ProjectLabelProvider extends LabelProvider {
 
 		@Override

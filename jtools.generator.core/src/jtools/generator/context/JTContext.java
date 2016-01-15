@@ -31,6 +31,11 @@ public class JTContext {
 		return instance;
 	}
 
+	/**
+	 * Retorna o projeto selecionado.
+	 * 
+	 * @return
+	 */
 	public IProject getSelectedProject() {
 		return selectedProject;
 	}
@@ -53,6 +58,8 @@ public class JTContext {
 	}
 
 	/**
+	 * 
+	 * Carrega um arquivo armazenado do bundle.
 	 * 
 	 * @param bundleId
 	 * @param location

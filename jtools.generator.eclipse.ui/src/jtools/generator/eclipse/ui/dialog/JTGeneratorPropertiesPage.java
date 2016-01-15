@@ -2,6 +2,7 @@ package jtools.generator.eclipse.ui.dialog;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -10,6 +11,8 @@ import org.eclipse.swt.widgets.Text;
 public class JTGeneratorPropertiesPage extends WizardPage {
 
 	private Composite container;
+
+	public static String projectName;
 
 	protected JTGeneratorPropertiesPage(String pageName) {
 		super(pageName);
@@ -25,11 +28,14 @@ public class JTGeneratorPropertiesPage extends WizardPage {
 		Label label1 = new Label(container, SWT.NONE);
 		label1.setText("Nome do projeto");
 
-		Text text1 = new Text(container, SWT.BORDER | SWT.SINGLE);
-		text1.setText("");
+		Text textProjectName = new Text(container, SWT.BORDER | SWT.SINGLE);
+		textProjectName.setText("");
+
+		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+		textProjectName.setLayoutData(gd);
 
 		setControl(container);
-		setPageComplete(true);
+		setPageComplete(false);
 
 	}
 

@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import jtools.generator.context.MessageContext.SeverityType;
 
@@ -19,6 +21,8 @@ public class JTContext {
 	private static JTContext instance = null;
 
 	private IProject selectedProject;
+
+	private Map<String, Object> map = new HashMap<String, Object>();
 
 	private JTContext() {
 
@@ -77,6 +81,14 @@ public class JTContext {
 			MessageContext.add("Aviso", SeverityType.ERROR, "Erro ao abrir arquivo: " + location);
 		}
 		return file;
+	}
+
+	public Object get(String key) {
+		return this.map.get(key);
+	}
+
+	public void put(String key, Object value) {
+		this.map.put(key, value);
 	}
 
 }

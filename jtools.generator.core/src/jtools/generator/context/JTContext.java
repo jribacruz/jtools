@@ -39,6 +39,9 @@ public class JTContext {
 		this.selectedProject = selectedProject;
 	}
 
+	/**
+	 * Atualiza o projeto selecionado.
+	 */
 	public void refreshSelectedProject() {
 		if (selectedProject != null) {
 			try {
@@ -49,6 +52,12 @@ public class JTContext {
 		}
 	}
 
+	/**
+	 * 
+	 * @param bundleId
+	 * @param location
+	 * @return
+	 */
 	public File load(String bundleId, String location) {
 		Bundle bundle = Platform.getBundle(bundleId);
 		URL fileURL = bundle.getEntry(location);

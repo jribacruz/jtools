@@ -2,7 +2,7 @@ package jtools.generator.eclipse.ui.dialog;
 
 import org.eclipse.jface.wizard.Wizard;
 
-public class GeneratorDialog extends Wizard {
+public class GeneratorWizard extends Wizard {
 
 	private GeneratorPropertiesPage page1;
 

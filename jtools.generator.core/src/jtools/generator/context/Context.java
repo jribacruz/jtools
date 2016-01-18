@@ -16,6 +16,12 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
 
+/**
+ * Classe singleton que guarda o contexto do projeto.
+ * 
+ * @author jcruz
+ *
+ */
 public class Context {
 
 	private static Context instance = null;

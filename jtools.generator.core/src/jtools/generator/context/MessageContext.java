@@ -2,8 +2,20 @@ package jtools.generator.context;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 
+/**
+ * Contexto de mensagens padrão do Jtools.
+ * 
+ * @author jcruz
+ *
+ */
 public class MessageContext {
 
+	/**
+	 * Severidade da mensagem.
+	 * 
+	 * @author jcruz
+	 *
+	 */
 	public enum SeverityType {
 		/**
 		 * Information (less critical)

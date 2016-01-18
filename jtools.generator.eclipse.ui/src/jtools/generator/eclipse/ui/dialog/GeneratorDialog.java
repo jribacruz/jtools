@@ -2,13 +2,13 @@ package jtools.generator.eclipse.ui.dialog;
 
 import org.eclipse.jface.wizard.Wizard;
 
-public class JTGeneratorDialog extends Wizard {
+public class GeneratorDialog extends Wizard {
 
-	private JTGeneratorPropertiesPage page1;
+	private GeneratorPropertiesPage page1;
 
 	@Override
 	public void addPages() {
-		this.page1 = new JTGeneratorPropertiesPage("page1");
+		this.page1 = new GeneratorPropertiesPage("page1");
 		addPage(page1);
 	}
 

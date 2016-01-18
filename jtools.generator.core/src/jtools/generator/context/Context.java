@@ -16,21 +16,21 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
 
-public class JTContext {
+public class Context {
 
-	private static JTContext instance = null;
+	private static Context instance = null;
 
 	private IProject selectedProject;
 
 	private Map<String, Object> map = new HashMap<String, Object>();
 
-	private JTContext() {
+	private Context() {
 
 	}
 
-	public static JTContext getCurrentInstance() {
+	public static Context getCurrentInstance() {
 		if (instance == null) {
-			instance = new JTContext();
+			instance = new Context();
 		}
 		return instance;
 	}

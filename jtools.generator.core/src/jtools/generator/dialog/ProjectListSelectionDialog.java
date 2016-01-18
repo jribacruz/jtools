@@ -1,6 +1,6 @@
 package jtools.generator.dialog;
 
-import jtools.generator.context.JTContext;
+import jtools.generator.context.Context;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -11,7 +11,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.ide.IDE;
 
-public class ProjectListSelectionDialog implements JTDialog {
+public class ProjectListSelectionDialog implements Dialog {
 
 	public ProjectListSelectionDialog() {
 		super();
@@ -26,7 +26,7 @@ public class ProjectListSelectionDialog implements JTDialog {
 		dialog.setElements(projects);
 		dialog.open();
 		IProject selectedProject = (IProject) dialog.getFirstResult();
-		JTContext.getCurrentInstance().setSelectedProject(selectedProject);
+		Context.getCurrentInstance().setSelectedProject(selectedProject);
 	}
 
 	/**

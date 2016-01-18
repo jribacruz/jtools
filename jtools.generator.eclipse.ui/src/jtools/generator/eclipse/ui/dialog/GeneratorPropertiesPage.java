@@ -10,7 +10,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-public class JTGeneratorPropertiesPage extends WizardPage {
+public class GeneratorPropertiesPage extends WizardPage {
 
 	private Composite container;
 
@@ -18,7 +18,7 @@ public class JTGeneratorPropertiesPage extends WizardPage {
 
 	public static final String JT_GEN_PROJECT_NAME = "jtools.generator.project.name";
 
-	protected JTGeneratorPropertiesPage(String pageName) {
+	protected GeneratorPropertiesPage(String pageName) {
 		super(pageName);
 		this.setTitle("Criar Gerador JTools");
 	}

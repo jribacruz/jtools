@@ -1,7 +1,7 @@
 package jtools.generator.menu;
 
-import jtools.generator.context.JTContext;
-import jtools.generator.dialog.JTDialog;
+import jtools.generator.context.Context;
+import jtools.generator.dialog.Dialog;
 import jtools.generator.dialog.ProjectListSelectionDialog;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -19,7 +19,7 @@ public abstract class JTAbstractHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		JTDialog dialog = new ProjectListSelectionDialog();
+		Dialog dialog = new ProjectListSelectionDialog();
 		dialog.open(window);
 		execute();
 		return null;
@@ -28,7 +28,7 @@ public abstract class JTAbstractHandler extends AbstractHandler {
 	public abstract void execute();
 
 	public IProject getSelectedProject() {
-		return JTContext.getCurrentInstance().getSelectedProject();
+		return Context.getCurrentInstance().getSelectedProject();
 	}
 
 }

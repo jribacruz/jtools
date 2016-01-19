@@ -11,8 +11,8 @@ import java.util.Map;
 
 import jtools.generator.model.Model;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -77,8 +77,34 @@ public class Context {
 			}
 		}
 	}
-	
-	
+
+	/**
+	 * 
+	 * @param path
+	 * @return
+	 */
+	public boolean isDirectory(String path) {
+		return new File(FilenameUtils.getFullPath(path)).isDirectory();
+	}
+
+	/**
+	 * 
+	 * @param path
+	 */
+	public void mkdirs(String path) {
+		if (!StringUtils.isEmpty(path)) {
+			new File(path).mkdirs();
+		}
+	}
+
+	/**
+	 * 
+	 * @param file
+	 * @return
+	 */
+	public boolean exists(String file) {
+		return new File(file).isFile();
+	}
 
 	/**
 	 * 

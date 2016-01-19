@@ -1,20 +1,31 @@
 package jtools.generator.context;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import jtools.generator.context.MessageContext.SeverityType;
+import jtools.generator.model.Model;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
+
+import com.lyncode.jtwig.JtwigModelMap;
+import com.lyncode.jtwig.JtwigTemplate;
+import com.lyncode.jtwig.configuration.JtwigConfiguration;
+import com.lyncode.jtwig.exception.CompileException;
+import com.lyncode.jtwig.exception.ParseException;
+import com.lyncode.jtwig.exception.RenderException;
 
 /**
  * Classe singleton que guarda o contexto do projeto.
@@ -66,6 +77,8 @@ public class Context {
 			}
 		}
 	}
+	
+	
 
 	/**
 	 * 
@@ -74,19 +87,88 @@ public class Context {
 	 * @param bundleId
 	 * @param location
 	 * @return
+	 * @throws IOException
+	 * @throws URISyntaxException
 	 */
-	public File load(String bundleId, String location) {
+	public File load(String bundleId, String location) throws URISyntaxException, IOException {
 		Bundle bundle = Platform.getBundle(bundleId);
 		URL fileURL = bundle.getEntry(location);
-		File file = null;
-		try {
-			file = new File(FileLocator.resolve(fileURL).toURI());
-		} catch (URISyntaxException e1) {
-			MessageContext.add("Aviso", SeverityType.ERROR, "Arquivo não encontrado: " + location);
-		} catch (IOException e1) {
-			MessageContext.add("Aviso", SeverityType.ERROR, "Erro ao abrir arquivo: " + location);
-		}
+		File file = new File(FileLocator.resolve(fileURL).toURI());
 		return file;
+	}
+
+	/**
+	 * 
+	 * @param template
+	 * @param path
+	 * @throws FileNotFoundException
+	 * @throws ParseException
+	 * @throws CompileException
+	 * @throws RenderException
+	 */
+	public void generate(File template, String path) throws FileNotFoundException, ParseException, CompileException, RenderException {
+		JtwigTemplate t = new JtwigTemplate(template, new JtwigConfiguration());
+		FileOutputStream outputStream = new FileOutputStream(new File(path));
+		t.output(outputStream, new JtwigModelMap());
+	}
+
+	/**
+	 * 
+	 * @param template
+	 * @param path
+	 * @param map
+	 * @throws FileNotFoundException
+	 * @throws ParseException
+	 * @throws CompileException
+	 * @throws RenderException
+	 */
+	public void generate(File template, String path, Map<String, Object> map) throws FileNotFoundException, ParseException,
+			CompileException, RenderException {
+		JtwigTemplate t = new JtwigTemplate(template, new JtwigConfiguration());
+		JtwigModelMap modelMap = new JtwigModelMap();
+		modelMap.add(map);
+		FileOutputStream outputStream = new FileOutputStream(new File(path));
+		t.output(outputStream, modelMap);
+	}
+
+	/**
+	 * 
+	 * @param template
+	 * @param path
+	 * @param model
+	 * @throws FileNotFoundException
+	 * @throws ParseException
+	 * @throws CompileException
+	 * @throws RenderException
+	 */
+	public void generate(File template, String path, Model model) throws FileNotFoundException, ParseException, CompileException,
+			RenderException {
+		JtwigTemplate t = new JtwigTemplate(template, new JtwigConfiguration());
+		FileOutputStream outputStream = new FileOutputStream(new File(path));
+		JtwigModelMap modelMap = new JtwigModelMap();
+		modelMap.add("model", model);
+		t.output(outputStream, modelMap);
+	}
+
+	/**
+	 * 
+	 * @param template
+	 * @param path
+	 * @param model
+	 * @param map
+	 * @throws FileNotFoundException
+	 * @throws ParseException
+	 * @throws CompileException
+	 * @throws RenderException
+	 */
+	public void generate(File template, String path, Model model, Map<String, Object> map) throws FileNotFoundException, ParseException,
+			CompileException, RenderException {
+		JtwigTemplate t = new JtwigTemplate(template, new JtwigConfiguration());
+		FileOutputStream outputStream = new FileOutputStream(new File(path));
+		JtwigModelMap modelMap = new JtwigModelMap();
+		modelMap.add(map);
+		modelMap.add("model", model);
+		t.output(outputStream, modelMap);
 	}
 
 	public Object get(String key) {

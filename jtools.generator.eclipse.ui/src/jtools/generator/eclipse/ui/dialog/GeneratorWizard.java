@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import jtools.generator.context.Context;
-import jtools.generator.context.MessageContext;
-import jtools.generator.context.MessageContext.SeverityType;
+import jtools.generator.eclipse.ui.context.Context;
+import jtools.generator.eclipse.ui.context.MessageContext;
+import jtools.generator.eclipse.ui.context.MessageContext.SeverityType;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -49,8 +49,28 @@ public class GeneratorWizard extends Wizard {
 			createSrcFolder(project);
 			createMetaInfFolder(project);
 			createTemplatesFolder(project);
+			
+			generateManifestMf(project);
+			
+			Context.getCurrentInstance().refreshProject(project);
+			
 		} catch (CoreException e) {
 			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (CompileException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RenderException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return true;
 	}
@@ -170,6 +190,8 @@ public class GeneratorWizard extends Wizard {
 			RenderException {
 		String path = project.getLocation().toString();
 		File template = Context.getCurrentInstance().load("jtools.generator.eclipse.ui", "templates/MANIFEST.MF.twig");
+		//MessageContext.add("Projeto", path);
+		//MessageContext.add("Template", template.getAbsolutePath());
 		Context.getCurrentInstance().generate(template, path + "/templates/MANIFEST.MF");
 	}
 }

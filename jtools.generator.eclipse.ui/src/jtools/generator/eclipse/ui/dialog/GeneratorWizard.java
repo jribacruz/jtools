@@ -1,5 +1,10 @@
 package jtools.generator.eclipse.ui.dialog;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
+import jtools.generator.context.Context;
 import jtools.generator.context.MessageContext;
 import jtools.generator.context.MessageContext.SeverityType;
 
@@ -17,6 +22,10 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.jface.wizard.Wizard;
+
+import com.lyncode.jtwig.exception.CompileException;
+import com.lyncode.jtwig.exception.ParseException;
+import com.lyncode.jtwig.exception.RenderException;
 
 public class GeneratorWizard extends Wizard {
 
@@ -157,4 +166,10 @@ public class GeneratorWizard extends Wizard {
 		javaProject.setRawClasspath(newEntries, null);
 	}
 
+	public void generateManifestMf(IProject project) throws URISyntaxException, IOException, ParseException, CompileException,
+			RenderException {
+		String path = project.getLocation().toString();
+		File template = Context.getCurrentInstance().load("jtools.generator.eclipse.ui", "templates/MANIFEST.MF.twig");
+		Context.getCurrentInstance().generate(template, path + "/templates/MANIFEST.MF");
+	}
 }

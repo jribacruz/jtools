@@ -1,4 +1,4 @@
-package jtools.generator.eclipse.ui.dialog;
+package jtools.generator.eclipse.ui.dialog.template;
 
 import org.eclipse.ui.IWorkbenchWindow;
 

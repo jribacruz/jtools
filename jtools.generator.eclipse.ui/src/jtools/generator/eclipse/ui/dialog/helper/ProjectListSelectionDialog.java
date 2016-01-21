@@ -1,6 +1,7 @@
-package jtools.generator.eclipse.ui.dialog;
+package jtools.generator.eclipse.ui.dialog.helper;
 
 import jtools.generator.eclipse.ui.context.Context;
+import jtools.generator.eclipse.ui.dialog.template.Dialog;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;

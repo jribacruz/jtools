@@ -1,8 +1,8 @@
 package jtools.generator.eclipse.ui.menu;
 
 import jtools.generator.eclipse.ui.context.Context;
-import jtools.generator.eclipse.ui.dialog.Dialog;
-import jtools.generator.eclipse.ui.dialog.ProjectListSelectionDialog;
+import jtools.generator.eclipse.ui.dialog.helper.ProjectListSelectionDialog;
+import jtools.generator.eclipse.ui.dialog.template.Dialog;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;

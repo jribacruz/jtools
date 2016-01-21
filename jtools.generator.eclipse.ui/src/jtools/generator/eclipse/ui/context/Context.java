@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import jtools.generator.eclipse.ui.helper.ProjectHelper;
+
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.core.resources.IProject;
@@ -68,26 +70,7 @@ public class Context {
 	 * Atualiza o projeto selecionado.
 	 */
 	public void refreshSelectedProject() {
-		if (selectedProject != null) {
-			try {
-				selectedProject.refreshLocal(IResource.DEPTH_INFINITE, null);
-			} catch (CoreException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	/**
-	 * Atualiza o projeto selecionado.
-	 */
-	public void refreshProject(IProject project) {
-		if (project != null) {
-			try {
-				project.refreshLocal(IResource.DEPTH_INFINITE, null);
-			} catch (CoreException e) {
-				e.printStackTrace();
-			}
-		}
+		ProjectHelper.refreshProject(getSelectedProject());
 	}
 
 	/**

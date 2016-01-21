@@ -11,7 +11,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-public abstract class JTAbstractHandler extends AbstractHandler {
+public abstract class JtAbstractHandler extends AbstractHandler {
 
 	/**
 	 * 

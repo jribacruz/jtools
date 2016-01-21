@@ -14,7 +14,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
  * @author jcruz
  *
  */
-public class JTProjectEclipseHandler extends AbstractHandler {
+public class JtProjectEclipseHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {

@@ -3,6 +3,8 @@ package jtools.generator.eclipse.ui.dialog;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.Map;
 
 import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.context.MessageContext;
@@ -31,6 +33,8 @@ public class GeneratorWizard extends Wizard {
 
 	private GeneratorPropertiesPage page1;
 
+	private String srcPackageDir;
+
 	@Override
 	public void addPages() {
 		this.page1 = new GeneratorPropertiesPage("page1");
@@ -49,28 +53,25 @@ public class GeneratorWizard extends Wizard {
 			createSrcFolder(project);
 			createMetaInfFolder(project);
 			createTemplatesFolder(project);
-			
+			createSrcPackage(project);
+
+			generateActivator(project);
 			generateManifestMf(project);
-			
+
 			Context.getCurrentInstance().refreshProject(project);
-			
+
 		} catch (CoreException e) {
 			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
 		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
 		} catch (CompileException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
 		} catch (RenderException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
 		}
 		return true;
 	}
@@ -190,8 +191,27 @@ public class GeneratorWizard extends Wizard {
 			RenderException {
 		String path = project.getLocation().toString();
 		File template = Context.getCurrentInstance().load("jtools.generator.eclipse.ui", "templates/MANIFEST.MF.twig");
-		//MessageContext.add("Projeto", path);
-		//MessageContext.add("Template", template.getAbsolutePath());
-		Context.getCurrentInstance().generate(template, path + "/templates/MANIFEST.MF");
+
+		Map<String, Object> map = new HashMap<>();
+		map.put("projectName", project.getName());
+
+		Context.getCurrentInstance().generate(template, path + "/META-INF/MANIFEST.MF", map);
+	}
+
+	public void generateActivator(IProject project) throws URISyntaxException, IOException, ParseException, CompileException,
+			RenderException {
+		String path = project.getLocation().toString();
+		File template = Context.getCurrentInstance().load("jtools.generator.eclipse.ui", "templates/Activator.java.twig");
+
+		Map<String, Object> map = new HashMap<>();
+		map.put("projectName", project.getName());
+
+		Context.getCurrentInstance().generate(template, path + "/src/" + srcPackageDir + "/Activator.java", map);
+	}
+
+	public void createSrcPackage(IProject project) {
+		this.srcPackageDir = project.getName().replace(".", "/");
+		String path = project.getLocation().toString() + "/src/" + srcPackageDir;
+		Context.getCurrentInstance().mkdirs(path);
 	}
 }

@@ -1,7 +1,12 @@
 package jtools.generator.eclipse.ui.helper;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import jtools.generator.eclipse.ui.impl.ModelImpl;
+import jtools.generator.eclipse.ui.model.Model;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -18,6 +23,8 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.launching.JavaRuntime;
+
+import com.google.common.base.Predicate;
 
 /**
  * 
@@ -151,6 +158,37 @@ public class ProjectHelper {
 		}
 
 		return units;
+	}
+
+	public static List<Model> getModels(IProject project) {
+		List<Model> models = new ArrayList<>();
+		for (ICompilationUnit compilationUnit : getCompilationUnits(project)) {
+			try {
+				models.add(new ModelImpl(compilationUnit));
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return models;
+	}
+
+	public static List<Model> getModels(IProject project, Predicate<Model> predicate) {
+		List<Model> models = new ArrayList<>();
+		for (ICompilationUnit compilationUnit : getCompilationUnits(project)) {
+			try {
+				Model model = new ModelImpl(compilationUnit);
+				if (predicate.apply(model)) {
+					models.add(model);
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return models;
 	}
 
 }

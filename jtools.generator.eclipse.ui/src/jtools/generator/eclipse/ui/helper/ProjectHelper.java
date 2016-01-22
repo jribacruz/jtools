@@ -1,5 +1,8 @@
 package jtools.generator.eclipse.ui.helper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
@@ -8,7 +11,9 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
@@ -119,6 +124,28 @@ public class ProjectHelper {
 		System.arraycopy(oldEntries, 0, newEntries, 0, oldEntries.length);
 		newEntries[oldEntries.length] = JavaRuntime.getDefaultJREContainerEntry();
 		javaProject.setRawClasspath(newEntries, null);
+	}
+
+	/**
+	 * 
+	 * @param project
+	 * @return
+	 * @throws JavaModelException
+	 */
+	public static List<ICompilationUnit> getCompilationUnits(IProject project) throws JavaModelException {
+		IJavaProject javaProject = JavaCore.create(project);
+		List<ICompilationUnit> units = new ArrayList<>();
+
+		IPackageFragment[] packageFragments = javaProject.getPackageFragments();
+		for (int i = 0; i < packageFragments.length; i++) {
+			IPackageFragment packageFragment = packageFragments[i];
+			ICompilationUnit[] compilationUnits = packageFragment.getCompilationUnits();
+			for (ICompilationUnit compilationUnit : compilationUnits) {
+				units.add(compilationUnit);
+			}
+		}
+
+		return units;
 	}
 
 }

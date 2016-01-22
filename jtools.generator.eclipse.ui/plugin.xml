@@ -22,15 +22,6 @@
       </handler>
    </extension>
    <extension
-         point="org.eclipse.ui.bindings">
-      <key
-            commandId="jtools.generator.eclipse.ui.commands.jtCommand"
-            contextId="org.eclipse.ui.contexts.window"
-            sequence="M1+6"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
-      </key>
-   </extension>
-   <extension
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
@@ -40,22 +31,10 @@
                id="jtools.generator.eclipse.ui.menus.jtMenu">
             <command
                   commandId="jtools.generator.eclipse.ui.commands.jtCommand"
-                  mnemonic="S"
+                  mnemonic="G"
                   id="jtools.generator.eclipse.ui.menus.jtCommand">
             </command>
          </menu>
-      </menuContribution>
-      <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-         <toolbar
-               id="jtools.generator.eclipse.ui.toolbars.jtToolbar">
-            <command
-                  commandId="jtools.generator.eclipse.ui.commands.jtCommand"
-                  icon="icons/sample.gif"
-                  tooltip="Say hello world"
-                  id="jtools.generator.eclipse.ui.toolbars.jtCommand">
-            </command>
-         </toolbar>
       </menuContribution>
    </extension>
 

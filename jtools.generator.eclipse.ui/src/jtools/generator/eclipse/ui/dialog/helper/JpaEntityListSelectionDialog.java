@@ -12,8 +12,6 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import com.google.common.base.Predicate;
-
 public class JpaEntityListSelectionDialog implements Dialog {
 
 	@Override
@@ -21,13 +19,7 @@ public class JpaEntityListSelectionDialog implements Dialog {
 
 		IProject project = Context.getCurrentInstance().getSelectedProject();
 
-		List<Model> units = ProjectHelper.getModels(project, new Predicate<Model>() {
-
-			@Override
-			public boolean apply(Model arg0) {
-				return arg0.getName().equalsIgnoreCase("Test1");
-			}
-		});
+		List<Model> units = ProjectHelper.getModels(project);
 
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(window.getShell(), new ModelLabelProvider());
 		dialog.setTitle("Selecione um projeto");

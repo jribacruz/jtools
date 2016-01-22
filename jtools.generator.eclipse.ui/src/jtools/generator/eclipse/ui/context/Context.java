@@ -10,15 +10,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
+import jtools.generator.eclipse.ui.model.Model;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.ui.internal.Model;
 import org.osgi.framework.Bundle;
 
 import com.lyncode.jtwig.JtwigModelMap;
@@ -41,6 +39,8 @@ public class Context {
 	private IProject selectedProject;
 
 	private Map<String, Object> map = new HashMap<String, Object>();
+	
+	private String bundleId;
 
 	private Context() {
 
@@ -116,6 +116,20 @@ public class Context {
 		URL fileURL = bundle.getEntry(location);
 		File file = new File(FileLocator.resolve(fileURL).toURI());
 		return file;
+	}
+	
+	public File load(String location) throws URISyntaxException, IOException {
+		if(StringUtils.isNotEmpty(bundleId)) {
+			Bundle bundle = Platform.getBundle(bundleId);
+			URL fileURL = bundle.getEntry(location);
+			File file = new File(FileLocator.resolve(fileURL).toURI());
+			return file;
+		}
+		return null;
+	}
+	
+	public void setBundleId(String bundleId) {
+		this.bundleId = bundleId;
 	}
 
 	/**

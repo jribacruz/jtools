@@ -28,6 +28,11 @@ public class GeneratorWizard extends Wizard {
 
 	private String srcPackageDir;
 
+	public GeneratorWizard() {
+		super();
+		Context.getCurrentInstance().setBundleId("jtools.generator.eclipse.ui");
+	}
+
 	@Override
 	public void addPages() {
 		this.page1 = new GeneratorPropertiesPage("page1");
@@ -145,7 +150,7 @@ public class GeneratorWizard extends Wizard {
 	public void generateManifestMf(IProject project) throws URISyntaxException, IOException, ParseException, CompileException,
 			RenderException {
 		String path = project.getLocation().toString();
-		File template = Context.getCurrentInstance().load("jtools.generator.eclipse.ui", "templates/MANIFEST.MF.twig");
+		File template = Context.getCurrentInstance().load("templates/MANIFEST.MF.twig");
 
 		Map<String, Object> map = new HashMap<>();
 		map.put("projectName", project.getName());
@@ -156,7 +161,7 @@ public class GeneratorWizard extends Wizard {
 	public void generateActivator(IProject project) throws URISyntaxException, IOException, ParseException, CompileException,
 			RenderException {
 		String path = project.getLocation().toString();
-		File template = Context.getCurrentInstance().load("jtools.generator.eclipse.ui", "templates/Activator.java.twig");
+		File template = Context.getCurrentInstance().load("templates/Activator.java.twig");
 
 		Map<String, Object> map = new HashMap<>();
 		map.put("projectName", project.getName());

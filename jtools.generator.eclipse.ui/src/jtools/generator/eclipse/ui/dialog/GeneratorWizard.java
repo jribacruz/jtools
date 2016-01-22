@@ -9,6 +9,7 @@ import java.util.Map;
 import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.context.MessageContext;
 import jtools.generator.eclipse.ui.context.MessageContext.SeverityType;
+import jtools.generator.eclipse.ui.core.JtGenerator;
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
 
 import org.eclipse.core.resources.IProject;
@@ -149,24 +150,21 @@ public class GeneratorWizard extends Wizard {
 
 	public void generateManifestMf(IProject project) throws URISyntaxException, IOException, ParseException, CompileException,
 			RenderException {
-		String path = project.getLocation().toString();
-		File template = Context.getCurrentInstance().load("templates/MANIFEST.MF.twig");
-
-		Map<String, Object> map = new HashMap<>();
-		map.put("projectName", project.getName());
-
-		Context.getCurrentInstance().generate(template, path + "/META-INF/MANIFEST.MF", map);
+		//@formatter:off
+		JtGenerator.load("MANIFEST.MF.twig")
+				.put("projectName", project.getName())
+			.write(project, "/META-INF/MANIFEST.MF");
+		//@formatter:on
 	}
 
 	public void generateActivator(IProject project) throws URISyntaxException, IOException, ParseException, CompileException,
 			RenderException {
-		String path = project.getLocation().toString();
-		File template = Context.getCurrentInstance().load("templates/Activator.java.twig");
-
-		Map<String, Object> map = new HashMap<>();
-		map.put("projectName", project.getName());
-
-		Context.getCurrentInstance().generate(template, path + "/src/" + srcPackageDir + "/Activator.java", map);
+		//@formatter:off
+		JtGenerator.load("Activator.java.twig")
+				.put("projectName", project.getName())
+			.write(project, "/src/", srcPackageDir, "/Activator.java");
+		//@formatter:on
+		
 	}
 
 	public void createSrcPackage(IProject project) {

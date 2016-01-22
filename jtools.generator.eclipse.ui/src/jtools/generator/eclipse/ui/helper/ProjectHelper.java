@@ -132,17 +132,22 @@ public class ProjectHelper {
 	 * @return
 	 * @throws JavaModelException
 	 */
-	public static List<ICompilationUnit> getCompilationUnits(IProject project) throws JavaModelException {
+	public static List<ICompilationUnit> getCompilationUnits(IProject project) {
 		IJavaProject javaProject = JavaCore.create(project);
 		List<ICompilationUnit> units = new ArrayList<>();
 
-		IPackageFragment[] packageFragments = javaProject.getPackageFragments();
-		for (int i = 0; i < packageFragments.length; i++) {
-			IPackageFragment packageFragment = packageFragments[i];
-			ICompilationUnit[] compilationUnits = packageFragment.getCompilationUnits();
-			for (ICompilationUnit compilationUnit : compilationUnits) {
-				units.add(compilationUnit);
+		IPackageFragment[] packageFragments;
+		try {
+			packageFragments = javaProject.getPackageFragments();
+			for (int i = 0; i < packageFragments.length; i++) {
+				IPackageFragment packageFragment = packageFragments[i];
+				ICompilationUnit[] compilationUnits = packageFragment.getCompilationUnits();
+				for (ICompilationUnit compilationUnit : compilationUnits) {
+					units.add(compilationUnit);
+				}
 			}
+		} catch (JavaModelException e) {
+			e.printStackTrace();
 		}
 
 		return units;

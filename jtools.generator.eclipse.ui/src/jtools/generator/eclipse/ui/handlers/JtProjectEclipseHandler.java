@@ -24,6 +24,13 @@ public class JtProjectEclipseHandler extends AbstractHandler {
 		WizardDialog dialog = new WizardDialog(window.getShell(), new GeneratorWizard());
 		dialog.open();
 
+		/*
+		 * ProjectListSelectionDialog listSelectionDialog = new
+		 * ProjectListSelectionDialog(); listSelectionDialog.open(window);
+		 * 
+		 * JpaEntityListSelectionDialog dialog = new
+		 * JpaEntityListSelectionDialog(); dialog.open(window);
+		 */
 		return null;
 	}
 }

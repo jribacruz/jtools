@@ -174,21 +174,4 @@ public class ProjectHelper {
 		return models;
 	}
 
-	public static List<Model> getModels(IProject project, Predicate<Model> predicate) {
-		List<Model> models = new ArrayList<>();
-		for (ICompilationUnit compilationUnit : getCompilationUnits(project)) {
-			try {
-				Model model = new ModelImpl(compilationUnit);
-				if (predicate.apply(model)) {
-					models.add(model);
-				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return models;
-	}
-
 }

@@ -3,6 +3,7 @@ package jtools.generator.eclipse.ui.helper;
 import java.util.ArrayList;
 import java.util.List;
 
+import jtools.generator.eclipse.ui.context.MessageContext;
 import jtools.generator.eclipse.ui.model.Attribute;
 import jtools.generator.eclipse.ui.model.Method;
 import jtools.generator.eclipse.ui.model.Model;
@@ -71,8 +72,11 @@ public class ModelHelper {
 	 * @return
 	 */
 	public static boolean hasAnnotationTypeName(Model model, String typeName) {
+		
 		for (Annotation annotation : model.getJavaClass().getAnnotations()) {
-			return annotation.getType().getJavaClass().getName().equals(typeName);
+			if(annotation.getType().getJavaClass().getName().endsWith(typeName)) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -85,7 +89,9 @@ public class ModelHelper {
 	 */
 	public static boolean hasAnnotationTypeName(Attribute attribute, String typeName) {
 		for (Annotation annotation : attribute.getAnnotations()) {
-			return annotation.getType().getJavaClass().getName().equals(typeName);
+			if(annotation.getType().getJavaClass().getName().endsWith(typeName)) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -98,7 +104,9 @@ public class ModelHelper {
 	 */
 	public static boolean hasAnnotationTypeName(Method method, String typeName) {
 		for (Annotation annotation : method.getAnnotations()) {
-			return annotation.getType().getJavaClass().getName().equals(typeName);
+			if(annotation.getType().getJavaClass().getName().endsWith(typeName)) {
+				return true;
+			}
 		}
 		return false;
 	}

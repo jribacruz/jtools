@@ -57,6 +57,10 @@ public class MessageContext {
 		}
 	}
 
+	public static void printlnConsole(String message) {
+		printlnConsole(message, new Object[]{});
+	}
+
 	public static void printlnConsole(String message, Object... params) {
 		if (messageConsole == null) {
 			ConsolePlugin consolePlugin = ConsolePlugin.getDefault();

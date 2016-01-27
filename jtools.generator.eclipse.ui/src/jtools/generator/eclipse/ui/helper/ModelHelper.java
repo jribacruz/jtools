@@ -12,6 +12,10 @@ import com.thoughtworks.qdox.model.Annotation;
 
 public class ModelHelper {
 
+	public static Model[] asArray(List<Model> models) {
+		return models.toArray(new Model[] {});
+	}
+
 	/**
 	 * 
 	 * @param models
@@ -20,7 +24,7 @@ public class ModelHelper {
 	 */
 	public static List<Model> filterModels(List<Model> models, Predicate<Model> predicate) {
 		List<Model> filteredModels = new ArrayList<>();
-		for (Model model : filteredModels) {
+		for (Model model : models) {
 			if (predicate.apply(model)) {
 				filteredModels.add(model);
 			}
@@ -36,7 +40,7 @@ public class ModelHelper {
 	 */
 	public static List<Attribute> filterAttributes(List<Attribute> models, Predicate<Attribute> predicate) {
 		List<Attribute> filteredAttributes = new ArrayList<>();
-		for (Attribute attribute : filteredAttributes) {
+		for (Attribute attribute : models) {
 			if (predicate.apply(attribute)) {
 				filteredAttributes.add(attribute);
 			}
@@ -52,7 +56,7 @@ public class ModelHelper {
 	 */
 	public static List<Method> filterMethods(List<Method> models, Predicate<Method> predicate) {
 		List<Method> filteredMethods = new ArrayList<>();
-		for (Method method : filteredMethods) {
+		for (Method method : models) {
 			if (predicate.apply(method)) {
 				filteredMethods.add(method);
 			}

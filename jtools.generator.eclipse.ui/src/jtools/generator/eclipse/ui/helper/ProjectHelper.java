@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jtools.generator.eclipse.ui.context.MessageContext;
 import jtools.generator.eclipse.ui.impl.ModelImpl;
 import jtools.generator.eclipse.ui.model.Model;
 
@@ -23,8 +24,6 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.launching.JavaRuntime;
-
-import com.google.common.base.Predicate;
 
 /**
  * 
@@ -154,7 +153,7 @@ public class ProjectHelper {
 				}
 			}
 		} catch (JavaModelException e) {
-			e.printStackTrace();
+			MessageContext.printlnConsole(e.getMessage());
 		}
 
 		return units;
@@ -166,9 +165,9 @@ public class ProjectHelper {
 			try {
 				models.add(new ModelImpl(compilationUnit));
 			} catch (FileNotFoundException e) {
-				e.printStackTrace();
+				MessageContext.printlnConsole(e.getMessage());
 			} catch (IOException e) {
-				e.printStackTrace();
+				MessageContext.printlnConsole(e.getMessage());
 			}
 		}
 		return models;

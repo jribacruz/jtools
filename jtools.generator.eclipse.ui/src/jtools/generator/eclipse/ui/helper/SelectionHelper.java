@@ -4,10 +4,24 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
 public class SelectionHelper {
+	
+	public static boolean isPackageFragment(IStructuredSelection selection) {
+		if (selection != null) {
+			IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
+			return IPackageFragment.class.isAssignableFrom(adaptable.getClass());
+		}
+		return false;
+	}
 
+	/**
+	 * 
+	 * @param selection
+	 * @return
+	 */
 	public static boolean isJavaProject(IStructuredSelection selection) {
 		if (selection != null) {
 			IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
@@ -16,6 +30,11 @@ public class SelectionHelper {
 		return false;
 	}
 
+	/**
+	 * 
+	 * @param selection
+	 * @return
+	 */
 	public static boolean isFolder(IStructuredSelection selection) {
 		if (selection != null) {
 			IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
@@ -24,6 +43,11 @@ public class SelectionHelper {
 		return false;
 	}
 
+	/**
+	 * 
+	 * @param selection
+	 * @return
+	 */
 	public static boolean isCompilationUnit(IStructuredSelection selection) {
 		if (selection != null) {
 			IAdaptable adaptable = (IAdaptable) selection.getFirstElement();

@@ -28,6 +28,13 @@ public class JtTemplate {
 		this.template = template;
 	}
 
+	/**
+	 * Add
+	 * 
+	 * @param key
+	 * @param value
+	 * @return
+	 */
 	public JtTemplate put(String key, Object value) {
 		if (this.map == null) {
 			this.map = new JtwigModelMap();
@@ -36,11 +43,28 @@ public class JtTemplate {
 		return this;
 	}
 
+	/**
+	 * 
+	 * @param path
+	 * @throws FileNotFoundException
+	 * @throws ParseException
+	 * @throws CompileException
+	 * @throws RenderException
+	 */
 	public void write(String... path) throws FileNotFoundException, ParseException, CompileException, RenderException {
 		FileOutputStream outputStream = new FileOutputStream(new File(StringUtils.join(path)));
 		this.template.output(outputStream, map);
 	}
 
+	/**
+	 * 
+	 * @param project
+	 * @param path
+	 * @throws FileNotFoundException
+	 * @throws ParseException
+	 * @throws CompileException
+	 * @throws RenderException
+	 */
 	public void write(IProject project, String... path) throws FileNotFoundException, ParseException, CompileException, RenderException {
 		String cpath = project.getLocation().toString() + StringUtils.join(path);
 		FileOutputStream outputStream = new FileOutputStream(new File(cpath));

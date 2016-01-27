@@ -13,6 +13,15 @@ import com.lyncode.jtwig.configuration.JtwigConfiguration;
 
 public class JtGenerator {
 
+	/**
+	 * Carrega um template.
+	 * 
+	 * @param name
+	 *            Nome do Template.
+	 * @return Objeto JtTemplate.
+	 * @throws URISyntaxException
+	 * @throws IOException
+	 */
 	public static JtTemplate load(String name) throws URISyntaxException, IOException {
 		if (StringUtils.isNotEmpty(name)) {
 			File template = Context.getCurrentInstance().load("templates/" + name);

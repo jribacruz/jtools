@@ -4,6 +4,7 @@ import java.util.List;
 
 import jtools.generator.eclipse.ui.model.Attribute;
 
+import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.DocletTag;
 import com.thoughtworks.qdox.model.JavaField;
 
@@ -136,6 +137,11 @@ public class AttributeImpl implements Attribute {
 	@Override
 	public List<String> getSortBy() {
 		return null;
+	}
+
+	@Override
+	public Annotation[] getAnnotations() {
+		return this.javaField.getAnnotations();
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.eclipse.jdt.core.ICompilationUnit;
 
+import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaClass;
 
 /**
@@ -45,6 +46,18 @@ public interface Model extends Serializable {
 	 * @return
 	 */
 	public List<Attribute> getAttributes();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Method> getMethods();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public Annotation[] getAnnotations();
 
 	/**
 	 * 

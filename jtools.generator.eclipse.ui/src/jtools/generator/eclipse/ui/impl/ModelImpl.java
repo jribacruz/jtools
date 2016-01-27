@@ -7,12 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jtools.generator.eclipse.ui.model.Attribute;
+import jtools.generator.eclipse.ui.model.Method;
 import jtools.generator.eclipse.ui.model.Model;
 import jtools.generator.eclipse.ui.model.Relationship;
 
 import org.eclipse.jdt.core.ICompilationUnit;
 
 import com.thoughtworks.qdox.JavaDocBuilder;
+import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaSource;
 
@@ -28,7 +30,9 @@ public class ModelImpl implements Model {
 	private List<Relationship> relationships;
 
 	private List<Attribute> attributes;
-	
+
+	private List<Method> methods;
+
 	private ICompilationUnit compilationUnit;
 
 	public ModelImpl(ICompilationUnit unit) throws FileNotFoundException, IOException {
@@ -76,6 +80,22 @@ public class ModelImpl implements Model {
 	@Override
 	public JavaClass getJavaClass() {
 		return this.javaClass;
+	}
+
+	@Override
+	public List<Method> getMethods() {
+		if (this.methods == null) {
+			this.methods = new ArrayList<>();
+			for (int i = 0; i < javaClass.getMethods().length; i++) {
+				this.methods.add(new MethodImpl(this.javaClass.getMethods()[i]));
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Annotation[] getAnnotations() {
+		return this.javaClass.getAnnotations();
 	}
 
 }

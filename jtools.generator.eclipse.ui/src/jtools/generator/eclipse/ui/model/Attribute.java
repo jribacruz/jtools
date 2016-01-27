@@ -3,6 +3,7 @@ package jtools.generator.eclipse.ui.model;
 import java.io.Serializable;
 import java.util.List;
 
+import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaField;
 
 /**
@@ -29,6 +30,12 @@ public interface Attribute extends Serializable {
 	 * @return
 	 */
 	public String getTypeName();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public Annotation[] getAnnotations();
 
 	/**
 	 * 

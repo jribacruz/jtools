@@ -3,6 +3,10 @@ package jtools.generator.eclipse.ui.model;
 import java.io.Serializable;
 import java.util.List;
 
+import org.eclipse.jdt.core.ICompilationUnit;
+
+import com.thoughtworks.qdox.model.JavaClass;
+
 /**
  * 
  * @author jcruz
@@ -41,5 +45,17 @@ public interface Model extends Serializable {
 	 * @return
 	 */
 	public List<Attribute> getAttributes();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public ICompilationUnit getCompilationUnit();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public JavaClass getJavaClass();
 
 }

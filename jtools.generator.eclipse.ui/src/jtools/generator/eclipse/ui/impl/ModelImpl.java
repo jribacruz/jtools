@@ -28,9 +28,12 @@ public class ModelImpl implements Model {
 	private List<Relationship> relationships;
 
 	private List<Attribute> attributes;
+	
+	private ICompilationUnit compilationUnit;
 
 	public ModelImpl(ICompilationUnit unit) throws FileNotFoundException, IOException {
 		super();
+		this.compilationUnit = unit;
 		JavaDocBuilder builder = new JavaDocBuilder();
 		JavaSource src = builder.addSource(new File(unit.getResource().getLocation().toString()));
 		this.javaClass = src.getClasses()[0];
@@ -63,6 +66,16 @@ public class ModelImpl implements Model {
 			}
 		}
 		return this.attributes;
+	}
+
+	@Override
+	public ICompilationUnit getCompilationUnit() {
+		return this.compilationUnit;
+	}
+
+	@Override
+	public JavaClass getJavaClass() {
+		return this.javaClass;
 	}
 
 }

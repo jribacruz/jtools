@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashMap;
@@ -39,8 +40,8 @@ public class Context {
 	private IProject selectedProject;
 
 	private Map<String, Object> map = new HashMap<String, Object>();
-	
-	private String bundleId;
+
+	private String bundleId = "jtools.generator.eclipse.ui";
 
 	private Context() {
 
@@ -117,19 +118,18 @@ public class Context {
 		File file = new File(FileLocator.resolve(fileURL).toURI());
 		return file;
 	}
-	
+
 	public File load(String location) throws URISyntaxException, IOException {
-		if(StringUtils.isNotEmpty(bundleId)) {
+		MessageContext.printlnConsole("[Context] Bundle ID: %s", bundleId);
+		if (StringUtils.isNotEmpty(bundleId)) {
 			Bundle bundle = Platform.getBundle(bundleId);
 			URL fileURL = bundle.getEntry(location);
-			File file = new File(FileLocator.resolve(fileURL).toURI());
+			URI fileURI = FileLocator.toFileURL(fileURL).toURI();
+			MessageContext.printlnConsole("[Context] File URI %s", fileURI.toString());
+			File file = new File(fileURI);
 			return file;
 		}
 		return null;
-	}
-	
-	public void setBundleId(String bundleId) {
-		this.bundleId = bundleId;
 	}
 
 	/**

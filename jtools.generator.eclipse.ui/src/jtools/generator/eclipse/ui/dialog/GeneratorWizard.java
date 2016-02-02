@@ -28,7 +28,6 @@ public class GeneratorWizard extends Wizard {
 
 	public GeneratorWizard() {
 		super();
-		Context.getCurrentInstance().setBundleId("jtools.generator.eclipse.ui");
 	}
 
 	@Override
@@ -41,20 +40,31 @@ public class GeneratorWizard extends Wizard {
 	public boolean performFinish() {
 
 		try {
+			MessageContext.printlnConsole("[GeneratorWizard] Iniciando criação do Jtool Project %s", page1.getProjectName());
 			IProject project = createJTProject();
+			MessageContext.printlnConsole("[GeneratorWizard] Adicionando Java Nature");
 			addJavaNature(project);
+			MessageContext.printlnConsole("[GeneratorWizard] Adicionando JRE");
 			addDefaultJRE(project);
+			MessageContext.printlnConsole("[GeneratorWizard] Adicionando Plugin Nature");
 			addPluginNature(project);
+			MessageContext.printlnConsole("[GeneratorWizard] Adicionando Plugin Dependencies");
 			addPluginDependencies(project);
+			MessageContext.printlnConsole("[GeneratorWizard] Criando source folder");
 			createSrcFolder(project);
+			MessageContext.printlnConsole("[GeneratorWizard] Criando META-INF folder");
 			createMetaInfFolder(project);
+			MessageContext.printlnConsole("[GeneratorWizard] Criando template folder");
 			createTemplatesFolder(project);
 			createSrcPackage(project);
 
+			MessageContext.printlnConsole("[GeneratorWizard] Criando Plugin Activator");
 			generateActivator(project);
+			MessageContext.printlnConsole("[GeneratorWizard] Criando MANIFEST.MF");
 			generateManifestMf(project);
 
 			ProjectHelper.refreshProject(project);
+			MessageContext.printlnConsole("[GeneratorWizard] Projeto Jtool %s criado com sucesso.", page1.getProjectName());
 
 		} catch (CoreException e) {
 			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
@@ -67,6 +77,8 @@ public class GeneratorWizard extends Wizard {
 		} catch (CompileException e) {
 			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
 		} catch (RenderException e) {
+			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
+		} catch (Exception e) {
 			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
 		}
 		return true;
@@ -161,7 +173,7 @@ public class GeneratorWizard extends Wizard {
 				.put("projectName", project.getName())
 			.write(project, "/src/", srcPackageDir, "/Activator.java");
 		//@formatter:on
-		
+
 	}
 
 	public void createSrcPackage(IProject project) {

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/jtools.generator.feature_1.0.0.qualifier.jar" id="jtools.generator.feature" version="1.0.0.qualifier">
+      <category name="jtools.generator.category.id"/>
+   </feature>
+   <category-def name="jtools.generator.category.id" label="jtools.generator.category"/>
+</site>

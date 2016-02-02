@@ -3,7 +3,6 @@ package jtools.generator.eclipse.ui.helper;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.generator.eclipse.ui.context.MessageContext;
 import jtools.generator.eclipse.ui.model.Attribute;
 import jtools.generator.eclipse.ui.model.Method;
 import jtools.generator.eclipse.ui.model.Model;

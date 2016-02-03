@@ -1,11 +1,11 @@
 package jtools.generator.eclipse.ui.impl;
 
-import jtools.generator.eclipse.ui.model.Method;
+import jtools.generator.eclipse.ui.model.JtMethod;
 
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaMethod;
 
-public class MethodImpl implements Method {
+public class JtMethodImpl implements JtMethod {
 
 	/**
 	 * 
@@ -14,7 +14,7 @@ public class MethodImpl implements Method {
 
 	private JavaMethod javaMethod;
 
-	public MethodImpl(JavaMethod javaMethod) {
+	public JtMethodImpl(JavaMethod javaMethod) {
 		super();
 		this.javaMethod = javaMethod;
 	}

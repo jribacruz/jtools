@@ -2,14 +2,14 @@ package jtools.generator.eclipse.ui.impl;
 
 import com.thoughtworks.qdox.model.JavaField;
 
-import jtools.generator.eclipse.ui.model.Relationship;
+import jtools.generator.eclipse.ui.model.JtRelationship;
 
 /**
  * 
  * @author jcruz
  *
  */
-public class RelationshipImpl implements Relationship {
+public class JtRelationshipImpl implements JtRelationship {
 
 	/**
 	 * 
@@ -18,7 +18,7 @@ public class RelationshipImpl implements Relationship {
 
 	private JavaField javaField;
 
-	public RelationshipImpl(JavaField javaField) {
+	public JtRelationshipImpl(JavaField javaField) {
 		super();
 		this.javaField = javaField;
 	}

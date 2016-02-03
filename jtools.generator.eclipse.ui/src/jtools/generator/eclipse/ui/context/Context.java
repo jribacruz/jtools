@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
-import jtools.generator.eclipse.ui.model.Model;
+import jtools.generator.eclipse.ui.model.JtModel;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -184,7 +184,7 @@ public class Context {
 	 * @throws CompileException
 	 * @throws RenderException
 	 */
-	public void generate(File template, String path, Model model) throws FileNotFoundException, ParseException, CompileException,
+	public void generate(File template, String path, JtModel model) throws FileNotFoundException, ParseException, CompileException,
 			RenderException {
 		JtwigTemplate t = new JtwigTemplate(template, new JtwigConfiguration());
 		FileOutputStream outputStream = new FileOutputStream(new File(path));
@@ -204,7 +204,7 @@ public class Context {
 	 * @throws CompileException
 	 * @throws RenderException
 	 */
-	public void generate(File template, String path, Model model, Map<String, Object> map) throws FileNotFoundException, ParseException,
+	public void generate(File template, String path, JtModel model, Map<String, Object> map) throws FileNotFoundException, ParseException,
 			CompileException, RenderException {
 		JtwigTemplate t = new JtwigTemplate(template, new JtwigConfiguration());
 		FileOutputStream outputStream = new FileOutputStream(new File(path));

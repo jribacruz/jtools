@@ -13,7 +13,7 @@ import com.thoughtworks.qdox.model.JavaClass;
  * @author jcruz
  *
  */
-public interface Model extends Serializable {
+public interface JtModel extends Serializable {
 
 	/**
 	 * 
@@ -37,7 +37,7 @@ public interface Model extends Serializable {
 	 * 
 	 * @return
 	 */
-	public List<Relationship> getRelationships();
+	public List<JtRelationship> getRelationships();
 
 	/**
 	 * 
@@ -45,13 +45,13 @@ public interface Model extends Serializable {
 	 * 
 	 * @return
 	 */
-	public List<Attribute> getAttributes();
+	public List<JtAttribute> getAttributes();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public List<Method> getMethods();
+	public List<JtMethod> getMethods();
 
 	/**
 	 * 

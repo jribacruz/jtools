@@ -5,7 +5,7 @@ import java.io.Serializable;
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaMethod;
 
-public interface Method extends Serializable {
+public interface JtMethod extends Serializable {
 
 	/**
 	 * 

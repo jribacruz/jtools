@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jtools.generator.eclipse.ui.context.JtConsole;
-import jtools.generator.eclipse.ui.impl.ModelImpl;
-import jtools.generator.eclipse.ui.model.Model;
+import jtools.generator.eclipse.ui.impl.JtModelImpl;
+import jtools.generator.eclipse.ui.model.JtModel;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -159,11 +159,11 @@ public class ProjectHelper {
 		return units;
 	}
 
-	public static List<Model> getModels(IProject project) {
-		List<Model> models = new ArrayList<>();
+	public static List<JtModel> getModels(IProject project) {
+		List<JtModel> models = new ArrayList<>();
 		for (ICompilationUnit compilationUnit : getCompilationUnits(project)) {
 			try {
-				models.add(new ModelImpl(compilationUnit));
+				models.add(new JtModelImpl(compilationUnit));
 			} catch (FileNotFoundException e) {
 				JtConsole.log(e.getMessage());
 			} catch (IOException e) {

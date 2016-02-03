@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.generator.eclipse.ui.model.Attribute;
-import jtools.generator.eclipse.ui.model.Method;
-import jtools.generator.eclipse.ui.model.Model;
-import jtools.generator.eclipse.ui.model.Relationship;
+import jtools.generator.eclipse.ui.model.JtAttribute;
+import jtools.generator.eclipse.ui.model.JtMethod;
+import jtools.generator.eclipse.ui.model.JtModel;
+import jtools.generator.eclipse.ui.model.JtRelationship;
 
 import org.eclipse.jdt.core.ICompilationUnit;
 
@@ -18,7 +18,7 @@ import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaSource;
 
-public class ModelImpl implements Model {
+public class JtModelImpl implements JtModel {
 
 	/**
 	 * 
@@ -27,15 +27,15 @@ public class ModelImpl implements Model {
 
 	private JavaClass javaClass;
 
-	private List<Relationship> relationships;
+	private List<JtRelationship> relationships;
 
-	private List<Attribute> attributes;
+	private List<JtAttribute> attributes;
 
-	private List<Method> methods;
+	private List<JtMethod> methods;
 
 	private ICompilationUnit compilationUnit;
 
-	public ModelImpl(ICompilationUnit unit) throws FileNotFoundException, IOException {
+	public JtModelImpl(ICompilationUnit unit) throws FileNotFoundException, IOException {
 		super();
 		this.compilationUnit = unit;
 		JavaDocBuilder builder = new JavaDocBuilder();
@@ -54,7 +54,7 @@ public class ModelImpl implements Model {
 	}
 
 	@Override
-	public List<Relationship> getRelationships() {
+	public List<JtRelationship> getRelationships() {
 		if (this.relationships == null) {
 			this.relationships = new ArrayList<>();
 		}
@@ -62,11 +62,11 @@ public class ModelImpl implements Model {
 	}
 
 	@Override
-	public List<Attribute> getAttributes() {
+	public List<JtAttribute> getAttributes() {
 		if (this.attributes == null) {
 			this.attributes = new ArrayList<>();
 			for (int i = 0; i < javaClass.getFields().length; i++) {
-				this.attributes.add(new AttributeImpl(this.javaClass.getFields()[i]));
+				this.attributes.add(new JtAttributeImpl(this.javaClass.getFields()[i]));
 			}
 		}
 		return this.attributes;
@@ -83,11 +83,11 @@ public class ModelImpl implements Model {
 	}
 
 	@Override
-	public List<Method> getMethods() {
+	public List<JtMethod> getMethods() {
 		if (this.methods == null) {
 			this.methods = new ArrayList<>();
 			for (int i = 0; i < javaClass.getMethods().length; i++) {
-				this.methods.add(new MethodImpl(this.javaClass.getMethods()[i]));
+				this.methods.add(new JtMethodImpl(this.javaClass.getMethods()[i]));
 			}
 		}
 		return null;

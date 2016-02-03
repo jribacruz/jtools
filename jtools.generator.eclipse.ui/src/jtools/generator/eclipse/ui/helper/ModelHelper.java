@@ -3,17 +3,17 @@ package jtools.generator.eclipse.ui.helper;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.generator.eclipse.ui.model.Attribute;
-import jtools.generator.eclipse.ui.model.Method;
-import jtools.generator.eclipse.ui.model.Model;
+import jtools.generator.eclipse.ui.model.JtAttribute;
+import jtools.generator.eclipse.ui.model.JtMethod;
+import jtools.generator.eclipse.ui.model.JtModel;
 
 import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.model.Annotation;
 
 public class ModelHelper {
 
-	public static Model[] asArray(List<Model> models) {
-		return models.toArray(new Model[] {});
+	public static JtModel[] asArray(List<JtModel> models) {
+		return models.toArray(new JtModel[] {});
 	}
 
 	/**
@@ -22,9 +22,9 @@ public class ModelHelper {
 	 * @param predicate
 	 * @return
 	 */
-	public static List<Model> filterModels(List<Model> models, Predicate<Model> predicate) {
-		List<Model> filteredModels = new ArrayList<>();
-		for (Model model : models) {
+	public static List<JtModel> filterModels(List<JtModel> models, Predicate<JtModel> predicate) {
+		List<JtModel> filteredModels = new ArrayList<>();
+		for (JtModel model : models) {
 			if (predicate.apply(model)) {
 				filteredModels.add(model);
 			}
@@ -38,9 +38,9 @@ public class ModelHelper {
 	 * @param predicate
 	 * @return
 	 */
-	public static List<Attribute> filterAttributes(List<Attribute> models, Predicate<Attribute> predicate) {
-		List<Attribute> filteredAttributes = new ArrayList<>();
-		for (Attribute attribute : models) {
+	public static List<JtAttribute> filterAttributes(List<JtAttribute> models, Predicate<JtAttribute> predicate) {
+		List<JtAttribute> filteredAttributes = new ArrayList<>();
+		for (JtAttribute attribute : models) {
 			if (predicate.apply(attribute)) {
 				filteredAttributes.add(attribute);
 			}
@@ -54,9 +54,9 @@ public class ModelHelper {
 	 * @param predicate
 	 * @return
 	 */
-	public static List<Method> filterMethods(List<Method> models, Predicate<Method> predicate) {
-		List<Method> filteredMethods = new ArrayList<>();
-		for (Method method : models) {
+	public static List<JtMethod> filterMethods(List<JtMethod> models, Predicate<JtMethod> predicate) {
+		List<JtMethod> filteredMethods = new ArrayList<>();
+		for (JtMethod method : models) {
 			if (predicate.apply(method)) {
 				filteredMethods.add(method);
 			}
@@ -70,7 +70,7 @@ public class ModelHelper {
 	 * @param typeName
 	 * @return
 	 */
-	public static boolean hasAnnotationTypeName(Model model, String typeName) {
+	public static boolean hasAnnotationTypeName(JtModel model, String typeName) {
 		
 		for (Annotation annotation : model.getJavaClass().getAnnotations()) {
 			if(annotation.getType().getJavaClass().getName().endsWith(typeName)) {
@@ -86,7 +86,7 @@ public class ModelHelper {
 	 * @param typeName
 	 * @return
 	 */
-	public static boolean hasAnnotationTypeName(Attribute attribute, String typeName) {
+	public static boolean hasAnnotationTypeName(JtAttribute attribute, String typeName) {
 		for (Annotation annotation : attribute.getAnnotations()) {
 			if(annotation.getType().getJavaClass().getName().endsWith(typeName)) {
 				return true;
@@ -101,7 +101,7 @@ public class ModelHelper {
 	 * @param typeName
 	 * @return
 	 */
-	public static boolean hasAnnotationTypeName(Method method, String typeName) {
+	public static boolean hasAnnotationTypeName(JtMethod method, String typeName) {
 		for (Annotation annotation : method.getAnnotations()) {
 			if(annotation.getType().getJavaClass().getName().endsWith(typeName)) {
 				return true;

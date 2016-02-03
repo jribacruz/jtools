@@ -2,13 +2,13 @@ package jtools.generator.eclipse.ui.impl;
 
 import java.util.List;
 
-import jtools.generator.eclipse.ui.model.Attribute;
+import jtools.generator.eclipse.ui.model.JtAttribute;
 
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.DocletTag;
 import com.thoughtworks.qdox.model.JavaField;
 
-public class AttributeImpl implements Attribute {
+public class JtAttributeImpl implements JtAttribute {
 
 	/**
 	 * 
@@ -17,7 +17,7 @@ public class AttributeImpl implements Attribute {
 
 	private JavaField javaField;
 
-	public AttributeImpl(JavaField javaField) {
+	public JtAttributeImpl(JavaField javaField) {
 		super();
 		this.javaField = javaField;
 	}

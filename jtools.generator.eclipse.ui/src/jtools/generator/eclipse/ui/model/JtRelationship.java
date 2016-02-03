@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author jcruz
  *
  */
-public interface Relationship extends Serializable {
+public interface JtRelationship extends Serializable {
 
 	/**
 	 * 

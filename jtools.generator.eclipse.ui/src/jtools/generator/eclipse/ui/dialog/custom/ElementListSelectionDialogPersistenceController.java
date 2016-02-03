@@ -8,7 +8,7 @@ import jtools.generator.eclipse.ui.dialog.providers.ModelLabelProvider;
 import jtools.generator.eclipse.ui.dialog.template.Dialog;
 import jtools.generator.eclipse.ui.helper.ModelHelper;
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
-import jtools.generator.eclipse.ui.model.Model;
+import jtools.generator.eclipse.ui.model.JtModel;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -23,11 +23,11 @@ public class ElementListSelectionDialogPersistenceController implements Dialog {
 
 		IProject project = Context.getCurrentInstance().getSelectedProject();
 
-		List<Model> models = ProjectHelper.getModels(project);
+		List<JtModel> models = ProjectHelper.getModels(project);
 
 		JtConsole.log("%d models carregados para o projeto %s", models.size(), project.getName());
 
-		List<Model> persistenceControllerModels = getPersistenceControllerModels(models);
+		List<JtModel> persistenceControllerModels = getPersistenceControllerModels(models);
 
 		JtConsole.log("%d persistence controllers carregadas para o projeto %s", persistenceControllerModels.size(), project.getName());
 
@@ -45,10 +45,10 @@ public class ElementListSelectionDialogPersistenceController implements Dialog {
 	 * @param models
 	 * @return
 	 */
-	private List<Model> getPersistenceControllerModels(List<Model> models) {
-		return ModelHelper.filterModels(models, new Predicate<Model>() {
+	private List<JtModel> getPersistenceControllerModels(List<JtModel> models) {
+		return ModelHelper.filterModels(models, new Predicate<JtModel>() {
 			@Override
-			public boolean apply(Model model) {
+			public boolean apply(JtModel model) {
 				boolean has = ModelHelper.hasAnnotationTypeName(model, "PersistenceController");
 				JtConsole.log("Verificando se model %s possui annotation @PersistenceController: [%b]", model.getName(), has);
 				return has;

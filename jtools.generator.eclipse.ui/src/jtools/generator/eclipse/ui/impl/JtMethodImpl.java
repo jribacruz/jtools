@@ -1,6 +1,7 @@
 package jtools.generator.eclipse.ui.impl;
 
 import jtools.generator.eclipse.ui.model.JtMethod;
+import jtools.generator.eclipse.ui.model.JtModel;
 
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaMethod;
@@ -14,9 +15,12 @@ public class JtMethodImpl implements JtMethod {
 
 	private JavaMethod javaMethod;
 
-	public JtMethodImpl(JavaMethod javaMethod) {
+	private JtModel parentModel;
+
+	public JtMethodImpl(JavaMethod javaMethod, JtModel parentModel) {
 		super();
 		this.javaMethod = javaMethod;
+		this.parentModel = parentModel;
 	}
 
 	@Override
@@ -37,6 +41,11 @@ public class JtMethodImpl implements JtMethod {
 	@Override
 	public Annotation[] getAnnotations() {
 		return this.javaMethod.getAnnotations();
+	}
+
+	@Override
+	public JtModel getParentModel() {
+		return this.parentModel;
 	}
 
 }

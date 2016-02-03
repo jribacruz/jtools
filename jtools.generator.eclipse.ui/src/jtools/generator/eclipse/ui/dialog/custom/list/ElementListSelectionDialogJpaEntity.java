@@ -1,12 +1,12 @@
-package jtools.generator.eclipse.ui.dialog.custom;
+package jtools.generator.eclipse.ui.dialog.custom.list;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.context.JtConsole;
-import jtools.generator.eclipse.ui.dialog.core.JtAbstractListSelectionDialog;
-import jtools.generator.eclipse.ui.dialog.providers.JtModelLabelProvider;
+import jtools.generator.eclipse.ui.dialog.core.JtAbstractElementListSelectionDialog;
+import jtools.generator.eclipse.ui.dialog.providers.label.JtModelLabelProvider;
 import jtools.generator.eclipse.ui.helper.JtModelHelper;
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
 import jtools.generator.eclipse.ui.model.JtModel;
@@ -17,7 +17,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import com.google.common.base.Predicate;
 
-public class ListSelectionDialogJpaEntity extends JtAbstractListSelectionDialog<JtModel> {
+public class ElementListSelectionDialogJpaEntity extends JtAbstractElementListSelectionDialog<JtModel> {
 
 	/**
 	 * 
@@ -26,7 +26,7 @@ public class ListSelectionDialogJpaEntity extends JtAbstractListSelectionDialog<
 
 	private List<JtModel> models = new ArrayList<>();
 
-	public ListSelectionDialogJpaEntity(IWorkbenchWindow window) {
+	public ElementListSelectionDialogJpaEntity(IWorkbenchWindow window) {
 		super(window);
 	}
 

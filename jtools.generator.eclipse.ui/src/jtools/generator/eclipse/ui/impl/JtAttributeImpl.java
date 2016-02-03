@@ -3,6 +3,7 @@ package jtools.generator.eclipse.ui.impl;
 import java.util.List;
 
 import jtools.generator.eclipse.ui.model.JtAttribute;
+import jtools.generator.eclipse.ui.model.JtModel;
 
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.DocletTag;
@@ -17,9 +18,12 @@ public class JtAttributeImpl implements JtAttribute {
 
 	private JavaField javaField;
 
-	public JtAttributeImpl(JavaField javaField) {
+	private JtModel parentModel;
+
+	public JtAttributeImpl(JavaField javaField, JtModel parentModel) {
 		super();
 		this.javaField = javaField;
+		this.parentModel = parentModel;
 	}
 
 	@Override
@@ -142,6 +146,11 @@ public class JtAttributeImpl implements JtAttribute {
 	@Override
 	public Annotation[] getAnnotations() {
 		return this.javaField.getAnnotations();
+	}
+
+	@Override
+	public JtModel getParentModel() {
+		return this.parentModel;
 	}
 
 }

@@ -2,6 +2,7 @@ package jtools.generator.eclipse.ui.impl;
 
 import com.thoughtworks.qdox.model.JavaField;
 
+import jtools.generator.eclipse.ui.model.JtModel;
 import jtools.generator.eclipse.ui.model.JtRelationship;
 
 /**
@@ -18,9 +19,12 @@ public class JtRelationshipImpl implements JtRelationship {
 
 	private JavaField javaField;
 
-	public JtRelationshipImpl(JavaField javaField) {
+	private JtModel parentModel;
+
+	public JtRelationshipImpl(JavaField javaField, JtModel parentModel) {
 		super();
 		this.javaField = javaField;
+		this.parentModel = parentModel;
 	}
 
 	@Override
@@ -46,6 +50,11 @@ public class JtRelationshipImpl implements JtRelationship {
 	@Override
 	public boolean isOneToOne() {
 		return false;
+	}
+
+	@Override
+	public JtModel getParentModel() {
+		return this.parentModel;
 	}
 
 }

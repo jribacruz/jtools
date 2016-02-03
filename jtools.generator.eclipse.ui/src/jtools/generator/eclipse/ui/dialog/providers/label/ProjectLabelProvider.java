@@ -1,4 +1,4 @@
-package jtools.generator.eclipse.ui.dialog.providers;
+package jtools.generator.eclipse.ui.dialog.providers.label;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.LabelProvider;

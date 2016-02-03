@@ -1,12 +1,12 @@
-package jtools.generator.eclipse.ui.dialog.custom;
+package jtools.generator.eclipse.ui.dialog.custom.list;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.context.JtConsole;
-import jtools.generator.eclipse.ui.dialog.core.JtAbstractElementListSelectionDialog;
-import jtools.generator.eclipse.ui.dialog.providers.JtModelLabelProvider;
+import jtools.generator.eclipse.ui.dialog.core.JtAbstractListSelectionDialog;
+import jtools.generator.eclipse.ui.dialog.providers.label.JtModelLabelProvider;
 import jtools.generator.eclipse.ui.helper.JtModelHelper;
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
 import jtools.generator.eclipse.ui.model.JtModel;
@@ -17,7 +17,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import com.google.common.base.Predicate;
 
-public class ElementListSelectionDialogBusinessController extends JtAbstractElementListSelectionDialog<JtModel> {
+public class ListSelectionDialogJpaEntity extends JtAbstractListSelectionDialog<JtModel> {
 
 	/**
 	 * 
@@ -26,13 +26,10 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 
 	private List<JtModel> models = new ArrayList<>();
 
-	public ElementListSelectionDialogBusinessController(IWorkbenchWindow window) {
+	public ListSelectionDialogJpaEntity(IWorkbenchWindow window) {
 		super(window);
 	}
 
-	/**
-	 * 
-	 */
 	@Override
 	protected void init() {
 		IProject project = Context.getCurrentInstance().getSelectedProject();
@@ -40,24 +37,18 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 		JtConsole.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
 	}
 
-	/**
-	 * 
-	 */
 	@Override
 	protected JtModel[] getList() {
-		List<JtModel> filteredModelList = JtModelHelper.filterModels(models, new Predicate<JtModel>() {
+		List<JtModel> filteredModels = JtModelHelper.filterModels(models, new Predicate<JtModel>() {
 			@Override
 			public boolean apply(JtModel model) {
-				return JtModelHelper.hasAnnotationTypeName(model, "BusinessController");
+				return JtModelHelper.hasAnnotationTypeName(model, "Entity");
 			}
 		});
-		JtConsole.log("[%s] %d business controllers carregadas para o projeto", this.getClass().getName(), filteredModelList.size());
-		return JtModelHelper.asArray(filteredModelList);
+		JtConsole.log("[%s] %d entities para o projeto", this.getClass().getName(), filteredModels.size());
+		return JtModelHelper.asArray(filteredModels);
 	}
 
-	/**
-	 * 
-	 */
 	@Override
 	protected LabelProvider getLabelProvider() {
 		return new JtModelLabelProvider();
@@ -65,7 +56,6 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 
 	@Override
 	public String getTitle() {
-		return "Selecione um Business Controller";
+		return "Selecione uma entidade JPA";
 	}
-
 }

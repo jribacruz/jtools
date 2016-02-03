@@ -1,8 +1,8 @@
-package jtools.generator.eclipse.ui.dialog.custom;
+package jtools.generator.eclipse.ui.dialog.custom.list;
 
 import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractElementListSelectionDialog;
-import jtools.generator.eclipse.ui.dialog.providers.ProjectLabelProvider;
+import jtools.generator.eclipse.ui.dialog.providers.label.ProjectLabelProvider;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;

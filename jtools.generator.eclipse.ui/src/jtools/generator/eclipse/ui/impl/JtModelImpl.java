@@ -66,7 +66,7 @@ public class JtModelImpl implements JtModel {
 		if (this.attributes == null) {
 			this.attributes = new ArrayList<>();
 			for (int i = 0; i < javaClass.getFields().length; i++) {
-				this.attributes.add(new JtAttributeImpl(this.javaClass.getFields()[i]));
+				this.attributes.add(new JtAttributeImpl(this.javaClass.getFields()[i], this));
 			}
 		}
 		return this.attributes;
@@ -87,10 +87,10 @@ public class JtModelImpl implements JtModel {
 		if (this.methods == null) {
 			this.methods = new ArrayList<>();
 			for (int i = 0; i < javaClass.getMethods().length; i++) {
-				this.methods.add(new JtMethodImpl(this.javaClass.getMethods()[i]));
+				this.methods.add(new JtMethodImpl(this.javaClass.getMethods()[i], this));
 			}
 		}
-		return null;
+		return this.methods;
 	}
 
 	@Override

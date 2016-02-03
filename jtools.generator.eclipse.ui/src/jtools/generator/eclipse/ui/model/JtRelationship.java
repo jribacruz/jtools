@@ -38,5 +38,11 @@ public interface JtRelationship extends Serializable {
 	 * @return
 	 */
 	public boolean isOneToOne();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public JtModel getParentModel();
 
 }

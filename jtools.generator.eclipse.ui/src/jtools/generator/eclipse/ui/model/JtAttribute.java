@@ -150,4 +150,10 @@ public interface JtAttribute extends Serializable {
 	 * @return
 	 */
 	public List<String> getSortBy();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public JtModel getParentModel();
 }

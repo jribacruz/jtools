@@ -24,10 +24,16 @@ public interface JtMethod extends Serializable {
 	 * @return
 	 */
 	public JavaMethod getJavaMethod();
-	
+
 	/**
 	 * 
 	 * @return
 	 */
 	public Annotation[] getAnnotations();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public JtModel getParentModel();
 }

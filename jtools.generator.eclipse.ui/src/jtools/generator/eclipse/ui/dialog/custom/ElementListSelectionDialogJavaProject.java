@@ -60,4 +60,9 @@ public class ElementListSelectionDialogJavaProject extends JtAbstractElementList
 		return null;
 	}
 
+	@Override
+	public String getTitle() {
+		return null;
+	}
+
 }

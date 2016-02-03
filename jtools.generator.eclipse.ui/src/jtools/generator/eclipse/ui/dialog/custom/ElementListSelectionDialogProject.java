@@ -29,7 +29,6 @@ public class ElementListSelectionDialogProject extends JtAbstractElementListSele
 
 	@Override
 	protected void init() {
-		setTitle("Selecione um projeto");
 	}
 
 	@Override
@@ -45,6 +44,11 @@ public class ElementListSelectionDialogProject extends JtAbstractElementListSele
 	@Override
 	protected void finish() {
 		Context.getCurrentInstance().setSelectedProject(getResult());
+	}
+
+	@Override
+	public String getTitle() {
+		return "Selecione um projeto";
 	}
 
 }

@@ -1,12 +1,15 @@
 package jtools.generator.eclipse.ui.dialog.core;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
 
+import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.dialogs.ElementListSelectionDialog;
+import org.eclipse.ui.dialogs.ListSelectionDialog;
 
-public abstract class JtAbstractElementListSelectionDialog<T> implements Serializable {
+public abstract class JtAbstractListSelectionDialog<T> implements Serializable {
 
 	/**
 	 * 
@@ -15,11 +18,11 @@ public abstract class JtAbstractElementListSelectionDialog<T> implements Seriali
 
 	private IWorkbenchWindow window;
 
-	private ElementListSelectionDialog dialog;
+	private ListSelectionDialog dialog;
 
 	private String message = "Selecione uma String (* = any string, ? = any char):";
 
-	public JtAbstractElementListSelectionDialog(IWorkbenchWindow window) {
+	public JtAbstractListSelectionDialog(IWorkbenchWindow window) {
 		super();
 		this.window = window;
 	}
@@ -41,18 +44,15 @@ public abstract class JtAbstractElementListSelectionDialog<T> implements Seriali
 	public void open() {
 		if (window != null) {
 			init();
-			this.dialog = new ElementListSelectionDialog(window.getShell(), getLabelProvider());
-			this.dialog.setTitle(getTitle());
-			this.dialog.setMessage(message);
-			this.dialog.setElements(getList());
+			this.dialog = new ListSelectionDialog(window.getShell(), getList(), new ArrayContentProvider(), getLabelProvider(), "");
 			this.dialog.open();
 			finish();
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	public T getResult() {
-		return (T) this.dialog.getFirstResult();
+	public List<T> getResult() {
+		return (List<T>) Arrays.asList(this.dialog.getResult());
 	}
 
 	public String getMessage() {

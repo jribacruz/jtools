@@ -32,10 +32,9 @@ public class ElementListSelectionDialogJpaEntity extends JtAbstractElementListSe
 
 	@Override
 	protected void init() {
-		setTitle("Selecione uma entidade JPA");
 		IProject project = Context.getCurrentInstance().getSelectedProject();
 		this.models = ProjectHelper.getModels(project);
-		JtConsole.log("[ElementListSelectionDialogJpaEntity] %d models carregados para o projeto %s", models.size(), project.getName());
+		JtConsole.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
 	}
 
 	@Override
@@ -46,12 +45,17 @@ public class ElementListSelectionDialogJpaEntity extends JtAbstractElementListSe
 				return JtModelHelper.hasAnnotationTypeName(model, "Entity");
 			}
 		});
-		JtConsole.log("[ElementListSelectionDialogJpaEntity] %d entities para o projeto", filteredModels.size());
+		JtConsole.log("[%s] %d entities para o projeto", this.getClass().getName(), filteredModels.size());
 		return JtModelHelper.asArray(filteredModels);
 	}
 
 	@Override
 	protected LabelProvider getLabelProvider() {
 		return new JtModelLabelProvider();
+	}
+
+	@Override
+	public String getTitle() {
+		return "Selecione uma entidade JPA";
 	}
 }

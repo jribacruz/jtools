@@ -35,11 +35,9 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 	 */
 	@Override
 	protected void init() {
-		setTitle("Selecione um Business Controller");
 		IProject project = Context.getCurrentInstance().getSelectedProject();
 		this.models = ProjectHelper.getModels(project);
-		JtConsole.log("[ElementListSelectionDialogBusinessController] %d models carregados para o projeto %s", models.size(),
-				project.getName());
+		JtConsole.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
 	}
 
 	/**
@@ -53,8 +51,7 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 				return JtModelHelper.hasAnnotationTypeName(model, "BusinessController");
 			}
 		});
-		JtConsole.log("[ElementListSelectionDialogBusinessController] %d business controllers carregadas para o projeto",
-				filteredModelList.size());
+		JtConsole.log("[%s] %d business controllers carregadas para o projeto", this.getClass().getName(), filteredModelList.size());
 		return JtModelHelper.asArray(filteredModelList);
 	}
 
@@ -64,6 +61,11 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 	@Override
 	protected LabelProvider getLabelProvider() {
 		return new JtModelLabelProvider();
+	}
+
+	@Override
+	public String getTitle() {
+		return "Selecione um Business Controller";
 	}
 
 }

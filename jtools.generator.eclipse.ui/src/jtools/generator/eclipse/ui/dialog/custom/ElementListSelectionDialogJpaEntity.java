@@ -6,7 +6,7 @@ import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.context.JtConsole;
 import jtools.generator.eclipse.ui.dialog.providers.JtModelLabelProvider;
 import jtools.generator.eclipse.ui.dialog.template.Dialog;
-import jtools.generator.eclipse.ui.helper.ModelHelper;
+import jtools.generator.eclipse.ui.helper.JtModelHelper;
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
 import jtools.generator.eclipse.ui.model.JtModel;
 
@@ -34,7 +34,7 @@ public class ElementListSelectionDialogJpaEntity implements Dialog {
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(window.getShell(), new JtModelLabelProvider());
 		dialog.setTitle("Selecione uma entidade JPA");
 		dialog.setMessage("Select a String (* = any string, ? = any char):");
-		dialog.setElements(ModelHelper.asArray(jpaEntityModels));
+		dialog.setElements(JtModelHelper.asArray(jpaEntityModels));
 		dialog.open();
 
 	}
@@ -46,10 +46,10 @@ public class ElementListSelectionDialogJpaEntity implements Dialog {
 	 * @return
 	 */
 	private List<JtModel> getJpaEntityModels(List<JtModel> models) {
-		return ModelHelper.filterModels(models, new Predicate<JtModel>() {
+		return JtModelHelper.filterModels(models, new Predicate<JtModel>() {
 			@Override
 			public boolean apply(JtModel model) {
-				return ModelHelper.hasAnnotationTypeName(model, "Entity");
+				return JtModelHelper.hasAnnotationTypeName(model, "Entity");
 			}
 		});
 	}

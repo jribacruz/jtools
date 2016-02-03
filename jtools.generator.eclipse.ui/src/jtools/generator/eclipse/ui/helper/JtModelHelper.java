@@ -10,7 +10,7 @@ import jtools.generator.eclipse.ui.model.JtModel;
 import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.model.Annotation;
 
-public class ModelHelper {
+public class JtModelHelper {
 
 	public static JtModel[] asArray(List<JtModel> models) {
 		return models.toArray(new JtModel[] {});

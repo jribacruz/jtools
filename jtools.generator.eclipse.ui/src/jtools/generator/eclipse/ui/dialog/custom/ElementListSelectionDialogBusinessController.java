@@ -7,7 +7,7 @@ import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.context.JtConsole;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractElementListSelectionDialog;
 import jtools.generator.eclipse.ui.dialog.providers.JtModelLabelProvider;
-import jtools.generator.eclipse.ui.helper.ModelHelper;
+import jtools.generator.eclipse.ui.helper.JtModelHelper;
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
 import jtools.generator.eclipse.ui.model.JtModel;
 
@@ -46,14 +46,14 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 	 */
 	@Override
 	protected JtModel[] getList() {
-		List<JtModel> filteredModelList = ModelHelper.filterModels(models, new Predicate<JtModel>() {
+		List<JtModel> filteredModelList = JtModelHelper.filterModels(models, new Predicate<JtModel>() {
 			@Override
 			public boolean apply(JtModel model) {
-				return ModelHelper.hasAnnotationTypeName(model, "BusinessController");
+				return JtModelHelper.hasAnnotationTypeName(model, "BusinessController");
 			}
 		});
 		JtConsole.log("%d business controllers carregadas para o projeto %s", filteredModelList.size());
-		return ModelHelper.asArray(filteredModelList);
+		return JtModelHelper.asArray(filteredModelList);
 	}
 
 	/**

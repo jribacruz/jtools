@@ -1,4 +1,4 @@
-package jtools.generator.eclipse.ui.dialog.helper;
+package jtools.generator.eclipse.ui.dialog.custom;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import com.google.common.base.Predicate;
 
-public class JpaEntityListSelectionDialog implements Dialog {
+public class ElementListSelectionDialogPersistenceController implements Dialog {
 
 	@Override
 	public void open(IWorkbenchWindow window) {
@@ -24,17 +24,18 @@ public class JpaEntityListSelectionDialog implements Dialog {
 		IProject project = Context.getCurrentInstance().getSelectedProject();
 
 		List<Model> models = ProjectHelper.getModels(project);
-		
-		MessageContext.printlnConsole("%d models carregados para o projeto %s", models.size(), project.getName());
-		
-		List<Model> jpaEntityModels = getJpaEntityModels(models);
 
-		MessageContext.printlnConsole("%d entidades JPA carregadas para o projeto %s", jpaEntityModels.size(), project.getName());
+		MessageContext.printlnConsole("%d models carregados para o projeto %s", models.size(), project.getName());
+
+		List<Model> persistenceControllerModels = getPersistenceControllerModels(models);
+
+		MessageContext.printlnConsole("%d persistence controllers carregadas para o projeto %s", persistenceControllerModels.size(),
+				project.getName());
 
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(window.getShell(), new ModelLabelProvider());
-		dialog.setTitle("Selecione uma entidade JPA");
+		dialog.setTitle("Selecione um Persistence Controller");
 		dialog.setMessage("Select a String (* = any string, ? = any char):");
-		dialog.setElements(ModelHelper.asArray(jpaEntityModels));
+		dialog.setElements(ModelHelper.asArray(persistenceControllerModels));
 		dialog.open();
 
 	}
@@ -45,11 +46,13 @@ public class JpaEntityListSelectionDialog implements Dialog {
 	 * @param models
 	 * @return
 	 */
-	private List<Model> getJpaEntityModels(List<Model> models) {
+	private List<Model> getPersistenceControllerModels(List<Model> models) {
 		return ModelHelper.filterModels(models, new Predicate<Model>() {
 			@Override
 			public boolean apply(Model model) {
-				return ModelHelper.hasAnnotationTypeName(model, "Entity");
+				boolean has = ModelHelper.hasAnnotationTypeName(model, "PersistenceController");
+				MessageContext.printlnConsole("Verificando se model %s possui annotation @PersistenceController: [%b]", model.getName(), has);
+				return has;
 			}
 		});
 	}

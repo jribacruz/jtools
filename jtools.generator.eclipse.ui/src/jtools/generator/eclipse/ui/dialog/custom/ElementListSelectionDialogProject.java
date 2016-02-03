@@ -1,4 +1,4 @@
-package jtools.generator.eclipse.ui.dialog.helper;
+package jtools.generator.eclipse.ui.dialog.custom;
 
 import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.dialog.providers.ProjectLabelProvider;
@@ -16,9 +16,9 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
  * @author jcruz
  *
  */
-public class ProjectListSelectionDialog implements Dialog {
+public class ElementListSelectionDialogProject implements Dialog {
 
-	public ProjectListSelectionDialog() {
+	public ElementListSelectionDialogProject() {
 		super();
 	}
 

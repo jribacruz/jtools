@@ -44,7 +44,7 @@ public abstract class JtAbstractListSelectionDialog<T> implements Serializable {
 	public void open() {
 		if (window != null) {
 			init();
-			this.dialog = new ListSelectionDialog(window.getShell(), getList(), new ArrayContentProvider(), getLabelProvider(), "");
+			this.dialog = new ListSelectionDialog(window.getShell(), getList(), new ArrayContentProvider(), getLabelProvider(), getTitle());
 			this.dialog.open();
 			finish();
 		}

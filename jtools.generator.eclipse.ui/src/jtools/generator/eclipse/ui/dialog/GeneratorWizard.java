@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 import jtools.generator.eclipse.ui.context.Context;
+import jtools.generator.eclipse.ui.context.JtConsole;
 import jtools.generator.eclipse.ui.context.MessageContext;
 import jtools.generator.eclipse.ui.context.MessageContext.SeverityType;
 import jtools.generator.eclipse.ui.core.JtGenerator;
@@ -40,31 +41,31 @@ public class GeneratorWizard extends Wizard {
 	public boolean performFinish() {
 
 		try {
-			MessageContext.printlnConsole("[GeneratorWizard] Iniciando criação do Jtool Project %s", page1.getProjectName());
+			JtConsole.log("[GeneratorWizard] Iniciando criação do Jtool Project %s", page1.getProjectName());
 			IProject project = createJTProject();
-			MessageContext.printlnConsole("[GeneratorWizard] Adicionando Java Nature");
+			JtConsole.log("[GeneratorWizard] Adicionando Java Nature");
 			addJavaNature(project);
-			MessageContext.printlnConsole("[GeneratorWizard] Adicionando JRE");
+			JtConsole.log("[GeneratorWizard] Adicionando JRE");
 			addDefaultJRE(project);
-			MessageContext.printlnConsole("[GeneratorWizard] Adicionando Plugin Nature");
+			JtConsole.log("[GeneratorWizard] Adicionando Plugin Nature");
 			addPluginNature(project);
-			MessageContext.printlnConsole("[GeneratorWizard] Adicionando Plugin Dependencies");
+			JtConsole.log("[GeneratorWizard] Adicionando Plugin Dependencies");
 			addPluginDependencies(project);
-			MessageContext.printlnConsole("[GeneratorWizard] Criando source folder");
+			JtConsole.log("[GeneratorWizard] Criando source folder");
 			createSrcFolder(project);
-			MessageContext.printlnConsole("[GeneratorWizard] Criando META-INF folder");
+			JtConsole.log("[GeneratorWizard] Criando META-INF folder");
 			createMetaInfFolder(project);
-			MessageContext.printlnConsole("[GeneratorWizard] Criando template folder");
+			JtConsole.log("[GeneratorWizard] Criando template folder");
 			createTemplatesFolder(project);
 			createSrcPackage(project);
 
-			MessageContext.printlnConsole("[GeneratorWizard] Criando Plugin Activator");
+			JtConsole.log("[GeneratorWizard] Criando Plugin Activator");
 			generateActivator(project);
-			MessageContext.printlnConsole("[GeneratorWizard] Criando MANIFEST.MF");
+			JtConsole.log("[GeneratorWizard] Criando MANIFEST.MF");
 			generateManifestMf(project);
 
 			ProjectHelper.refreshProject(project);
-			MessageContext.printlnConsole("[GeneratorWizard] Projeto Jtool %s criado com sucesso.", page1.getProjectName());
+			JtConsole.log("[GeneratorWizard] Projeto Jtool %s criado com sucesso.", page1.getProjectName());
 
 		} catch (CoreException e) {
 			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());

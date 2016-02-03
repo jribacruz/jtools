@@ -74,6 +74,14 @@ public class Context {
 		ProjectHelper.refreshProject(getSelectedProject());
 	}
 
+	public boolean hasSelectedProject() {
+		return getSelectedProject() != null;
+	}
+
+	public void clearSelectedProject() {
+		this.selectedProject = null;
+	}
+
 	/**
 	 * 
 	 * @param path
@@ -120,12 +128,12 @@ public class Context {
 	}
 
 	public File load(String location) throws URISyntaxException, IOException {
-		MessageContext.printlnConsole("[Context] Bundle ID: %s", bundleId);
+		JtConsole.log("[Context] Bundle ID: %s", bundleId);
 		if (StringUtils.isNotEmpty(bundleId)) {
 			Bundle bundle = Platform.getBundle(bundleId);
 			URL fileURL = bundle.getEntry(location);
 			URI fileURI = FileLocator.toFileURL(fileURL).toURI();
-			MessageContext.printlnConsole("[Context] File URI %s", fileURI.toString());
+			JtConsole.log("[Context] File URI %s", fileURI.toString());
 			File file = new File(fileURI);
 			return file;
 		}

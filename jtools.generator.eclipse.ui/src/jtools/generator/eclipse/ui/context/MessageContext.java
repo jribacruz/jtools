@@ -14,7 +14,7 @@ import org.eclipse.ui.console.MessageConsole;
  */
 public class MessageContext {
 
-	private static MessageConsole messageConsole;;
+	
 
 	/**
 	 * Severidade da mensagem.
@@ -57,17 +57,5 @@ public class MessageContext {
 		}
 	}
 
-	public static void printlnConsole(String message) {
-		printlnConsole(message, new Object[]{});
-	}
 
-	public static void printlnConsole(String message, Object... params) {
-		if (messageConsole == null) {
-			ConsolePlugin consolePlugin = ConsolePlugin.getDefault();
-			IConsoleManager consoleManager = consolePlugin.getConsoleManager();
-			messageConsole = new MessageConsole("Jtools Console", null);
-			consoleManager.addConsoles(new IConsole[] { messageConsole });
-		}
-		messageConsole.newMessageStream().println(String.format(message, params));
-	}
 }

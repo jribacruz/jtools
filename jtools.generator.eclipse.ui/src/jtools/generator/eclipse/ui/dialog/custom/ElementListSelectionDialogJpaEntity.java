@@ -3,7 +3,7 @@ package jtools.generator.eclipse.ui.dialog.custom;
 import java.util.List;
 
 import jtools.generator.eclipse.ui.context.Context;
-import jtools.generator.eclipse.ui.context.MessageContext;
+import jtools.generator.eclipse.ui.context.JtConsole;
 import jtools.generator.eclipse.ui.dialog.providers.ModelLabelProvider;
 import jtools.generator.eclipse.ui.dialog.template.Dialog;
 import jtools.generator.eclipse.ui.helper.ModelHelper;
@@ -25,11 +25,11 @@ public class ElementListSelectionDialogJpaEntity implements Dialog {
 
 		List<Model> models = ProjectHelper.getModels(project);
 		
-		MessageContext.printlnConsole("%d models carregados para o projeto %s", models.size(), project.getName());
+		JtConsole.log("%d models carregados para o projeto %s", models.size(), project.getName());
 		
 		List<Model> jpaEntityModels = getJpaEntityModels(models);
 
-		MessageContext.printlnConsole("%d entidades JPA carregadas para o projeto %s", jpaEntityModels.size(), project.getName());
+		JtConsole.log("%d entidades JPA carregadas para o projeto %s", jpaEntityModels.size(), project.getName());
 
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(window.getShell(), new ModelLabelProvider());
 		dialog.setTitle("Selecione uma entidade JPA");

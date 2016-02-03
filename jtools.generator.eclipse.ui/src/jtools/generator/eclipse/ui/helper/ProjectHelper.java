@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.generator.eclipse.ui.context.MessageContext;
+import jtools.generator.eclipse.ui.context.JtConsole;
 import jtools.generator.eclipse.ui.impl.ModelImpl;
 import jtools.generator.eclipse.ui.model.Model;
 
@@ -153,7 +153,7 @@ public class ProjectHelper {
 				}
 			}
 		} catch (JavaModelException e) {
-			MessageContext.printlnConsole(e.getMessage());
+			JtConsole.log(e.getMessage());
 		}
 
 		return units;
@@ -165,9 +165,9 @@ public class ProjectHelper {
 			try {
 				models.add(new ModelImpl(compilationUnit));
 			} catch (FileNotFoundException e) {
-				MessageContext.printlnConsole(e.getMessage());
+				JtConsole.log(e.getMessage());
 			} catch (IOException e) {
-				MessageContext.printlnConsole(e.getMessage());
+				JtConsole.log(e.getMessage());
 			}
 		}
 		return models;

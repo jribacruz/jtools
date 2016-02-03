@@ -8,7 +8,7 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-public abstract class JtAbstractElementListSelection<T> implements Serializable {
+public abstract class JtAbstractElementListSelectionDialog<T> implements Serializable {
 
 	/**
 	 * 
@@ -17,46 +17,42 @@ public abstract class JtAbstractElementListSelection<T> implements Serializable 
 
 	private IWorkbenchWindow window;
 
-	private LabelProvider labelProvider;
+	private ElementListSelectionDialog dialog;
 
 	private String title;
 
 	private String message = "Selecione uma String (* = any string, ? = any char):";
 
-	public JtAbstractElementListSelection(IWorkbenchWindow window) {
+	public JtAbstractElementListSelectionDialog(IWorkbenchWindow window) {
 		super();
 		this.window = window;
+	}
+
+	protected void init() {
+
+	}
+
+	protected void finish() {
+
 	}
 
 	protected abstract T[] getList();
 
 	protected abstract LabelProvider getLabelProvider();
 
-	/**
-	 * 
-	 * @param message
-	 * @param params
-	 */
-	protected void log(String message, Object... params) {
-		MessageContext.printlnConsole(message, params);
-	}
-
-	/**
-	 * 
-	 * @param message
-	 */
-	protected void log(String message) {
-		MessageContext.printlnConsole(message);
-	}
-
 	public void open() {
 		if (window != null) {
-			ElementListSelectionDialog dialog = new ElementListSelectionDialog(window.getShell(), getLabelProvider());
-			dialog.setTitle(title);
-			dialog.setMessage(message);
-			dialog.setElements(getList());
-			dialog.open();
+			this.dialog = new ElementListSelectionDialog(window.getShell(), getLabelProvider());
+			this.dialog.setTitle(title);
+			this.dialog.setMessage(message);
+			this.dialog.setElements(getList());
+			this.dialog.open();
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public T getResult() {
+		return (T) this.dialog.getFirstResult();
 	}
 
 	public String getTitle() {
@@ -75,4 +71,7 @@ public abstract class JtAbstractElementListSelection<T> implements Serializable 
 		this.message = message;
 	}
 
+	protected IWorkbenchWindow getWorkbenchWindow() {
+		return this.window;
+	}
 }

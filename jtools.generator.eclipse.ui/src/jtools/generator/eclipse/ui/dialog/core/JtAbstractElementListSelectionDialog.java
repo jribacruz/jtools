@@ -2,8 +2,6 @@ package jtools.generator.eclipse.ui.dialog.core;
 
 import java.io.Serializable;
 
-import jtools.generator.eclipse.ui.context.MessageContext;
-
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
@@ -42,11 +40,13 @@ public abstract class JtAbstractElementListSelectionDialog<T> implements Seriali
 
 	public void open() {
 		if (window != null) {
+			init();
 			this.dialog = new ElementListSelectionDialog(window.getShell(), getLabelProvider());
 			this.dialog.setTitle(title);
 			this.dialog.setMessage(message);
 			this.dialog.setElements(getList());
 			this.dialog.open();
+			finish();
 		}
 	}
 

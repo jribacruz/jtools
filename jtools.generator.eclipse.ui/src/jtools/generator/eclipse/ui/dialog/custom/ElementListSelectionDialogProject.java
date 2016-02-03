@@ -1,13 +1,13 @@
 package jtools.generator.eclipse.ui.dialog.custom;
 
 import jtools.generator.eclipse.ui.context.Context;
+import jtools.generator.eclipse.ui.dialog.core.JtAbstractElementListSelectionDialog;
 import jtools.generator.eclipse.ui.dialog.providers.ProjectLabelProvider;
-import jtools.generator.eclipse.ui.dialog.template.Dialog;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 /**
  * 
@@ -16,28 +16,35 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
  * @author jcruz
  *
  */
-public class ElementListSelectionDialogProject implements Dialog {
-
-	public ElementListSelectionDialogProject() {
-		super();
-	}
+public class ElementListSelectionDialogProject extends JtAbstractElementListSelectionDialog<IProject> {
 
 	/**
-	 * Abre o dialog.
+	 * 
 	 */
+	private static final long serialVersionUID = 1L;
+
+	public ElementListSelectionDialogProject(IWorkbenchWindow window) {
+		super(window);
+	}
+
 	@Override
-	public void open(IWorkbenchWindow window) {
-		// Retorna a lista de projetos do workspace.
-		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
-		ElementListSelectionDialog dialog = new ElementListSelectionDialog(window.getShell(), new ProjectLabelProvider());
-		dialog.setTitle("Selecione um projeto");
-		dialog.setMessage("Select a String (* = any string, ? = any char):");
-		dialog.setElements(projects);
-		dialog.open();
-		// Retorna o projeto selecionado.
-		IProject selectedProject = (IProject) dialog.getFirstResult();
-		// Armazena o projeto selecionado no contexto.
-		Context.getCurrentInstance().setSelectedProject(selectedProject);
+	protected void init() {
+		setTitle("Selecione um projeto");
+	}
+
+	@Override
+	protected IProject[] getList() {
+		return ResourcesPlugin.getWorkspace().getRoot().getProjects();
+	}
+
+	@Override
+	protected LabelProvider getLabelProvider() {
+		return new ProjectLabelProvider();
+	}
+
+	@Override
+	protected void finish() {
+		Context.getCurrentInstance().setSelectedProject(getResult());
 	}
 
 }

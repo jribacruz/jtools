@@ -38,7 +38,8 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 		setTitle("Selecione um Business Controller");
 		IProject project = Context.getCurrentInstance().getSelectedProject();
 		this.models = ProjectHelper.getModels(project);
-		JtConsole.log("%d models carregados para o projeto %s", models.size(), project.getName());
+		JtConsole.log("[ElementListSelectionDialogBusinessController] %d models carregados para o projeto %s", models.size(),
+				project.getName());
 	}
 
 	/**
@@ -52,7 +53,8 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 				return JtModelHelper.hasAnnotationTypeName(model, "BusinessController");
 			}
 		});
-		JtConsole.log("%d business controllers carregadas para o projeto %s", filteredModelList.size());
+		JtConsole.log("[ElementListSelectionDialogBusinessController] %d business controllers carregadas para o projeto",
+				filteredModelList.size());
 		return JtModelHelper.asArray(filteredModelList);
 	}
 

@@ -6,7 +6,7 @@ import java.util.List;
 import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.context.JtConsole;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractElementListSelectionDialog;
-import jtools.generator.eclipse.ui.dialog.providers.ModelLabelProvider;
+import jtools.generator.eclipse.ui.dialog.providers.JtModelLabelProvider;
 import jtools.generator.eclipse.ui.helper.ModelHelper;
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
 import jtools.generator.eclipse.ui.model.JtModel;
@@ -61,7 +61,7 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 	 */
 	@Override
 	protected LabelProvider getLabelProvider() {
-		return new ModelLabelProvider();
+		return new JtModelLabelProvider();
 	}
 
 }

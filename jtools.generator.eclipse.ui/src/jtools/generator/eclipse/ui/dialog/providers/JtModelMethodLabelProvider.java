@@ -4,7 +4,7 @@ import jtools.generator.eclipse.ui.model.JtMethod;
 
 import org.eclipse.jface.viewers.LabelProvider;
 
-public class ModelMethodLabelProvider extends LabelProvider {
+public class JtModelMethodLabelProvider extends LabelProvider {
 
 	@Override
 	public String getText(Object element) {

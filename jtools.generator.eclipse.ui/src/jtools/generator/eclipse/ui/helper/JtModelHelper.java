@@ -3,6 +3,8 @@ package jtools.generator.eclipse.ui.helper;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import jtools.generator.eclipse.ui.model.JtAttribute;
 import jtools.generator.eclipse.ui.model.JtMethod;
 import jtools.generator.eclipse.ui.model.JtModel;
@@ -71,9 +73,9 @@ public class JtModelHelper {
 	 * @return
 	 */
 	public static boolean hasAnnotationTypeName(JtModel model, String typeName) {
-		
+
 		for (Annotation annotation : model.getJavaClass().getAnnotations()) {
-			if(annotation.getType().getJavaClass().getName().endsWith(typeName)) {
+			if (annotation.getType().getJavaClass().getName().endsWith(typeName)) {
 				return true;
 			}
 		}
@@ -88,7 +90,7 @@ public class JtModelHelper {
 	 */
 	public static boolean hasAnnotationTypeName(JtAttribute attribute, String typeName) {
 		for (Annotation annotation : attribute.getAnnotations()) {
-			if(annotation.getType().getJavaClass().getName().endsWith(typeName)) {
+			if (annotation.getType().getJavaClass().getName().endsWith(typeName)) {
 				return true;
 			}
 		}
@@ -103,11 +105,20 @@ public class JtModelHelper {
 	 */
 	public static boolean hasAnnotationTypeName(JtMethod method, String typeName) {
 		for (Annotation annotation : method.getAnnotations()) {
-			if(annotation.getType().getJavaClass().getName().endsWith(typeName)) {
+			if (annotation.getType().getJavaClass().getName().endsWith(typeName)) {
 				return true;
 			}
 		}
 		return false;
+	}
+
+	public static String getMethodNameWithParams(JtMethod method) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(method.getName());
+		sb.append("(");
+		sb.append(StringUtils.join(method.getParamentersTypeName(), ","));
+		sb.append(")");
+		return sb.toString();
 	}
 
 }

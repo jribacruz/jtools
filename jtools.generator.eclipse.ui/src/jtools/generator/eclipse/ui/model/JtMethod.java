@@ -1,6 +1,7 @@
 package jtools.generator.eclipse.ui.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaMethod;
@@ -36,4 +37,10 @@ public interface JtMethod extends Serializable {
 	 * @return
 	 */
 	public JtModel getParentModel();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public List<String> getParamentersTypeName();
 }

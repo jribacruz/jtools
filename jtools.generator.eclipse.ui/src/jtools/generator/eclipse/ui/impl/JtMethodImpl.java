@@ -1,10 +1,15 @@
 package jtools.generator.eclipse.ui.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jtools.generator.eclipse.ui.model.JtMethod;
 import jtools.generator.eclipse.ui.model.JtModel;
 
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaMethod;
+import com.thoughtworks.qdox.model.JavaParameter;
+import com.thoughtworks.qdox.model.Type;
 
 public class JtMethodImpl implements JtMethod {
 
@@ -46,6 +51,17 @@ public class JtMethodImpl implements JtMethod {
 	@Override
 	public JtModel getParentModel() {
 		return this.parentModel;
+	}
+
+	@Override
+	public List<String> getParamentersTypeName() {
+		List<String> paramTypeNameList = new ArrayList<>();
+
+		for (JavaParameter param : javaMethod.getParameters()) {
+			paramTypeNameList.add(param.getType().getJavaClass().getName());
+		}
+
+		return paramTypeNameList;
 	}
 
 }

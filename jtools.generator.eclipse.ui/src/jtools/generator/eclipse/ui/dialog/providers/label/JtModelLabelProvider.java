@@ -1,5 +1,6 @@
 package jtools.generator.eclipse.ui.dialog.providers.label;
 
+import jtools.generator.eclipse.ui.helper.JtModelHelper;
 import jtools.generator.eclipse.ui.model.JtAttribute;
 import jtools.generator.eclipse.ui.model.JtMethod;
 import jtools.generator.eclipse.ui.model.JtModel;
@@ -15,7 +16,7 @@ public class JtModelLabelProvider extends LabelProvider {
 			return model.getName();
 		} else if (element instanceof JtMethod) {
 			JtMethod method = (JtMethod) element;
-			return method.getName();
+			return JtModelHelper.getMethodNameWithParams(method);
 		} else if (element instanceof JtAttribute) {
 			JtAttribute attribute = (JtAttribute) element;
 			return attribute.getName();

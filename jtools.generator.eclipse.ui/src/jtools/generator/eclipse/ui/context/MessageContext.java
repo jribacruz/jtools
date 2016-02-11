@@ -1,10 +1,6 @@
 package jtools.generator.eclipse.ui.context;
 
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.console.ConsolePlugin;
-import org.eclipse.ui.console.IConsole;
-import org.eclipse.ui.console.IConsoleManager;
-import org.eclipse.ui.console.MessageConsole;
 
 /**
  * Contexto de mensagens padrão do Jtools.

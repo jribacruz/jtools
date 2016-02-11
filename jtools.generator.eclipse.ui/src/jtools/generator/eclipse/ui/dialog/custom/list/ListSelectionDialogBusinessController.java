@@ -3,7 +3,6 @@ package jtools.generator.eclipse.ui.dialog.custom.list;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.context.JtConsole;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractListSelectionDialog;
 import jtools.generator.eclipse.ui.dialog.providers.label.JtModelLabelProvider;

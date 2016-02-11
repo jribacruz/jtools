@@ -9,7 +9,6 @@ import jtools.generator.eclipse.ui.model.JtModel;
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaParameter;
-import com.thoughtworks.qdox.model.Type;
 
 public class JtMethodImpl implements JtMethod {
 

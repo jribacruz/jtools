@@ -81,6 +81,10 @@ public class JpaListControl extends JtControl {
 
 	}
 
+	public java.util.List<JtModel> getSelections() {
+		return this.jpaEntityModels;
+	}
+
 	private class AddButtonMouseListener implements MouseListener {
 
 		@Override

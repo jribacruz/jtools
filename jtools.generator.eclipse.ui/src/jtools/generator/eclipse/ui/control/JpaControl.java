@@ -5,6 +5,7 @@ import java.util.Arrays;
 import jtools.generator.eclipse.ui.context.JtConsole;
 import jtools.generator.eclipse.ui.core.JtControl;
 import jtools.generator.eclipse.ui.dialog.custom.list.ElementListSelectionDialogJpaEntity;
+import jtools.generator.eclipse.ui.dialog.event.ChangeListener;
 import jtools.generator.eclipse.ui.dialog.event.FinishListener;
 import jtools.generator.eclipse.ui.model.JtModel;
 
@@ -40,6 +41,8 @@ public class JpaControl extends JtControl {
 	private IProject project;
 
 	private JtModel jpaEntityModel;
+
+	private ChangeListener changeListener;
 
 	public JpaControl(IProject project, IWorkbenchWindow window, Composite container) {
 		super();
@@ -79,6 +82,10 @@ public class JpaControl extends JtControl {
 		return this.jpaEntityModel;
 	}
 
+	public void addChangeListener(ChangeListener changeListener) {
+		this.changeListener = changeListener;
+	}
+
 	private class SelectButtonMouseListener implements MouseListener {
 
 		@Override
@@ -109,6 +116,9 @@ public class JpaControl extends JtControl {
 			JtConsole.log("Entidade Selecionadas %s", jpaModel.getName());
 			jpaEntityModel = jpaModel;
 			jpaText.setText(jpaModel.getFullyQualifiedName());
+			if (changeListener != null) {
+				changeListener.onChange();
+			}
 		}
 
 	}

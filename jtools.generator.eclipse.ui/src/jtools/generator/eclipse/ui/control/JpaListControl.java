@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import jtools.generator.eclipse.ui.context.JtConsole;
 import jtools.generator.eclipse.ui.core.JtControl;
 import jtools.generator.eclipse.ui.dialog.custom.list.ElementListSelectionDialogJpaEntity;
+import jtools.generator.eclipse.ui.dialog.event.ChangeListener;
 import jtools.generator.eclipse.ui.dialog.event.FinishListener;
 import jtools.generator.eclipse.ui.model.JtModel;
 
@@ -42,6 +43,8 @@ public class JpaListControl extends JtControl {
 	private IProject project;
 
 	private java.util.List<JtModel> jpaEntityModels = new ArrayList<>();
+
+	private ChangeListener changeListener;
 
 	public JpaListControl(IProject project, IWorkbenchWindow window, Composite container) {
 		super();
@@ -85,6 +88,10 @@ public class JpaListControl extends JtControl {
 		return this.jpaEntityModels;
 	}
 
+	public void addChangeListener(ChangeListener changeListener) {
+		this.changeListener = changeListener;
+	}
+
 	private class AddButtonMouseListener implements MouseListener {
 
 		@Override
@@ -114,6 +121,9 @@ public class JpaListControl extends JtControl {
 			jpaEntityModels.add(jpaModel);
 			jpaList.add(jpaModel.getFullyQualifiedName());
 			removeButton.setEnabled(jpaEntityModels.size() > 0);
+			if (changeListener != null) {
+				changeListener.onChange();
+			}
 		}
 
 	}
@@ -131,6 +141,9 @@ public class JpaListControl extends JtControl {
 			jpaEntityModels.remove(jpaList.getSelectionIndex());
 			jpaList.remove(jpaList.getSelectionIndex());
 			removeButton.setEnabled(jpaEntityModels.size() > 0);
+			if (changeListener != null) {
+				changeListener.onChange();
+			}
 		}
 
 		@Override

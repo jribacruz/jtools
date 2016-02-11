@@ -35,12 +35,16 @@ public class JtModelImpl implements JtModel {
 
 	private ICompilationUnit compilationUnit;
 
+	private String fullyQualifiedName;
+
 	public JtModelImpl(ICompilationUnit unit) throws FileNotFoundException, IOException {
 		super();
 		this.compilationUnit = unit;
 		JavaDocBuilder builder = new JavaDocBuilder();
 		JavaSource src = builder.addSource(new File(unit.getResource().getLocation().toString()));
 		this.javaClass = src.getClasses()[0];
+		this.fullyQualifiedName = this.javaClass.getFullyQualifiedName();
+
 	}
 
 	@Override
@@ -96,6 +100,41 @@ public class JtModelImpl implements JtModel {
 	@Override
 	public Annotation[] getAnnotations() {
 		return this.javaClass.getAnnotations();
+	}
+
+	@Override
+	public String getFullyQualifiedName() {
+		return this.fullyQualifiedName;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((fullyQualifiedName == null) ? 0 : fullyQualifiedName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		JtModelImpl other = (JtModelImpl) obj;
+		if (fullyQualifiedName == null) {
+			if (other.fullyQualifiedName != null)
+				return false;
+		} else if (!fullyQualifiedName.equals(other.fullyQualifiedName))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "JtModelImpl [fullyQualifiedName=" + fullyQualifiedName + "]";
 	}
 
 }

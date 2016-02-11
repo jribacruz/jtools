@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
+import jtools.generator.eclipse.ui.dialog.event.FinishListener;
+
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -19,6 +21,8 @@ public abstract class JtAbstractListSelectionDialog<T> implements Serializable {
 	private IWorkbenchWindow window;
 
 	private ListSelectionDialog dialog;
+	
+	private FinishListener finishListener;
 
 	private String message = "Selecione uma String (* = any string, ? = any char):";
 
@@ -47,6 +51,9 @@ public abstract class JtAbstractListSelectionDialog<T> implements Serializable {
 			this.dialog = new ListSelectionDialog(window.getShell(), getList(), new ArrayContentProvider(), getLabelProvider(), getTitle());
 			this.dialog.open();
 			finish();
+			if (this.finishListener != null) {
+				this.finishListener.onFinish();
+			}
 		}
 	}
 
@@ -65,5 +72,9 @@ public abstract class JtAbstractListSelectionDialog<T> implements Serializable {
 
 	protected IWorkbenchWindow getWorkbenchWindow() {
 		return this.window;
+	}
+	
+	public void addFinishListener(FinishListener finishListener) {
+		this.finishListener = finishListener;
 	}
 }

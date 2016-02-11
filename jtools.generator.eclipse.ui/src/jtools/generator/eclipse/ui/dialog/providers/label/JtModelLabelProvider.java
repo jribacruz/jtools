@@ -13,7 +13,7 @@ public class JtModelLabelProvider extends LabelProvider {
 	public String getText(Object element) {
 		if (element instanceof JtModel) {
 			JtModel model = (JtModel) element;
-			return model.getName();
+			return model.getFullyQualifiedName();
 		} else if (element instanceof JtMethod) {
 			JtMethod method = (JtMethod) element;
 			return JtModelHelper.getMethodNameWithParams(method);

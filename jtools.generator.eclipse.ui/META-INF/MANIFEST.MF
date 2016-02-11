@@ -21,6 +21,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: jtools.generator.eclipse.ui;uses:="org.eclipse.jface.resource,org.eclipse.ui.plugin,org.osgi.framework",
  jtools.generator.eclipse.ui.context;uses:="jtools.generator.eclipse.ui.model,org.eclipse.core.resources",
+ jtools.generator.eclipse.ui.control,
  jtools.generator.eclipse.ui.core;uses:="com.lyncode.jtwig,org.eclipse.core.resources",
  jtools.generator.eclipse.ui.dialog;
   uses:="org.eclipse.jface.wizard,

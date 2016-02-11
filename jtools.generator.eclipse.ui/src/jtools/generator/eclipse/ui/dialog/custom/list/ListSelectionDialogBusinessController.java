@@ -26,8 +26,11 @@ public class ListSelectionDialogBusinessController extends JtAbstractListSelecti
 
 	private List<JtModel> models = new ArrayList<>();
 
-	public ListSelectionDialogBusinessController(IWorkbenchWindow window) {
+	private IProject project;
+
+	public ListSelectionDialogBusinessController(IProject project, IWorkbenchWindow window) {
 		super(window);
+		this.project =project;
 	}
 
 	/**
@@ -35,7 +38,6 @@ public class ListSelectionDialogBusinessController extends JtAbstractListSelecti
 	 */
 	@Override
 	protected void init() {
-		IProject project = Context.getCurrentInstance().getSelectedProject();
 		this.models = ProjectHelper.getModels(project);
 		JtConsole.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
 	}

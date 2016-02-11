@@ -3,7 +3,6 @@ package jtools.generator.eclipse.ui.dialog.custom.list;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.context.JtConsole;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractElementListSelectionDialog;
 import jtools.generator.eclipse.ui.dialog.providers.label.JtModelLabelProvider;
@@ -26,8 +25,11 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 
 	private List<JtModel> models = new ArrayList<>();
 
-	public ElementListSelectionDialogBusinessController(IWorkbenchWindow window) {
+	private IProject project;
+
+	public ElementListSelectionDialogBusinessController(IProject project, IWorkbenchWindow window) {
 		super(window);
+		this.project = project;
 	}
 
 	/**
@@ -35,8 +37,7 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 	 */
 	@Override
 	protected void init() {
-		IProject project = Context.getCurrentInstance().getSelectedProject();
-		this.models = ProjectHelper.getModels(project);
+		this.models = ProjectHelper.getModels(this.project);
 		JtConsole.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
 	}
 

@@ -33,6 +33,12 @@ public interface JtModel extends Serializable {
 
 	/**
 	 * 
+	 * @return
+	 */
+	public String getFullyQualifiedName();
+
+	/**
+	 * 
 	 * Lista dos relacionamentos da model.
 	 * 
 	 * @return

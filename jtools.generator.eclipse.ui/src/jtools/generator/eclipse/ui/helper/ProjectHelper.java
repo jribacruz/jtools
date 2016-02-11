@@ -48,7 +48,10 @@ public class ProjectHelper {
 
 	/**
 	 * 
+	 * Cria um projeto no workspace
+	 * 
 	 * @param name
+	 *            Nome do projeto
 	 * @return
 	 * @throws CoreException
 	 */

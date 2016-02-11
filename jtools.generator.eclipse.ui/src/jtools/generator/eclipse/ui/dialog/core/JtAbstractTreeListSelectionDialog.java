@@ -2,6 +2,8 @@ package jtools.generator.eclipse.ui.dialog.core;
 
 import java.io.Serializable;
 
+import jtools.generator.eclipse.ui.dialog.event.FinishListener;
+
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -17,6 +19,8 @@ public abstract class JtAbstractTreeListSelectionDialog<T> implements Serializab
 	private IWorkbenchWindow window;
 
 	private ElementTreeSelectionDialog dialog;
+
+	private FinishListener finishListener;
 
 	private String message = "Selecione uma String (* = any string, ? = any char):";
 
@@ -38,7 +42,7 @@ public abstract class JtAbstractTreeListSelectionDialog<T> implements Serializab
 	protected abstract T[] getList();
 
 	protected abstract LabelProvider getLabelProvider();
-	
+
 	protected abstract ITreeContentProvider getContentProvider();
 
 	public void open() {
@@ -50,6 +54,9 @@ public abstract class JtAbstractTreeListSelectionDialog<T> implements Serializab
 			this.dialog.setInput(getList());
 			this.dialog.open();
 			finish();
+			if (this.finishListener != null) {
+				this.finishListener.onFinish();
+			}
 		}
 	}
 
@@ -68,5 +75,9 @@ public abstract class JtAbstractTreeListSelectionDialog<T> implements Serializab
 
 	protected IWorkbenchWindow getWorkbenchWindow() {
 		return this.window;
+	}
+
+	public void addFinishListener(FinishListener finishListener) {
+		this.finishListener = finishListener;
 	}
 }

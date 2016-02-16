@@ -1,4 +1,4 @@
-package jtools.generator.eclipse.ui.model;
+package jtools.eclipse.core.model;
 
 import java.io.Serializable;
 

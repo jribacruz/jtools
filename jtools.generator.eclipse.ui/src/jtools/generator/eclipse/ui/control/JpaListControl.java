@@ -3,11 +3,11 @@ package jtools.generator.eclipse.ui.control;
 import java.util.ArrayList;
 
 import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.core.JtControl;
 import jtools.generator.eclipse.ui.dialog.custom.list.ElementListSelectionDialogJpaEntity;
 import jtools.generator.eclipse.ui.dialog.event.ChangeListener;
 import jtools.generator.eclipse.ui.dialog.event.FinishListener;
-import jtools.generator.eclipse.ui.model.JtModel;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.swt.SWT;

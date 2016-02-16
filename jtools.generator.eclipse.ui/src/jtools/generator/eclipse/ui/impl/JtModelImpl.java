@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.generator.eclipse.ui.model.JtAttribute;
-import jtools.generator.eclipse.ui.model.JtMethod;
-import jtools.generator.eclipse.ui.model.JtModel;
-import jtools.generator.eclipse.ui.model.JtRelationship;
+import jtools.eclipse.core.model.JtAttribute;
+import jtools.eclipse.core.model.JtMethod;
+import jtools.eclipse.core.model.JtModel;
+import jtools.eclipse.core.model.JtRelationship;
 
 import org.eclipse.jdt.core.ICompilationUnit;
 

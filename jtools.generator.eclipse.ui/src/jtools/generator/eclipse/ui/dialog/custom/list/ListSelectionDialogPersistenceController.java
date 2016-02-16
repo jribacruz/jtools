@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractListSelectionDialog;
 import jtools.generator.eclipse.ui.dialog.providers.label.JtModelLabelProvider;
 import jtools.generator.eclipse.ui.helper.JtModelHelper;
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
-import jtools.generator.eclipse.ui.model.JtModel;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.LabelProvider;

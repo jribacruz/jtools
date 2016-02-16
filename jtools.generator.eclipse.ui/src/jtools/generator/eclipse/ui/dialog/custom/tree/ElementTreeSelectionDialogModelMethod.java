@@ -1,9 +1,9 @@
 package jtools.generator.eclipse.ui.dialog.custom.tree;
 
+import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractTreeListSelectionDialog;
 import jtools.generator.eclipse.ui.dialog.providers.content.JtModelMethodTreeContentProvider;
 import jtools.generator.eclipse.ui.dialog.providers.label.JtModelLabelProvider;
-import jtools.generator.eclipse.ui.model.JtModel;
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;

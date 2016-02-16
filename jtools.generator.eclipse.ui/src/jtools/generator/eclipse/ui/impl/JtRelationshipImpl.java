@@ -1,7 +1,7 @@
 package jtools.generator.eclipse.ui.impl;
 
-import jtools.generator.eclipse.ui.model.JtModel;
-import jtools.generator.eclipse.ui.model.JtRelationship;
+import jtools.eclipse.core.model.JtModel;
+import jtools.eclipse.core.model.JtRelationship;
 
 import com.thoughtworks.qdox.model.JavaField;
 

@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.impl.JtModelImpl;
-import jtools.generator.eclipse.ui.model.JtModel;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;

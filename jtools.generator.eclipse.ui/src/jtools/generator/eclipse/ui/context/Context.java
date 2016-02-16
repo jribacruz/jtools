@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
-import jtools.generator.eclipse.ui.model.JtModel;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;

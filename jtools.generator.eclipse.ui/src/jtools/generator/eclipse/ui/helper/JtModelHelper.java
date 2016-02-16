@@ -3,11 +3,11 @@ package jtools.generator.eclipse.ui.helper;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
+import jtools.eclipse.core.model.JtAttribute;
+import jtools.eclipse.core.model.JtMethod;
+import jtools.eclipse.core.model.JtModel;
 
-import jtools.generator.eclipse.ui.model.JtAttribute;
-import jtools.generator.eclipse.ui.model.JtMethod;
-import jtools.generator.eclipse.ui.model.JtModel;
+import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.model.Annotation;

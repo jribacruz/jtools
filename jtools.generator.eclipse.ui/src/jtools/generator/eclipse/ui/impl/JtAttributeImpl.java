@@ -2,8 +2,8 @@ package jtools.generator.eclipse.ui.impl;
 
 import java.util.List;
 
-import jtools.generator.eclipse.ui.model.JtAttribute;
-import jtools.generator.eclipse.ui.model.JtModel;
+import jtools.eclipse.core.model.JtAttribute;
+import jtools.eclipse.core.model.JtModel;
 
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.DocletTag;

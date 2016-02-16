@@ -3,8 +3,8 @@ package jtools.generator.eclipse.ui.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.generator.eclipse.ui.model.JtMethod;
-import jtools.generator.eclipse.ui.model.JtModel;
+import jtools.eclipse.core.model.JtMethod;
+import jtools.eclipse.core.model.JtModel;
 
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaMethod;

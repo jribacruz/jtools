@@ -108,6 +108,11 @@ public class JtModelImpl implements JtModel {
 	}
 
 	@Override
+	public String getParentPackageName() {
+		return this.javaClass.getPackage().getParentPackage().getName();
+	}
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

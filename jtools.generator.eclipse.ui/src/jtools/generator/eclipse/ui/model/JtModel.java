@@ -25,6 +25,12 @@ public interface JtModel extends Serializable {
 
 	/**
 	 * 
+	 * @return
+	 */
+	public String getParentPackageName();
+
+	/**
+	 * 
 	 * Nome da classe
 	 * 
 	 * @return

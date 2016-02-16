@@ -8,7 +8,6 @@ import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractListSelectionDialog;
 import jtools.generator.eclipse.ui.dialog.providers.label.JtModelLabelProvider;
 import jtools.generator.eclipse.ui.helper.JtModelHelper;
-import jtools.generator.eclipse.ui.helper.ProjectHelper;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -35,7 +34,7 @@ public class ListSelectionDialogPersistenceController extends JtAbstractListSele
 
 	@Override
 	protected void init() {
-		this.models = ProjectHelper.getModels(project);
+		this.models = JtModelHelper.getModels(project);
 		JtConsole.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
 
 	}

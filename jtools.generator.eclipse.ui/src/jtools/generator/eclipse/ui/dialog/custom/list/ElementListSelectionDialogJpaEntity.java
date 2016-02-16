@@ -8,7 +8,6 @@ import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractElementListSelectionDialog;
 import jtools.generator.eclipse.ui.dialog.providers.label.JtModelLabelProvider;
 import jtools.generator.eclipse.ui.helper.JtModelHelper;
-import jtools.generator.eclipse.ui.helper.ProjectHelper;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -34,7 +33,7 @@ public class ElementListSelectionDialogJpaEntity extends JtAbstractElementListSe
 
 	@Override
 	protected void init() {
-		this.models = ProjectHelper.getModels(this.project);
+		this.models = JtModelHelper.getModels(this.project);
 		JtConsole.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
 	}
 

@@ -1,13 +1,20 @@
 package jtools.generator.eclipse.ui.helper;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jtools.eclipse.core.console.JtConsole;
 import jtools.eclipse.core.model.JtAttribute;
 import jtools.eclipse.core.model.JtMethod;
 import jtools.eclipse.core.model.JtModel;
+import jtools.eclipse.core.util.JtUI;
+import jtools.generator.eclipse.ui.impl.JtModelImpl;
 
 import org.apache.commons.lang3.StringUtils;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.jdt.core.ICompilationUnit;
 
 import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.model.Annotation;
@@ -119,6 +126,20 @@ public class JtModelHelper {
 		sb.append(StringUtils.join(method.getParamentersTypeName(), ","));
 		sb.append(")");
 		return sb.toString();
+	}
+	
+	public static List<JtModel> getModels(IProject project) {
+		List<JtModel> models = new ArrayList<>();
+		for (ICompilationUnit compilationUnit : JtUI.getCompilationUnits(project)) {
+			try {
+				models.add(new JtModelImpl(compilationUnit));
+			} catch (FileNotFoundException e) {
+				JtConsole.log(e.getMessage());
+			} catch (IOException e) {
+				JtConsole.log(e.getMessage());
+			}
+		}
+		return models;
 	}
 
 }

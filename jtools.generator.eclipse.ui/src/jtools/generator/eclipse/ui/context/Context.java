@@ -12,7 +12,7 @@ import java.util.Map;
 
 import jtools.eclipse.core.console.JtConsole;
 import jtools.eclipse.core.model.JtModel;
-import jtools.generator.eclipse.ui.helper.ProjectHelper;
+import jtools.eclipse.core.util.JtUI;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -72,7 +72,7 @@ public class Context {
 	 * Atualiza o projeto selecionado.
 	 */
 	public void refreshSelectedProject() {
-		ProjectHelper.refreshProject(getSelectedProject());
+		JtUI.refreshProject(getSelectedProject());
 	}
 
 	public boolean hasSelectedProject() {

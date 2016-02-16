@@ -1,7 +1,7 @@
 package jtools.java.project.viewer.views;
 
-import jtools.java.project.viewer.provider.ProjectLabelProvider;
-import jtools.java.project.viewer.provider.ProjectTreeContentProvider;
+import jtools.java.project.viewer.provider.JavaProjectLabelProvider;
+import jtools.java.project.viewer.provider.JavaProjectTreeContentProvider;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jdt.core.IJavaProject;
@@ -71,8 +71,8 @@ public class JtJavaProjectView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		drillDownAdapter = new DrillDownAdapter(viewer);
-		viewer.setContentProvider(new ProjectTreeContentProvider());
-		viewer.setLabelProvider(new ProjectLabelProvider());
+		viewer.setContentProvider(new JavaProjectTreeContentProvider());
+		viewer.setLabelProvider(new JavaProjectLabelProvider());
 		viewer.setSorter(new NameSorter());
 		IJavaProject javaProject = JavaCore.create(ResourcesPlugin.getWorkspace().getRoot().getProject("aelis2016"));
 		viewer.setInput(new IJavaProject[] { javaProject });

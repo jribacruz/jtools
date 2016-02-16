@@ -1,10 +1,13 @@
 package jtools.java.project.viewer.provider;
 
+import jtools.eclipse.core.util.JtUI;
+
 import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-public class ProjectTreeContentProvider implements ITreeContentProvider {
+public class JavaProjectTreeContentProvider implements ITreeContentProvider {
 
 	@Override
 	public void dispose() {
@@ -18,6 +21,11 @@ public class ProjectTreeContentProvider implements ITreeContentProvider {
 
 	@Override
 	public Object[] getChildren(Object arg0) {
+		if (arg0 instanceof IJavaProject) {
+			IJavaProject javaProject = (IJavaProject) arg0;
+			IPackageFragmentRoot[] roots = { JtUI.getPackageFragmentRootSrcMainJava(javaProject) };
+			return roots;
+		}
 		return new Object[] {};
 	}
 

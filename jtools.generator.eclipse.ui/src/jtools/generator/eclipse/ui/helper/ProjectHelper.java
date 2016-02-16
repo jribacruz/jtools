@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.generator.eclipse.ui.context.JtConsole;
+import jtools.eclipse.core.console.JtConsole;
 import jtools.generator.eclipse.ui.impl.JtModelImpl;
 import jtools.generator.eclipse.ui.model.JtModel;
 

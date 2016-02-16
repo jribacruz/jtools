@@ -1,6 +1,6 @@
 package jtools.java.project.viewer.provider;
 
-import org.eclipse.core.resources.IProject;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.PlatformUI;
@@ -21,8 +21,8 @@ public class ProjectLabelProvider extends LabelProvider {
 	 */
 	@Override
 	public String getText(Object element) {
-		IProject project = (IProject) element;
-		return project.getName();
+		IJavaProject project = (IJavaProject) element;
+		return project.getProject().getName();
 	}
 
 }

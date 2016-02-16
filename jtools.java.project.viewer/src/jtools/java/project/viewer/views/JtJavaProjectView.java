@@ -4,6 +4,8 @@ import jtools.java.project.viewer.provider.ProjectLabelProvider;
 import jtools.java.project.viewer.provider.ProjectTreeContentProvider;
 
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -72,7 +74,8 @@ public class JtJavaProjectView extends ViewPart {
 		viewer.setContentProvider(new ProjectTreeContentProvider());
 		viewer.setLabelProvider(new ProjectLabelProvider());
 		viewer.setSorter(new NameSorter());
-		viewer.setInput(ResourcesPlugin.getWorkspace().getRoot().getProjects());
+		IJavaProject javaProject = JavaCore.create(ResourcesPlugin.getWorkspace().getRoot().getProject("aelis2016"));
+		viewer.setInput(new IJavaProject[] { javaProject });
 
 		// Create the help context id for the viewer's control
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "jtools.java.project.viewer.viewer");

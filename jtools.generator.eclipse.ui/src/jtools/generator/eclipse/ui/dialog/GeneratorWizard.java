@@ -3,8 +3,8 @@ package jtools.generator.eclipse.ui.dialog;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import jtools.eclipse.core.console.JtConsole;
 import jtools.generator.eclipse.ui.context.Context;
-import jtools.generator.eclipse.ui.context.JtConsole;
 import jtools.generator.eclipse.ui.context.MessageContext;
 import jtools.generator.eclipse.ui.context.MessageContext.SeverityType;
 import jtools.generator.eclipse.ui.core.JtGenerator;

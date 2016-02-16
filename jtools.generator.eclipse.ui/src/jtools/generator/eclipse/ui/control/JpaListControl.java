@@ -2,7 +2,7 @@ package jtools.generator.eclipse.ui.control;
 
 import java.util.ArrayList;
 
-import jtools.generator.eclipse.ui.context.JtConsole;
+import jtools.eclipse.core.console.JtConsole;
 import jtools.generator.eclipse.ui.core.JtControl;
 import jtools.generator.eclipse.ui.dialog.custom.list.ElementListSelectionDialogJpaEntity;
 import jtools.generator.eclipse.ui.dialog.event.ChangeListener;

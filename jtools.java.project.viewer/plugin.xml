@@ -9,7 +9,7 @@
             id="jtools.java.project.viewer">
       </category>
       <view
-            name="Jtool Java Project View"
+            name="Jtool Project Explorer"
             icon="icons/sample.gif"
             category="jtools.java.project.viewer"
             class="jtools.java.project.viewer.views.JtJavaProjectView"

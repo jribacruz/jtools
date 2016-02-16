@@ -1,6 +1,6 @@
 package jtools.java.project.viewer.provider;
 
-import org.eclipse.core.resources.IProject;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
@@ -23,7 +23,7 @@ public class ProjectTreeContentProvider implements ITreeContentProvider {
 
 	@Override
 	public Object[] getElements(Object arg0) {
-		return (IProject[]) arg0;
+		return (IJavaProject[]) arg0;
 	}
 
 	@Override

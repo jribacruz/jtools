@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
-import jtools.generator.eclipse.ui.context.JtConsole;
+import jtools.eclipse.core.console.JtConsole;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.core.resources.IProject;

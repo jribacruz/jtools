@@ -5,6 +5,8 @@ Bundle-SymbolicName: jtools.eclipse.core
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: jtools.eclipse.core.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.eclipse.ui.console;bundle-version="3.5.300"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
+Export-Package: jtools.eclipse.core.console

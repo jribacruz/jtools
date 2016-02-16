@@ -1,4 +1,4 @@
-package jtools.generator.eclipse.ui.context;
+package jtools.eclipse.core.console;
 
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;

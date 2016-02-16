@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import jtools.eclipse.core.console.JtConsole;
 import jtools.generator.eclipse.ui.helper.ProjectHelper;
 import jtools.generator.eclipse.ui.model.JtModel;
 

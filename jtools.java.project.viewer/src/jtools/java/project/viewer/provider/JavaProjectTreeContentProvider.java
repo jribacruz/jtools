@@ -23,7 +23,7 @@ public class JavaProjectTreeContentProvider implements ITreeContentProvider {
 	public Object[] getChildren(Object arg0) {
 		if (arg0 instanceof IJavaProject) {
 			IJavaProject javaProject = (IJavaProject) arg0;
-			IPackageFragmentRoot[] roots = { JtUI.getPackageFragmentRootSrcMainJava(javaProject) };
+			IPackageFragmentRoot[] roots = { JtUI.getSrcMainJava(javaProject) };
 			return roots;
 		}
 		return new Object[] {};

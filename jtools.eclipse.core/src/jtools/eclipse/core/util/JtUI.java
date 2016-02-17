@@ -193,8 +193,28 @@ public class JtUI {
 		return roots.toArray(new IPackageFragmentRoot[] {});
 	}
 
-	public static IPackageFragmentRoot getPackageFragmentRootSrcMainJava(IJavaProject javaProject) {
+	public static IPackageFragmentRoot getSrcMainJava(IJavaProject javaProject) {
 		return javaProject.getPackageFragmentRoot("src/main/java");
+	}
+
+	public static IPackageFragmentRoot getSrcTestJava(IJavaProject javaProject) {
+		return javaProject.getPackageFragmentRoot("src/test/java");
+	}
+
+	public static IPackageFragmentRoot getSrcMainGroovy(IJavaProject javaProject) {
+		return javaProject.getPackageFragmentRoot("src/test/groovy");
+	}
+
+	public static IPackageFragmentRoot getSrcMainResources(IJavaProject javaProject) {
+		return javaProject.getPackageFragmentRoot("src/main/resources");
+	}
+
+	public static IPackageFragmentRoot getSrcTestResources(IJavaProject javaProject) {
+		return javaProject.getPackageFragmentRoot("src/test/resources");
+	}
+
+	public static IPackageFragmentRoot getSrcSite(IJavaProject javaProject) {
+		return javaProject.getPackageFragmentRoot("src/site");
 	}
 
 	public static boolean isPackageFragment(IStructuredSelection selection) {

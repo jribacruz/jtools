@@ -114,9 +114,9 @@ public class JtJavaProjectView extends ViewPart {
 		manager.add(action1);
 		manager.add(action2);
 		manager.add(new Separator());
-		drillDownAdapter.addNavigationActions(manager);
+		//drillDownAdapter.addNavigationActions(manager);
 		// Other plug-ins can contribute there actions here
-		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+		//manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
 	private void fillLocalToolBar(IToolBarManager manager) {

@@ -23,4 +23,6 @@ public class Jt implements Serializable {
 
 	public final static JtUtilHelper UTIL = new JtUtilHelper();
 
+	public final static JtImages IMAGES = new JtImages();
+
 }

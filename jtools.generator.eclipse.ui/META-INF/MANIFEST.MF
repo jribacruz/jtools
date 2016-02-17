@@ -23,6 +23,4 @@ Bundle-ActivationPolicy: lazy
 Export-Package: jtools.generator.eclipse.ui,
  jtools.generator.eclipse.ui.context,
  jtools.generator.eclipse.ui.control,
- jtools.generator.eclipse.ui.core,
- jtools.generator.eclipse.ui.dialog,
- jtools.generator.eclipse.ui.dialog.template
+ jtools.generator.eclipse.ui.core

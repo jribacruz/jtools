@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 import jtools.eclipse.core.facade.Jt;
-import jtools.eclipse.core.facade.JtMessage;
+import jtools.eclipse.core.facade.JtMessageHelper;
 import jtools.generator.eclipse.ui.context.Context;
 import jtools.generator.eclipse.ui.core.JtGenerator;
 
@@ -66,19 +66,19 @@ public class GeneratorWizard extends Wizard {
 			Jt.CONSOLE.log("[GeneratorWizard] Projeto Jtool %s criado com sucesso.", page1.getProjectName());
 
 		} catch (CoreException e) {
-			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessageHelper.SeverityType.ERROR, e.getMessage());
 		} catch (URISyntaxException e) {
-			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessageHelper.SeverityType.ERROR, e.getMessage());
 		} catch (IOException e) {
-			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessageHelper.SeverityType.ERROR, e.getMessage());
 		} catch (ParseException e) {
-			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessageHelper.SeverityType.ERROR, e.getMessage());
 		} catch (CompileException e) {
-			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessageHelper.SeverityType.ERROR, e.getMessage());
 		} catch (RenderException e) {
-			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessageHelper.SeverityType.ERROR, e.getMessage());
 		} catch (Exception e) {
-			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessageHelper.SeverityType.ERROR, e.getMessage());
 		}
 		return true;
 	}

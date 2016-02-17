@@ -11,8 +11,14 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.jdt.core;bundle-version="3.10.0",
  org.eclipse.core.resources;bundle-version="3.9.1",
  org.eclipse.jdt.launching;bundle-version="3.7.102",
- com.google.guava;bundle-version="15.0.0"
+ com.google.guava;bundle-version="15.0.0",
+ org.apache.commons.lang;bundle-version="2.6.0",
+ org.eclipse.ui.ide;bundle-version="3.10.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: jtools.eclipse.core.facade,
- jtools.eclipse.core.model
+Export-Package: jtools.eclipse.core.dialog,
+ jtools.eclipse.core.facade,
+ jtools.eclipse.core.facade.dialog,
+ jtools.eclipse.core.listener,
+ jtools.eclipse.core.model,
+ jtools.eclipse.core.provider

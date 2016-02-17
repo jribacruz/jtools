@@ -3,11 +3,11 @@ package jtools.generator.eclipse.ui.control;
 import java.util.ArrayList;
 
 import jtools.eclipse.core.facade.Jt;
+import jtools.eclipse.core.facade.dialog.SelectionDialogEntity;
+import jtools.eclipse.core.listener.ChangeListener;
+import jtools.eclipse.core.listener.FinishListener;
 import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.core.JtControl;
-import jtools.generator.eclipse.ui.dialog.custom.list.ElementListSelectionDialogJpaEntity;
-import jtools.generator.eclipse.ui.dialog.event.ChangeListener;
-import jtools.generator.eclipse.ui.dialog.event.FinishListener;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.swt.SWT;
@@ -36,7 +36,7 @@ public class JpaListControl extends JtControl {
 
 	private Composite container;
 
-	private ElementListSelectionDialogJpaEntity dialogJpaEntity;
+	private SelectionDialogEntity dialogJpaEntity;
 
 	private IWorkbenchWindow window;
 
@@ -76,7 +76,7 @@ public class JpaListControl extends JtControl {
 		this.removeButton.setEnabled(this.jpaEntityModels.size() > 0);
 		this.removeButton.addMouseListener(new RemoveButtonMouseListener());
 
-		this.dialogJpaEntity = new ElementListSelectionDialogJpaEntity(this.project, this.window);
+		this.dialogJpaEntity = new SelectionDialogEntity(this.project, this.window);
 		this.dialogJpaEntity.addFinishListener(new DialogJpaFinishListener());
 
 		GridData gd = new GridData(GridData.FILL_HORIZONTAL);

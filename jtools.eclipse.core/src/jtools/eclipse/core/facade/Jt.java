@@ -9,16 +9,18 @@ public class Jt implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public final static JtSelection SELECTION = new JtSelection();
+	public final static JtSelectionHelper SELECTION = new JtSelectionHelper();
 
-	public final static JtConsole CONSOLE = new JtConsole();
+	public final static JtConsoleHelper CONSOLE = new JtConsoleHelper();
 
-	public final static JtProject PROJECT = new JtProject();
+	public final static JtProjectHelper PROJECT = new JtProjectHelper();
 
-	public final static JtDialog DIALOG = new JtDialog();
+	public final static JtDialogHelper DIALOG = new JtDialogHelper();
 
-	public final static JtMessage MESSAGE = new JtMessage();
+	public final static JtMessageHelper MESSAGE = new JtMessageHelper();
 
-	public final static JtUtil UTIL = new JtUtil();
+	public final static JtModelHelper MODEL = new JtModelHelper();
+
+	public final static JtUtilHelper UTIL = new JtUtilHelper();
 
 }

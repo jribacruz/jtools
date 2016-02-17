@@ -3,9 +3,8 @@ package jtools.generator.eclipse.ui.dialog.custom.list;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.facade.Jt;
 import jtools.eclipse.core.model.JtModel;
-import jtools.eclipse.core.util.JtUI;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractElementListSelectionDialog;
 import jtools.generator.eclipse.ui.dialog.providers.label.JtModelLabelProvider;
 import jtools.generator.eclipse.ui.helper.JtModelHelper;
@@ -38,7 +37,7 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 	@Override
 	protected void init() {
 		this.models = JtModelHelper.getModels(this.project);
-		JtConsole.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
+		Jt.CONSOLE.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
 	}
 
 	/**
@@ -52,7 +51,7 @@ public class ElementListSelectionDialogBusinessController extends JtAbstractElem
 				return JtModelHelper.hasAnnotationTypeName(model, "BusinessController");
 			}
 		});
-		JtConsole.log("[%s] %d business controllers carregadas para o projeto", this.getClass().getName(), filteredModelList.size());
+		Jt.CONSOLE.log("[%s] %d business controllers carregadas para o projeto", this.getClass().getName(), filteredModelList.size());
 		return JtModelHelper.asArray(filteredModelList);
 	}
 

@@ -3,11 +3,9 @@ package jtools.generator.eclipse.ui.dialog;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import jtools.eclipse.core.console.JtConsole;
-import jtools.eclipse.core.util.JtUI;
+import jtools.eclipse.core.facade.Jt;
+import jtools.eclipse.core.facade.JtMessage;
 import jtools.generator.eclipse.ui.context.Context;
-import jtools.generator.eclipse.ui.context.MessageContext;
-import jtools.generator.eclipse.ui.context.MessageContext.SeverityType;
 import jtools.generator.eclipse.ui.core.JtGenerator;
 
 import org.eclipse.core.resources.IProject;
@@ -41,46 +39,46 @@ public class GeneratorWizard extends Wizard {
 	public boolean performFinish() {
 
 		try {
-			JtConsole.log("[GeneratorWizard] Iniciando criação do Jtool Project %s", page1.getProjectName());
+			Jt.CONSOLE.log("[GeneratorWizard] Iniciando criação do Jtool Project %s", page1.getProjectName());
 			IProject project = createJTProject();
-			JtConsole.log("[GeneratorWizard] Adicionando Java Nature");
+			Jt.CONSOLE.log("[GeneratorWizard] Adicionando Java Nature");
 			addJavaNature(project);
-			JtConsole.log("[GeneratorWizard] Adicionando JRE");
+			Jt.CONSOLE.log("[GeneratorWizard] Adicionando JRE");
 			addDefaultJRE(project);
-			JtConsole.log("[GeneratorWizard] Adicionando Plugin Nature");
+			Jt.CONSOLE.log("[GeneratorWizard] Adicionando Plugin Nature");
 			addPluginNature(project);
-			JtConsole.log("[GeneratorWizard] Adicionando Plugin Dependencies");
+			Jt.CONSOLE.log("[GeneratorWizard] Adicionando Plugin Dependencies");
 			addPluginDependencies(project);
-			JtConsole.log("[GeneratorWizard] Criando source folder");
+			Jt.CONSOLE.log("[GeneratorWizard] Criando source folder");
 			createSrcFolder(project);
-			JtConsole.log("[GeneratorWizard] Criando META-INF folder");
+			Jt.CONSOLE.log("[GeneratorWizard] Criando META-INF folder");
 			createMetaInfFolder(project);
-			JtConsole.log("[GeneratorWizard] Criando template folder");
+			Jt.CONSOLE.log("[GeneratorWizard] Criando template folder");
 			createTemplatesFolder(project);
 			createSrcPackage(project);
 
-			JtConsole.log("[GeneratorWizard] Criando Plugin Activator");
+			Jt.CONSOLE.log("[GeneratorWizard] Criando Plugin Activator");
 			generateActivator(project);
-			JtConsole.log("[GeneratorWizard] Criando MANIFEST.MF");
+			Jt.CONSOLE.log("[GeneratorWizard] Criando MANIFEST.MF");
 			generateManifestMf(project);
 
-			JtUI.refreshProject(project);
-			JtConsole.log("[GeneratorWizard] Projeto Jtool %s criado com sucesso.", page1.getProjectName());
+			Jt.PROJECT.refreshProject(project);
+			Jt.CONSOLE.log("[GeneratorWizard] Projeto Jtool %s criado com sucesso.", page1.getProjectName());
 
 		} catch (CoreException e) {
-			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
 		} catch (URISyntaxException e) {
-			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
 		} catch (IOException e) {
-			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
 		} catch (ParseException e) {
-			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
 		} catch (CompileException e) {
-			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
 		} catch (RenderException e) {
-			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
 		} catch (Exception e) {
-			MessageContext.add("Aviso", SeverityType.ERROR, e.getMessage());
+			Jt.MESSAGE.add("Aviso", JtMessage.SeverityType.ERROR, e.getMessage());
 		}
 		return true;
 	}
@@ -91,7 +89,7 @@ public class GeneratorWizard extends Wizard {
 	 * @throws CoreException
 	 */
 	private IProject createJTProject() throws CoreException {
-		return JtUI.create(page1.getProjectName());
+		return Jt.PROJECT.create(page1.getProjectName());
 	}
 
 	/**
@@ -100,7 +98,7 @@ public class GeneratorWizard extends Wizard {
 	 * @throws CoreException
 	 */
 	private void addPluginNature(IProject project) throws CoreException {
-		JtUI.addNature(project, "org.eclipse.pde.PluginNature");
+		Jt.PROJECT.addNature(project, "org.eclipse.pde.PluginNature");
 	}
 
 	/**
@@ -109,7 +107,7 @@ public class GeneratorWizard extends Wizard {
 	 * @throws CoreException
 	 */
 	private void addJavaNature(IProject project) throws CoreException {
-		JtUI.addNature(project, JavaCore.NATURE_ID);
+		Jt.PROJECT.addNature(project, JavaCore.NATURE_ID);
 	}
 
 	/**
@@ -118,7 +116,7 @@ public class GeneratorWizard extends Wizard {
 	 * @throws CoreException
 	 */
 	private void createSrcFolder(IProject project) throws CoreException {
-		JtUI.createSourceFolder(project, "src");
+		Jt.PROJECT.createSourceFolder(project, "src");
 	}
 
 	/**
@@ -127,7 +125,7 @@ public class GeneratorWizard extends Wizard {
 	 * @throws CoreException
 	 */
 	private void createMetaInfFolder(IProject project) throws CoreException {
-		JtUI.createFolder(project, "META-INF");
+		Jt.PROJECT.createFolder(project, "META-INF");
 	}
 
 	/**
@@ -136,7 +134,7 @@ public class GeneratorWizard extends Wizard {
 	 * @throws CoreException
 	 */
 	private void createTemplatesFolder(IProject project) throws CoreException {
-		JtUI.createFolder(project, "templates");
+		Jt.PROJECT.createFolder(project, "templates");
 	}
 
 	/**
@@ -145,7 +143,7 @@ public class GeneratorWizard extends Wizard {
 	 * @throws JavaModelException
 	 */
 	private void addDefaultJRE(IProject project) throws JavaModelException {
-		JtUI.addDefaultJRE(project);
+		Jt.PROJECT.addDefaultJRE(project);
 
 	}
 
@@ -155,7 +153,7 @@ public class GeneratorWizard extends Wizard {
 	 * @throws JavaModelException
 	 */
 	private void addPluginDependencies(IProject project) throws JavaModelException {
-		JtUI.addClasspathEntry(project, JavaCore.newContainerEntry(new Path("org.eclipse.pde.core.requiredPlugins")));
+		Jt.PROJECT.addClasspathEntry(project, JavaCore.newContainerEntry(new Path("org.eclipse.pde.core.requiredPlugins")));
 	}
 
 	public void generateManifestMf(IProject project) throws URISyntaxException, IOException, ParseException, CompileException,

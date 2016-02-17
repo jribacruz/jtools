@@ -5,11 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.facade.Jt;
 import jtools.eclipse.core.model.JtAttribute;
 import jtools.eclipse.core.model.JtMethod;
 import jtools.eclipse.core.model.JtModel;
-import jtools.eclipse.core.util.JtUI;
 import jtools.generator.eclipse.ui.impl.JtModelImpl;
 
 import org.apache.commons.lang3.StringUtils;
@@ -127,16 +126,16 @@ public class JtModelHelper {
 		sb.append(")");
 		return sb.toString();
 	}
-	
+
 	public static List<JtModel> getModels(IProject project) {
 		List<JtModel> models = new ArrayList<>();
-		for (ICompilationUnit compilationUnit : JtUI.getCompilationUnits(project)) {
+		for (ICompilationUnit compilationUnit : Jt.PROJECT.getCompilationUnits(project)) {
 			try {
 				models.add(new JtModelImpl(compilationUnit));
 			} catch (FileNotFoundException e) {
-				JtConsole.log(e.getMessage());
+				Jt.MESSAGE.error(e.getMessage());
 			} catch (IOException e) {
-				JtConsole.log(e.getMessage());
+				Jt.MESSAGE.error(e.getMessage());
 			}
 		}
 		return models;

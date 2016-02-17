@@ -3,7 +3,7 @@ package jtools.generator.eclipse.ui.dialog.custom.list;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.facade.Jt;
 import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractElementListSelectionDialog;
 import jtools.generator.eclipse.ui.dialog.providers.label.JtModelLabelProvider;
@@ -34,7 +34,7 @@ public class ElementListSelectionDialogJpaEntity extends JtAbstractElementListSe
 	@Override
 	protected void init() {
 		this.models = JtModelHelper.getModels(this.project);
-		JtConsole.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
+		Jt.CONSOLE.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class ElementListSelectionDialogJpaEntity extends JtAbstractElementListSe
 			}
 		});
 		filteredModels.removeAll(getSelectedList());
-		JtConsole.log("[%s] %d entities para o projeto", this.getClass().getName(), filteredModels.size());
+		Jt.CONSOLE.log("[%s] %d entities para o projeto", this.getClass().getName(), filteredModels.size());
 		return JtModelHelper.asArray(filteredModels);
 	}
 

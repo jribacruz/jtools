@@ -1,9 +1,8 @@
-package jtools.eclipse.core.util;
+package jtools.eclipse.core.facade;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import jtools.eclipse.core.console.JtConsole;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -12,8 +11,6 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
@@ -22,28 +19,28 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.launching.JavaRuntime;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.google.common.base.Predicate;
 
-public class JtUI {
-
-	public static Image getImage(String bundleId, String path) {
-		return AbstractUIPlugin.imageDescriptorFromPlugin(bundleId, path).createImage();
-	}
+public class JtProject implements Serializable {
 
 	/**
 	 * 
-	 * @param project
 	 */
-	public static void refreshProject(IProject project) {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Atualiza o projeto.
+	 * 
+	 * @param project
+	 *            Projeto eclipse.
+	 */
+	public void refreshProject(IProject project) {
 		if (project != null) {
 			try {
 				project.refreshLocal(IResource.DEPTH_INFINITE, null);
 			} catch (CoreException e) {
-				e.printStackTrace();
+				Jt.MESSAGE.error(e.getMessage());
 			}
 		}
 	}
@@ -57,7 +54,7 @@ public class JtUI {
 	 * @return
 	 * @throws CoreException
 	 */
-	public static IProject create(String name) throws CoreException {
+	public IProject create(String name) throws CoreException {
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IProject project = root.getProject(name);
 		project.create(null);
@@ -67,11 +64,14 @@ public class JtUI {
 
 	/**
 	 * 
+	 * Adiciona uma nature ao projeto.
+	 * 
 	 * @param project
 	 * @param natureId
+	 *            Id da nature.
 	 * @throws CoreException
 	 */
-	public static void addNature(IProject project, String natureId) throws CoreException {
+	public void addNature(IProject project, String natureId) throws CoreException {
 		IProjectDescription desc = project.getDescription();
 		String[] prevNatures = desc.getNatureIds();
 		String[] newNatures = new String[prevNatures.length + 1];
@@ -87,7 +87,7 @@ public class JtUI {
 	 * @param name
 	 * @throws CoreException
 	 */
-	public static void createSourceFolder(IProject project, String name) throws CoreException {
+	public void createSourceFolder(IProject project, String name) throws CoreException {
 		IFolder sourceFolder = project.getFolder(name);
 		sourceFolder.create(false, true, null);
 
@@ -102,7 +102,7 @@ public class JtUI {
 	 * @param name
 	 * @throws CoreException
 	 */
-	public static void createFolder(IProject project, String name) throws CoreException {
+	public void createFolder(IProject project, String name) throws CoreException {
 		IFolder folder = project.getFolder(name);
 		folder.create(false, true, null);
 	}
@@ -113,7 +113,7 @@ public class JtUI {
 	 * @param classpathEntry
 	 * @throws JavaModelException
 	 */
-	public static void addClasspathEntry(IProject project, IClasspathEntry classpathEntry) throws JavaModelException {
+	public void addClasspathEntry(IProject project, IClasspathEntry classpathEntry) throws JavaModelException {
 		IJavaProject javaProject = JavaCore.create(project);
 		IClasspathEntry[] oldEntries = javaProject.getRawClasspath();
 		IClasspathEntry[] newEntries = new IClasspathEntry[oldEntries.length + 1];
@@ -127,7 +127,7 @@ public class JtUI {
 	 * @param project
 	 * @throws JavaModelException
 	 */
-	public static void addDefaultJRE(IProject project) throws JavaModelException {
+	public void addDefaultJRE(IProject project) throws JavaModelException {
 		IJavaProject javaProject = JavaCore.create(project);
 		javaProject.setRawClasspath(new IClasspathEntry[0], null);
 		IClasspathEntry[] oldEntries = javaProject.getRawClasspath();
@@ -143,7 +143,7 @@ public class JtUI {
 	 * @return
 	 * @throws JavaModelException
 	 */
-	public static List<ICompilationUnit> getCompilationUnits(IProject project) {
+	public List<ICompilationUnit> getCompilationUnits(IProject project) {
 		IJavaProject javaProject = JavaCore.create(project);
 		List<ICompilationUnit> units = new ArrayList<>();
 
@@ -158,12 +158,17 @@ public class JtUI {
 				}
 			}
 		} catch (JavaModelException e) {
-			JtConsole.log(e.getMessage());
+			Jt.MESSAGE.error(e.getMessage());
 		}
 		return units;
 	}
 
-	public static IPackageFragmentRoot[] getPackageFragmentRoots(IJavaProject javaProject) {
+	/**
+	 * 
+	 * @param javaProject
+	 * @return
+	 */
+	public IPackageFragmentRoot[] getPackageFragmentRoots(IJavaProject javaProject) {
 		List<IPackageFragmentRoot> roots = new ArrayList<>();
 		try {
 			IPackageFragmentRoot[] fragmentRoots = javaProject.getPackageFragmentRoots();
@@ -172,12 +177,12 @@ public class JtUI {
 				roots.add(root);
 			}
 		} catch (JavaModelException e) {
-			e.printStackTrace();
+			Jt.MESSAGE.error(e.getMessage());
 		}
 		return roots.toArray(new IPackageFragmentRoot[] {});
 	}
 
-	public static IPackageFragmentRoot[] getPackageFragmentRoots(IJavaProject javaProject, Predicate<IPackageFragmentRoot> predicate) {
+	public IPackageFragmentRoot[] getPackageFragmentRoots(IJavaProject javaProject, Predicate<IPackageFragmentRoot> predicate) {
 		List<IPackageFragmentRoot> roots = new ArrayList<>();
 		try {
 			IPackageFragmentRoot[] fragmentRoots = javaProject.getPackageFragmentRoots();
@@ -188,80 +193,33 @@ public class JtUI {
 				}
 			}
 		} catch (JavaModelException e) {
-			e.printStackTrace();
+			Jt.MESSAGE.error(e.getMessage());
 		}
 		return roots.toArray(new IPackageFragmentRoot[] {});
 	}
 
-	public static IPackageFragmentRoot getSrcMainJava(IJavaProject javaProject) {
+	public IPackageFragmentRoot getSrcMainJava(IJavaProject javaProject) {
 		return javaProject.getPackageFragmentRoot("src/main/java");
 	}
 
-	public static IPackageFragmentRoot getSrcTestJava(IJavaProject javaProject) {
+	public IPackageFragmentRoot getSrcTestJava(IJavaProject javaProject) {
 		return javaProject.getPackageFragmentRoot("src/test/java");
 	}
 
-	public static IPackageFragmentRoot getSrcMainGroovy(IJavaProject javaProject) {
+	public IPackageFragmentRoot getSrcMainGroovy(IJavaProject javaProject) {
 		return javaProject.getPackageFragmentRoot("src/test/groovy");
 	}
 
-	public static IPackageFragmentRoot getSrcMainResources(IJavaProject javaProject) {
+	public IPackageFragmentRoot getSrcMainResources(IJavaProject javaProject) {
 		return javaProject.getPackageFragmentRoot("src/main/resources");
 	}
 
-	public static IPackageFragmentRoot getSrcTestResources(IJavaProject javaProject) {
+	public IPackageFragmentRoot getSrcTestResources(IJavaProject javaProject) {
 		return javaProject.getPackageFragmentRoot("src/test/resources");
 	}
 
-	public static IPackageFragmentRoot getSrcSite(IJavaProject javaProject) {
+	public IPackageFragmentRoot getSrcSite(IJavaProject javaProject) {
 		return javaProject.getPackageFragmentRoot("src/site");
-	}
-
-	public static boolean isPackageFragment(IStructuredSelection selection) {
-		if (selection != null) {
-			IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
-			return IPackageFragment.class.isAssignableFrom(adaptable.getClass());
-		}
-		return false;
-	}
-
-	/**
-	 * 
-	 * @param selection
-	 * @return
-	 */
-	public static boolean isJavaProject(IStructuredSelection selection) {
-		if (selection != null) {
-			IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
-			return IJavaProject.class.isAssignableFrom(adaptable.getClass());
-		}
-		return false;
-	}
-
-	/**
-	 * 
-	 * @param selection
-	 * @return
-	 */
-	public static boolean isFolder(IStructuredSelection selection) {
-		if (selection != null) {
-			IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
-			return IFolder.class.isAssignableFrom(adaptable.getClass());
-		}
-		return false;
-	}
-
-	/**
-	 * 
-	 * @param selection
-	 * @return
-	 */
-	public static boolean isCompilationUnit(IStructuredSelection selection) {
-		if (selection != null) {
-			IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
-			return ICompilationUnit.class.isAssignableFrom(adaptable.getClass());
-		}
-		return false;
 	}
 
 }

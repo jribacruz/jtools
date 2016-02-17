@@ -3,7 +3,7 @@ package jtools.generator.eclipse.ui.dialog.custom.list;
 import java.util.ArrayList;
 import java.util.List;
 
-import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.facade.Jt;
 import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.dialog.core.JtAbstractElementListSelectionDialog;
 import jtools.generator.eclipse.ui.dialog.providers.label.JtModelLabelProvider;
@@ -35,7 +35,7 @@ public class ElementListSelectionDialogPersistenceController extends JtAbstractE
 	@Override
 	protected void init() {
 		this.models = JtModelHelper.getModels(project);
-		JtConsole.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
+		Jt.CONSOLE.log("[%s] %d models carregados para o projeto %s", this.getClass().getName(), models.size(), project.getName());
 
 	}
 
@@ -47,7 +47,7 @@ public class ElementListSelectionDialogPersistenceController extends JtAbstractE
 				return JtModelHelper.hasAnnotationTypeName(model, "PersistenceController");
 			}
 		});
-		JtConsole.log("[%s] %d persistence controllers carregadas para o projeto", this.getClass().getName(), filteredModels.size());
+		Jt.CONSOLE.log("[%s] %d persistence controllers carregadas para o projeto", this.getClass().getName(), filteredModels.size());
 		return JtModelHelper.asArray(filteredModels);
 	}
 

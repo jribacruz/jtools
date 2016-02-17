@@ -3,23 +3,15 @@ package jtools.generator.eclipse.ui.context;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.facade.Jt;
 import jtools.eclipse.core.model.JtModel;
-import jtools.eclipse.core.util.JtUI;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.Platform;
-import org.osgi.framework.Bundle;
 
 import com.lyncode.jtwig.JtwigModelMap;
 import com.lyncode.jtwig.JtwigTemplate;
@@ -72,7 +64,7 @@ public class Context {
 	 * Atualiza o projeto selecionado.
 	 */
 	public void refreshSelectedProject() {
-		JtUI.refreshProject(getSelectedProject());
+		Jt.PROJECT.refreshProject(getSelectedProject());
 	}
 
 	public boolean hasSelectedProject() {
@@ -111,35 +103,7 @@ public class Context {
 		return new File(file).isFile();
 	}
 
-	/**
-	 * 
-	 * Carrega um arquivo armazenado do bundle.
-	 * 
-	 * @param bundleId
-	 * @param location
-	 * @return
-	 * @throws IOException
-	 * @throws URISyntaxException
-	 */
-	public File load(String bundleId, String location) throws URISyntaxException, IOException {
-		Bundle bundle = Platform.getBundle(bundleId);
-		URL fileURL = bundle.getEntry(location);
-		File file = new File(FileLocator.resolve(fileURL).toURI());
-		return file;
-	}
-
-	public File load(String location) throws URISyntaxException, IOException {
-		JtConsole.log("[Context] Bundle ID: %s", bundleId);
-		if (StringUtils.isNotEmpty(bundleId)) {
-			Bundle bundle = Platform.getBundle(bundleId);
-			URL fileURL = bundle.getEntry(location);
-			URI fileURI = FileLocator.toFileURL(fileURL).toURI();
-			JtConsole.log("[Context] File URI %s", fileURI.toString());
-			File file = new File(fileURI);
-			return file;
-		}
-		return null;
-	}
+	
 
 	/**
 	 * 

@@ -2,7 +2,7 @@ package jtools.generator.eclipse.ui.control;
 
 import java.util.ArrayList;
 
-import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.facade.Jt;
 import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.core.JtControl;
 import jtools.generator.eclipse.ui.dialog.custom.list.ElementListSelectionDialogJpaEntity;
@@ -117,7 +117,7 @@ public class JpaListControl extends JtControl {
 		@Override
 		public void onFinish() {
 			JtModel jpaModel = dialogJpaEntity.getResult();
-			JtConsole.log("Entidade Selecionadas %s", jpaModel.getName());
+			Jt.CONSOLE.log("Entidade Selecionadas %s", jpaModel.getName());
 			jpaEntityModels.add(jpaModel);
 			jpaList.add(jpaModel.getFullyQualifiedName());
 			removeButton.setEnabled(jpaEntityModels.size() > 0);
@@ -137,7 +137,7 @@ public class JpaListControl extends JtControl {
 
 		@Override
 		public void mouseDown(MouseEvent arg0) {
-			JtConsole.log("Index da entidade selecionada: %d", jpaList.getSelectionIndex());
+			Jt.CONSOLE.log("Index da entidade selecionada: %d", jpaList.getSelectionIndex());
 			jpaEntityModels.remove(jpaList.getSelectionIndex());
 			jpaList.remove(jpaList.getSelectionIndex());
 			removeButton.setEnabled(jpaEntityModels.size() > 0);

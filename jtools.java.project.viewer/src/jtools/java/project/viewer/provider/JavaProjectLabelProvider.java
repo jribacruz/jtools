@@ -1,6 +1,6 @@
 package jtools.java.project.viewer.provider;
 
-import jtools.eclipse.core.util.JtUI;
+import jtools.eclipse.core.facade.Jt;
 import jtools.java.project.viewer.Activator;
 
 import org.eclipse.jdt.core.IJavaProject;
@@ -15,7 +15,7 @@ public class JavaProjectLabelProvider extends LabelProvider {
 	 */
 	@Override
 	public Image getImage(Object element) {
-		return JtUI.getImage(Activator.PLUGIN_ID, "/icons/folder.png");
+		return Jt.UTIL.getImage(Activator.PLUGIN_ID, "/icons/folder.png");
 	}
 
 	/**

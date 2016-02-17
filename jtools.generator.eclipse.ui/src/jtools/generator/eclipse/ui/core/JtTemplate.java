@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
-import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.facade.Jt;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.core.resources.IProject;
@@ -69,9 +69,9 @@ public class JtTemplate {
 	 */
 	public void write(IProject project, String... path) throws FileNotFoundException, ParseException, CompileException, RenderException {
 		String cpath = project.getLocation().toString() + StringUtils.join(path);
-		JtConsole.log("[JtTemplate] Criando arquivo %s ", cpath);
+		Jt.CONSOLE.log("[JtTemplate] Criando arquivo %s ", cpath);
 		FileOutputStream outputStream = new FileOutputStream(new File(cpath));
-		JtConsole.log("[JtTemplate] Write/Merge template ");
+		Jt.CONSOLE.log("[JtTemplate] Write/Merge template ");
 		this.template.output(outputStream, map);
 	}
 

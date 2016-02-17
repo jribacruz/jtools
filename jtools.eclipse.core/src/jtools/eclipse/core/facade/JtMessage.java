@@ -1,16 +1,15 @@
-package jtools.generator.eclipse.ui.context;
+package jtools.eclipse.core.facade;
+
+import java.io.Serializable;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 
-/**
- * Contexto de mensagens padrão do Jtools.
- * 
- * @author jcruz
- *
- */
-public class MessageContext {
+public class JtMessage implements Serializable {
 
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Severidade da mensagem.
@@ -35,11 +34,15 @@ public class MessageContext {
 		ERROR
 	}
 
-	public static void add(String title, String message) {
+	public void add(String title, String message) {
 		MessageDialog.openInformation(null, title, message);
 	}
 
-	public static void add(String title, SeverityType severity, String message) {
+	public void error(String message) {
+		MessageDialog.openError(null, "Aviso", message);
+	}
+
+	public void add(String title, SeverityType severity, String message) {
 		switch (severity) {
 		case INFO:
 			MessageDialog.openInformation(null, title, message);
@@ -52,6 +55,5 @@ public class MessageContext {
 			break;
 		}
 	}
-
 
 }

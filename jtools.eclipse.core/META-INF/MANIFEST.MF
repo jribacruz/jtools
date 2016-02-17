@@ -14,6 +14,5 @@ Require-Bundle: org.eclipse.ui,
  com.google.guava;bundle-version="15.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: jtools.eclipse.core.console,
- jtools.eclipse.core.model,
- jtools.eclipse.core.util
+Export-Package: jtools.eclipse.core.facade,
+ jtools.eclipse.core.model

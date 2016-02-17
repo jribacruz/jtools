@@ -1,31 +1,26 @@
-package jtools.eclipse.core.console;
+package jtools.eclipse.core.facade;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.Serializable;
 
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 
-/**
- * Gerenciador do console eclispe.
- * 
- * @author jcruz
- *
- */
-public class JtConsole {
+public class JtConsole implements Serializable {
 
-	private static MessageConsole messageConsole;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-	// TODO Add novos consoles.
-	private static Map<String, MessageConsole> messageConsoleMap = new HashMap<>();
+	private MessageConsole messageConsole;
 
-	public static void log(String message) {
+	public void log(String message) {
 		log(message, new Object[] {});
 	}
 
-	public static void log(String message, Object... params) {
+	public void log(String message, Object... params) {
 		if (messageConsole == null) {
 			ConsolePlugin consolePlugin = ConsolePlugin.getDefault();
 			IConsoleManager consoleManager = consolePlugin.getConsoleManager();
@@ -34,4 +29,5 @@ public class JtConsole {
 		}
 		messageConsole.newMessageStream().println(String.format(message, params));
 	}
+
 }

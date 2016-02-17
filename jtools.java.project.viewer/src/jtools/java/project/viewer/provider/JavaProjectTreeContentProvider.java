@@ -1,6 +1,6 @@
 package jtools.java.project.viewer.provider;
 
-import jtools.eclipse.core.util.JtUI;
+import jtools.eclipse.core.facade.Jt;
 
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
@@ -23,7 +23,7 @@ public class JavaProjectTreeContentProvider implements ITreeContentProvider {
 	public Object[] getChildren(Object arg0) {
 		if (arg0 instanceof IJavaProject) {
 			IJavaProject javaProject = (IJavaProject) arg0;
-			IPackageFragmentRoot[] roots = { JtUI.getSrcMainJava(javaProject) };
+			IPackageFragmentRoot[] roots = { Jt.PROJECT.getSrcMainJava(javaProject) };
 			return roots;
 		}
 		return new Object[] {};

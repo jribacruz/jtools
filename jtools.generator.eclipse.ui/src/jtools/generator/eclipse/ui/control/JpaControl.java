@@ -2,7 +2,7 @@ package jtools.generator.eclipse.ui.control;
 
 import java.util.Arrays;
 
-import jtools.eclipse.core.console.JtConsole;
+import jtools.eclipse.core.facade.Jt;
 import jtools.eclipse.core.model.JtModel;
 import jtools.generator.eclipse.ui.core.JtControl;
 import jtools.generator.eclipse.ui.dialog.custom.list.ElementListSelectionDialogJpaEntity;
@@ -113,7 +113,7 @@ public class JpaControl extends JtControl {
 		@Override
 		public void onFinish() {
 			JtModel jpaModel = dialogJpaEntity.getResult();
-			JtConsole.log("Entidade Selecionadas %s", jpaModel.getName());
+			Jt.CONSOLE.log("Entidade Selecionadas %s", jpaModel.getName());
 			jpaEntityModel = jpaModel;
 			jpaText.setText(jpaModel.getFullyQualifiedName());
 			if (changeListener != null) {

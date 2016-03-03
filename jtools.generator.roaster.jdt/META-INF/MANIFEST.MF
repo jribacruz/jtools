@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: jtools.generator.roaster.jdt
-Bundle-SymbolicName: jtools.roaster.jdt
+Bundle-SymbolicName: jtools.lib.roaster.jdt
 Bundle-Version: 2.18.0.Final
 Bundle-ClassPath: roaster-jdt-2.18.0.Final.jar
 Export-Package: org.jboss.forge.roaster._shade.org.eclipse.core.internal.boot,

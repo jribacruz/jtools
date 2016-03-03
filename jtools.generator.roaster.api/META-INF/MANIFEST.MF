@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: jtools.generator.roaster.api
-Bundle-SymbolicName: jtools.generator.roaster.api
+Bundle-SymbolicName: jtools.roaster.api
 Bundle-Version: 2.18.0.Final
 Bundle-ClassPath: roaster-api-2.18.0.Final.jar
 Export-Package: org.jboss.forge.roaster,

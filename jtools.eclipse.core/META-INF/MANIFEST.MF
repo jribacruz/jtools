@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: jtools.eclipse.core
 Bundle-SymbolicName: jtools.core
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: jtools.eclipse.core.Activator
+Bundle-Activator: jtools.core.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.console;bundle-version="3.5.300",
@@ -16,9 +16,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide;bundle-version="3.10.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: jtools.eclipse.core.dialog,
- jtools.eclipse.core.facade,
- jtools.eclipse.core.facade.dialog,
- jtools.eclipse.core.listener,
- jtools.eclipse.core.model,
- jtools.eclipse.core.provider
+Export-Package: jtools.core.dialog,
+ jtools.core.facade,
+ jtools.core.facade.dialog,
+ jtools.core.listener,
+ jtools.core.model,
+ jtools.core.provider

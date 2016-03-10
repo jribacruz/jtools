@@ -1,4 +1,4 @@
-package jtools.commons.internal;
+package jtools.commons.internal.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jtools.commons.model.TJavaAttribute;
-import jtools.commons.model.TJavaClass;
+import jtools.commons.model.TJavaModel;
 import jtools.commons.model.TJavaMethod;
 
 import org.jboss.forge.roaster.Roaster;
@@ -19,7 +19,7 @@ import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaSource;
 
-public class TJavaClassImpl implements TJavaClass {
+public class TJavaModelImpl implements TJavaModel {
 
 	/**
 	 * 
@@ -48,7 +48,7 @@ public class TJavaClassImpl implements TJavaClass {
 	 */
 	private Map<String, TJavaMethod> methods;
 
-	public TJavaClassImpl(File javaFile) throws FileNotFoundException, IOException {
+	public TJavaModelImpl(File javaFile) throws FileNotFoundException, IOException {
 		super();
 		this.javaFile = javaFile;
 		JavaDocBuilder builder = new JavaDocBuilder();

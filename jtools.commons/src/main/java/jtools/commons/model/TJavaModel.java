@@ -15,7 +15,7 @@ import com.thoughtworks.qdox.model.JavaClass;
  * @author jcruz
  *
  */
-public interface TJavaClass extends Serializable {
+public interface TJavaModel extends Serializable {
 
 	/**
 	 * Nome simples (sem o nome do package) da classe.

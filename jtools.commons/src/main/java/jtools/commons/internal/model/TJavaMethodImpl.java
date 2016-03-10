@@ -1,4 +1,4 @@
-package jtools.commons.internal;
+package jtools.commons.internal.model;
 
 import jtools.commons.model.TJavaMethod;
 

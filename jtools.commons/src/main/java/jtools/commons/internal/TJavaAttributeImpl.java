@@ -1,0 +1,120 @@
+package jtools.commons.internal;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import jtools.commons.model.TJavaAttribute;
+
+import com.thoughtworks.qdox.model.JavaField;
+import com.thoughtworks.qdox.model.JavaMethod;
+
+public class TJavaAttributeImpl implements TJavaAttribute {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6299511676333490782L;
+
+	private JavaField javaField;
+
+	public TJavaAttributeImpl(JavaField javaField) {
+		super();
+		this.javaField = javaField;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see tools4j.model.core.TAttribute#getName()
+	 */
+	@Override
+	public String getName() {
+		return javaField.getName();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see tools4j.model.core.TAttribute#getType()
+	 */
+	@Override
+	public String getType() {
+		return javaField.getType().getValue();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see tools4j.model.core.TAttribute#getGenericType()
+	 */
+	@Override
+	public Map<Integer, String> getGenericType() {
+		Map<Integer, String> genericTypes = new HashMap<>();
+		if (isGenericType()) {
+			for (int i = 0; i < javaField.getType().getActualTypeArguments().length; i++) {
+				String type = javaField.getType().getActualTypeArguments()[i].getValue();
+				genericTypes.put(i, type);
+			}
+		}
+		return genericTypes;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see tools4j.model.core.TAttribute#isGenericType()
+	 */
+	@Override
+	public boolean isGenericType() {
+		return javaField.getType().getActualTypeArguments() != null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see tools4j.model.core.TAttribute#hasSetter()
+	 */
+	@Override
+	public boolean hasSetter() {
+		String nameWithFirstCharUpper = getNameWithFirstCharUpper();
+		String setterName = "set" + nameWithFirstCharUpper;
+		for (JavaMethod method : javaField.getParentClass().getMethods()) {
+			if (method.getName().equals(setterName)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see tools4j.model.core.TAttribute#hasGetter()
+	 */
+	@Override
+	public boolean hasGetter() {
+		String nameWithFirstCharUpper = getNameWithFirstCharUpper();
+		String setterName = "get" + nameWithFirstCharUpper;
+		for (JavaMethod method : javaField.getParentClass().getMethods()) {
+			if (method.getName().equals(setterName)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private String getNameWithFirstCharUpper() {
+		String nameWithFirstCharUpper = Character.toUpperCase(getName().charAt(0)) + getName().substring(1, getName().length());
+		return nameWithFirstCharUpper;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TJavaAttribute#getJavaField()
+	 */
+	@Override
+	public JavaField getJavaField() {
+		return this.javaField;
+	}
+}

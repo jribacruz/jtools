@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import jtools.eclipse.core.facade.Jt;
+import jtools.core.facade.Jt;
 import jtools.generator.eclipse.ui.Activator;
 
 import org.apache.commons.lang3.StringUtils;

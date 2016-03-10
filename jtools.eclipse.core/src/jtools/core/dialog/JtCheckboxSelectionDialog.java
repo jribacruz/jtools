@@ -21,7 +21,6 @@ public abstract class JtCheckboxSelectionDialog<T> implements Serializable {
 	private IWorkbenchWindow window;
 
 	private ListSelectionDialog dialog;
-	
 	private FinishListener finishListener;
 
 	private String message = "Selecione uma String (* = any string, ? = any char):";
@@ -73,7 +72,7 @@ public abstract class JtCheckboxSelectionDialog<T> implements Serializable {
 	protected IWorkbenchWindow getWorkbenchWindow() {
 		return this.window;
 	}
-	
+
 	public void addFinishListener(FinishListener finishListener) {
 		this.finishListener = finishListener;
 	}

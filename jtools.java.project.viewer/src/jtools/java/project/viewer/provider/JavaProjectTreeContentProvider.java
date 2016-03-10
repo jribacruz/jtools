@@ -1,6 +1,6 @@
 package jtools.java.project.viewer.provider;
 
-import jtools.eclipse.core.facade.Jt;
+import jtools.core.facade.Jt;
 
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;

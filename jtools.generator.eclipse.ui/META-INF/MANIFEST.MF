@@ -10,14 +10,14 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.jdt;bundle-version="3.10.1",
  org.eclipse.core.resources;bundle-version="3.9.1",
  org.eclipse.jdt.launching;bundle-version="3.7.102",
- jtools.generator.jtwig.core;bundle-version="3.1.1",
+ jtools.lib.jtwig.core;bundle-version="3.1.1",
  org.eclipse.ui.ide;bundle-version="3.10.2",
- jtools.generator.qdox;bundle-version="1.12.1",
+ jtools.lib.qdox;bundle-version="1.12.1",
  org.eclipse.ui.console;bundle-version="3.5.300",
- jtools.generator.roaster.api;bundle-version="2.18.0",
- jtools.generator.roaster.jdt;bundle-version="2.18.0",
+ jtools.lib.roaster.api;bundle-version="2.18.0",
+ jtools.lib.roaster.jdt;bundle-version="2.18.0",
  org.apache.commons.io;bundle-version="2.0.1",
- jtools.eclipse.core;bundle-version="1.0.0"
+ jtools.core;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: jtools.generator.eclipse.ui,

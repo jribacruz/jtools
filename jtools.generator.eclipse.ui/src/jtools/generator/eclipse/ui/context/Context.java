@@ -6,8 +6,8 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import jtools.eclipse.core.facade.Jt;
-import jtools.eclipse.core.model.JtModel;
+import jtools.core.facade.Jt;
+import jtools.core.model.JtModel;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;

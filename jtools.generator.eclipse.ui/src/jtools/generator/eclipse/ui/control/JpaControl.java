@@ -2,11 +2,11 @@ package jtools.generator.eclipse.ui.control;
 
 import java.util.Arrays;
 
-import jtools.eclipse.core.facade.Jt;
-import jtools.eclipse.core.facade.dialog.SelectionDialogEntity;
-import jtools.eclipse.core.listener.ChangeListener;
-import jtools.eclipse.core.listener.FinishListener;
-import jtools.eclipse.core.model.JtModel;
+import jtools.core.facade.Jt;
+import jtools.core.facade.dialog.SelectionDialogEntity;
+import jtools.core.listener.ChangeListener;
+import jtools.core.listener.FinishListener;
+import jtools.core.model.JtModel;
 import jtools.generator.eclipse.ui.core.JtControl;
 
 import org.eclipse.core.resources.IProject;

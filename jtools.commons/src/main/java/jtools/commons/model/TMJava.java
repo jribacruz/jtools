@@ -1,14 +1,13 @@
-package jtools.commons.model.java;
+package jtools.commons.model;
 
 import java.io.File;
 import java.io.Serializable;
 
-import jtools.commons.types.TJavaAttributeCollection;
-import jtools.commons.types.TJavaMethodCollection;
-
 import org.jboss.forge.roaster.model.source.JavaClassSource;
 
 import com.thoughtworks.qdox.model.JavaClass;
+
+import jtools.commons.types.TCollection;
 
 /**
  * 
@@ -17,7 +16,7 @@ import com.thoughtworks.qdox.model.JavaClass;
  * @author jcruz
  *
  */
-public interface TJavaModel extends Serializable {
+public interface TMJava extends Serializable {
 
 	/**
 	 * Nome simples (sem o nome do package) da classe.
@@ -68,12 +67,19 @@ public interface TJavaModel extends Serializable {
 	 * 
 	 * @return Map com os atributos. key - Nome do Atributo value - TAttribute
 	 */
-	public TJavaAttributeCollection<TJavaAttribute> getAttributes();
+	public TCollection<TMJavaAttribute> getAttributes();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TJavaMethodCollection<TJavaMethod> getMethods();
+	public TCollection<TMJavaMethod> getMethods();
+
+	/**
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public boolean hasAnnotation(String name);
 
 }

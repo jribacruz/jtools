@@ -1,4 +1,4 @@
-package jtools.commons.model.java;
+package jtools.commons.model;
 
 import java.io.Serializable;
 
@@ -10,7 +10,7 @@ import com.thoughtworks.qdox.model.JavaMethod;
  * @author jcruz
  *
  */
-public interface TJavaMethod extends Serializable {
+public interface TMJavaMethod extends Serializable {
 
 	/**
 	 * Nome do método.

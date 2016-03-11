@@ -4,22 +4,22 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.commons.model.java.TJavaAttribute;
-import jtools.commons.model.java.TJavaMethod;
-import jtools.commons.model.java.TJavaModel;
-import jtools.commons.types.TJavaAttributeCollection;
-import jtools.commons.types.TJavaMethodCollection;
-
 import org.jboss.forge.roaster.Roaster;
 import org.jboss.forge.roaster.model.source.JavaClassSource;
 
 import com.thoughtworks.qdox.JavaDocBuilder;
+import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaSource;
 
-public class TJavaModelImpl implements TJavaModel {
+import jtools.commons.model.TMJavaAttribute;
+import jtools.commons.model.TMJavaMethod;
+import jtools.commons.model.TMJava;
+import jtools.commons.types.TCollection;
+
+public class TMJavaImpl implements TMJava {
 
 	/**
 	 * 
@@ -41,14 +41,14 @@ public class TJavaModelImpl implements TJavaModel {
 	/**
 	 * Lista de Atributos como map.
 	 */
-	private TJavaAttributeCollection<TJavaAttribute> attributes;
+	private TCollection<TMJavaAttribute> attributes;
 
 	/**
 	 * Lista de Metodos como map.
 	 */
-	private TJavaMethodCollection<TJavaMethod> methods;
+	private TCollection<TMJavaMethod> methods;
 
-	public TJavaModelImpl(File javaFile) throws FileNotFoundException, IOException {
+	public TMJavaImpl(File javaFile) throws FileNotFoundException, IOException {
 		super();
 		this.javaFile = javaFile;
 		JavaDocBuilder builder = new JavaDocBuilder();
@@ -113,11 +113,11 @@ public class TJavaModelImpl implements TJavaModel {
 	 * @see tools4j.model.TClass#getAttributes()
 	 */
 	@Override
-	public TJavaAttributeCollection<TJavaAttribute> getAttributes() {
+	public TCollection<TMJavaAttribute> getAttributes() {
 		if (this.attributes == null) {
-			this.attributes = new TJavaAttributeCollection<>();
+			this.attributes = new TCollection<>();
 			for (JavaField javaField : this.javaClass.getFields()) {
-				this.attributes.add(new TJavaAttributeImpl(javaField));
+				this.attributes.add(new TMJavaAttributeImpl(javaField));
 			}
 		}
 		return this.attributes;
@@ -140,14 +140,29 @@ public class TJavaModelImpl implements TJavaModel {
 	 * @see tools4j.model.core.TClassModel#getMethods()
 	 */
 	@Override
-	public TJavaMethodCollection<TJavaMethod> getMethods() {
+	public TCollection<TMJavaMethod> getMethods() {
 		if (this.methods == null) {
-			this.methods = new TJavaMethodCollection<>();
+			this.methods = new TCollection<>();
 			for (JavaMethod javaMethod : this.javaClass.getMethods()) {
-				this.methods.add(new TJavaMethodImpl(javaMethod));
+				this.methods.add(new TMJavaMethodImpl(javaMethod));
 			}
 		}
 		return this.methods;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.java.TJavaModel#hasAnnotation(java.lang.String)
+	 */
+	@Override
+	public boolean hasAnnotation(String name) {
+		for (Annotation annotation : this.javaClass.getAnnotations()) {
+			if (annotation.getType().getValue().endsWith(name)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

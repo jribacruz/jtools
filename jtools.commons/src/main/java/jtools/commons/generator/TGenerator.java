@@ -5,13 +5,19 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.URISyntaxException;
 
-import jtools.commons.internal.generator.TGeneratorWriterImpl;
-import jtools.commons.model.java.TJavaModel;
-import jtools.commons.model.xml.TXMLModel;
-
 import com.lyncode.jtwig.JtwigTemplate;
 import com.lyncode.jtwig.configuration.JtwigConfiguration;
 
+import jtools.commons.internal.generator.TGeneratorWriterImpl;
+import jtools.commons.model.TMJava;
+
+/**
+ * 
+ * Classe responsavel por gerar ou atualizar os artefatos (Java/XML).
+ * 
+ * @author jcruz
+ *
+ */
 public class TGenerator implements Serializable {
 
 	/**
@@ -37,16 +43,7 @@ public class TGenerator implements Serializable {
 	 * @param javaModel
 	 * @return
 	 */
-	public static <T extends TJavaModel> TGeneratorJavaUpdater load(T javaModel) {
-		return null;
-	}
-
-	/**
-	 * 
-	 * @param xmlModel
-	 * @return
-	 */
-	public static <T extends TXMLModel> TGeneratorXMLUpdater load(T xmlModel) {
+	public static <T extends TMJava> TGeneratorJavaUpdater load(T javaModel) {
 		return null;
 	}
 

@@ -1,4 +1,4 @@
-package jtools.commons.model.java;
+package jtools.commons.model;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -11,7 +11,7 @@ import com.thoughtworks.qdox.model.JavaField;
  * @author jcruz
  *
  */
-public interface TJavaAttribute extends Serializable {
+public interface TMJavaAttribute extends Serializable {
 
 	/**
 	 * 
@@ -55,5 +55,11 @@ public interface TJavaAttribute extends Serializable {
 	 * @return
 	 */
 	public boolean hasGetter();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean hasAnnotation(String name);
 
 }

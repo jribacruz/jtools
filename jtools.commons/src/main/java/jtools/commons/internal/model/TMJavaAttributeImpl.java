@@ -3,12 +3,13 @@ package jtools.commons.internal.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import jtools.commons.model.java.TJavaAttribute;
-
+import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 
-public class TJavaAttributeImpl implements TJavaAttribute {
+import jtools.commons.model.TMJavaAttribute;
+
+public class TMJavaAttributeImpl implements TMJavaAttribute {
 
 	/**
 	 * 
@@ -17,7 +18,7 @@ public class TJavaAttributeImpl implements TJavaAttribute {
 
 	private JavaField javaField;
 
-	public TJavaAttributeImpl(JavaField javaField) {
+	public TMJavaAttributeImpl(JavaField javaField) {
 		super();
 		this.javaField = javaField;
 	}
@@ -116,5 +117,15 @@ public class TJavaAttributeImpl implements TJavaAttribute {
 	@Override
 	public JavaField getJavaField() {
 		return this.javaField;
+	}
+
+	@Override
+	public boolean hasAnnotation(String name) {
+		for (Annotation annotation : this.javaField.getAnnotations()) {
+			if (annotation.getType().getValue().endsWith(name)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

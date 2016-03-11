@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Map;
 
-import jtools.commons.model.java.TJavaModel;
-
 import com.lyncode.jtwig.exception.CompileException;
 import com.lyncode.jtwig.exception.ParseException;
 import com.lyncode.jtwig.exception.RenderException;
+
+import jtools.commons.model.TMJava;
 
 public interface TGeneratorWriter extends Serializable {
 	/**
@@ -17,7 +17,7 @@ public interface TGeneratorWriter extends Serializable {
 	 * @param model
 	 * @return
 	 */
-	public <T extends TJavaModel> TGeneratorWriter model(T model);
+	public <T extends TMJava> TGeneratorWriter model(T model);
 
 	/**
 	 * 

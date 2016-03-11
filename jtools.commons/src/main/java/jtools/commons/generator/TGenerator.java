@@ -1,6 +1,7 @@
 package jtools.commons.generator;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URISyntaxException;
@@ -8,6 +9,7 @@ import java.net.URISyntaxException;
 import com.lyncode.jtwig.JtwigTemplate;
 import com.lyncode.jtwig.configuration.JtwigConfiguration;
 
+import jtools.commons.internal.generator.TGeneratorJavaUpdaterImpl;
 import jtools.commons.internal.generator.TGeneratorWriterImpl;
 import jtools.commons.model.TMJava;
 
@@ -42,9 +44,10 @@ public class TGenerator implements Serializable {
 	 * 
 	 * @param javaModel
 	 * @return
+	 * @throws FileNotFoundException 
 	 */
-	public static <T extends TMJava> TGeneratorJavaUpdater load(T javaModel) {
-		return null;
+	public static <T extends TMJava> TGeneratorJavaUpdater load(T javaModel) throws FileNotFoundException {
+		return new TGeneratorJavaUpdaterImpl(javaModel.getFile());
 	}
 
 }

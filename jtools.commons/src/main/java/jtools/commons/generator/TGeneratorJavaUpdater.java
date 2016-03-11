@@ -14,5 +14,9 @@ public interface TGeneratorJavaUpdater {
 	 */
 	public void update();
 
+	/**
+	 * 
+	 * @return
+	 */
 	public JavaClassSource inClass();
 }

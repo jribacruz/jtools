@@ -3,12 +3,12 @@ package jtools.commons.internal.model;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-import jtools.commons.model.TJavaAttribute;
-import jtools.commons.model.TJavaModel;
-import jtools.commons.model.TJavaMethod;
+import jtools.commons.model.java.TJavaAttribute;
+import jtools.commons.model.java.TJavaMethod;
+import jtools.commons.model.java.TJavaModel;
+import jtools.commons.types.TJavaAttributeCollection;
+import jtools.commons.types.TJavaMethodCollection;
 
 import org.jboss.forge.roaster.Roaster;
 import org.jboss.forge.roaster.model.source.JavaClassSource;
@@ -41,12 +41,12 @@ public class TJavaModelImpl implements TJavaModel {
 	/**
 	 * Lista de Atributos como map.
 	 */
-	private Map<String, TJavaAttribute> attributes;
+	private TJavaAttributeCollection<TJavaAttribute> attributes;
 
 	/**
 	 * Lista de Metodos como map.
 	 */
-	private Map<String, TJavaMethod> methods;
+	private TJavaMethodCollection<TJavaMethod> methods;
 
 	public TJavaModelImpl(File javaFile) throws FileNotFoundException, IOException {
 		super();
@@ -113,14 +113,15 @@ public class TJavaModelImpl implements TJavaModel {
 	 * @see tools4j.model.TClass#getAttributes()
 	 */
 	@Override
-	public Map<String, TJavaAttribute> getAttributes() {
+	public TJavaAttributeCollection<TJavaAttribute> getAttributes() {
 		if (this.attributes == null) {
-			this.attributes = new HashMap<>();
+			this.attributes = new TJavaAttributeCollection<>();
 			for (JavaField javaField : this.javaClass.getFields()) {
-				this.attributes.put(javaField.getName(), new TJavaAttributeImpl(javaField));
+				this.attributes.add(new TJavaAttributeImpl(javaField));
 			}
 		}
 		return this.attributes;
+
 	}
 
 	/*
@@ -139,11 +140,11 @@ public class TJavaModelImpl implements TJavaModel {
 	 * @see tools4j.model.core.TClassModel#getMethods()
 	 */
 	@Override
-	public Map<String, TJavaMethod> getMethods() {
+	public TJavaMethodCollection<TJavaMethod> getMethods() {
 		if (this.methods == null) {
-			this.methods = new HashMap<>();
+			this.methods = new TJavaMethodCollection<>();
 			for (JavaMethod javaMethod : this.javaClass.getMethods()) {
-				this.methods.put(javaMethod.getName(), new TJavaMethodImpl(javaMethod));
+				this.methods.add(new TJavaMethodImpl(javaMethod));
 			}
 		}
 		return this.methods;

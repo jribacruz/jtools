@@ -3,7 +3,7 @@ package jtools.commons.internal.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import jtools.commons.model.TJavaAttribute;
+import jtools.commons.model.java.TJavaAttribute;
 
 import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Map;
 
-import jtools.commons.model.TJavaModel;
+import jtools.commons.model.java.TJavaModel;
 
 import com.lyncode.jtwig.exception.CompileException;
 import com.lyncode.jtwig.exception.ParseException;

@@ -6,8 +6,8 @@ import java.io.Serializable;
 import java.net.URISyntaxException;
 
 import jtools.commons.internal.generator.TGeneratorWriterImpl;
-import jtools.commons.model.TJavaModel;
-import jtools.commons.model.TXMLModel;
+import jtools.commons.model.java.TJavaModel;
+import jtools.commons.model.xml.TXMLModel;
 
 import com.lyncode.jtwig.JtwigTemplate;
 import com.lyncode.jtwig.configuration.JtwigConfiguration;

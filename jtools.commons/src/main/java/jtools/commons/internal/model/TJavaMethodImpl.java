@@ -1,6 +1,6 @@
 package jtools.commons.internal.model;
 
-import jtools.commons.model.TJavaMethod;
+import jtools.commons.model.java.TJavaMethod;
 
 import com.thoughtworks.qdox.model.JavaMethod;
 

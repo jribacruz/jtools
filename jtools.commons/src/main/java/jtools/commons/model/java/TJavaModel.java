@@ -1,8 +1,10 @@
-package jtools.commons.model;
+package jtools.commons.model.java;
 
 import java.io.File;
 import java.io.Serializable;
-import java.util.Map;
+
+import jtools.commons.types.TJavaAttributeCollection;
+import jtools.commons.types.TJavaMethodCollection;
 
 import org.jboss.forge.roaster.model.source.JavaClassSource;
 
@@ -66,12 +68,12 @@ public interface TJavaModel extends Serializable {
 	 * 
 	 * @return Map com os atributos. key - Nome do Atributo value - TAttribute
 	 */
-	public Map<String, TJavaAttribute> getAttributes();
+	public TJavaAttributeCollection<TJavaAttribute> getAttributes();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public Map<String, TJavaMethod> getMethods();
+	public TJavaMethodCollection<TJavaMethod> getMethods();
 
 }

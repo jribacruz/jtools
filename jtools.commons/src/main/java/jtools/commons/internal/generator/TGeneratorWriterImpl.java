@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import jtools.commons.generator.TGeneratorWriter;
-import jtools.commons.model.TJavaModel;
+import jtools.commons.model.java.TJavaModel;
 
 import com.lyncode.jtwig.JtwigModelMap;
 import com.lyncode.jtwig.JtwigTemplate;

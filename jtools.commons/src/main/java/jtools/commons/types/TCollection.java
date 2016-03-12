@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 import com.google.common.base.Predicate;
 
+/**
+ * 
+ * @author jcruz
+ *
+ * @param <E>
+ */
 public class TCollection<E> extends ArrayList<E> {
 
 	/**

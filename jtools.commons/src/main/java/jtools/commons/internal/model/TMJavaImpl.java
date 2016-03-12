@@ -127,16 +127,6 @@ public class TMJavaImpl implements TMJava {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see tools4j.model.core.TClassModel#getJavaClassSource()
-	 */
-	@Override
-	public JavaClassSource getJavaClassSource() {
-		return this.javaClassSource;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see tools4j.model.core.TClassModel#getMethods()
 	 */
 	@Override

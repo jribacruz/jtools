@@ -41,4 +41,20 @@ public interface TMPom {
 	 */
 	public boolean hasDependency(String groupId, String artifactId, String version);
 
+	/**
+	 * 
+	 * @param groupId
+	 * @param artifactId
+	 * @param version
+	 */
+	public void addDependency(String groupId, String artifactId, String version);
+
+	/**
+	 * 
+	 * @param groupId
+	 * @param artifactId
+	 * @param version
+	 */
+	public void removeDependency(String groupId, String artifactId, String version);
+
 }

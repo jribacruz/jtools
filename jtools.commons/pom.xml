@@ -15,6 +15,7 @@
 	</properties>
 
 	<dependencies>
+		<!-- JUNIT -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -43,6 +44,14 @@
 			<groupId>com.lyncode</groupId>
 			<artifactId>jtwig-core</artifactId>
 			<version>3.1.1</version>
+			<!-- 
+			<exclusions>
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
+			</exclusions>
+			 -->
 		</dependency>
 		<!-- COMMONS IO -->
 		<dependency>

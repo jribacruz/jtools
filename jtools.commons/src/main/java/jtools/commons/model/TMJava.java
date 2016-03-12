@@ -3,15 +3,13 @@ package jtools.commons.model;
 import java.io.File;
 import java.io.Serializable;
 
-import org.jboss.forge.roaster.model.source.JavaClassSource;
-
 import com.thoughtworks.qdox.model.JavaClass;
 
 import jtools.commons.types.TCollection;
 
 /**
  * 
- * Classe que representa uma classe Java.
+ * Modelo de classe Java.
  * 
  * @author jcruz
  *
@@ -38,13 +36,6 @@ public interface TMJava extends Serializable {
 	 * @return
 	 */
 	public JavaClass getJavaClass();
-
-	/**
-	 * Object roaster JavaClassSource
-	 * 
-	 * @return
-	 */
-	public JavaClassSource getJavaClassSource();
 
 	/**
 	 * 

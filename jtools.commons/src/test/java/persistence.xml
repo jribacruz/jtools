@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="jtools.commons"
+		transaction-type="RESOURCE_LOCAL">
+		<non-jta-data-source>java:/aelis2014DS</non-jta-data-source>
+
+		<!-- begin comment to ddl update -->
+		<class>br.jus.tre_pa.aelis.recursos.domain.VWJuiz</class>
+		<class>br.jus.tre_pa.aelis.core.domain.Zona</class>
+		<class>br.jus.tre_pa.aelis.recursos.domain.VWServidor</class>
+		<class>br.jus.tre_pa.aelis.ocorrencias.domain.VWOcorrenciaCount</class>
+		<class>br.jus.tre_pa.aelis.acompanhamento.domain.AcPendencia</class>
+		<class>br.jus.tre_pa.aelis.acompanhamento.domain.AcZona</class>
+		<class>br.jus.tre_pa.aelis.acompanhamento.domain.AcPonto</class>
+		<class>br.jus.tre_pa.aelis.contatos.domain.Contatos</class>
+		<!-- end comment to ddl update -->
+
+		<class>br.jus.tre_pa.aelis.acompanhamento.domain.AcOcorrencia</class>
+
+		<class>br.jus.tre_pa.aelis.ocorrencias.domain.Ocorrencia</class>
+		<class>br.jus.tre_pa.aelis.ocorrencias.domain.TipoProblema</class>
+		<class>br.jus.tre_pa.aelis.ocorrencias.domain.TipoSolucao</class>
+		<class>br.jus.tre_pa.aelis.ocorrencias.domain.OcorrenciaZona</class>
+		<class>br.jus.tre_pa.aelis.ocorrencias.domain.OcorrenciaMunicipio</class>
+		<class>br.jus.tre_pa.aelis.ocorrencias.domain.OcorrenciaSecao</class>
+		<class>br.jus.tre_pa.aelis.ocorrencias.domain.OcorrenciaMunicipioZona</class>
+
+		<class>br.jus.tre_pa.aelis.core.domain.LocalVotacao</class>
+		<class>br.jus.tre_pa.aelis.core.domain.Secoes</class>
+		<class>br.jus.tre_pa.aelis.core.domain.Unidade</class>
+		<class>br.jus.tre_pa.aelis.core.domain.ZonaMunicipio</class>
+		<class>br.jus.tre_pa.aelis.core.domain.Turno</class>
+
+		<class>br.jus.tre_pa.aelis.pontos.domain.PontoTransmissao</class>
+		<class>br.jus.tre_pa.aelis.pontos.domain.PontoTransmissaoInfo</class>
+		<class>br.jus.tre_pa.aelis.pontos.domain.PontoTransmissaoSolicitacao</class>
+
+		<class>br.jus.tre_pa.aelis.atividades.domain.Atividades</class>
+		<class>br.jus.tre_pa.aelis.atividades.domain.ConfigArquivo</class>
+		<class>br.jus.tre_pa.aelis.atividades.domain.Situacao</class>
+		<class>br.jus.tre_pa.aelis.atividades.domain.AtividadeZe</class>
+		<class>br.jus.tre_pa.aelis.atividades.domain.Evento</class>
+		<class>br.jus.tre_pa.aelis.atividades.domain.ArquivoEnviado</class>
+		<class>br.jus.tre_pa.aelis.atividades.domain.StatusAtividade</class>
+
+		<class>br.jus.tre_pa.aelis.recursos.domain.Pessoa</class>
+		<class>br.jus.tre_pa.aelis.recursos.domain.TecnicoSatelite</class>
+		<class>br.jus.tre_pa.aelis.recursos.domain.Juiz</class>
+		<class>br.jus.tre_pa.aelis.recursos.domain.Outro</class>
+		<class>br.jus.tre_pa.aelis.recursos.domain.TecnicoUrna</class>
+		<class>br.jus.tre_pa.aelis.recursos.domain.Terceirizado</class>
+		<class>br.jus.tre_pa.aelis.recursos.domain.Servidor</class>
+		<class>br.jus.tre_pa.aelis.recursos.domain.Equipamento</class>
+		<class>br.jus.tre_pa.aelis.recursos.domain.Outros</class>
+		<class>br.jus.tre_pa.aelis.recursos.domain.Bgan</class>
+		<class>br.jus.tre_pa.aelis.recursos.domain.Notebook</class>
+
+
+		<class>br.jus.tre_pa.aelis.map.domain.AcessibilidadeInfo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.CondicaoTrecho</class>
+		<class>br.jus.tre_pa.aelis.map.domain.CondicaoTrechoPeriodo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.EnderecoInfo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.HistoricoVistoria</class>
+		<class>br.jus.tre_pa.aelis.map.domain.InfraEstruturaInfo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.InternetTipo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.ItemAcessibilidade</class>
+		<class>br.jus.tre_pa.aelis.map.domain.ItemSeguranca</class>
+		<class>br.jus.tre_pa.aelis.map.domain.ItemMobilia</class>
+		<class>br.jus.tre_pa.aelis.map.domain.LocalizacaoSala</class>
+		<class>br.jus.tre_pa.aelis.map.domain.LocalVotacaoTipo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.MeioTransporteInfo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.MeioTransporteTipo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.OperadoraTipo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.RegiaoTipo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.SalaInfo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.SegurancaInfo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.Telefone</class>
+		<class>br.jus.tre_pa.aelis.map.domain.TelefoneTipo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.TrechoInfo</class>
+		<class>br.jus.tre_pa.aelis.map.domain.Vistoria</class>
+
+
+
+		<class>br.jus.tre_pa.aelis.rotas.domain.Veiculo</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.CategoriaVeiculo</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.Material</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.PontoIntermediario</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.Trecho</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.Destino</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.Itinerario</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.Percurso</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.PontoGeografico</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.view.RotaSummary</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.Rota</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.view.DestinoZonaSummary</class>
+		<class>br.jus.tre_pa.aelis.rotas.domain.view.MaterialPontoGeografico</class>
+
+		<class>br.gov.frameworkdemoiselle.fuselage.domain.SecurityUser</class>
+		<class>br.gov.frameworkdemoiselle.fuselage.domain.SecurityProfile</class>
+		<class>br.gov.frameworkdemoiselle.fuselage.domain.SecurityProfileByRule</class>
+		<class>br.gov.frameworkdemoiselle.fuselage.domain.SecurityRole</class>
+		<class>br.gov.frameworkdemoiselle.fuselage.domain.SecurityResource</class>
+
+
+		<!-- <exclude-unlisted-classes>true</exclude-unlisted-classes> -->
+
+		<properties>	
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.generate_statistics" value="true" />
+			<property name="hibernate.transaction.manager_lookup_class"
+				value="org.hibernate.transaction.JBossTransactionManagerLookup" />
+
+			<!-- <property name="hibernate.search.default.directory_provider" value="filesystem" 
+				/> <property name="hibernate.search.default.indexBase" value="/home/jcruz/documentos/lucene" 
+				/> <property name="hibernate.search.analyzer" value="org.apache.lucene.analysis.br.BrazilianAnalyzer" 
+				/> <property name="hibernate.search.lucene_version" value="LUCENE_CURRENT" 
+				/> -->
+
+		</properties>
+
+	</persistence-unit>
+
+</persistence>

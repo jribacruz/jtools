@@ -2,6 +2,11 @@ package jtools.commons.filter;
 
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 
+/**
+ * 
+ * @author jcruz
+ *
+ */
 public class JavaFileFilter extends SuffixFileFilter {
 
 	/**

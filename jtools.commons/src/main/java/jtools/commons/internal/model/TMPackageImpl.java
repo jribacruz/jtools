@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.apache.commons.io.FilenameUtils;
-
 import jtools.commons.model.TMClass;
+import jtools.commons.model.TMDir;
+import jtools.commons.model.TMFile;
 import jtools.commons.model.TMPackage;
 import jtools.commons.types.TCollection;
 
@@ -23,11 +23,21 @@ public class TMPackageImpl extends TMDirImpl implements TMPackage {
 	 */
 	@Override
 	public TCollection<TMClass> getClasses() {
+		return getClasses(false);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMPackage#getClasses(boolean)
+	 */
+	@Override
+	public TCollection<TMClass> getClasses(boolean recursively) {
 		TCollection<TMClass> classes = new TCollection<>();
-		for (File file : super.getFiles()) {
-			if (FilenameUtils.isExtension(file.getAbsolutePath(), "java")) {
+		for (TMFile file : super.getAllFiles(recursively)) {
+			if (file.isJavaFile()) {
 				try {
-					classes.add(new TMClassImpl(file));
+					classes.add(new TMClassImpl(file.getFile()));
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
@@ -41,21 +51,11 @@ public class TMPackageImpl extends TMDirImpl implements TMPackage {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see jtools.commons.model.TMPackage#getClasses(boolean)
-	 */
-	@Override
-	public TCollection<TMClass> getClasses(boolean recursively) {
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see jtools.commons.model.TMPackage#getParentPackage()
 	 */
 	@Override
 	public TMPackage getParentPackage() {
-		return null;
+		return new TMPackageImpl(getParent().getFileDir());
 	}
 
 	/*
@@ -65,6 +65,30 @@ public class TMPackageImpl extends TMDirImpl implements TMPackage {
 	 */
 	@Override
 	public TCollection<TMPackage> getChildPackages() {
+		return getChildPackages(false);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMPackage#getChildPackages(boolean)
+	 */
+	@Override
+	public TCollection<TMPackage> getChildPackages(boolean recursively) {
+		TCollection<TMPackage> packages = new TCollection<>();
+		for (TMDir dir : getChildDirs(recursively)) {
+			packages.add(new TMPackageImpl(dir.getFileDir()));
+		}
+		return packages;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMPackage#find(java.lang.String)
+	 */
+	@Override
+	public TMPackage find(String packageName) {
 		return null;
 	}
 

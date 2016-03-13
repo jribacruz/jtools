@@ -65,6 +65,8 @@ public interface TMMavenProject extends Serializable {
 	 * @return
 	 */
 	public TCollection<TMClass> getSrcTestJavaClasses();
+	
+	
 
 	/**
 	 * Coleção com todos os modelos de arquivos de src/main/webapp

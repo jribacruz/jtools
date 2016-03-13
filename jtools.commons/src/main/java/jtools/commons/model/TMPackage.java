@@ -18,24 +18,38 @@ public interface TMPackage {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	TCollection<TMClass> getClasses();
+	public TCollection<TMClass> getClasses();
 
 	/**
 	 * 
 	 * @param recursively
 	 * @return
 	 */
-	TCollection<TMClass> getClasses(boolean recursively);
+	public TCollection<TMClass> getClasses(boolean recursively);
 
 	/**
 	 * 
 	 * @return
 	 */
-	TMPackage getParentPackage();
+	public TMPackage getParentPackage();
 
 	/**
 	 * 
 	 * @return
 	 */
-	TCollection<TMPackage> getChildPackages();
+	public TCollection<TMPackage> getChildPackages();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public TCollection<TMPackage> getChildPackages(boolean recursively);
+
+	/**
+	 * 
+	 * @param packageName
+	 * @return
+	 */
+	public TMPackage find(String packageName);
+
 }

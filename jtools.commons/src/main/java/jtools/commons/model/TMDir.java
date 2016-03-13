@@ -2,10 +2,7 @@ package jtools.commons.model;
 
 import java.io.File;
 
-import org.apache.commons.io.filefilter.AbstractFileFilter;
-import org.apache.commons.io.filefilter.SuffixFileFilter;
-
-import com.thoughtworks.qdox.directorywalker.SuffixFilter;
+import org.apache.commons.io.filefilter.IOFileFilter;
 
 import jtools.commons.types.TCollection;
 
@@ -13,18 +10,22 @@ public interface TMDir {
 
 	/**
 	 * 
+	 * Retorna todos os arquivos do diretório corrente.
+	 * 
 	 * @return
 	 */
-	public TCollection<File> getFiles();
+	public TCollection<TMFile> getAllFiles();
 
 	/**
 	 * 
-	 * @param recursively
+	 * Retorna todos os arquivos do diretório corrente e dos subdiretórios.
+	 * 
 	 * @return
 	 */
-	public TCollection<File> getFiles(boolean recursively);
+	public TCollection<TMFile> getAllFiles(boolean recursively);
 
 	/**
+	 * Retorna o diretório pai
 	 * 
 	 * @return
 	 */
@@ -32,11 +33,23 @@ public interface TMDir {
 
 	/**
 	 * 
+	 * Retorna os diretórios filhos.
+	 * 
 	 * @return
 	 */
 	public TCollection<TMDir> getChildDirs();
 
 	/**
+	 * 
+	 * Retorna os diretórios filhos recursivamente (incluindo subdiretórios).
+	 * 
+	 * @return
+	 */
+	public TCollection<TMDir> getChildDirs(boolean recursively);
+
+	/**
+	 * 
+	 * Retorna um diretório filho (incluindo os subdiretórios) especificado.
 	 * 
 	 * @param dir
 	 * @return
@@ -45,14 +58,30 @@ public interface TMDir {
 
 	/**
 	 * 
+	 * Retorna o objeto File que representa o diretório.
+	 * 
 	 * @return
 	 */
 	public File getFileDir();
 
 	/**
 	 * 
+	 * Busca por arquivos no diretório corrente dado um filtro.
+	 * 
 	 * @param filter
 	 * @return
 	 */
-	public <F extends AbstractFileFilter> TCollection<File> filter(F filter);
+	public <F extends IOFileFilter> TCollection<TMFile> filter(F filter);
+
+	/**
+	 * 
+	 * Busca por arquivos recursivamente (incluindo subdiretórios) dado um
+	 * filtro.
+	 * 
+	 * @param filter
+	 * @param recursively
+	 * @return
+	 */
+	public <F extends IOFileFilter> TCollection<TMFile> filter(F filter, boolean recursively);
+
 }

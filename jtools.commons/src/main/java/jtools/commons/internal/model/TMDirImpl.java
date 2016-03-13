@@ -3,12 +3,15 @@ package jtools.commons.internal.model;
 import java.io.File;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.AbstractFileFilter;
+import org.apache.commons.io.filefilter.DirectoryFileFilter;
+import org.apache.commons.io.filefilter.FileFileFilter;
+import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.TrueFileFilter;
 
 import com.google.common.base.Predicate;
 
 import jtools.commons.model.TMDir;
+import jtools.commons.model.TMFile;
 import jtools.commons.types.TCollection;
 
 /**
@@ -18,11 +21,11 @@ import jtools.commons.types.TCollection;
  */
 public class TMDirImpl implements TMDir {
 
-	private File file;
+	private File fileDir;
 
 	public TMDirImpl(File file) {
 		super();
-		this.file = file;
+		this.fileDir = file;
 	}
 
 	/*
@@ -31,14 +34,18 @@ public class TMDirImpl implements TMDir {
 	 * @see jtools.commons.model.TMDir#getFiles()
 	 */
 	@Override
-	public TCollection<File> getFiles() {
-		TCollection<File> files = new TCollection<>();
-		for (File ffile : file.listFiles()) {
-			if (ffile.isFile()) {
-				files.add(ffile);
-			}
-		}
-		return files;
+	public TCollection<TMFile> getAllFiles() {
+		return getAllFiles(null);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMDir#getAllFiles(boolean)
+	 */
+	@Override
+	public TCollection<TMFile> getAllFiles(boolean recursively) {
+		return recursively ? getAllFiles(TrueFileFilter.INSTANCE) : getAllFiles();
 	}
 
 	/*
@@ -48,7 +55,7 @@ public class TMDirImpl implements TMDir {
 	 */
 	@Override
 	public TMDir getParent() {
-		return new TMDirImpl(file.getParentFile());
+		return new TMDirImpl(fileDir.getParentFile());
 	}
 
 	/*
@@ -58,18 +65,17 @@ public class TMDirImpl implements TMDir {
 	 */
 	@Override
 	public TCollection<TMDir> getChildDirs() {
-		TCollection<TMDir> dirs = new TCollection<>();
-		for (File dir : file.listFiles()) {
-			if (dir.isDirectory()) {
-				dirs.add(new TMDirImpl(dir));
-			}
-		}
-		return dirs;
+		return getChildDirs(null);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMDir#getChildDirs(boolean)
+	 */
 	@Override
-	public TCollection<File> getFiles(boolean recursively) {
-		return null;
+	public TCollection<TMDir> getChildDirs(boolean recursively) {
+		return recursively ? getChildDirs(TrueFileFilter.INSTANCE) : getChildDirs(null);
 	}
 
 	/*
@@ -79,7 +85,7 @@ public class TMDirImpl implements TMDir {
 	 */
 	@Override
 	public TMDir getChild(final String dir) {
-		TMDir tmDir = getChildDirs().find(new Predicate<TMDir>() {
+		TMDir tmDir = getChildDirs(true).find(new Predicate<TMDir>() {
 			@Override
 			public boolean apply(TMDir input) {
 				return input.getFileDir().getName().equals(dir);
@@ -88,25 +94,76 @@ public class TMDirImpl implements TMDir {
 		return tmDir;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMDir#filter(org.apache.commons.io.filefilter.
+	 * AbstractFileFilter)
+	 */
 	@Override
-	public <F extends AbstractFileFilter> TCollection<File> filter(F filter) {
-		TCollection<File> ffiles = new TCollection<>();
-		for (File filteredFile : FileUtils.listFiles(getFileDir(), filter, TrueFileFilter.INSTANCE)) {
-			ffiles.add(filteredFile);
+	public <F extends IOFileFilter> TCollection<TMFile> filter(F filter) {
+		return filter(filter, TrueFileFilter.INSTANCE);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMDir#filter(org.apache.commons.io.filefilter.
+	 * AbstractFileFilter, boolean)
+	 */
+	@Override
+	public <F extends IOFileFilter> TCollection<TMFile> filter(F filter, boolean recursively) {
+		return recursively ? filter(filter, TrueFileFilter.INSTANCE) : filter(filter, null);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMDir#getFileDir()
+	 */
+	@Override
+	public File getFileDir() {
+		return this.fileDir;
+	}
+
+	/*
+	 * 
+	 */
+	private <F extends IOFileFilter, D extends IOFileFilter> TCollection<TMFile> filter(F fileFilter, D dirFilter) {
+		TCollection<TMFile> ffiles = new TCollection<>();
+		for (File filteredFile : FileUtils.listFilesAndDirs(getFileDir(), fileFilter, dirFilter)) {
+			ffiles.add(new TMFileImpl(filteredFile));
 		}
 		return ffiles;
 	}
 
-	@Override
-	public File getFileDir() {
-		return this.file;
+	/*
+	 * 
+	 */
+	private TCollection<TMFile> getAllFiles(IOFileFilter dirFilter) {
+		TCollection<TMFile> files = new TCollection<>();
+		for (TMFile file : filter(FileFileFilter.FILE, dirFilter)) {
+			files.add(file);
+		}
+		return files;
+	}
+
+	/*
+	 * 
+	 */
+	private TCollection<TMDir> getChildDirs(IOFileFilter dirFilter) {
+		TCollection<TMDir> files = new TCollection<>();
+		for (TMFile file : filter(DirectoryFileFilter.DIRECTORY, dirFilter)) {
+			files.add(new TMDirImpl(file.getFile()));
+		}
+		return files;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((file == null) ? 0 : file.hashCode());
+		result = prime * result + ((fileDir == null) ? 0 : fileDir.hashCode());
 		return result;
 	}
 
@@ -119,17 +176,17 @@ public class TMDirImpl implements TMDir {
 		if (getClass() != obj.getClass())
 			return false;
 		TMDirImpl other = (TMDirImpl) obj;
-		if (file == null) {
-			if (other.file != null)
+		if (fileDir == null) {
+			if (other.fileDir != null)
 				return false;
-		} else if (!file.equals(other.file))
+		} else if (!fileDir.equals(other.fileDir))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "TMDirImpl [file=" + file + "]";
+		return "TMDirImpl [file=" + fileDir + "]";
 	}
 
 }

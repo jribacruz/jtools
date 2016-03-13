@@ -2,6 +2,8 @@ package jtools.commons.internal.model;
 
 import java.io.File;
 
+import com.google.common.base.Predicate;
+
 import jtools.commons.model.TMDir;
 import jtools.commons.types.TCollection;
 
@@ -61,15 +63,30 @@ public class TMDirImpl implements TMDir {
 		return dirs;
 	}
 
+	@Override
+	public TCollection<File> getFiles(boolean recursively) {
+		return null;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see jtools.commons.model.TMDir#getChild(java.lang.String)
 	 */
 	@Override
-	public TMDir getChild(String dir) {
-		File childDir = new File(file.getAbsolutePath() + "dir");
-		return null;
+	public TMDir getChild(final String dir) {
+		TMDir tmDir = getChildDirs().find(new Predicate<TMDir>() {
+			@Override
+			public boolean apply(TMDir input) {
+				return input.getFileDir().getName().equals(dir);
+			}
+		});
+		return tmDir;
+	}
+
+	@Override
+	public File getFileDir() {
+		return this.file;
 	}
 
 	@Override

@@ -155,4 +155,9 @@ public class TMClassImpl implements TMClass {
 		return false;
 	}
 
+	@Override
+	public String toString() {
+		return "TMClassImpl [javaFile=" + javaFile.getName() + "]";
+	}
+
 }

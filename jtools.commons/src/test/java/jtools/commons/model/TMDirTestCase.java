@@ -16,16 +16,24 @@ public class TMDirTestCase {
 		TMDir dir = new TMDirImpl(new File("src/test/java"));
 		System.out.println(dir.getFiles());
 	}
-	
+
 	@Test
 	public void getChildDirsTest() {
 		TMDir dir = new TMDirImpl(new File("src/test/java"));
 		System.out.println(dir.getChildDirs());
 	}
-	
+
 	@Test
 	public void getParentTest() {
 		TMDir dir = new TMDirImpl(new File("src/test/java/jtools/commons"));
 		System.out.println(dir.getParent());
+	}
+
+	@Test
+	public void getChildTest() {
+		TMDir dir = new TMDirImpl(new File("src/test/java/jtools/"));
+		System.out.println("===============");
+		System.out.println(dir.getChild("commons"));
+		System.out.println(dir.getChild("commons").getChild("model").getFiles());
 	}
 }

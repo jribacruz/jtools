@@ -35,7 +35,7 @@ public class TMPersistenceImpl extends TMXmlImpl implements TMPersistence {
 	}
 
 	@Override
-	public String getVersion() throws XPathExpressionException {
+	public String getVersion() {
 		return null;
 	}
 
@@ -45,9 +45,14 @@ public class TMPersistenceImpl extends TMXmlImpl implements TMPersistence {
 	 * @see jtools.commons.model.TMPersistence#getPersistenceUnitName()
 	 */
 	@Override
-	public String getPersistenceUnitName() throws XPathExpressionException {
-		Node node = (Node) super.evaluate("/persistence/persistence-unit", XPathConstants.NODE);
-		return node.getAttributes().getNamedItem("name").getNodeValue();
+	public String getPersistenceUnitName() {
+		try {
+			Node node = (Node) super.evaluate("/persistence/persistence-unit", XPathConstants.NODE);
+			return node.getAttributes().getNamedItem("name").getNodeValue();
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		}
+		return "";
 	}
 
 	/*
@@ -56,9 +61,14 @@ public class TMPersistenceImpl extends TMXmlImpl implements TMPersistence {
 	 * @see jtools.commons.model.TMPersistence#getTransactionType()
 	 */
 	@Override
-	public String getTransactionType() throws XPathExpressionException {
-		Node node = (Node) super.evaluate("/persistence/persistence-unit", XPathConstants.NODE);
-		return node.getAttributes().getNamedItem("transaction-type").getNodeValue();
+	public String getTransactionType() {
+		try {
+			Node node = (Node) super.evaluate("/persistence/persistence-unit", XPathConstants.NODE);
+			return node.getAttributes().getNamedItem("transaction-type").getNodeValue();
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		}
+		return "";
 	}
 
 	/*
@@ -67,11 +77,15 @@ public class TMPersistenceImpl extends TMXmlImpl implements TMPersistence {
 	 * @see jtools.commons.model.TMPersistence#getClasses()
 	 */
 	@Override
-	public TCollection<String> getClasses() throws XPathExpressionException {
+	public TCollection<String> getClasses() {
 		TCollection<String> classes = new TCollection<>();
-		NodeList nodeList = (NodeList) super.evaluate("/persistence/persistence-unit/class", XPathConstants.NODESET);
-		for (int i = 0; i < nodeList.getLength(); i++) {
-			classes.add(nodeList.item(i).getFirstChild().getNodeValue());
+		try {
+			NodeList nodeList = (NodeList) super.evaluate("/persistence/persistence-unit/class", XPathConstants.NODESET);
+			for (int i = 0; i < nodeList.getLength(); i++) {
+				classes.add(nodeList.item(i).getFirstChild().getNodeValue());
+			}
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
 		}
 		return classes;
 	}
@@ -82,13 +96,17 @@ public class TMPersistenceImpl extends TMXmlImpl implements TMPersistence {
 	 * @see jtools.commons.model.TMPersistence#getProperties()
 	 */
 	@Override
-	public Map<String, String> getProperties() throws XPathExpressionException {
+	public Map<String, String> getProperties() {
 		Map<String, String> properties = new HashMap<>();
-		NodeList nodeList = (NodeList) super.evaluate("/persistence/persistence-unit/properties/property", XPathConstants.NODESET);
-		for (int i = 0; i < nodeList.getLength(); i++) {
-			String name = nodeList.item(i).getAttributes().getNamedItem("name").getNodeValue();
-			String value = nodeList.item(i).getAttributes().getNamedItem("value").getNodeValue();
-			properties.put(name, value);
+		try {
+			NodeList nodeList = (NodeList) super.evaluate("/persistence/persistence-unit/properties/property", XPathConstants.NODESET);
+			for (int i = 0; i < nodeList.getLength(); i++) {
+				String name = nodeList.item(i).getAttributes().getNamedItem("name").getNodeValue();
+				String value = nodeList.item(i).getAttributes().getNamedItem("value").getNodeValue();
+				properties.put(name, value);
+			}
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
 		}
 		return properties;
 	}

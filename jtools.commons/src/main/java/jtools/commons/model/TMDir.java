@@ -14,6 +14,13 @@ public interface TMDir {
 
 	/**
 	 * 
+	 * @param recursively
+	 * @return
+	 */
+	public TCollection<File> getFiles(boolean recursively);
+
+	/**
+	 * 
 	 * @return
 	 */
 	public TMDir getParent();
@@ -30,4 +37,10 @@ public interface TMDir {
 	 * @return
 	 */
 	public TMDir getChild(String dir);
+
+	/**
+	 * 
+	 * @return
+	 */
+	public File getFileDir();
 }

@@ -1,6 +1,11 @@
 package jtools.commons.model;
 
+import java.io.IOException;
 import java.io.Serializable;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import jtools.commons.types.TCollection;
 
@@ -31,8 +36,20 @@ public interface TMMavenProject extends Serializable {
 	 * Modelo do persistence.xml de src/main/resources
 	 * 
 	 * @return
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws ParserConfigurationException
 	 */
-	public TMPersistence geSrcMainResourcesPersistence();
+	public TMPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
+	
+	/**
+	 * 
+	 * @return
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 */
+	public TMPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
 
 	/**
 	 * Modelo do persistence.xml de src/test/resources
@@ -50,13 +67,14 @@ public interface TMMavenProject extends Serializable {
 	public TCollection<TMClass> getSrcMainJavaClasses();
 
 	/**
-	 * Colação com todos os modelos das classes de src/test/java
+	 * Coleção com todos os modelos das classes de src/test/java
 	 * 
 	 * @return
 	 */
 	public TCollection<TMClass> getSrcTestJavaClasses();
-	
+
 	/**
+	 * Coleção com todos os modelos de arquivos de src/main/webapp
 	 * 
 	 * @return
 	 */

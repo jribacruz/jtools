@@ -1,5 +1,8 @@
 package jtools.commons.model;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import jtools.commons.types.TCollection;
 
 /**
@@ -7,19 +10,28 @@ import jtools.commons.types.TCollection;
  * @author jcruz
  *
  */
-public interface TMPackage extends TMDir {
+public interface TMPackage {
 
 	/**
 	 * 
 	 * @return
+	 * @throws IOException
+	 * @throws FileNotFoundException
 	 */
 	TCollection<TMClass> getClasses();
 
 	/**
 	 * 
+	 * @param recursively
 	 * @return
 	 */
-	TMPackage getParent();
+	TCollection<TMClass> getClasses(boolean recursively);
+
+	/**
+	 * 
+	 * @return
+	 */
+	TMPackage getParentPackage();
 
 	/**
 	 * 

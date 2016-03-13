@@ -19,34 +19,34 @@ public interface TMPersistence {
 	 * @return
 	 * @throws XPathExpressionException
 	 */
-	public String getVersion() throws XPathExpressionException;
+	public String getVersion();
 
 	/**
 	 * 
 	 * @return
 	 * @throws XPathExpressionException
 	 */
-	public String getPersistenceUnitName() throws XPathExpressionException;
+	public String getPersistenceUnitName();
 
 	/**
 	 * 
 	 * @return
 	 * @throws XPathExpressionException
 	 */
-	public String getTransactionType() throws XPathExpressionException;
+	public String getTransactionType();
 
 	/**
 	 * 
 	 * @return
 	 * @throws XPathExpressionException
 	 */
-	public TCollection<String> getClasses() throws XPathExpressionException;
+	public TCollection<String> getClasses();
 
 	/**
 	 * 
 	 * @return
-	 * @throws XPathExpressionException 
+	 * @throws XPathExpressionException
 	 */
-	public Map<String, String> getProperties() throws XPathExpressionException;
+	public Map<String, String> getProperties();
 
 }

@@ -41,7 +41,7 @@ public interface TMMavenProject extends Serializable {
 	 * @throws ParserConfigurationException
 	 */
 	public TMPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
-	
+
 	/**
 	 * 
 	 * @return
@@ -50,13 +50,6 @@ public interface TMMavenProject extends Serializable {
 	 * @throws IOException
 	 */
 	public TMPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
-
-	/**
-	 * Modelo do persistence.xml de src/test/resources
-	 * 
-	 * @return
-	 */
-	public TMPersistence getSrcTestResourcesPersistence();
 
 	/**
 	 * 
@@ -79,5 +72,29 @@ public interface TMMavenProject extends Serializable {
 	 * @return
 	 */
 	public TCollection<TMDir> getSrcMainWebappDirs();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public TCollection<TMDir> getSrcMainWebappFiles();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public TCollection<TMDir> getSrcMainWebappCSSFiles();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public TCollection<TMDir> getSrcMainWebappJSFiles();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public TCollection<TMDir> getSrcMainWebappXHTMLFiles();
 
 }

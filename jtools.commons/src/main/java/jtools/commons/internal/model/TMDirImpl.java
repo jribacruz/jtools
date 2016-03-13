@@ -2,6 +2,10 @@ package jtools.commons.internal.model;
 
 import java.io.File;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.AbstractFileFilter;
+import org.apache.commons.io.filefilter.TrueFileFilter;
+
 import com.google.common.base.Predicate;
 
 import jtools.commons.model.TMDir;
@@ -82,6 +86,15 @@ public class TMDirImpl implements TMDir {
 			}
 		});
 		return tmDir;
+	}
+
+	@Override
+	public <F extends AbstractFileFilter> TCollection<File> filter(F filter) {
+		TCollection<File> ffiles = new TCollection<>();
+		for (File filteredFile : FileUtils.listFiles(getFileDir(), filter, TrueFileFilter.INSTANCE)) {
+			ffiles.add(filteredFile);
+		}
+		return ffiles;
 	}
 
 	@Override

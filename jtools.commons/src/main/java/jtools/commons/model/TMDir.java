@@ -2,6 +2,11 @@ package jtools.commons.model;
 
 import java.io.File;
 
+import org.apache.commons.io.filefilter.AbstractFileFilter;
+import org.apache.commons.io.filefilter.SuffixFileFilter;
+
+import com.thoughtworks.qdox.directorywalker.SuffixFilter;
+
 import jtools.commons.types.TCollection;
 
 public interface TMDir {
@@ -43,4 +48,11 @@ public interface TMDir {
 	 * @return
 	 */
 	public File getFileDir();
+
+	/**
+	 * 
+	 * @param filter
+	 * @return
+	 */
+	public <F extends AbstractFileFilter> TCollection<File> filter(F filter);
 }

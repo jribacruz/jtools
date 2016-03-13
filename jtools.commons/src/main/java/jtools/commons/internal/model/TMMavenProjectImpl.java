@@ -1,6 +1,7 @@
 package jtools.commons.internal.model;
 
-import jtools.commons.model.TMJava;
+import jtools.commons.model.TMClass;
+import jtools.commons.model.TMDir;
 import jtools.commons.model.TMMavenProject;
 import jtools.commons.model.TMPersistence;
 import jtools.commons.model.TMPom;
@@ -45,7 +46,7 @@ public class TMMavenProjectImpl implements TMMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#gePersistence()
 	 */
 	@Override
-	public TMPersistence gePersistence() {
+	public TMPersistence geSrcMainResourcesPersistence() {
 		return null;
 	}
 
@@ -55,7 +56,7 @@ public class TMMavenProjectImpl implements TMMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcJavaMainClasses()
 	 */
 	@Override
-	public TCollection<TMJava> getSrcJavaMainClasses() {
+	public TCollection<TMClass> getSrcMainJavaClasses() {
 		return null;
 	}
 
@@ -65,7 +66,27 @@ public class TMMavenProjectImpl implements TMMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcJavaTestClasses()
 	 */
 	@Override
-	public TCollection<TMJava> getSrcJavaTestClasses() {
+	public TCollection<TMClass> getSrcTestJavaClasses() {
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMMavenProject#getSrcTestResourcesPersistence()
+	 */
+	@Override
+	public TMPersistence getSrcTestResourcesPersistence() {
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappDirs()
+	 */
+	@Override
+	public TCollection<TMDir> getSrcMainWebappDirs() {
 		return null;
 	}
 

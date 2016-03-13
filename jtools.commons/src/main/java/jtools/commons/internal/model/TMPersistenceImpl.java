@@ -2,18 +2,18 @@ package jtools.commons.internal.model;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 
-import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import jtools.commons.model.TMPersistence;
-import jtools.commons.model.TMPersistenceProperty;
 import jtools.commons.types.TCollection;
 
 /**
@@ -61,19 +61,36 @@ public class TMPersistenceImpl extends TMXmlImpl implements TMPersistence {
 		return node.getAttributes().getNamedItem("transaction-type").getNodeValue();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMPersistence#getClasses()
+	 */
 	@Override
 	public TCollection<String> getClasses() throws XPathExpressionException {
 		TCollection<String> classes = new TCollection<>();
 		NodeList nodeList = (NodeList) super.evaluate("/persistence/persistence-unit/class", XPathConstants.NODESET);
 		for (int i = 0; i < nodeList.getLength(); i++) {
-			System.out.println(String.format("NodeName : %s , Value: %s",nodeList.item(i).getNodeName(), nodeList.item(i).getFirstChild().getNodeValue()));
+			classes.add(nodeList.item(i).getFirstChild().getNodeValue());
 		}
 		return classes;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMPersistence#getProperties()
+	 */
 	@Override
-	public TCollection<TMPersistenceProperty> getProperties() {
-		return null;
+	public Map<String, String> getProperties() throws XPathExpressionException {
+		Map<String, String> properties = new HashMap<>();
+		NodeList nodeList = (NodeList) super.evaluate("/persistence/persistence-unit/properties/property", XPathConstants.NODESET);
+		for (int i = 0; i < nodeList.getLength(); i++) {
+			String name = nodeList.item(i).getAttributes().getNamedItem("name").getNodeValue();
+			String value = nodeList.item(i).getAttributes().getNamedItem("value").getNodeValue();
+			properties.put(name, value);
+		}
+		return properties;
 	}
 
 }

@@ -14,12 +14,12 @@ import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaSource;
 
-import jtools.commons.model.TMJavaAttribute;
-import jtools.commons.model.TMJavaMethod;
-import jtools.commons.model.TMJava;
+import jtools.commons.model.TMClassAttribute;
+import jtools.commons.model.TMClassMethod;
+import jtools.commons.model.TMClass;
 import jtools.commons.types.TCollection;
 
-public class TMJavaImpl implements TMJava {
+public class TMClassImpl implements TMClass {
 
 	/**
 	 * 
@@ -41,14 +41,14 @@ public class TMJavaImpl implements TMJava {
 	/**
 	 * Lista de Atributos como map.
 	 */
-	private TCollection<TMJavaAttribute> attributes;
+	private TCollection<TMClassAttribute> attributes;
 
 	/**
 	 * Lista de Metodos como map.
 	 */
-	private TCollection<TMJavaMethod> methods;
+	private TCollection<TMClassMethod> methods;
 
-	public TMJavaImpl(File javaFile) throws FileNotFoundException, IOException {
+	public TMClassImpl(File javaFile) throws FileNotFoundException, IOException {
 		super();
 		this.javaFile = javaFile;
 		JavaDocBuilder builder = new JavaDocBuilder();
@@ -113,11 +113,11 @@ public class TMJavaImpl implements TMJava {
 	 * @see tools4j.model.TClass#getAttributes()
 	 */
 	@Override
-	public TCollection<TMJavaAttribute> getAttributes() {
+	public TCollection<TMClassAttribute> getAttributes() {
 		if (this.attributes == null) {
 			this.attributes = new TCollection<>();
 			for (JavaField javaField : this.javaClass.getFields()) {
-				this.attributes.add(new TMJavaAttributeImpl(javaField));
+				this.attributes.add(new TMClassAttributeImpl(javaField));
 			}
 		}
 		return this.attributes;
@@ -130,11 +130,11 @@ public class TMJavaImpl implements TMJava {
 	 * @see tools4j.model.core.TClassModel#getMethods()
 	 */
 	@Override
-	public TCollection<TMJavaMethod> getMethods() {
+	public TCollection<TMClassMethod> getMethods() {
 		if (this.methods == null) {
 			this.methods = new TCollection<>();
 			for (JavaMethod javaMethod : this.javaClass.getMethods()) {
-				this.methods.add(new TMJavaMethodImpl(javaMethod));
+				this.methods.add(new TMClassMethodImpl(javaMethod));
 			}
 		}
 		return this.methods;

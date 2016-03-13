@@ -7,9 +7,9 @@ import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 
-import jtools.commons.model.TMJavaAttribute;
+import jtools.commons.model.TMClassAttribute;
 
-public class TMJavaAttributeImpl implements TMJavaAttribute {
+public class TMClassAttributeImpl implements TMClassAttribute {
 
 	/**
 	 * 
@@ -18,7 +18,7 @@ public class TMJavaAttributeImpl implements TMJavaAttribute {
 
 	private JavaField javaField;
 
-	public TMJavaAttributeImpl(JavaField javaField) {
+	public TMClassAttributeImpl(JavaField javaField) {
 		super();
 		this.javaField = javaField;
 	}

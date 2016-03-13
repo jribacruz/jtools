@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import jtools.commons.generator.TGeneratorWriter;
-import jtools.commons.model.TMJava;
+import jtools.commons.model.TMClass;
 
 import com.lyncode.jtwig.JtwigModelMap;
 import com.lyncode.jtwig.JtwigTemplate;
@@ -37,7 +37,7 @@ public class TGeneratorWriterImpl implements TGeneratorWriter {
 	 * TJavaModel)
 	 */
 	@Override
-	public <T extends TMJava> TGeneratorWriter model(T model) {
+	public <T extends TMClass> TGeneratorWriter model(T model) {
 		getContext().add("model", model);
 		return this;
 	}

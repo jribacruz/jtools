@@ -2,9 +2,9 @@ package jtools.commons.internal.model;
 
 import com.thoughtworks.qdox.model.JavaMethod;
 
-import jtools.commons.model.TMJavaMethod;
+import jtools.commons.model.TMClassMethod;
 
-public class TMJavaMethodImpl implements TMJavaMethod {
+public class TMClassMethodImpl implements TMClassMethod {
 
 	/**
 	 * 
@@ -13,7 +13,7 @@ public class TMJavaMethodImpl implements TMJavaMethod {
 
 	private JavaMethod javaMethod;
 
-	public TMJavaMethodImpl(JavaMethod javaMethod) {
+	public TMClassMethodImpl(JavaMethod javaMethod) {
 		super();
 		this.javaMethod = javaMethod;
 	}

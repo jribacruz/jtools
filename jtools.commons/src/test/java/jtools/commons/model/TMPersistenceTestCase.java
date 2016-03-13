@@ -26,7 +26,14 @@ public class TMPersistenceTestCase {
 	@Test
 	public void initTest2() throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
 		TMPersistence persistence = new TMPersistenceImpl(new File("src/test/java/persistence.xml"));
-		persistence.getClasses();
+		System.out.println(persistence.getClasses());
+		//Assert.assertTrue(persistence.getPersistenceUnitName().equals("jtools.commons"));
+	}
+	
+	@Test
+	public void initTest3() throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
+		TMPersistence persistence = new TMPersistenceImpl(new File("src/test/java/persistence.xml"));
+		System.out.println(persistence.getProperties());
 		//Assert.assertTrue(persistence.getPersistenceUnitName().equals("jtools.commons"));
 	}
 }

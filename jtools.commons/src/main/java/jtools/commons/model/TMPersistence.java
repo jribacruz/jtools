@@ -1,5 +1,7 @@
 package jtools.commons.model;
 
+import java.util.Map;
+
 import javax.xml.xpath.XPathExpressionException;
 
 import jtools.commons.types.TCollection;
@@ -15,35 +17,36 @@ public interface TMPersistence {
 	/**
 	 * 
 	 * @return
-	 * @throws XPathExpressionException 
+	 * @throws XPathExpressionException
 	 */
 	public String getVersion() throws XPathExpressionException;
 
 	/**
 	 * 
 	 * @return
-	 * @throws XPathExpressionException 
+	 * @throws XPathExpressionException
 	 */
 	public String getPersistenceUnitName() throws XPathExpressionException;
 
 	/**
 	 * 
 	 * @return
-	 * @throws XPathExpressionException 
+	 * @throws XPathExpressionException
 	 */
 	public String getTransactionType() throws XPathExpressionException;
 
 	/**
 	 * 
 	 * @return
-	 * @throws XPathExpressionException 
+	 * @throws XPathExpressionException
 	 */
 	public TCollection<String> getClasses() throws XPathExpressionException;
 
 	/**
 	 * 
 	 * @return
+	 * @throws XPathExpressionException 
 	 */
-	public TCollection<TMPersistenceProperty> getProperties();
+	public Map<String, String> getProperties() throws XPathExpressionException;
 
 }

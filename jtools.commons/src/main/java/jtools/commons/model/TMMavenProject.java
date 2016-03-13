@@ -28,11 +28,18 @@ public interface TMMavenProject extends Serializable {
 	public TMPrettyConfig gePrettyConfig();
 
 	/**
-	 * Modelo do persistence.xml
+	 * Modelo do persistence.xml de src/main/resources
 	 * 
 	 * @return
 	 */
-	public TMPersistence gePersistence();
+	public TMPersistence geSrcMainResourcesPersistence();
+
+	/**
+	 * Modelo do persistence.xml de src/test/resources
+	 * 
+	 * @return
+	 */
+	public TMPersistence getSrcTestResourcesPersistence();
 
 	/**
 	 * 
@@ -40,12 +47,19 @@ public interface TMMavenProject extends Serializable {
 	 * 
 	 * @return
 	 */
-	public TCollection<TMJava> getSrcJavaMainClasses();
+	public TCollection<TMClass> getSrcMainJavaClasses();
 
 	/**
 	 * Colação com todos os modelos das classes de src/test/java
 	 * 
 	 * @return
 	 */
-	public TCollection<TMJava> getSrcJavaTestClasses();
+	public TCollection<TMClass> getSrcTestJavaClasses();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public TCollection<TMDir> getSrcMainWebappDirs();
+
 }

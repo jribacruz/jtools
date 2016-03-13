@@ -14,7 +14,7 @@ import jtools.commons.types.TCollection;
  * @author jcruz
  *
  */
-public interface TMJava extends Serializable {
+public interface TMClass extends Serializable {
 
 	/**
 	 * Nome simples (sem o nome do package) da classe.
@@ -58,13 +58,13 @@ public interface TMJava extends Serializable {
 	 * 
 	 * @return Map com os atributos. key - Nome do Atributo value - TAttribute
 	 */
-	public TCollection<TMJavaAttribute> getAttributes();
+	public TCollection<TMClassAttribute> getAttributes();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<TMJavaMethod> getMethods();
+	public TCollection<TMClassMethod> getMethods();
 
 	/**
 	 * 

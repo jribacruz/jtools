@@ -9,7 +9,7 @@ import com.lyncode.jtwig.exception.CompileException;
 import com.lyncode.jtwig.exception.ParseException;
 import com.lyncode.jtwig.exception.RenderException;
 
-import jtools.commons.model.TMJava;
+import jtools.commons.model.TMClass;
 
 public interface TGeneratorWriter extends Serializable {
 	/**
@@ -17,7 +17,7 @@ public interface TGeneratorWriter extends Serializable {
 	 * @param model
 	 * @return
 	 */
-	public <T extends TMJava> TGeneratorWriter model(T model);
+	public <T extends TMClass> TGeneratorWriter model(T model);
 
 	/**
 	 * 

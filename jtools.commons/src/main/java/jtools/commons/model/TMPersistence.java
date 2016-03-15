@@ -7,7 +7,7 @@ import javax.xml.xpath.XPathExpressionException;
 import jtools.commons.types.TCollection;
 
 /**
- * Modelo do arquivo persistence.xml
+ * Classe que representa um arquivo persistence.xml
  * 
  * @author jcruz
  *

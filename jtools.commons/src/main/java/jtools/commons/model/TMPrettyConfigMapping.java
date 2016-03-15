@@ -1,5 +1,12 @@
 package jtools.commons.model;
 
+/**
+ * 
+ * Classe que representa uma entrada de mapeamento no arquivo pretty-config.xml
+ * 
+ * @author jcruz
+ *
+ */
 public interface TMPrettyConfigMapping {
 	/**
 	 * 

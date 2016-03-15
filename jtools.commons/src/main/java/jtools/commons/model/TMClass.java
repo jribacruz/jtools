@@ -3,13 +3,13 @@ package jtools.commons.model;
 import java.io.File;
 import java.io.Serializable;
 
-import com.thoughtworks.qdox.model.JavaClass;
-
 import jtools.commons.types.TCollection;
+
+import com.thoughtworks.qdox.model.JavaClass;
 
 /**
  * 
- * Modelo de classe Java.
+ * Classe que representa uma classe Java.
  * 
  * @author jcruz
  *

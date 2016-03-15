@@ -6,7 +6,7 @@ import java.util.Map;
 import com.thoughtworks.qdox.model.JavaField;
 
 /**
- * Modelo de atributo Java.
+ * Classe que representa um atributo Java.
  * 
  * @author jcruz
  *

@@ -5,12 +5,12 @@ import java.io.Serializable;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.xml.sax.SAXException;
-
 import jtools.commons.types.TCollection;
 
+import org.xml.sax.SAXException;
+
 /**
- * Modelo do projeto Maven.
+ * Classe que representa um projeto Maven.
  * 
  * @author jcruz
  *
@@ -65,8 +65,6 @@ public interface TMMavenProject extends Serializable {
 	 * @return
 	 */
 	public TCollection<TMClass> getSrcTestJavaClasses();
-	
-	
 
 	/**
 	 * Coleção com todos os modelos de arquivos de src/main/webapp
@@ -80,19 +78,19 @@ public interface TMMavenProject extends Serializable {
 	 * @return
 	 */
 	public TCollection<TMDir> getSrcMainWebappFiles();
-	
+
 	/**
 	 * 
 	 * @return
 	 */
 	public TCollection<TMDir> getSrcMainWebappCSSFiles();
-	
+
 	/**
 	 * 
 	 * @return
 	 */
 	public TCollection<TMDir> getSrcMainWebappJSFiles();
-	
+
 	/**
 	 * 
 	 * @return

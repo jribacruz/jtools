@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 /**
  * 
+ * Classe que representa uma prorpriedade do persistence.xml
+ * 
  * @author jcruz
  *
  */

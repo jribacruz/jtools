@@ -2,10 +2,17 @@ package jtools.commons.model;
 
 import java.io.File;
 
-import org.apache.commons.io.filefilter.IOFileFilter;
-
 import jtools.commons.types.TCollection;
 
+import org.apache.commons.io.filefilter.IOFileFilter;
+
+/**
+ * 
+ * Classe que representa um diretório.
+ * 
+ * @author jcruz
+ *
+ */
 public interface TMDir {
 
 	/**
@@ -75,12 +82,13 @@ public interface TMDir {
 
 	/**
 	 * 
-	 * Busca por arquivos recursivamente (incluindo subdiretórios) dado um
-	 * filtro.
+	 * Busca por arquivos recursivamente (incluindo subdiretórios) dado um filtro.
 	 * 
 	 * @param filter
+	 *            Filtro de busca.
 	 * @param recursively
-	 * @return
+	 *            Flag de recursividade
+	 * @return Lista de TMFiles filtrados.
 	 */
 	public <F extends IOFileFilter> TCollection<TMFile> filter(F filter, boolean recursively);
 

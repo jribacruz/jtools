@@ -6,6 +6,7 @@ import java.io.IOException;
 import jtools.commons.types.TCollection;
 
 /**
+ * Classe que representa um pacote Java.
  * 
  * @author jcruz
  *

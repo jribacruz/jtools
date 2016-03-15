@@ -4,6 +4,8 @@ import java.io.File;
 
 /**
  * 
+ * Classe que representa um arquivo.
+ * 
  * @author jcruz
  *
  */

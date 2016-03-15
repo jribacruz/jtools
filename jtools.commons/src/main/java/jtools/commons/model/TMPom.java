@@ -3,6 +3,7 @@ package jtools.commons.model;
 import jtools.commons.types.TCollection;
 
 /**
+ * Classe que representa um arquivo pom.xml
  * 
  * @author jcruz
  *

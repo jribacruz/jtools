@@ -1,6 +1,10 @@
-package jtools.commons.internal.model;
+package jtools.commons.internal.model.base;
 
 import java.io.File;
+
+import jtools.commons.model.base.TMDir;
+import jtools.commons.model.base.TMFile;
+import jtools.commons.types.TCollection;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
@@ -9,10 +13,6 @@ import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.TrueFileFilter;
 
 import com.google.common.base.Predicate;
-
-import jtools.commons.model.TMDir;
-import jtools.commons.model.TMFile;
-import jtools.commons.types.TCollection;
 
 /**
  * 

@@ -4,10 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import jtools.commons.internal.model.base.TMDirImpl;
 import jtools.commons.model.TMClass;
-import jtools.commons.model.TMDir;
-import jtools.commons.model.TMFile;
 import jtools.commons.model.TMPackage;
+import jtools.commons.model.base.TMDir;
+import jtools.commons.model.base.TMFile;
 import jtools.commons.types.TCollection;
 
 public class TMPackageImpl extends TMDirImpl implements TMPackage {

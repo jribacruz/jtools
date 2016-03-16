@@ -1,4 +1,4 @@
-package jtools.commons.model;
+package jtools.commons.model.base;
 
 import java.io.File;
 

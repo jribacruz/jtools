@@ -1,4 +1,4 @@
-package jtools.commons.model;
+package jtools.commons.model.base;
 
 import javax.xml.namespace.QName;
 import javax.xml.xpath.XPathExpressionException;

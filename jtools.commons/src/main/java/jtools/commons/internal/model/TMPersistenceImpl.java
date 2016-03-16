@@ -9,12 +9,13 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 
+import jtools.commons.internal.model.base.TMXmlImpl;
+import jtools.commons.model.TMPersistence;
+import jtools.commons.types.TCollection;
+
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import jtools.commons.model.TMPersistence;
-import jtools.commons.types.TCollection;
 
 /**
  * 

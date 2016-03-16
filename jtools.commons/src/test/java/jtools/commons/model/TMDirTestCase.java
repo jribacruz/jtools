@@ -2,13 +2,14 @@ package jtools.commons.model;
 
 import java.io.File;
 
+import jtools.commons.internal.model.base.TMDirImpl;
+import jtools.commons.model.base.TMDir;
+
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
-import jtools.commons.internal.model.TMDirImpl;
 
 @RunWith(JUnit4.class)
 public class TMDirTestCase {

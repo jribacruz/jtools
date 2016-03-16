@@ -6,18 +6,18 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.SuffixFileFilter;
-import org.apache.commons.io.filefilter.TrueFileFilter;
-import org.xml.sax.SAXException;
-
 import jtools.commons.model.TMClass;
-import jtools.commons.model.TMDir;
 import jtools.commons.model.TMMavenProject;
 import jtools.commons.model.TMPersistence;
 import jtools.commons.model.TMPom;
 import jtools.commons.model.TMPrettyConfig;
+import jtools.commons.model.base.TMDir;
 import jtools.commons.types.TCollection;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.SuffixFileFilter;
+import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.xml.sax.SAXException;
 
 /**
  * 

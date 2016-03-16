@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import jtools.commons.model.base.TMDir;
 import jtools.commons.types.TCollection;
 
 import org.xml.sax.SAXException;

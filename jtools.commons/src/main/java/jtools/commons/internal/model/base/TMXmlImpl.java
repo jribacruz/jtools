@@ -1,4 +1,4 @@
-package jtools.commons.internal.model;
+package jtools.commons.internal.model.base;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,10 +12,10 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import jtools.commons.model.base.TMXml;
+
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
-
-import jtools.commons.model.TMXml;
 
 /**
  * 

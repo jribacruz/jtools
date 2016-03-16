@@ -32,8 +32,9 @@ public class TMavenProject {
 	 */
 	public static TMMavenProject create(String path) throws InvalidProjectTypeException {
 		if (isMavenProject(path)) {
-			
+
 		}
 		throw new InvalidProjectTypeException("O projeto não é Maven.");
 	}
+
 }

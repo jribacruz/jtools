@@ -6,6 +6,11 @@ import java.io.IOException;
 
 import jtools.commons.model.TMJpaEntity;
 
+/**
+ * 
+ * @author jcruz
+ *
+ */
 public class TMJpaEntityImpl extends TMClassImpl implements TMJpaEntity {
 	/**
 	 * 
@@ -14,7 +19,6 @@ public class TMJpaEntityImpl extends TMClassImpl implements TMJpaEntity {
 
 	public TMJpaEntityImpl(File javaFile) throws FileNotFoundException, IOException {
 		super(javaFile);
-		// TODO Auto-generated constructor stub
 	}
 
 }

@@ -14,11 +14,15 @@ public interface TMDemoiselleProject extends TMMavenProject {
 
 	/**
 	 * 
+	 * Retorna todas as entidades JPA do projeto demoiselle.
+	 * 
 	 * @return
 	 */
 	public TCollection<TMJpaEntity> getAllJpaEntities();
 
 	/**
+	 * 
+	 * Retorna todos os Persistence Controllers (DAOs) do projeto demoiselle.
 	 * 
 	 * @return
 	 */
@@ -26,17 +30,23 @@ public interface TMDemoiselleProject extends TMMavenProject {
 
 	/**
 	 * 
+	 * Retorna todos os Business Controllers (BCs) do projeto demoiselle.
+	 * 
 	 * @return
 	 */
 	public TCollection<TMBusinessController> getAllBusinessControllers();
 
 	/**
 	 * 
+	 * Retorna todos os Managed Beans de Edição do projeto demoiselle.
+	 * 
 	 * @return
 	 */
 	public TCollection<TMEditViewController> getAllEditViewControllers();
 
 	/**
+	 * 
+	 * Retorna todos os Managed Beans de Listagem do projeto demoiselle.
 	 * 
 	 * @return
 	 */

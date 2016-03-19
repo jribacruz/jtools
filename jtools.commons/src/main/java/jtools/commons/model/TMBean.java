@@ -14,11 +14,13 @@ public interface TMBean extends TMClass {
 	 * 
 	 * @return
 	 */
-	public Collection<TMBean> getFieldInjections();
+	public Collection<TMClassAttribute> getInjectedAttributes();
 
 	/**
 	 * 
-	 * @param tmClass
+	 * @param attributeName
+	 * @return
 	 */
-	public void hasFieldInjection(TMClass tmClass);
+	public boolean isInjectedAttribute(String attributeName);
+
 }

@@ -104,11 +104,6 @@ public class TMClassAttributeImpl implements TMClassAttribute {
 		return false;
 	}
 
-	private String getNameWithFirstCharUpper() {
-		String nameWithFirstCharUpper = Character.toUpperCase(getName().charAt(0)) + getName().substring(1, getName().length());
-		return nameWithFirstCharUpper;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -119,6 +114,12 @@ public class TMClassAttributeImpl implements TMClassAttribute {
 		return this.javaField;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * jtools.commons.model.TMClassAttribute#hasAnnotation(java.lang.String)
+	 */
 	@Override
 	public boolean hasAnnotation(String name) {
 		for (Annotation annotation : this.javaField.getAnnotations()) {
@@ -128,4 +129,111 @@ public class TMClassAttributeImpl implements TMClassAttribute {
 		}
 		return false;
 	}
+	
+
+	@Override
+	public Object getAnnotationNamedParameter(String key) {
+		return null;
+	}
+	
+	public Object getAnnotationParamValue(String annotationName, String paramName) {
+		for (Annotation annotation : this.javaField.getAnnotations()) {
+			if (annotation.getType().getValue().endsWith(annotationName)) {
+				//return annotation.getNamedParameterMap().get(paramName);
+			}
+		}
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMClassAttribute#isString()
+	 */
+	@Override
+	public boolean isString() {
+		return getType().endsWith("String");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMClassAttribute#isDate()
+	 */
+	@Override
+	public boolean isDate() {
+		return getType().endsWith("Date");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMClassAttribute#isInteger()
+	 */
+	@Override
+	public boolean isInteger() {
+		return getType().endsWith("IntegerF");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMClassAttribute#isLong()
+	 */
+	@Override
+	public boolean isLong() {
+		return getType().endsWith("Long");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMClassAttribute#isBigDecimal()
+	 */
+	@Override
+	public boolean isBigDecimal() {
+		return getType().endsWith("BigDecimal");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMClassAttribute#isBoolean()
+	 */
+	@Override
+	public boolean isBoolean() {
+		return getType().endsWith("Boolean");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMClassAttribute#isList()
+	 */
+	@Override
+	public boolean isList() {
+		return getType().endsWith("List");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.TMClassAttribute#isMap()
+	 */
+	@Override
+	public boolean isMap() {
+		return getType().endsWith("Map");
+	}
+
+	@Override
+	public boolean isEnum() {
+		return false;
+	}
+
+	private String getNameWithFirstCharUpper() {
+		String nameWithFirstCharUpper = Character.toUpperCase(getName().charAt(0)) + getName().substring(1, getName().length());
+		return nameWithFirstCharUpper;
+	}
+
+
 }

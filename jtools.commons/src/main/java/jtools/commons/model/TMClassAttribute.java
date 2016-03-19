@@ -62,4 +62,65 @@ public interface TMClassAttribute extends Serializable {
 	 */
 	public boolean hasAnnotation(String name);
 
+	/**
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public Object getAnnotationNamedParameter(String key);
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isString();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isDate();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isInteger();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isLong();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isBigDecimal();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isBoolean();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isList();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isMap();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isEnum();
+
 }

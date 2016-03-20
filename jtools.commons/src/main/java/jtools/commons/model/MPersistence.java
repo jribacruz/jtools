@@ -4,7 +4,6 @@ import java.util.Map;
 
 import javax.xml.xpath.XPathExpressionException;
 
-import jtools.commons.model.base.MFile;
 import jtools.commons.model.base.MXml;
 import jtools.commons.types.TCollection;
 
@@ -51,6 +50,8 @@ public interface MPersistence extends MXml {
 	public TCollection<String> getClasses();
 
 	/**
+	 * 
+	 * Lista de propriedades do persistence.xml
 	 * 
 	 * @return
 	 * @throws XPathExpressionException

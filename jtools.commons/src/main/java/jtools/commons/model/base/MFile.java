@@ -6,8 +6,6 @@ import jtools.commons.types.TCollection;
 
 import org.apache.commons.io.filefilter.IOFileFilter;
 
-import com.google.common.base.Function;
-
 /**
  * 
  * Classe que representa um arquivo.

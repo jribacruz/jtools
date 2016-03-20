@@ -12,6 +12,8 @@ public interface MPrettyConfig {
 
 	/**
 	 * 
+	 * Lista com os mapeamentos do arquivo pretty-config.xml
+	 * 
 	 * @return
 	 */
 	public TCollection<MPrettyConfigMapping> geMappings();

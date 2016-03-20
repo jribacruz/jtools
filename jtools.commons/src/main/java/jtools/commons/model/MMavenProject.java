@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import jtools.commons.model.base.MDir;
 import jtools.commons.model.base.MFile;
 import jtools.commons.types.TCollection;
 
@@ -77,6 +78,18 @@ public interface MMavenProject extends Serializable {
 	 * 
 	 * @return
 	 */
+	public TCollection<MPackage> getSrcMainJavaPackages();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public TCollection<MPackage> getSrcTestJavaPackages();
+
+	/**
+	 * 
+	 * @return
+	 */
 	public TCollection<MFile> getSrcMainJavaFiles();
 
 	/**
@@ -90,7 +103,7 @@ public interface MMavenProject extends Serializable {
 	 * 
 	 * @return
 	 */
-	public TCollection<MFile> getSrcMainWebappDirs();
+	public TCollection<MDir> getSrcMainWebappDirs();
 
 	/**
 	 * 

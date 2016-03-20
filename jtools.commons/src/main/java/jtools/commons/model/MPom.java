@@ -12,11 +12,15 @@ import jtools.commons.types.TCollection;
 public interface MPom extends MXml {
 	/**
 	 * 
+	 * GroupId do pom.xml
+	 * 
 	 * @return
 	 */
 	public String getGroupId();
 
 	/**
+	 * 
+	 * ArtifactId do pom.xml
 	 * 
 	 * @return
 	 */
@@ -24,17 +28,23 @@ public interface MPom extends MXml {
 
 	/**
 	 * 
+	 * Version do pom.xml
+	 * 
 	 * @return
 	 */
 	public String getVersion();
 
 	/**
 	 * 
+	 * Retorna a lista de dependencias do pom.xml
+	 * 
 	 * @return
 	 */
 	public TCollection<MPomDependency> getDependencies();
 
 	/**
+	 * 
+	 * Verifica se o pom.xml possui a dependencia especificada.
 	 * 
 	 * @param groupId
 	 * @param artifactId
@@ -45,6 +55,8 @@ public interface MPom extends MXml {
 
 	/**
 	 * 
+	 * Adiciona uma dependencia ao pom.xml
+	 * 
 	 * @param groupId
 	 * @param artifactId
 	 * @param version
@@ -52,6 +64,8 @@ public interface MPom extends MXml {
 	public void addDependency(String groupId, String artifactId, String version);
 
 	/**
+	 * 
+	 * Remove a dependencia do pom.xml
 	 * 
 	 * @param groupId
 	 * @param artifactId

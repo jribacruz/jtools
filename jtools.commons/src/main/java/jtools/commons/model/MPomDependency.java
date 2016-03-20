@@ -13,11 +13,15 @@ public interface MPomDependency extends Serializable {
 
 	/**
 	 * 
+	 * GroupId da dependencia.
+	 * 
 	 * @return
 	 */
 	public String getGroupId();
 
 	/**
+	 * 
+	 * ArtifactId da dependencia.
 	 * 
 	 * @return
 	 */
@@ -25,11 +29,15 @@ public interface MPomDependency extends Serializable {
 
 	/**
 	 * 
+	 * Version da dependencia.
+	 * 
 	 * @return
 	 */
 	public String getVersion();
 
 	/**
+	 * 
+	 * Scope da dependencia.
 	 * 
 	 * @return
 	 */

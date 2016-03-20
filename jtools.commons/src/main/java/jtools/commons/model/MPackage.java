@@ -12,7 +12,7 @@ import jtools.commons.types.TCollection;
  *
  */
 public interface MPackage {
-
+	
 	/**
 	 * 
 	 * @return

@@ -10,13 +10,17 @@ import jtools.commons.filter.FilterCSSFile;
 import jtools.commons.filter.FilterJSFile;
 import jtools.commons.filter.FilterJavaFile;
 import jtools.commons.filter.FilterXHTMLFile;
+import jtools.commons.function.FunctionMFileToMDir;
+import jtools.commons.function.FunctionMFileToMPackage;
 import jtools.commons.function.FunctionMFileToMClass;
 import jtools.commons.internal.model.base.MFileImpl;
 import jtools.commons.model.MClass;
 import jtools.commons.model.MMavenProject;
+import jtools.commons.model.MPackage;
 import jtools.commons.model.MPersistence;
 import jtools.commons.model.MPom;
 import jtools.commons.model.MPrettyConfig;
+import jtools.commons.model.base.MDir;
 import jtools.commons.model.base.MFile;
 import jtools.commons.types.TCollection;
 import jtools.commons.util.MavenProject;
@@ -122,6 +126,28 @@ public class MMavenProjectImpl implements MMavenProject {
 	/*
 	 * (non-Javadoc)
 	 * 
+	 * @see jtools.commons.model.MMavenProject#getSrcMainJavaPackages()
+	 */
+	@Override
+	public TCollection<MPackage> getSrcMainJavaPackages() {
+		return getMavenProjectFile().find("src/main/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
+				.transform(new FunctionMFileToMPackage());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.commons.model.MMavenProject#getSrcTestJavaPackages()
+	 */
+	@Override
+	public TCollection<MPackage> getSrcTestJavaPackages() {
+		return getMavenProjectFile().find("src/test/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
+				.transform(new FunctionMFileToMPackage());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see jtools.commons.model.MMavenProject#getSrcMainJavaFiles()
 	 */
 	@Override
@@ -145,8 +171,9 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappDirs()
 	 */
 	@Override
-	public TCollection<MFile> getSrcMainWebappDirs() {
-		return getMavenProjectFile().find("src/main/webapp").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE);
+	public TCollection<MDir> getSrcMainWebappDirs() {
+		return getMavenProjectFile().find("src/main/webapp").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
+				.transform(new FunctionMFileToMDir());
 	}
 
 	/*

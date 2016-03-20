@@ -13,7 +13,7 @@ import com.google.common.base.Function;
  * @author jcruz
  *
  */
-public class FunctionMListViewController implements Function<MClass, MListViewController> {
+public class FunctionMClassToMListViewController implements Function<MClass, MListViewController> {
 
 	@Override
 	public MListViewController apply(MClass input) {

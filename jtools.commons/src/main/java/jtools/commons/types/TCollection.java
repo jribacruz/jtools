@@ -68,7 +68,9 @@ public class TCollection<E> extends ArrayList<E> {
 	public <X> TCollection<X> transform(Function<E, X> function) {
 		TCollection<X> transformedList = new TCollection<>();
 		for (E e : this) {
-			transformedList.add(function.apply(e));
+			if(e != null){
+				transformedList.add(function.apply(e));
+			}
 		}
 		return transformedList;
 	}

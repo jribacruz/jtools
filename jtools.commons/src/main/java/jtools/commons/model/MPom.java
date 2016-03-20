@@ -1,5 +1,6 @@
 package jtools.commons.model;
 
+import jtools.commons.model.base.MXml;
 import jtools.commons.types.TCollection;
 
 /**
@@ -8,7 +9,7 @@ import jtools.commons.types.TCollection;
  * @author jcruz
  *
  */
-public interface MPom {
+public interface MPom extends MXml {
 	/**
 	 * 
 	 * @return

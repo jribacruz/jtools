@@ -15,7 +15,7 @@ import org.xml.sax.SAXException;
 import jtools.commons.internal.model.MPersistenceImpl;
 
 @RunWith(JUnit4.class)
-public class TMPersistenceTestCase {
+public class MPersistenceTestCase {
 
 	@Test
 	public void initTest() throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {

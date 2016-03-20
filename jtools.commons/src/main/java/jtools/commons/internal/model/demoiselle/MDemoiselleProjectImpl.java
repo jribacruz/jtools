@@ -1,11 +1,12 @@
 package jtools.commons.internal.model.demoiselle;
 
+import jtools.commons.exception.InvalidProjectTypeException;
 import jtools.commons.internal.model.MMavenProjectImpl;
-import jtools.commons.internal.model.demoiselle.function.FunctionMBusinessController;
-import jtools.commons.internal.model.demoiselle.function.FunctionMEditViewController;
-import jtools.commons.internal.model.demoiselle.function.FunctionMJpaEntity;
-import jtools.commons.internal.model.demoiselle.function.FunctionMListViewController;
-import jtools.commons.internal.model.demoiselle.function.FunctionMPersistenceController;
+import jtools.commons.internal.model.demoiselle.function.FunctionMClassToMBusinessController;
+import jtools.commons.internal.model.demoiselle.function.FunctionMClassToMEditViewController;
+import jtools.commons.internal.model.demoiselle.function.FunctionMClassToMJpaEntity;
+import jtools.commons.internal.model.demoiselle.function.FunctionMClassToMListViewController;
+import jtools.commons.internal.model.demoiselle.function.FunctionMClassToMPersistenceController;
 import jtools.commons.internal.model.demoiselle.predicate.PredicateIsMBusinessController;
 import jtools.commons.internal.model.demoiselle.predicate.PredicateIsMEditViewController;
 import jtools.commons.internal.model.demoiselle.predicate.PredicateIsMJpaEntity;
@@ -31,6 +32,10 @@ public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemois
 	 */
 	private static final long serialVersionUID = 1L;
 
+	public MDemoiselleProjectImpl(String mavenProjectPath) throws InvalidProjectTypeException {
+		super(mavenProjectPath);
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -38,7 +43,7 @@ public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemois
 	 */
 	@Override
 	public TCollection<MJpaEntity> getAllJpaEntities() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMJpaEntity(), new FunctionMJpaEntity());
+		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMJpaEntity(), new FunctionMClassToMJpaEntity());
 	}
 
 	/*
@@ -49,7 +54,8 @@ public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemois
 	 */
 	@Override
 	public TCollection<MPersistenceController> getAllPersistenceControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMPersistenceController(), new FunctionMPersistenceController());
+		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMPersistenceController(),
+				new FunctionMClassToMPersistenceController());
 	}
 
 	/*
@@ -61,7 +67,7 @@ public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemois
 	 */
 	@Override
 	public TCollection<MBusinessController> getAllBusinessControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMBusinessController(), new FunctionMBusinessController());
+		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMBusinessController(), new FunctionMClassToMBusinessController());
 	}
 
 	/*
@@ -73,7 +79,7 @@ public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemois
 	 */
 	@Override
 	public TCollection<MEditViewController> getAllEditViewControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMEditViewController(), new FunctionMEditViewController());
+		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMEditViewController(), new FunctionMClassToMEditViewController());
 	}
 
 	/*
@@ -85,7 +91,7 @@ public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemois
 	 */
 	@Override
 	public TCollection<MListViewController> getAllListViewControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMListViewController(), new FunctionMListViewController());
+		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMListViewController(), new FunctionMClassToMListViewController());
 	}
 
 }

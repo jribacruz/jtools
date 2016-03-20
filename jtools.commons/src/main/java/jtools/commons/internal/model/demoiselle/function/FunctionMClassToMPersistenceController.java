@@ -8,7 +8,7 @@ import jtools.commons.model.demoiselle.MPersistenceController;
 
 import com.google.common.base.Function;
 
-public class FunctionMPersistenceController implements Function<MClass, MPersistenceController> {
+public class FunctionMClassToMPersistenceController implements Function<MClass, MPersistenceController> {
 
 	@Override
 	public MPersistenceController apply(MClass input) {

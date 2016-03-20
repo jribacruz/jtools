@@ -13,7 +13,7 @@ import com.google.common.base.Function;
  * @author jcruz
  *
  */
-public class FunctionMEditViewController implements Function<MClass, MEditViewController> {
+public class FunctionMClassToMEditViewController implements Function<MClass, MEditViewController> {
 
 	@Override
 	public MEditViewController apply(MClass input) {

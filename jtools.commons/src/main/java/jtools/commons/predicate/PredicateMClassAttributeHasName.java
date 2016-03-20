@@ -9,11 +9,11 @@ import com.google.common.base.Predicate;
  * @author jcruz
  *
  */
-public class PredicateMClassAttributeName implements Predicate<MClassAttribute> {
+public class PredicateMClassAttributeHasName implements Predicate<MClassAttribute> {
 
 	private String attributeName;
 
-	public PredicateMClassAttributeName(String attributeName) {
+	public PredicateMClassAttributeHasName(String attributeName) {
 		super();
 		this.attributeName = attributeName;
 	}

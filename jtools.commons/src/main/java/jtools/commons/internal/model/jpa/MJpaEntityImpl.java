@@ -8,7 +8,7 @@ import jtools.commons.internal.model.MClassImpl;
 import jtools.commons.model.MClassAttribute;
 import jtools.commons.model.jpa.MJpaAttribute;
 import jtools.commons.model.jpa.MJpaEntity;
-import jtools.commons.predicate.PredicateMJpaAttributeAnnotation;
+import jtools.commons.predicate.PredicateMJpaAttributeHasAnnotation;
 import jtools.commons.types.TCollection;
 
 /**
@@ -33,7 +33,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 */
 	@Override
 	public MJpaAttribute getId() {
-		return getJpaAttributes().find(new PredicateMJpaAttributeAnnotation("Id"));
+		return getJpaAttributes().find(new PredicateMJpaAttributeHasAnnotation("Id"));
 	}
 
 	/*
@@ -43,7 +43,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 */
 	@Override
 	public boolean isInheritance() {
-		return getJpaAttributes().find(new PredicateMJpaAttributeAnnotation("Inheritance")) != null;
+		return getJpaAttributes().find(new PredicateMJpaAttributeHasAnnotation("Inheritance")) != null;
 	}
 
 	/*
@@ -63,7 +63,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 */
 	@Override
 	public TCollection<MJpaAttribute> getUniOneToMany() {
-		return getJpaAttributes().filter(new PredicateMJpaAttributeAnnotation("OneToMany"));
+		return getJpaAttributes().filter(new PredicateMJpaAttributeHasAnnotation("OneToMany"));
 	}
 
 	/*
@@ -73,7 +73,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 */
 	@Override
 	public TCollection<MJpaAttribute> getUniOneToOne() {
-		return getJpaAttributes().filter(new PredicateMJpaAttributeAnnotation("OneToOne"));
+		return getJpaAttributes().filter(new PredicateMJpaAttributeHasAnnotation("OneToOne"));
 	}
 
 	/*
@@ -83,7 +83,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 */
 	@Override
 	public TCollection<MJpaAttribute> getUniManyToOne() {
-		return getJpaAttributes().filter(new PredicateMJpaAttributeAnnotation("ManyToOne"));
+		return getJpaAttributes().filter(new PredicateMJpaAttributeHasAnnotation("ManyToOne"));
 	}
 
 	/*
@@ -93,7 +93,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 */
 	@Override
 	public TCollection<MJpaAttribute> getUniManyToMany() {
-		return getJpaAttributes().filter(new PredicateMJpaAttributeAnnotation("ManyToMany"));
+		return getJpaAttributes().filter(new PredicateMJpaAttributeHasAnnotation("ManyToMany"));
 	}
 
 	/*

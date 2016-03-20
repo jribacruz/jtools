@@ -9,11 +9,11 @@ import com.google.common.base.Predicate;
  * @author jcruz
  *
  */
-public class PredicateMBeanAttributeAnnotation implements Predicate<MClassAttribute> {
+public class PredicateMBeanAttributeHasAnnotation implements Predicate<MClassAttribute> {
 
 	private String annotationName;
 
-	public PredicateMBeanAttributeAnnotation(String annotationName) {
+	public PredicateMBeanAttributeHasAnnotation(String annotationName) {
 		super();
 		this.annotationName = annotationName;
 	}

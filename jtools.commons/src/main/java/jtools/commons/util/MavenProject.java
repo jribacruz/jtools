@@ -2,6 +2,8 @@ package jtools.commons.util;
 
 import java.io.File;
 
+import jtools.commons.model.MMavenProject;
+
 import org.apache.commons.io.FilenameUtils;
 
 /**

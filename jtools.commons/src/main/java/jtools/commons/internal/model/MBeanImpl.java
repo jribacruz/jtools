@@ -6,8 +6,8 @@ import java.io.IOException;
 
 import jtools.commons.model.MBean;
 import jtools.commons.model.MClassAttribute;
-import jtools.commons.predicate.PredicateMBeanAttributeAnnotation;
-import jtools.commons.predicate.PredicateMClassAttributeName;
+import jtools.commons.predicate.PredicateMBeanAttributeHasAnnotation;
+import jtools.commons.predicate.PredicateMClassAttributeHasName;
 import jtools.commons.types.TCollection;
 
 /**
@@ -33,7 +33,7 @@ public class MBeanImpl extends MClassImpl implements MBean {
 	 */
 	@Override
 	public TCollection<MClassAttribute> getInjectedAttributes() {
-		return getAttributes().filter(new PredicateMBeanAttributeAnnotation("Inject"));
+		return getAttributes().filter(new PredicateMBeanAttributeHasAnnotation("Inject"));
 	}
 
 	/*
@@ -43,7 +43,7 @@ public class MBeanImpl extends MClassImpl implements MBean {
 	 */
 	@Override
 	public boolean isInjectedAttribute(String attributeName) {
-		return !getAttributes().filter(new PredicateMClassAttributeName(attributeName)).isEmpty();
+		return !getAttributes().filter(new PredicateMClassAttributeHasName(attributeName)).isEmpty();
 	}
 
 }

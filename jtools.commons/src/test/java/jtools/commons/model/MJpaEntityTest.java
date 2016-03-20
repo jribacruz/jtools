@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
-public class TMJpaEntityTest {
+public class MJpaEntityTest {
 
 	@Test
 	public void getColumnName_Test() throws FileNotFoundException, IOException {

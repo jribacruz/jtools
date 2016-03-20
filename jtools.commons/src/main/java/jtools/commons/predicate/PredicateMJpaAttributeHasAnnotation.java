@@ -9,11 +9,11 @@ import com.google.common.base.Predicate;
  * @author jcruz
  *
  */
-public class PredicateMJpaAttributeAnnotation implements Predicate<MJpaAttribute> {
+public class PredicateMJpaAttributeHasAnnotation implements Predicate<MJpaAttribute> {
 
 	private String annotationName;
 
-	public PredicateMJpaAttributeAnnotation(String annotationName) {
+	public PredicateMJpaAttributeHasAnnotation(String annotationName) {
 		super();
 		this.annotationName = annotationName;
 	}

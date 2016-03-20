@@ -11,7 +11,7 @@ import org.junit.runners.JUnit4;
 import jtools.commons.internal.model.MPackageImpl;
 
 @RunWith(JUnit4.class)
-public class TMPackageTest {
+public class MPackageTest {
 
 	@Test
 	public void getClassesTest() throws FileNotFoundException, IOException {

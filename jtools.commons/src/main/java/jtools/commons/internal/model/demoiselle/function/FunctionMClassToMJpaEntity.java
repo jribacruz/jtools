@@ -8,7 +8,7 @@ import jtools.commons.model.jpa.MJpaEntity;
 
 import com.google.common.base.Function;
 
-public class FunctionMJpaEntity implements Function<MClass, MJpaEntity> {
+public class FunctionMClassToMJpaEntity implements Function<MClass, MJpaEntity> {
 
 	@Override
 	public MJpaEntity apply(MClass input) {

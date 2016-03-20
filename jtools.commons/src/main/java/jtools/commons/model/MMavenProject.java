@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import jtools.commons.model.base.MDir;
+import jtools.commons.model.base.MFile;
 import jtools.commons.types.TCollection;
 
 import org.xml.sax.SAXException;
@@ -17,6 +17,12 @@ import org.xml.sax.SAXException;
  *
  */
 public interface MMavenProject extends Serializable {
+
+	/**
+	 * 
+	 * @return
+	 */
+	public MFile getMavenProjectFile();
 
 	/**
 	 * Modelo do pom.xml
@@ -68,34 +74,46 @@ public interface MMavenProject extends Serializable {
 	public TCollection<MClass> getSrcTestJavaClasses();
 
 	/**
+	 * 
+	 * @return
+	 */
+	public TCollection<MFile> getSrcMainJavaFiles();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public TCollection<MFile> getSrcTestJavaFiles();
+
+	/**
 	 * Coleção com todos os modelos de arquivos de src/main/webapp
 	 * 
 	 * @return
 	 */
-	public TCollection<MDir> getSrcMainWebappDirs();
+	public TCollection<MFile> getSrcMainWebappDirs();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MDir> getSrcMainWebappFiles();
+	public TCollection<MFile> getSrcMainWebappFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MDir> getSrcMainWebappCSSFiles();
+	public TCollection<MFile> getSrcMainWebappCSSFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MDir> getSrcMainWebappJSFiles();
+	public TCollection<MFile> getSrcMainWebappJSFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MDir> getSrcMainWebappXHTMLFiles();
+	public TCollection<MFile> getSrcMainWebappXHTMLFiles();
 
 }

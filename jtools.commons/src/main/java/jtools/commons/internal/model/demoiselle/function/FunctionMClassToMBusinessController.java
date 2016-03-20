@@ -8,7 +8,7 @@ import jtools.commons.model.demoiselle.MBusinessController;
 
 import com.google.common.base.Function;
 
-public class FunctionMBusinessController implements Function<MClass, MBusinessController> {
+public class FunctionMClassToMBusinessController implements Function<MClass, MBusinessController> {
 
 	@Override
 	public MBusinessController apply(MClass input) {

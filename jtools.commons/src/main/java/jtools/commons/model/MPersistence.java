@@ -4,6 +4,8 @@ import java.util.Map;
 
 import javax.xml.xpath.XPathExpressionException;
 
+import jtools.commons.model.base.MFile;
+import jtools.commons.model.base.MXml;
 import jtools.commons.types.TCollection;
 
 /**
@@ -12,9 +14,11 @@ import jtools.commons.types.TCollection;
  * @author jcruz
  *
  */
-public interface MPersistence {
+public interface MPersistence extends MXml {
 
 	/**
+	 * 
+	 * Retorna a versão do arquivo persistence.xml
 	 * 
 	 * @return
 	 * @throws XPathExpressionException
@@ -22,6 +26,8 @@ public interface MPersistence {
 	public String getVersion();
 
 	/**
+	 * 
+	 * Retorna o nome da unidade de persistencia.
 	 * 
 	 * @return
 	 * @throws XPathExpressionException
@@ -36,6 +42,8 @@ public interface MPersistence {
 	public String getTransactionType();
 
 	/**
+	 * 
+	 * Retorna as classes registradas no arquivo persistence.xml
 	 * 
 	 * @return
 	 * @throws XPathExpressionException

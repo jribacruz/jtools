@@ -68,15 +68,24 @@ public class TCollection<E> extends ArrayList<E> {
 	public <X> TCollection<X> transform(Function<E, X> function) {
 		TCollection<X> transformedList = new TCollection<>();
 		for (E e : this) {
-			if(e != null){
+			if (e != null) {
 				transformedList.add(function.apply(e));
 			}
 		}
 		return transformedList;
 	}
-	
+
 	public <X> TCollection<X> filterAndTransform(Predicate<E> predicate, Function<E, X> function) {
 		return filter(predicate).transform(function);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (E e : this) {
+			sb.append(e.toString());
+			sb.append("\n");
+		}
+		return sb.toString();
+	}
 }

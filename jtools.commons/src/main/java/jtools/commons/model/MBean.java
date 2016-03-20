@@ -1,6 +1,6 @@
 package jtools.commons.model;
 
-import java.util.Collection;
+import jtools.commons.types.TCollection;
 
 /**
  * Classe que representa um bean CDI.
@@ -14,7 +14,7 @@ public interface MBean extends MClass {
 	 * 
 	 * @return
 	 */
-	public Collection<MClassAttribute> getInjectedAttributes();
+	public TCollection<MClassAttribute> getInjectedAttributes();
 
 	/**
 	 * 

@@ -24,4 +24,18 @@ public interface MClassMethod extends Serializable {
 	 * @return
 	 */
 	public JavaMethod getJavaMethod();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean hasAnnotation(String name);
+
+	/**
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public Object getAnnotationNamedParameter(String name, String key);
+
 }

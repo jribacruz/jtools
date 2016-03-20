@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.jboss.forge.roaster.Roaster;
-import org.jboss.forge.roaster.model.source.JavaClassSource;
+import jtools.commons.model.MClass;
+import jtools.commons.model.MClassAttribute;
+import jtools.commons.model.MClassMethod;
+import jtools.commons.types.TCollection;
 
 import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.JavaDocBuilder;
@@ -14,11 +16,6 @@ import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaSource;
-
-import jtools.commons.model.MClassAttribute;
-import jtools.commons.model.MClassMethod;
-import jtools.commons.model.MClass;
-import jtools.commons.types.TCollection;
 
 public class MClassImpl implements MClass {
 
@@ -33,11 +30,6 @@ public class MClassImpl implements MClass {
 	 * qdox JavaClass
 	 */
 	private JavaClass javaClass;
-
-	/**
-	 * roaster JavaClassSource
-	 */
-	private JavaClassSource javaClassSource;
 
 	/**
 	 * Lista de Atributos como map.
@@ -55,7 +47,6 @@ public class MClassImpl implements MClass {
 		JavaDocBuilder builder = new JavaDocBuilder();
 		JavaSource source = builder.addSource(javaFile);
 		this.javaClass = source.getClasses()[0];
-		this.javaClassSource = Roaster.parse(JavaClassSource.class, javaFile);
 	}
 
 	/*

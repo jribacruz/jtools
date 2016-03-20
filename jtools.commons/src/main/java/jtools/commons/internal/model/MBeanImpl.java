@@ -3,12 +3,12 @@ package jtools.commons.internal.model;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Collection;
 
 import jtools.commons.model.MBean;
 import jtools.commons.model.MClassAttribute;
 import jtools.commons.predicate.PredicateMBeanAttributeAnnotation;
 import jtools.commons.predicate.PredicateMClassAttributeName;
+import jtools.commons.types.TCollection;
 
 /**
  * 
@@ -32,7 +32,7 @@ public class MBeanImpl extends MClassImpl implements MBean {
 	 * @see jtools.commons.model.TMBean#getAttributeInjections()
 	 */
 	@Override
-	public Collection<MClassAttribute> getInjectedAttributes() {
+	public TCollection<MClassAttribute> getInjectedAttributes() {
 		return getAttributes().filter(new PredicateMBeanAttributeAnnotation("Inject"));
 	}
 

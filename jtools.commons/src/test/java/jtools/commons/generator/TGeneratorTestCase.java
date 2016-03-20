@@ -20,7 +20,7 @@ public class TGeneratorTestCase {
 	public void generatorWriterStringTest() throws ParseException, CompileException, RenderException, URISyntaxException, IOException {
 		File template = new File("src/test/java/jtools/commons/template.jtwig");
 		//@formatter:off
-		String merge = TGenerator.load(template)
+		String merge = Generator.load(template)
 			.add("nome", "jcruz@gmail.com")
 			.write();
 		System.out.println(merge);
@@ -32,7 +32,7 @@ public class TGeneratorTestCase {
 	public void generatorWriterFileTest() throws ParseException, CompileException, RenderException, URISyntaxException, IOException {
 		File template = new File("src/test/java/jtools/commons/template.jtwig");
 		//@formatter:off
-		TGenerator.load(template)
+		Generator.load(template)
 			.add("nome", "jcruz@gmail.com")
 			.write("target/template-output.txt", true);
 		//@formatter:on

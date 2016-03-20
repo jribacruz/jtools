@@ -2,8 +2,8 @@ package jtools.commons.model;
 
 import java.io.File;
 
-import jtools.commons.internal.model.base.TMDirImpl;
-import jtools.commons.model.base.TMDir;
+import jtools.commons.internal.model.base.MDirImpl;
+import jtools.commons.model.base.MDir;
 
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -16,13 +16,13 @@ public class TMDirTestCase {
 
 	@Test
 	public void getFilesTest() {
-		TMDir dir = new TMDirImpl(new File("src/test/java"));
+		MDir dir = new MDirImpl(new File("src/test/java"));
 		System.out.println(dir.getAllFiles());
 	}
 
 	@Test
 	public void getChildDirsTest() {
-		TMDir dir = new TMDirImpl(new File("src/test/java/"));
+		MDir dir = new MDirImpl(new File("src/test/java/"));
 		System.out.println(dir.getChildDirs());
 		Assert.assertTrue(dir.getChildDirs().size() > 0);
 	}
@@ -30,13 +30,13 @@ public class TMDirTestCase {
 	@Test
 	@Ignore
 	public void getParentTest() {
-		TMDir dir = new TMDirImpl(new File("src/test/java/jtools/commons"));
+		MDir dir = new MDirImpl(new File("src/test/java/jtools/commons"));
 		System.out.println(dir.getParent());
 	}
 
 	@Test
 	public void getChildTest() {
-		TMDir dir = new TMDirImpl(new File("src/test/java/jtools"));
+		MDir dir = new MDirImpl(new File("src/test/java/jtools"));
 		// System.out.println("Dir: " + dir.getChild("commons"));
 		System.out.println("Commonos: " + dir.getChild("commons"));
 	}

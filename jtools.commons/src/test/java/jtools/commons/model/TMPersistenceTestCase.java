@@ -12,27 +12,27 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.xml.sax.SAXException;
 
-import jtools.commons.internal.model.TMPersistenceImpl;
+import jtools.commons.internal.model.MPersistenceImpl;
 
 @RunWith(JUnit4.class)
 public class TMPersistenceTestCase {
 
 	@Test
 	public void initTest() throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
-		TMPersistence persistence = new TMPersistenceImpl(new File("src/test/java/persistence.xml"));
+		MPersistence persistence = new MPersistenceImpl(new File("src/test/java/persistence.xml"));
 		Assert.assertTrue(persistence.getPersistenceUnitName().equals("jtools.commons"));
 	}
 	
 	@Test
 	public void initTest2() throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
-		TMPersistence persistence = new TMPersistenceImpl(new File("src/test/java/persistence.xml"));
+		MPersistence persistence = new MPersistenceImpl(new File("src/test/java/persistence.xml"));
 		System.out.println(persistence.getClasses());
 		//Assert.assertTrue(persistence.getPersistenceUnitName().equals("jtools.commons"));
 	}
 	
 	@Test
 	public void initTest3() throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
-		TMPersistence persistence = new TMPersistenceImpl(new File("src/test/java/persistence.xml"));
+		MPersistence persistence = new MPersistenceImpl(new File("src/test/java/persistence.xml"));
 		System.out.println(persistence.getProperties());
 		//Assert.assertTrue(persistence.getPersistenceUnitName().equals("jtools.commons"));
 	}

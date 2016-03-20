@@ -1,7 +1,10 @@
 package jtools.commons.types;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 
 /**
@@ -16,6 +19,16 @@ public class TCollection<E> extends ArrayList<E> {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	public TCollection() {
+		super();
+
+	}
+
+	public TCollection(Collection<? extends E> c) {
+		super(c);
+
+	}
 
 	/**
 	 * 
@@ -45,6 +58,23 @@ public class TCollection<E> extends ArrayList<E> {
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * 
+	 * @param function
+	 * @return
+	 */
+	public <X> TCollection<X> transform(Function<E, X> function) {
+		TCollection<X> transformedList = new TCollection<>();
+		for (E e : this) {
+			transformedList.add(function.apply(e));
+		}
+		return transformedList;
+	}
+	
+	public <X> TCollection<X> filterAndTransform(Predicate<E> predicate, Function<E, X> function) {
+		return filter(predicate).transform(function);
 	}
 
 }

@@ -4,11 +4,11 @@ import jtools.commons.model.MClass;
 
 import com.google.common.base.Predicate;
 
-public class PredicateMEditViewController implements Predicate<MClass> {
+public class PredicateIsMJpaEntity implements Predicate<MClass> {
 
 	@Override
 	public boolean apply(MClass input) {
-		return input.extendsOf("br.gov.frameworkdemoiselle.template.AbstractEditPageBean");
+		return input.hasAnnotation("Entity");
 	}
 
 }

@@ -4,7 +4,7 @@ import jtools.commons.model.MClass;
 
 import com.google.common.base.Predicate;
 
-public class PredicateMPersistenceController implements Predicate<MClass> {
+public class PredicateIsMPersistenceController implements Predicate<MClass> {
 
 	@Override
 	public boolean apply(MClass input) {

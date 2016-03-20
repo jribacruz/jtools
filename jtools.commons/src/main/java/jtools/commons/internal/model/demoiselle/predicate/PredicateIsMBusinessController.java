@@ -4,7 +4,7 @@ import jtools.commons.model.MClass;
 
 import com.google.common.base.Predicate;
 
-public class PredicateMBusinessController implements Predicate<MClass> {
+public class PredicateIsMBusinessController implements Predicate<MClass> {
 
 	@Override
 	public boolean apply(MClass input) {

@@ -7,6 +7,10 @@ import java.io.IOException;
 import jtools.commons.internal.model.MBeanImpl;
 import jtools.commons.model.demoiselle.MPersistenceController;
 
+/**
+ * @author jcruz
+ *
+ */
 public class MPersistenceControllerImpl extends MBeanImpl implements MPersistenceController {
 
 	/**

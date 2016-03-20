@@ -4,7 +4,7 @@ import jtools.commons.model.MClass;
 
 import com.google.common.base.Predicate;
 
-public class PredicateMListViewController implements Predicate<MClass> {
+public class PredicateIsMListViewController implements Predicate<MClass> {
 
 	@Override
 	public boolean apply(MClass input) {

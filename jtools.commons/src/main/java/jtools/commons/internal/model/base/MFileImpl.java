@@ -10,8 +10,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
 
-import com.google.common.base.Function;
-
 /**
  * 
  * @author jcruz
@@ -148,7 +146,6 @@ public class MFileImpl implements MFile {
 		}
 		return files;
 	}
-
 
 	@Override
 	public String toString() {

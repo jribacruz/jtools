@@ -5,9 +5,9 @@ import java.io.Serializable;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import jtools.commons.model.base.MDir;
-import jtools.commons.model.base.MFile;
-import jtools.commons.types.TCollection;
+import jtools.commons.model.base.XDir;
+import jtools.commons.model.base.XFile;
+import jtools.commons.types.XCollection;
 
 import org.xml.sax.SAXException;
 
@@ -17,20 +17,20 @@ import org.xml.sax.SAXException;
  * @author jcruz
  *
  */
-public interface MMavenProject extends Serializable {
+public interface XMavenProject extends Serializable {
 
 	/**
 	 * 
 	 * @return
 	 */
-	public MFile getMavenProjectFile();
+	public XFile getMavenProjectFile();
 
 	/**
 	 * Modelo do pom.xml
 	 * 
 	 * @return
 	 */
-	public MPom getPom();
+	public XPom getPom();
 
 	/**
 	 * 
@@ -38,7 +38,7 @@ public interface MMavenProject extends Serializable {
 	 * 
 	 * @return
 	 */
-	public MPrettyConfig gePrettyConfig();
+	public XPrettyConfig gePrettyConfig();
 
 	/**
 	 * Modelo do persistence.xml de src/main/resources
@@ -48,7 +48,7 @@ public interface MMavenProject extends Serializable {
 	 * @throws SAXException
 	 * @throws ParserConfigurationException
 	 */
-	public MPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
+	public XPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
 
 	/**
 	 * 
@@ -57,7 +57,7 @@ public interface MMavenProject extends Serializable {
 	 * @throws SAXException
 	 * @throws IOException
 	 */
-	public MPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
+	public XPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
 
 	/**
 	 * 
@@ -65,68 +65,68 @@ public interface MMavenProject extends Serializable {
 	 * 
 	 * @return
 	 */
-	public TCollection<MClass> getSrcMainJavaClasses();
+	public XCollection<XClass> getSrcMainJavaClasses();
 
 	/**
 	 * Coleção com todos os modelos das classes de src/test/java
 	 * 
 	 * @return
 	 */
-	public TCollection<MClass> getSrcTestJavaClasses();
+	public XCollection<XClass> getSrcTestJavaClasses();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MPackage> getSrcMainJavaPackages();
+	public XCollection<XPackage> getSrcMainJavaPackages();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MPackage> getSrcTestJavaPackages();
+	public XCollection<XPackage> getSrcTestJavaPackages();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MFile> getSrcMainJavaFiles();
+	public XCollection<XFile> getSrcMainJavaFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MFile> getSrcTestJavaFiles();
+	public XCollection<XFile> getSrcTestJavaFiles();
 
 	/**
 	 * Coleção com todos os modelos de arquivos de src/main/webapp
 	 * 
 	 * @return
 	 */
-	public TCollection<MDir> getSrcMainWebappDirs();
+	public XCollection<XDir> getSrcMainWebappDirs();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MFile> getSrcMainWebappFiles();
+	public XCollection<XFile> getSrcMainWebappFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MFile> getSrcMainWebappCSSFiles();
+	public XCollection<XFile> getSrcMainWebappCSSFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MFile> getSrcMainWebappJSFiles();
+	public XCollection<XFile> getSrcMainWebappJSFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MFile> getSrcMainWebappXHTMLFiles();
+	public XCollection<XFile> getSrcMainWebappXHTMLFiles();
 
 }

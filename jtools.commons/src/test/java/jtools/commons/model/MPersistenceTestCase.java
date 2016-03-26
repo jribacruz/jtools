@@ -19,20 +19,20 @@ public class MPersistenceTestCase {
 
 	@Test
 	public void initTest() throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
-		MPersistence persistence = new MPersistenceImpl(new File("src/test/java/persistence.xml"));
+		XPersistence persistence = new MPersistenceImpl(new File("src/test/java/persistence.xml"));
 		Assert.assertTrue(persistence.getPersistenceUnitName().equals("jtools.commons"));
 	}
 	
 	@Test
 	public void initTest2() throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
-		MPersistence persistence = new MPersistenceImpl(new File("src/test/java/persistence.xml"));
+		XPersistence persistence = new MPersistenceImpl(new File("src/test/java/persistence.xml"));
 		System.out.println(persistence.getClasses());
 		//Assert.assertTrue(persistence.getPersistenceUnitName().equals("jtools.commons"));
 	}
 	
 	@Test
 	public void initTest3() throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
-		MPersistence persistence = new MPersistenceImpl(new File("src/test/java/persistence.xml"));
+		XPersistence persistence = new MPersistenceImpl(new File("src/test/java/persistence.xml"));
 		System.out.println(persistence.getProperties());
 		//Assert.assertTrue(persistence.getPersistenceUnitName().equals("jtools.commons"));
 	}

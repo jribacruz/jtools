@@ -7,9 +7,9 @@ import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 
-import jtools.commons.model.MClassAttribute;
+import jtools.commons.model.XClassAttribute;
 
-public class MClassAttributeImpl implements MClassAttribute {
+public class MClassAttributeImpl implements XClassAttribute {
 
 	/**
 	 * 

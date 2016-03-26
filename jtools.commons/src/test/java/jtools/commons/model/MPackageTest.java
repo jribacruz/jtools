@@ -15,7 +15,7 @@ public class MPackageTest {
 
 	@Test
 	public void getClassesTest() throws FileNotFoundException, IOException {
-		MPackage package1 = new MPackageImpl(new File("src/test/java/jtools/commons/model"));
+		XPackage package1 = new MPackageImpl(new File("src/test/java/jtools/commons/model"));
 		System.out.println(package1.getClasses());
 	}
 }

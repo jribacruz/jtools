@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: jtools.generator.qdox
-Bundle-SymbolicName: jtools.lib.qdox
+Bundle-SymbolicName: jtools.qdox
 Bundle-Version: 1.12.1
 Bundle-ClassPath: qdox-1.12.1.jar
 Export-Package: com.thoughtworks.qdox,

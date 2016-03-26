@@ -5,14 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import jtools.commons.internal.model.MBeanImpl;
-import jtools.commons.model.demoiselle.MListViewController;
+import jtools.commons.model.demoiselle.XListViewController;
 
 /**
  * 
  * @author jcruz
  *
  */
-public class MListViewControllerImpl extends MBeanImpl implements MListViewController {
+public class MListViewControllerImpl extends MBeanImpl implements XListViewController {
 
 	/**
 	 * 

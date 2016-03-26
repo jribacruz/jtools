@@ -8,16 +8,16 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
 import jtools.commons.internal.model.base.MXmlImpl;
-import jtools.commons.model.MPom;
-import jtools.commons.model.MPomDependency;
-import jtools.commons.types.TCollection;
+import jtools.commons.model.XPom;
+import jtools.commons.model.XPomDependency;
+import jtools.commons.types.XCollection;
 
 /**
  * 
  * @author jcruz
  *
  */
-public class MPomImpl extends MXmlImpl implements MPom {
+public class MPomImpl extends MXmlImpl implements XPom {
 
 	public MPomImpl(File xmlFile) throws ParserConfigurationException, SAXException, IOException {
 		super(xmlFile);
@@ -60,7 +60,7 @@ public class MPomImpl extends MXmlImpl implements MPom {
 	 * @see jtools.commons.model.MPom#getDependencies()
 	 */
 	@Override
-	public TCollection<MPomDependency> getDependencies() {
+	public XCollection<XPomDependency> getDependencies() {
 		return null;
 	}
 

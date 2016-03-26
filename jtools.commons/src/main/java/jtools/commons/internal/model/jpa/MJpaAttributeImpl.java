@@ -3,12 +3,12 @@ package jtools.commons.internal.model.jpa;
 import java.util.Set;
 
 import jtools.commons.internal.model.MClassAttributeImpl;
-import jtools.commons.model.jpa.MJpaAttribute;
+import jtools.commons.model.jpa.XJpaAttribute;
 import jtools.commons.util.Strings;
 
 import com.thoughtworks.qdox.model.JavaField;
 
-public class MJpaAttributeImpl extends MClassAttributeImpl implements MJpaAttribute {
+public class MJpaAttributeImpl extends MClassAttributeImpl implements XJpaAttribute {
 
 	/**
 	 * 

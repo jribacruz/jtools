@@ -3,8 +3,8 @@ package jtools.commons.function;
 import java.io.IOException;
 
 import jtools.commons.internal.model.MClassImpl;
-import jtools.commons.model.MClass;
-import jtools.commons.model.base.MFile;
+import jtools.commons.model.XClass;
+import jtools.commons.model.base.XFile;
 
 import com.google.common.base.Function;
 
@@ -13,10 +13,10 @@ import com.google.common.base.Function;
  * @author jcruz
  *
  */
-public class FunctionMFileToMClass implements Function<MFile, MClass> {
+public class FunctionMFileToMClass implements Function<XFile, XClass> {
 
 	@Override
-	public MClass apply(MFile input) {
+	public XClass apply(XFile input) {
 		try {
 			return new MClassImpl(input.getFile());
 		} catch (IOException e) {

@@ -1,6 +1,6 @@
 package jtools.commons.predicate;
 
-import jtools.commons.model.MClassAttribute;
+import jtools.commons.model.XClassAttribute;
 
 import com.google.common.base.Predicate;
 
@@ -9,7 +9,7 @@ import com.google.common.base.Predicate;
  * @author jcruz
  *
  */
-public class PredicateMClassAttributeHasName implements Predicate<MClassAttribute> {
+public class PredicateMClassAttributeHasName implements Predicate<XClassAttribute> {
 
 	private String attributeName;
 
@@ -19,7 +19,7 @@ public class PredicateMClassAttributeHasName implements Predicate<MClassAttribut
 	}
 
 	@Override
-	public boolean apply(MClassAttribute input) {
+	public boolean apply(XClassAttribute input) {
 		return input.getName().equals(attributeName);
 	}
 

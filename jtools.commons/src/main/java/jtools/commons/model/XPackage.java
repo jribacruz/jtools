@@ -3,7 +3,7 @@ package jtools.commons.model;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.commons.types.TCollection;
+import jtools.commons.types.XCollection;
 
 /**
  * Classe que representa um pacote Java.
@@ -11,7 +11,7 @@ import jtools.commons.types.TCollection;
  * @author jcruz
  *
  */
-public interface MPackage {
+public interface XPackage {
 	
 	/**
 	 * 
@@ -19,38 +19,38 @@ public interface MPackage {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	public TCollection<MClass> getClasses();
+	public XCollection<XClass> getClasses();
 
 	/**
 	 * 
 	 * @param recursively
 	 * @return
 	 */
-	public TCollection<MClass> getClasses(boolean recursively);
+	public XCollection<XClass> getClasses(boolean recursively);
 
 	/**
 	 * 
 	 * @return
 	 */
-	public MPackage getParentPackage();
+	public XPackage getParentPackage();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MPackage> getChildPackages();
+	public XCollection<XPackage> getChildPackages();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MPackage> getChildPackages(boolean recursively);
+	public XCollection<XPackage> getChildPackages(boolean recursively);
 
 	/**
 	 * 
 	 * @param packageName
 	 * @return
 	 */
-	public MPackage find(String packageName);
+	public XPackage find(String packageName);
 
 }

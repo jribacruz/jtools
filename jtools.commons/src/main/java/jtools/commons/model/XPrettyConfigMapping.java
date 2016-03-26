@@ -7,7 +7,7 @@ package jtools.commons.model;
  * @author jcruz
  *
  */
-public interface MPrettyConfigMapping {
+public interface XPrettyConfigMapping {
 	/**
 	 * 
 	 * @return

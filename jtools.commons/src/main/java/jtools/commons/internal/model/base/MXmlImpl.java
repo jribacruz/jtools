@@ -12,7 +12,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import jtools.commons.model.base.MXml;
+import jtools.commons.model.base.XXml;
 
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -22,7 +22,7 @@ import org.xml.sax.SAXException;
  * @author jcruz
  *
  */
-public class MXmlImpl implements MXml {
+public class MXmlImpl implements XXml {
 
 	private File xmlFile;
 

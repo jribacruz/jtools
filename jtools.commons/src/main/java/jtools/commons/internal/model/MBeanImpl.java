@@ -4,18 +4,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.commons.model.MBean;
-import jtools.commons.model.MClassAttribute;
+import jtools.commons.model.XBean;
+import jtools.commons.model.XClassAttribute;
 import jtools.commons.predicate.PredicateMBeanAttributeHasAnnotation;
 import jtools.commons.predicate.PredicateMClassAttributeHasName;
-import jtools.commons.types.TCollection;
+import jtools.commons.types.XCollection;
 
 /**
  * 
  * @author jcruz
  *
  */
-public class MBeanImpl extends MClassImpl implements MBean {
+public class MBeanImpl extends MClassImpl implements XBean {
 	/**
 	 * 
 	 */
@@ -32,7 +32,7 @@ public class MBeanImpl extends MClassImpl implements MBean {
 	 * @see jtools.commons.model.TMBean#getAttributeInjections()
 	 */
 	@Override
-	public TCollection<MClassAttribute> getInjectedAttributes() {
+	public XCollection<XClassAttribute> getInjectedAttributes() {
 		return getAttributes().filter(new PredicateMBeanAttributeHasAnnotation("Inject"));
 	}
 

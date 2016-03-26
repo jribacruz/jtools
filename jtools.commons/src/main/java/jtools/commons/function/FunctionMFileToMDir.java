@@ -1,8 +1,8 @@
 package jtools.commons.function;
 
 import jtools.commons.internal.model.base.MDirImpl;
-import jtools.commons.model.base.MDir;
-import jtools.commons.model.base.MFile;
+import jtools.commons.model.base.XDir;
+import jtools.commons.model.base.XFile;
 
 import com.google.common.base.Function;
 
@@ -11,10 +11,10 @@ import com.google.common.base.Function;
  * @author jcruz
  *
  */
-public class FunctionMFileToMDir implements Function<MFile, MDir> {
+public class FunctionMFileToMDir implements Function<XFile, XDir> {
 
 	@Override
-	public MDir apply(MFile input) {
+	public XDir apply(XFile input) {
 		return new MDirImpl(input.getFile());
 	}
 

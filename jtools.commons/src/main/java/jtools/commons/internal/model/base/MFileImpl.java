@@ -2,9 +2,9 @@ package jtools.commons.internal.model.base;
 
 import java.io.File;
 
-import jtools.commons.model.base.MDir;
-import jtools.commons.model.base.MFile;
-import jtools.commons.types.TCollection;
+import jtools.commons.model.base.XDir;
+import jtools.commons.model.base.XFile;
+import jtools.commons.types.XCollection;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -15,7 +15,7 @@ import org.apache.commons.io.filefilter.IOFileFilter;
  * @author jcruz
  *
  */
-public class MFileImpl implements MFile {
+public class MFileImpl implements XFile {
 
 	private File file;
 
@@ -35,7 +35,7 @@ public class MFileImpl implements MFile {
 	 * @see jtools.commons.model.TMFile#getParent()
 	 */
 	@Override
-	public MDir getParent() {
+	public XDir getParent() {
 		return new MDirImpl(new File(file.getParent()));
 	}
 
@@ -125,7 +125,7 @@ public class MFileImpl implements MFile {
 	 * @see jtools.commons.model.base.MFile#find(java.lang.String)
 	 */
 	@Override
-	public MFile find(String relativeResource) {
+	public XFile find(String relativeResource) {
 		String naPath = FilenameUtils.normalize(this.getFile().getAbsolutePath());
 		String nrPath = FilenameUtils.normalize(relativeResource);
 		return new MFileImpl(new File(naPath + "/" + nrPath));
@@ -139,8 +139,8 @@ public class MFileImpl implements MFile {
 	 * .IOFileFilter, org.apache.commons.io.filefilter.IOFileFilter)
 	 */
 	@Override
-	public TCollection<MFile> filter(IOFileFilter fileFilter, IOFileFilter dirFilter) {
-		TCollection<MFile> files = new TCollection<>();
+	public XCollection<XFile> filter(IOFileFilter fileFilter, IOFileFilter dirFilter) {
+		XCollection<XFile> files = new XCollection<>();
 		for (File file : FileUtils.listFiles(getFile(), fileFilter, dirFilter)) {
 			files.add(new MFileImpl(file));
 		}

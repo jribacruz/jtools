@@ -1,7 +1,7 @@
 package jtools.commons.model;
 
-import jtools.commons.model.base.MXml;
-import jtools.commons.types.TCollection;
+import jtools.commons.model.base.XXml;
+import jtools.commons.types.XCollection;
 
 /**
  * Classe que representa um arquivo pom.xml
@@ -9,7 +9,7 @@ import jtools.commons.types.TCollection;
  * @author jcruz
  *
  */
-public interface MPom extends MXml {
+public interface XPom extends XXml {
 	/**
 	 * 
 	 * GroupId do pom.xml
@@ -40,7 +40,7 @@ public interface MPom extends MXml {
 	 * 
 	 * @return
 	 */
-	public TCollection<MPomDependency> getDependencies();
+	public XCollection<XPomDependency> getDependencies();
 
 	/**
 	 * 

@@ -12,20 +12,20 @@ import jtools.commons.internal.model.demoiselle.predicate.PredicateIsMEditViewCo
 import jtools.commons.internal.model.demoiselle.predicate.PredicateIsMJpaEntity;
 import jtools.commons.internal.model.demoiselle.predicate.PredicateIsMListViewController;
 import jtools.commons.internal.model.demoiselle.predicate.PredicateIsMPersistenceController;
-import jtools.commons.model.demoiselle.MBusinessController;
-import jtools.commons.model.demoiselle.MDemoiselleProject;
-import jtools.commons.model.demoiselle.MEditViewController;
-import jtools.commons.model.demoiselle.MListViewController;
-import jtools.commons.model.demoiselle.MPersistenceController;
-import jtools.commons.model.jpa.MJpaEntity;
-import jtools.commons.types.TCollection;
+import jtools.commons.model.demoiselle.XBusinessController;
+import jtools.commons.model.demoiselle.XDemoiselleProject;
+import jtools.commons.model.demoiselle.XEditViewController;
+import jtools.commons.model.demoiselle.XListViewController;
+import jtools.commons.model.demoiselle.XPersistenceController;
+import jtools.commons.model.jpa.XJpaEntity;
+import jtools.commons.types.XCollection;
 
 /**
  * 
  * @author jcruz
  *
  */
-public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemoiselleProject {
+public class MDemoiselleProjectImpl extends MMavenProjectImpl implements XDemoiselleProject {
 
 	/**
 	 * 
@@ -42,7 +42,7 @@ public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemois
 	 * @see jtools.commons.model.demoiselle.TMDemoiselleProject#getAllEntities()
 	 */
 	@Override
-	public TCollection<MJpaEntity> getAllJpaEntities() {
+	public XCollection<XJpaEntity> getAllJpaEntities() {
 		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMJpaEntity(), new FunctionMClassToMJpaEntity());
 	}
 
@@ -53,7 +53,7 @@ public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemois
 	 * getAllPersistenceControllers()
 	 */
 	@Override
-	public TCollection<MPersistenceController> getAllPersistenceControllers() {
+	public XCollection<XPersistenceController> getAllPersistenceControllers() {
 		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMPersistenceController(),
 				new FunctionMClassToMPersistenceController());
 	}
@@ -66,7 +66,7 @@ public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemois
 	 * ()
 	 */
 	@Override
-	public TCollection<MBusinessController> getAllBusinessControllers() {
+	public XCollection<XBusinessController> getAllBusinessControllers() {
 		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMBusinessController(), new FunctionMClassToMBusinessController());
 	}
 
@@ -78,7 +78,7 @@ public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemois
 	 * ()
 	 */
 	@Override
-	public TCollection<MEditViewController> getAllEditViewControllers() {
+	public XCollection<XEditViewController> getAllEditViewControllers() {
 		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMEditViewController(), new FunctionMClassToMEditViewController());
 	}
 
@@ -90,7 +90,7 @@ public class MDemoiselleProjectImpl extends MMavenProjectImpl implements MDemois
 	 * ()
 	 */
 	@Override
-	public TCollection<MListViewController> getAllListViewControllers() {
+	public XCollection<XListViewController> getAllListViewControllers() {
 		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsMListViewController(), new FunctionMClassToMListViewController());
 	}
 

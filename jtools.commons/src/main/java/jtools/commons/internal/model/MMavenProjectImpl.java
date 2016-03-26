@@ -14,15 +14,15 @@ import jtools.commons.function.FunctionMFileToMDir;
 import jtools.commons.function.FunctionMFileToMPackage;
 import jtools.commons.function.FunctionMFileToMClass;
 import jtools.commons.internal.model.base.MFileImpl;
-import jtools.commons.model.MClass;
-import jtools.commons.model.MMavenProject;
-import jtools.commons.model.MPackage;
-import jtools.commons.model.MPersistence;
-import jtools.commons.model.MPom;
-import jtools.commons.model.MPrettyConfig;
-import jtools.commons.model.base.MDir;
-import jtools.commons.model.base.MFile;
-import jtools.commons.types.TCollection;
+import jtools.commons.model.XClass;
+import jtools.commons.model.XMavenProject;
+import jtools.commons.model.XPackage;
+import jtools.commons.model.XPersistence;
+import jtools.commons.model.XPom;
+import jtools.commons.model.XPrettyConfig;
+import jtools.commons.model.base.XDir;
+import jtools.commons.model.base.XFile;
+import jtools.commons.types.XCollection;
 import jtools.commons.util.MavenProject;
 
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
@@ -35,14 +35,14 @@ import org.xml.sax.SAXException;
  * @author jcruz
  *
  */
-public class MMavenProjectImpl implements MMavenProject {
+public class MMavenProjectImpl implements XMavenProject {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private MFile mavenProjectFile;
+	private XFile mavenProjectFile;
 
 	public MMavenProjectImpl(String mavenProjectPath) throws InvalidProjectTypeException {
 		super();
@@ -57,7 +57,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * 
 	 * @see jtools.commons.model.MMavenProject#getMavenProjectFile()
 	 */
-	public MFile getMavenProjectFile() {
+	public XFile getMavenProjectFile() {
 		return this.mavenProjectFile;
 	}
 
@@ -67,7 +67,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getPom()
 	 */
 	@Override
-	public MPom getPom() {
+	public XPom getPom() {
 		return null;
 	}
 
@@ -77,7 +77,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#gePrettyConfig()
 	 */
 	@Override
-	public MPrettyConfig gePrettyConfig() {
+	public XPrettyConfig gePrettyConfig() {
 		return null;
 	}
 
@@ -87,7 +87,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#gePersistence()
 	 */
 	@Override
-	public MPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
+	public XPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
 		File filePersistence = getMavenProjectFile().find("src/main/resources/META-INF/persistence.xml").getFile();
 		return new MPersistenceImpl(filePersistence);
 	}
@@ -98,7 +98,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#geSrcTestResourcesPersistence()
 	 */
 	@Override
-	public MPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
+	public XPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
 		File filePersistence = getMavenProjectFile().find("src/test/resources/META-INF/persistence.xml").getFile();
 		return new MPersistenceImpl(filePersistence);
 	}
@@ -109,7 +109,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcJavaMainClasses()
 	 */
 	@Override
-	public TCollection<MClass> getSrcMainJavaClasses() {
+	public XCollection<XClass> getSrcMainJavaClasses() {
 		return getSrcMainJavaFiles().transform(new FunctionMFileToMClass());
 	}
 
@@ -119,7 +119,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcJavaTestClasses()
 	 */
 	@Override
-	public TCollection<MClass> getSrcTestJavaClasses() {
+	public XCollection<XClass> getSrcTestJavaClasses() {
 		return getSrcTestJavaFiles().transform(new FunctionMFileToMClass());
 	}
 
@@ -129,7 +129,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcMainJavaPackages()
 	 */
 	@Override
-	public TCollection<MPackage> getSrcMainJavaPackages() {
+	public XCollection<XPackage> getSrcMainJavaPackages() {
 		return getMavenProjectFile().find("src/main/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
 				.transform(new FunctionMFileToMPackage());
 	}
@@ -140,7 +140,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcTestJavaPackages()
 	 */
 	@Override
-	public TCollection<MPackage> getSrcTestJavaPackages() {
+	public XCollection<XPackage> getSrcTestJavaPackages() {
 		return getMavenProjectFile().find("src/test/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
 				.transform(new FunctionMFileToMPackage());
 	}
@@ -151,7 +151,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcMainJavaFiles()
 	 */
 	@Override
-	public TCollection<MFile> getSrcMainJavaFiles() {
+	public XCollection<XFile> getSrcMainJavaFiles() {
 		return getMavenProjectFile().find("src/main/java").filter(new FilterJavaFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -161,7 +161,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcTestJavaFiles()
 	 */
 	@Override
-	public TCollection<MFile> getSrcTestJavaFiles() {
+	public XCollection<XFile> getSrcTestJavaFiles() {
 		return getMavenProjectFile().find("src/test/java").filter(new FilterJavaFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -171,7 +171,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappDirs()
 	 */
 	@Override
-	public TCollection<MDir> getSrcMainWebappDirs() {
+	public XCollection<XDir> getSrcMainWebappDirs() {
 		return getMavenProjectFile().find("src/main/webapp").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
 				.transform(new FunctionMFileToMDir());
 	}
@@ -182,7 +182,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappFiles()
 	 */
 	@Override
-	public TCollection<MFile> getSrcMainWebappFiles() {
+	public XCollection<XFile> getSrcMainWebappFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(FileFileFilter.FILE, TrueFileFilter.INSTANCE);
 	}
 
@@ -192,7 +192,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappCSSFiles()
 	 */
 	@Override
-	public TCollection<MFile> getSrcMainWebappCSSFiles() {
+	public XCollection<XFile> getSrcMainWebappCSSFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(new FilterCSSFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -202,7 +202,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappJSFiles()
 	 */
 	@Override
-	public TCollection<MFile> getSrcMainWebappJSFiles() {
+	public XCollection<XFile> getSrcMainWebappJSFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(new FilterJSFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -212,7 +212,7 @@ public class MMavenProjectImpl implements MMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappXHTMLFiles()
 	 */
 	@Override
-	public TCollection<MFile> getSrcMainWebappXHTMLFiles() {
+	public XCollection<XFile> getSrcMainWebappXHTMLFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(new FilterXHTMLFile(), TrueFileFilter.INSTANCE);
 	}
 

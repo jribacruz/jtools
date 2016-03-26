@@ -1,6 +1,6 @@
 package jtools.commons.predicate;
 
-import jtools.commons.model.jpa.MJpaAttribute;
+import jtools.commons.model.jpa.XJpaAttribute;
 
 import com.google.common.base.Predicate;
 
@@ -9,7 +9,7 @@ import com.google.common.base.Predicate;
  * @author jcruz
  *
  */
-public class PredicateMJpaAttributeHasAnnotation implements Predicate<MJpaAttribute> {
+public class PredicateMJpaAttributeHasAnnotation implements Predicate<XJpaAttribute> {
 
 	private String annotationName;
 
@@ -19,7 +19,7 @@ public class PredicateMJpaAttributeHasAnnotation implements Predicate<MJpaAttrib
 	}
 
 	@Override
-	public boolean apply(MJpaAttribute input) {
+	public boolean apply(XJpaAttribute input) {
 		return input.hasAnnotation(annotationName);
 	}
 

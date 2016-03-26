@@ -2,7 +2,7 @@ package jtools.commons.model;
 
 import jtools.commons.exception.InvalidProjectTypeException;
 import jtools.commons.internal.model.demoiselle.MDemoiselleProjectImpl;
-import jtools.commons.model.demoiselle.MDemoiselleProject;
+import jtools.commons.model.demoiselle.XDemoiselleProject;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +12,7 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class MDemoiselleProjectTest {
 
-	private MDemoiselleProject demoiselleProject;
+	private XDemoiselleProject demoiselleProject;
 
 	@Before
 	public void init() throws InvalidProjectTypeException {

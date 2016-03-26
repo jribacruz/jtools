@@ -2,9 +2,9 @@ package jtools.commons.model.jpa;
 
 import java.util.Set;
 
-import jtools.commons.model.MClassAttribute;
+import jtools.commons.model.XClassAttribute;
 
-public interface MJpaAttribute extends MClassAttribute {
+public interface XJpaAttribute extends XClassAttribute {
 
 	/**
 	 * 

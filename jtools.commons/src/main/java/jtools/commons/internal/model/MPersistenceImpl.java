@@ -10,8 +10,8 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 
 import jtools.commons.internal.model.base.MXmlImpl;
-import jtools.commons.model.MPersistence;
-import jtools.commons.types.TCollection;
+import jtools.commons.model.XPersistence;
+import jtools.commons.types.XCollection;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -22,7 +22,7 @@ import org.xml.sax.SAXException;
  * @author jcruz
  *
  */
-public class MPersistenceImpl extends MXmlImpl implements MPersistence {
+public class MPersistenceImpl extends MXmlImpl implements XPersistence {
 
 	/**
 	 * 
@@ -78,8 +78,8 @@ public class MPersistenceImpl extends MXmlImpl implements MPersistence {
 	 * @see jtools.commons.model.TMPersistence#getClasses()
 	 */
 	@Override
-	public TCollection<String> getClasses() {
-		TCollection<String> classes = new TCollection<>();
+	public XCollection<String> getClasses() {
+		XCollection<String> classes = new XCollection<>();
 		try {
 			NodeList nodeList = (NodeList) super.evaluate("/persistence/persistence-unit/class", XPathConstants.NODESET);
 			for (int i = 0; i < nodeList.getLength(); i++) {

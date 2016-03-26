@@ -1,6 +1,6 @@
 package jtools.commons.model;
 
-import jtools.commons.types.TCollection;
+import jtools.commons.types.XCollection;
 
 /**
  * Classe que reprensenta um arquivo pretty-config.xml
@@ -8,7 +8,7 @@ import jtools.commons.types.TCollection;
  * @author jcruz
  *
  */
-public interface MPrettyConfig {
+public interface XPrettyConfig {
 
 	/**
 	 * 
@@ -16,5 +16,5 @@ public interface MPrettyConfig {
 	 * 
 	 * @return
 	 */
-	public TCollection<MPrettyConfigMapping> geMappings();
+	public XCollection<XPrettyConfigMapping> geMappings();
 }

@@ -3,9 +3,9 @@ package jtools.commons.internal.model;
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaMethod;
 
-import jtools.commons.model.MClassMethod;
+import jtools.commons.model.XClassMethod;
 
-public class MClassMethodImpl implements MClassMethod {
+public class MClassMethodImpl implements XClassMethod {
 
 	/**
 	 * 

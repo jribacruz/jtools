@@ -2,7 +2,7 @@ package jtools.commons.model.base;
 
 import java.io.File;
 
-import jtools.commons.types.TCollection;
+import jtools.commons.types.XCollection;
 
 import org.apache.commons.io.filefilter.IOFileFilter;
 
@@ -13,7 +13,7 @@ import org.apache.commons.io.filefilter.IOFileFilter;
  * @author jcruz
  *
  */
-public interface MDir {
+public interface XDir {
 
 	/**
 	 * 
@@ -21,7 +21,7 @@ public interface MDir {
 	 * 
 	 * @return
 	 */
-	public TCollection<MFile> getAllFiles();
+	public XCollection<XFile> getAllFiles();
 
 	/**
 	 * 
@@ -29,14 +29,14 @@ public interface MDir {
 	 * 
 	 * @return
 	 */
-	public TCollection<MFile> getAllFiles(boolean recursively);
+	public XCollection<XFile> getAllFiles(boolean recursively);
 
 	/**
 	 * Retorna o diretório pai
 	 * 
 	 * @return
 	 */
-	public MDir getParent();
+	public XDir getParent();
 
 	/**
 	 * 
@@ -44,7 +44,7 @@ public interface MDir {
 	 * 
 	 * @return
 	 */
-	public TCollection<MDir> getChildDirs();
+	public XCollection<XDir> getChildDirs();
 
 	/**
 	 * 
@@ -52,7 +52,7 @@ public interface MDir {
 	 * 
 	 * @return
 	 */
-	public TCollection<MDir> getChildDirs(boolean recursively);
+	public XCollection<XDir> getChildDirs(boolean recursively);
 
 	/**
 	 * 
@@ -61,7 +61,7 @@ public interface MDir {
 	 * @param dir
 	 * @return
 	 */
-	public MDir getChild(String dir);
+	public XDir getChild(String dir);
 
 	/**
 	 * 
@@ -78,7 +78,7 @@ public interface MDir {
 	 * @param filter
 	 * @return
 	 */
-	public <F extends IOFileFilter> TCollection<MFile> filter(F filter);
+	public <F extends IOFileFilter> XCollection<XFile> filter(F filter);
 
 	/**
 	 * 
@@ -90,6 +90,6 @@ public interface MDir {
 	 *            Flag de recursividade
 	 * @return Lista de TMFiles filtrados.
 	 */
-	public <F extends IOFileFilter> TCollection<MFile> filter(F filter, boolean recursively);
+	public <F extends IOFileFilter> XCollection<XFile> filter(F filter, boolean recursively);
 
 }

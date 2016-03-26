@@ -1,8 +1,8 @@
 package jtools.commons.model.demoiselle;
 
-import jtools.commons.model.MMavenProject;
-import jtools.commons.model.jpa.MJpaEntity;
-import jtools.commons.types.TCollection;
+import jtools.commons.model.XMavenProject;
+import jtools.commons.model.jpa.XJpaEntity;
+import jtools.commons.types.XCollection;
 
 /**
  * Classe que representa um arquivo maven demoiselle.
@@ -10,7 +10,7 @@ import jtools.commons.types.TCollection;
  * @author jcruz
  *
  */
-public interface MDemoiselleProject extends MMavenProject {
+public interface XDemoiselleProject extends XMavenProject {
 
 	/**
 	 * 
@@ -18,7 +18,7 @@ public interface MDemoiselleProject extends MMavenProject {
 	 * 
 	 * @return
 	 */
-	public TCollection<MJpaEntity> getAllJpaEntities();
+	public XCollection<XJpaEntity> getAllJpaEntities();
 
 	/**
 	 * 
@@ -26,7 +26,7 @@ public interface MDemoiselleProject extends MMavenProject {
 	 * 
 	 * @return
 	 */
-	public TCollection<MPersistenceController> getAllPersistenceControllers();
+	public XCollection<XPersistenceController> getAllPersistenceControllers();
 
 	/**
 	 * 
@@ -34,7 +34,7 @@ public interface MDemoiselleProject extends MMavenProject {
 	 * 
 	 * @return
 	 */
-	public TCollection<MBusinessController> getAllBusinessControllers();
+	public XCollection<XBusinessController> getAllBusinessControllers();
 
 	/**
 	 * 
@@ -42,7 +42,7 @@ public interface MDemoiselleProject extends MMavenProject {
 	 * 
 	 * @return
 	 */
-	public TCollection<MEditViewController> getAllEditViewControllers();
+	public XCollection<XEditViewController> getAllEditViewControllers();
 
 	/**
 	 * 
@@ -50,5 +50,5 @@ public interface MDemoiselleProject extends MMavenProject {
 	 * 
 	 * @return
 	 */
-	public TCollection<MListViewController> getAllListViewControllers();
+	public XCollection<XListViewController> getAllListViewControllers();
 }

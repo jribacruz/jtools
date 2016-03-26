@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.commons.model.MClass;
-import jtools.commons.model.MClassAttribute;
-import jtools.commons.model.MClassMethod;
-import jtools.commons.types.TCollection;
+import jtools.commons.model.XClass;
+import jtools.commons.model.XClassAttribute;
+import jtools.commons.model.XClassMethod;
+import jtools.commons.types.XCollection;
 
 import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.JavaDocBuilder;
@@ -17,7 +17,7 @@ import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaSource;
 
-public class MClassImpl implements MClass {
+public class MClassImpl implements XClass {
 
 	/**
 	 * 
@@ -34,12 +34,12 @@ public class MClassImpl implements MClass {
 	/**
 	 * Lista de Atributos como map.
 	 */
-	private TCollection<MClassAttribute> attributes;
+	private XCollection<XClassAttribute> attributes;
 
 	/**
 	 * Lista de Metodos como map.
 	 */
-	private TCollection<MClassMethod> methods;
+	private XCollection<XClassMethod> methods;
 
 	public MClassImpl(File javaFile) throws FileNotFoundException, IOException {
 		super();
@@ -105,9 +105,9 @@ public class MClassImpl implements MClass {
 	 * @see tools4j.model.TClass#getAttributes()
 	 */
 	@Override
-	public TCollection<MClassAttribute> getAttributes() {
+	public XCollection<XClassAttribute> getAttributes() {
 		if (this.attributes == null) {
-			this.attributes = new TCollection<>();
+			this.attributes = new XCollection<>();
 			for (JavaField javaField : this.javaClass.getFields()) {
 				this.attributes.add(new MClassAttributeImpl(javaField));
 			}
@@ -122,9 +122,9 @@ public class MClassImpl implements MClass {
 	 * @see tools4j.model.core.TClassModel#getMethods()
 	 */
 	@Override
-	public TCollection<MClassMethod> getMethods() {
+	public XCollection<XClassMethod> getMethods() {
 		if (this.methods == null) {
-			this.methods = new TCollection<>();
+			this.methods = new XCollection<>();
 			for (JavaMethod javaMethod : this.javaClass.getMethods()) {
 				this.methods.add(new MClassMethodImpl(javaMethod));
 			}
@@ -153,10 +153,10 @@ public class MClassImpl implements MClass {
 	 * @see jtools.commons.model.TMClass#getAttributeByName(java.lang.String)
 	 */
 	@Override
-	public MClassAttribute getAttributeByName(final String name) {
-		return getAttributes().find(new Predicate<MClassAttribute>() {
+	public XClassAttribute getAttributeByName(final String name) {
+		return getAttributes().find(new Predicate<XClassAttribute>() {
 			@Override
-			public boolean apply(MClassAttribute input) {
+			public boolean apply(XClassAttribute input) {
 				return input.getName().equals(name);
 			}
 		});

@@ -3,7 +3,7 @@ package jtools.commons.model;
 import java.io.File;
 import java.io.Serializable;
 
-import jtools.commons.types.TCollection;
+import jtools.commons.types.XCollection;
 
 import com.thoughtworks.qdox.model.JavaClass;
 
@@ -14,7 +14,7 @@ import com.thoughtworks.qdox.model.JavaClass;
  * @author jcruz
  *
  */
-public interface MClass extends Serializable {
+public interface XClass extends Serializable {
 
 	/**
 	 * Nome simples (sem o nome do package) da classe.
@@ -58,13 +58,13 @@ public interface MClass extends Serializable {
 	 * 
 	 * @return Map com os atributos. key - Nome do Atributo value - TAttribute
 	 */
-	public TCollection<MClassAttribute> getAttributes();
+	public XCollection<XClassAttribute> getAttributes();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public TCollection<MClassMethod> getMethods();
+	public XCollection<XClassMethod> getMethods();
 
 	/**
 	 * 
@@ -78,7 +78,7 @@ public interface MClass extends Serializable {
 	 * @param name
 	 * @return
 	 */
-	public MClassAttribute getAttributeByName(String name);
+	public XClassAttribute getAttributeByName(String name);
 
 	/**
 	 * 

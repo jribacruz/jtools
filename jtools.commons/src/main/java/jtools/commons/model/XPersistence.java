@@ -4,8 +4,8 @@ import java.util.Map;
 
 import javax.xml.xpath.XPathExpressionException;
 
-import jtools.commons.model.base.MXml;
-import jtools.commons.types.TCollection;
+import jtools.commons.model.base.XXml;
+import jtools.commons.types.XCollection;
 
 /**
  * Classe que representa um arquivo persistence.xml
@@ -13,7 +13,7 @@ import jtools.commons.types.TCollection;
  * @author jcruz
  *
  */
-public interface MPersistence extends MXml {
+public interface XPersistence extends XXml {
 
 	/**
 	 * 
@@ -47,7 +47,7 @@ public interface MPersistence extends MXml {
 	 * @return
 	 * @throws XPathExpressionException
 	 */
-	public TCollection<String> getClasses();
+	public XCollection<String> getClasses();
 
 	/**
 	 * 

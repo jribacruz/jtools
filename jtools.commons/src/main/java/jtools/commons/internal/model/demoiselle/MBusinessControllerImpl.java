@@ -5,9 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import jtools.commons.internal.model.MBeanImpl;
-import jtools.commons.model.demoiselle.MBusinessController;
+import jtools.commons.model.demoiselle.XBusinessController;
 
-public class MBusinessControllerImpl extends MBeanImpl implements MBusinessController {
+public class MBusinessControllerImpl extends MBeanImpl implements XBusinessController {
 
 	/**
 	 * 

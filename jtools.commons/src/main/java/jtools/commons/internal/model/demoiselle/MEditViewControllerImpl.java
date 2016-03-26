@@ -5,14 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import jtools.commons.internal.model.MBeanImpl;
-import jtools.commons.model.demoiselle.MEditViewController;
+import jtools.commons.model.demoiselle.XEditViewController;
 
 /**
  * 
  * @author jcruz
  *
  */
-public class MEditViewControllerImpl extends MBeanImpl implements MEditViewController {
+public class MEditViewControllerImpl extends MBeanImpl implements XEditViewController {
 
 	/**
 	 * 

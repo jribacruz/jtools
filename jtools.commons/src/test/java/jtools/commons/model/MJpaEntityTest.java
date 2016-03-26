@@ -6,8 +6,8 @@ import java.io.IOException;
 
 import jtools.commons.internal.model.jpa.MJpaAttributeImpl;
 import jtools.commons.internal.model.jpa.MJpaEntityImpl;
-import jtools.commons.model.jpa.MJpaAttribute;
-import jtools.commons.model.jpa.MJpaEntity;
+import jtools.commons.model.jpa.XJpaAttribute;
+import jtools.commons.model.jpa.XJpaEntity;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,9 +19,9 @@ public class MJpaEntityTest {
 
 	@Test
 	public void getColumnName_Test() throws FileNotFoundException, IOException {
-		MJpaEntity jpaEntity = new MJpaEntityImpl(new File("src/test/java/jtools/commons/fixture/model/XyzEntity.java"));
+		XJpaEntity jpaEntity = new MJpaEntityImpl(new File("src/test/java/jtools/commons/fixture/model/XyzEntity.java"));
 		
-		MJpaAttribute jpaAttribute = new MJpaAttributeImpl(jpaEntity.getAttributeByName("attr1").getJavaField());
+		XJpaAttribute jpaAttribute = new MJpaAttributeImpl(jpaEntity.getAttributeByName("attr1").getJavaField());
 		
 		String columnName = (String) jpaAttribute.getColumnName();
 		

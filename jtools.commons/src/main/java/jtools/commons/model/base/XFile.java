@@ -2,7 +2,7 @@ package jtools.commons.model.base;
 
 import java.io.File;
 
-import jtools.commons.types.TCollection;
+import jtools.commons.types.XCollection;
 
 import org.apache.commons.io.filefilter.IOFileFilter;
 
@@ -13,7 +13,7 @@ import org.apache.commons.io.filefilter.IOFileFilter;
  * @author jcruz
  *
  */
-public interface MFile {
+public interface XFile {
 
 	/**
 	 * 
@@ -25,7 +25,7 @@ public interface MFile {
 	 * 
 	 * @return
 	 */
-	public MDir getParent();
+	public XDir getParent();
 
 	/**
 	 * 
@@ -80,7 +80,7 @@ public interface MFile {
 	 * @param resource
 	 * @return
 	 */
-	public MFile find(String resource);
+	public XFile find(String resource);
 
 	/**
 	 * 
@@ -88,6 +88,6 @@ public interface MFile {
 	 * @param dirFileFilter
 	 * @return
 	 */
-	public TCollection<MFile> filter(IOFileFilter fileFilter, IOFileFilter dirFileFilter);
+	public XCollection<XFile> filter(IOFileFilter fileFilter, IOFileFilter dirFileFilter);
 
 }

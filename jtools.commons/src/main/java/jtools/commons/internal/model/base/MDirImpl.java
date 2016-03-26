@@ -2,9 +2,9 @@ package jtools.commons.internal.model.base;
 
 import java.io.File;
 
-import jtools.commons.model.base.MDir;
-import jtools.commons.model.base.MFile;
-import jtools.commons.types.TCollection;
+import jtools.commons.model.base.XDir;
+import jtools.commons.model.base.XFile;
+import jtools.commons.types.XCollection;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
@@ -19,7 +19,7 @@ import com.google.common.base.Predicate;
  * @author jcruz
  *
  */
-public class MDirImpl implements MDir {
+public class MDirImpl implements XDir {
 
 	private File fileDir;
 
@@ -34,7 +34,7 @@ public class MDirImpl implements MDir {
 	 * @see jtools.commons.model.TMDir#getFiles()
 	 */
 	@Override
-	public TCollection<MFile> getAllFiles() {
+	public XCollection<XFile> getAllFiles() {
 		return getAllFiles(null);
 	}
 
@@ -44,7 +44,7 @@ public class MDirImpl implements MDir {
 	 * @see jtools.commons.model.TMDir#getAllFiles(boolean)
 	 */
 	@Override
-	public TCollection<MFile> getAllFiles(boolean recursively) {
+	public XCollection<XFile> getAllFiles(boolean recursively) {
 		return recursively ? getAllFiles(TrueFileFilter.INSTANCE) : getAllFiles();
 	}
 
@@ -54,7 +54,7 @@ public class MDirImpl implements MDir {
 	 * @see jtools.commons.model.TMDir#getParent()
 	 */
 	@Override
-	public MDir getParent() {
+	public XDir getParent() {
 		return new MDirImpl(fileDir.getParentFile());
 	}
 
@@ -64,7 +64,7 @@ public class MDirImpl implements MDir {
 	 * @see jtools.commons.model.TMDir#getChildDirs()
 	 */
 	@Override
-	public TCollection<MDir> getChildDirs() {
+	public XCollection<XDir> getChildDirs() {
 		return getChildDirs(null);
 	}
 
@@ -74,7 +74,7 @@ public class MDirImpl implements MDir {
 	 * @see jtools.commons.model.TMDir#getChildDirs(boolean)
 	 */
 	@Override
-	public TCollection<MDir> getChildDirs(boolean recursively) {
+	public XCollection<XDir> getChildDirs(boolean recursively) {
 		return recursively ? getChildDirs(TrueFileFilter.INSTANCE) : getChildDirs(null);
 	}
 
@@ -84,10 +84,10 @@ public class MDirImpl implements MDir {
 	 * @see jtools.commons.model.TMDir#getChild(java.lang.String)
 	 */
 	@Override
-	public MDir getChild(final String dir) {
-		MDir tmDir = getChildDirs(true).find(new Predicate<MDir>() {
+	public XDir getChild(final String dir) {
+		XDir tmDir = getChildDirs(true).find(new Predicate<XDir>() {
 			@Override
-			public boolean apply(MDir input) {
+			public boolean apply(XDir input) {
 				return input.getFileDir().getName().equals(dir);
 			}
 		});
@@ -101,7 +101,7 @@ public class MDirImpl implements MDir {
 	 * AbstractFileFilter)
 	 */
 	@Override
-	public <F extends IOFileFilter> TCollection<MFile> filter(F filter) {
+	public <F extends IOFileFilter> XCollection<XFile> filter(F filter) {
 		return filter(filter, TrueFileFilter.INSTANCE);
 	}
 
@@ -112,7 +112,7 @@ public class MDirImpl implements MDir {
 	 * AbstractFileFilter, boolean)
 	 */
 	@Override
-	public <F extends IOFileFilter> TCollection<MFile> filter(F filter, boolean recursively) {
+	public <F extends IOFileFilter> XCollection<XFile> filter(F filter, boolean recursively) {
 		return recursively ? filter(filter, TrueFileFilter.INSTANCE) : filter(filter, null);
 	}
 
@@ -129,8 +129,8 @@ public class MDirImpl implements MDir {
 	/*
 	 * 
 	 */
-	private <F extends IOFileFilter, D extends IOFileFilter> TCollection<MFile> filter(F fileFilter, D dirFilter) {
-		TCollection<MFile> ffiles = new TCollection<>();
+	private <F extends IOFileFilter, D extends IOFileFilter> XCollection<XFile> filter(F fileFilter, D dirFilter) {
+		XCollection<XFile> ffiles = new XCollection<>();
 		for (File filteredFile : FileUtils.listFilesAndDirs(getFileDir(), fileFilter, dirFilter)) {
 			ffiles.add(new MFileImpl(filteredFile));
 		}
@@ -140,9 +140,9 @@ public class MDirImpl implements MDir {
 	/*
 	 * 
 	 */
-	private TCollection<MFile> getAllFiles(IOFileFilter dirFilter) {
-		TCollection<MFile> files = new TCollection<>();
-		for (MFile file : filter(FileFileFilter.FILE, dirFilter)) {
+	private XCollection<XFile> getAllFiles(IOFileFilter dirFilter) {
+		XCollection<XFile> files = new XCollection<>();
+		for (XFile file : filter(FileFileFilter.FILE, dirFilter)) {
 			files.add(file);
 		}
 		return files;
@@ -151,9 +151,9 @@ public class MDirImpl implements MDir {
 	/*
 	 * 
 	 */
-	private TCollection<MDir> getChildDirs(IOFileFilter dirFilter) {
-		TCollection<MDir> files = new TCollection<>();
-		for (MFile file : filter(DirectoryFileFilter.DIRECTORY, dirFilter)) {
+	private XCollection<XDir> getChildDirs(IOFileFilter dirFilter) {
+		XCollection<XDir> files = new XCollection<>();
+		for (XFile file : filter(DirectoryFileFilter.DIRECTORY, dirFilter)) {
 			files.add(new MDirImpl(file.getFile()));
 		}
 		return files;

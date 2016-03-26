@@ -9,7 +9,7 @@ import javax.xml.xpath.XPathExpressionException;
  * @author jcruz
  *
  */
-public interface MXml {
+public interface XXml {
 	
 	/**
 	 * 

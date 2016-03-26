@@ -5,18 +5,18 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import jtools.commons.internal.model.MClassImpl;
-import jtools.commons.model.MClassAttribute;
-import jtools.commons.model.jpa.MJpaAttribute;
-import jtools.commons.model.jpa.MJpaEntity;
+import jtools.commons.model.XClassAttribute;
+import jtools.commons.model.jpa.XJpaAttribute;
+import jtools.commons.model.jpa.XJpaEntity;
 import jtools.commons.predicate.PredicateMJpaAttributeHasAnnotation;
-import jtools.commons.types.TCollection;
+import jtools.commons.types.XCollection;
 
 /**
  * 
  * @author jcruz
  *
  */
-public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
+public class MJpaEntityImpl extends MClassImpl implements XJpaEntity {
 	/**
 	 * 
 	 */
@@ -32,7 +32,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getId()
 	 */
 	@Override
-	public MJpaAttribute getId() {
+	public XJpaAttribute getId() {
 		return getJpaAttributes().find(new PredicateMJpaAttributeHasAnnotation("Id"));
 	}
 
@@ -62,7 +62,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getOneToManyRelationships()
 	 */
 	@Override
-	public TCollection<MJpaAttribute> getUniOneToMany() {
+	public XCollection<XJpaAttribute> getUniOneToMany() {
 		return getJpaAttributes().filter(new PredicateMJpaAttributeHasAnnotation("OneToMany"));
 	}
 
@@ -72,7 +72,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getUniOneToOne()
 	 */
 	@Override
-	public TCollection<MJpaAttribute> getUniOneToOne() {
+	public XCollection<XJpaAttribute> getUniOneToOne() {
 		return getJpaAttributes().filter(new PredicateMJpaAttributeHasAnnotation("OneToOne"));
 	}
 
@@ -82,7 +82,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getUniManyToOne()
 	 */
 	@Override
-	public TCollection<MJpaAttribute> getUniManyToOne() {
+	public XCollection<XJpaAttribute> getUniManyToOne() {
 		return getJpaAttributes().filter(new PredicateMJpaAttributeHasAnnotation("ManyToOne"));
 	}
 
@@ -92,7 +92,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getUniManyToMany()
 	 */
 	@Override
-	public TCollection<MJpaAttribute> getUniManyToMany() {
+	public XCollection<XJpaAttribute> getUniManyToMany() {
 		return getJpaAttributes().filter(new PredicateMJpaAttributeHasAnnotation("ManyToMany"));
 	}
 
@@ -102,9 +102,9 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getJpaAttributes()
 	 */
 	@Override
-	public TCollection<MJpaAttribute> getJpaAttributes() {
-		TCollection<MJpaAttribute> attributes = new TCollection<>();
-		for (MClassAttribute attribute : getAttributes()) {
+	public XCollection<XJpaAttribute> getJpaAttributes() {
+		XCollection<XJpaAttribute> attributes = new XCollection<>();
+		for (XClassAttribute attribute : getAttributes()) {
 			attributes.add(new MJpaAttributeImpl(attribute.getJavaField()));
 		}
 		return attributes;
@@ -118,7 +118,7 @@ public class MJpaEntityImpl extends MClassImpl implements MJpaEntity {
 	 * String)
 	 */
 	@Override
-	public MJpaAttribute getJpaAttributeByName(String name) {
+	public XJpaAttribute getJpaAttributeByName(String name) {
 		return new MJpaAttributeImpl(this.getAttributeByName(name).getJavaField());
 	}
 

@@ -5,13 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import jtools.commons.internal.model.MBeanImpl;
-import jtools.commons.model.demoiselle.MPersistenceController;
+import jtools.commons.model.demoiselle.XPersistenceController;
 
 /**
  * @author jcruz
  *
  */
-public class MPersistenceControllerImpl extends MBeanImpl implements MPersistenceController {
+public class MPersistenceControllerImpl extends MBeanImpl implements XPersistenceController {
 
 	/**
 	 * 

@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.model.JxClass;
 import jtools.eclipse.core.model.JxClassAttribute;
 import jtools.eclipse.core.model.JxClassMethod;
+import jtools.eclipse.core.util.JxCollection;
 
 import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.JavaDocBuilder;

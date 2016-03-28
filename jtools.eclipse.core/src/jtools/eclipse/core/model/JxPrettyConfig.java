@@ -1,6 +1,6 @@
 package jtools.eclipse.core.model;
 
-import jtools.eclipse.core.JxCollection;
+import jtools.eclipse.core.util.JxCollection;
 
 /**
  * Classe que reprensenta um arquivo pretty-config.xml

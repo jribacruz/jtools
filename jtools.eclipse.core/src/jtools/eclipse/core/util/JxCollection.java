@@ -1,4 +1,4 @@
-package jtools.eclipse.core;
+package jtools.eclipse.core.util;
 
 import java.util.ArrayList;
 import java.util.Collection;

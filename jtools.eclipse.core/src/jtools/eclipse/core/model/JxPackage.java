@@ -3,7 +3,7 @@ package jtools.eclipse.core.model;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.JxCollection;
+import jtools.eclipse.core.util.JxCollection;
 
 /**
  * Classe que representa um pacote Java.

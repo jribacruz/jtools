@@ -3,7 +3,7 @@ package jtools.eclipse.core.model;
 import java.io.File;
 import java.io.Serializable;
 
-import jtools.eclipse.core.JxCollection;
+import jtools.eclipse.core.util.JxCollection;
 
 import com.thoughtworks.qdox.model.JavaClass;
 

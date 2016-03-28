@@ -2,7 +2,7 @@ package jtools.eclipse.core.model;
 
 import java.io.File;
 
-import jtools.eclipse.core.JxCollection;
+import jtools.eclipse.core.util.JxCollection;
 
 import org.apache.commons.io.filefilter.IOFileFilter;
 

@@ -9,8 +9,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 
-import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.model.JxPersistence;
+import jtools.eclipse.core.util.JxCollection;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;

@@ -2,9 +2,9 @@ package jtools.eclipse.core.internal.model;
 
 import java.io.File;
 
-import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.model.JxDir;
 import jtools.eclipse.core.model.JxFile;
+import jtools.eclipse.core.util.JxCollection;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;

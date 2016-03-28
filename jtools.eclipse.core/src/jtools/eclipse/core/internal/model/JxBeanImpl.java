@@ -4,11 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.internal.model.predicate.PredicateJxBeanAttributeHasAnnotation;
 import jtools.eclipse.core.internal.model.predicate.PredicateJxClassAttributeHasName;
 import jtools.eclipse.core.model.JxBean;
 import jtools.eclipse.core.model.JxClassAttribute;
+import jtools.eclipse.core.util.JxCollection;
 
 /**
  * 

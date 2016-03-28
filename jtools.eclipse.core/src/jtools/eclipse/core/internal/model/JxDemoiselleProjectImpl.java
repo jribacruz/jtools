@@ -1,6 +1,5 @@
 package jtools.eclipse.core.internal.model;
 
-import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxBusinessController;
 import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxEditViewController;
 import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxJpaEntity;
@@ -17,6 +16,7 @@ import jtools.eclipse.core.model.JxEditViewController;
 import jtools.eclipse.core.model.JxJpaEntity;
 import jtools.eclipse.core.model.JxListViewController;
 import jtools.eclipse.core.model.JxPersistenceController;
+import jtools.eclipse.core.util.JxCollection;
 
 /**
  * 

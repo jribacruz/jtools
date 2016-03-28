@@ -4,7 +4,7 @@ import java.util.Map;
 
 import javax.xml.xpath.XPathExpressionException;
 
-import jtools.eclipse.core.JxCollection;
+import jtools.eclipse.core.util.JxCollection;
 
 /**
  * Classe que representa um arquivo persistence.xml

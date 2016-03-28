@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import jtools.eclipse.core.JxCollection;
+import jtools.eclipse.core.util.JxCollection;
 
 import org.xml.sax.SAXException;
 

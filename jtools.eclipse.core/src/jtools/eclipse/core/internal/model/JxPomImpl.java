@@ -5,9 +5,9 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.model.JxPom;
 import jtools.eclipse.core.model.JxPomDependency;
+import jtools.eclipse.core.util.JxCollection;
 
 import org.xml.sax.SAXException;
 

@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.internal.model.filter.FilterCSSFile;
 import jtools.eclipse.core.internal.model.filter.FilterJSFile;
 import jtools.eclipse.core.internal.model.filter.FilterJavaFile;
@@ -21,6 +20,7 @@ import jtools.eclipse.core.model.JxPackage;
 import jtools.eclipse.core.model.JxPersistence;
 import jtools.eclipse.core.model.JxPom;
 import jtools.eclipse.core.model.JxPrettyConfig;
+import jtools.eclipse.core.util.JxCollection;
 
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.FileFileFilter;

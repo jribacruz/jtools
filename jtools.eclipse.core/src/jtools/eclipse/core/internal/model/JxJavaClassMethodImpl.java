@@ -1,11 +1,11 @@
 package jtools.eclipse.core.internal.model;
 
-import jtools.eclipse.core.model.JxClassMethod;
+import jtools.eclipse.core.model.JxJavaClassMethod;
 
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaMethod;
 
-public class JxClassMethodImpl implements JxClassMethod {
+public class JxJavaClassMethodImpl implements JxJavaClassMethod {
 
 	/**
 	 * 
@@ -14,7 +14,7 @@ public class JxClassMethodImpl implements JxClassMethod {
 
 	private JavaMethod javaMethod;
 
-	public JxClassMethodImpl(JavaMethod javaMethod) {
+	public JxJavaClassMethodImpl(JavaMethod javaMethod) {
 		super();
 		this.javaMethod = javaMethod;
 	}

@@ -2,7 +2,7 @@ package jtools.eclipse.core.model;
 
 import java.util.Set;
 
-public interface JxJpaAttribute extends JxClassAttribute {
+public interface JxJpaAttribute extends JxJavaClassAttribute {
 
 	/**
 	 * 

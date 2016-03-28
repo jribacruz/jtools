@@ -4,14 +4,14 @@ import java.io.IOException;
 
 import jtools.eclipse.core.internal.model.JxDemoiselleBusinessControllerImpl;
 import jtools.eclipse.core.model.JxDemoiselleBusinessController;
-import jtools.eclipse.core.model.JxClass;
+import jtools.eclipse.core.model.JxJavaClass;
 
 import com.google.common.base.Function;
 
-public class FunctionJxClassToJxDemoiselleBusinessController implements Function<JxClass, JxDemoiselleBusinessController> {
+public class FunctionJxClassToJxDemoiselleBusinessController implements Function<JxJavaClass, JxDemoiselleBusinessController> {
 
 	@Override
-	public JxDemoiselleBusinessController apply(JxClass input) {
+	public JxDemoiselleBusinessController apply(JxJavaClass input) {
 		try {
 			return new JxDemoiselleBusinessControllerImpl(input.getFile());
 		} catch (IOException e) {

@@ -14,7 +14,7 @@ import com.thoughtworks.qdox.model.JavaClass;
  * @author jcruz
  *
  */
-public interface JxClass extends Serializable {
+public interface JxJavaClass extends Serializable {
 
 	/**
 	 * Nome simples (sem o nome do package) da classe.
@@ -58,13 +58,13 @@ public interface JxClass extends Serializable {
 	 * 
 	 * @return Map com os atributos. key - Nome do Atributo value - TAttribute
 	 */
-	public JxCollection<JxClassAttribute> getAttributes();
+	public JxCollection<JxJavaClassAttribute> getAttributes();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxClassMethod> getMethods();
+	public JxCollection<JxJavaClassMethod> getMethods();
 
 	/**
 	 * 
@@ -78,7 +78,7 @@ public interface JxClass extends Serializable {
 	 * @param name
 	 * @return
 	 */
-	public JxClassAttribute getAttributeByName(String name);
+	public JxJavaClassAttribute getAttributeByName(String name);
 
 	/**
 	 * 

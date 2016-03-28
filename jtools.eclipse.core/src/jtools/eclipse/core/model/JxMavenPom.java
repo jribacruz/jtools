@@ -8,7 +8,7 @@ import jtools.eclipse.core.util.JxCollection;
  * @author jcruz
  *
  */
-public interface JxPom extends JxXml {
+public interface JxMavenPom extends JxXml {
 	/**
 	 * 
 	 * GroupId do pom.xml
@@ -39,7 +39,7 @@ public interface JxPom extends JxXml {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxPomDependency> getDependencies();
+	public JxCollection<JxMavenPomDependency> getDependencies();
 
 	/**
 	 * 

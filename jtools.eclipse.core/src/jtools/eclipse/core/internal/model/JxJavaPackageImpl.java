@@ -4,15 +4,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.model.JxClass;
+import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxDir;
 import jtools.eclipse.core.model.JxFile;
-import jtools.eclipse.core.model.JxPackage;
+import jtools.eclipse.core.model.JxJavaPackage;
 import jtools.eclipse.core.util.JxCollection;
 
-public class JxPackageImpl extends JxDirImpl implements JxPackage {
+public class JxJavaPackageImpl extends JxDirImpl implements JxJavaPackage {
 
-	public JxPackageImpl(File file) {
+	public JxJavaPackageImpl(File file) {
 		super(file);
 	}
 
@@ -22,7 +22,7 @@ public class JxPackageImpl extends JxDirImpl implements JxPackage {
 	 * @see jtools.commons.model.TMPackage#getClasses()
 	 */
 	@Override
-	public JxCollection<JxClass> getClasses() {
+	public JxCollection<JxJavaClass> getClasses() {
 		return getClasses(false);
 	}
 
@@ -32,12 +32,12 @@ public class JxPackageImpl extends JxDirImpl implements JxPackage {
 	 * @see jtools.commons.model.TMPackage#getClasses(boolean)
 	 */
 	@Override
-	public JxCollection<JxClass> getClasses(boolean recursively) {
-		JxCollection<JxClass> classes = new JxCollection<>();
+	public JxCollection<JxJavaClass> getClasses(boolean recursively) {
+		JxCollection<JxJavaClass> classes = new JxCollection<>();
 		for (JxFile file : super.getAllFiles(recursively)) {
 			if (file.isJavaFile()) {
 				try {
-					classes.add(new JxClassImpl(file.getFile()));
+					classes.add(new JxJavaClassImpl(file.getFile()));
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
@@ -54,8 +54,8 @@ public class JxPackageImpl extends JxDirImpl implements JxPackage {
 	 * @see jtools.commons.model.TMPackage#getParentPackage()
 	 */
 	@Override
-	public JxPackage getParentPackage() {
-		return new JxPackageImpl(getParent().getFileDir());
+	public JxJavaPackage getParentPackage() {
+		return new JxJavaPackageImpl(getParent().getFileDir());
 	}
 
 	/*
@@ -64,7 +64,7 @@ public class JxPackageImpl extends JxDirImpl implements JxPackage {
 	 * @see jtools.commons.model.TMPackage#getChildPackages()
 	 */
 	@Override
-	public JxCollection<JxPackage> getChildPackages() {
+	public JxCollection<JxJavaPackage> getChildPackages() {
 		return getChildPackages(false);
 	}
 
@@ -74,10 +74,10 @@ public class JxPackageImpl extends JxDirImpl implements JxPackage {
 	 * @see jtools.commons.model.TMPackage#getChildPackages(boolean)
 	 */
 	@Override
-	public JxCollection<JxPackage> getChildPackages(boolean recursively) {
-		JxCollection<JxPackage> packages = new JxCollection<>();
+	public JxCollection<JxJavaPackage> getChildPackages(boolean recursively) {
+		JxCollection<JxJavaPackage> packages = new JxCollection<>();
 		for (JxDir dir : getChildDirs(recursively)) {
-			packages.add(new JxPackageImpl(dir.getFileDir()));
+			packages.add(new JxJavaPackageImpl(dir.getFileDir()));
 		}
 		return packages;
 	}
@@ -88,7 +88,7 @@ public class JxPackageImpl extends JxDirImpl implements JxPackage {
 	 * @see jtools.commons.model.TMPackage#find(java.lang.String)
 	 */
 	@Override
-	public JxPackage find(String packageName) {
+	public JxJavaPackage find(String packageName) {
 		return null;
 	}
 

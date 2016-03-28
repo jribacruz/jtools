@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author jcruz
  *
  */
-public interface JxPomDependency extends Serializable {
+public interface JxMavenPomDependency extends Serializable {
 
 	/**
 	 * 

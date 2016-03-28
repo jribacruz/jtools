@@ -5,8 +5,8 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import jtools.eclipse.core.model.JxPom;
-import jtools.eclipse.core.model.JxPomDependency;
+import jtools.eclipse.core.model.JxMavenPom;
+import jtools.eclipse.core.model.JxMavenPomDependency;
 import jtools.eclipse.core.util.JxCollection;
 
 import org.xml.sax.SAXException;
@@ -16,9 +16,9 @@ import org.xml.sax.SAXException;
  * @author jcruz
  *
  */
-public class JxPomImpl extends JxXmlImpl implements JxPom {
+public class JxMavenPomImpl extends JxXmlImpl implements JxMavenPom {
 
-	public JxPomImpl(File xmlFile) throws ParserConfigurationException, SAXException, IOException {
+	public JxMavenPomImpl(File xmlFile) throws ParserConfigurationException, SAXException, IOException {
 		super(xmlFile);
 
 	}
@@ -59,7 +59,7 @@ public class JxPomImpl extends JxXmlImpl implements JxPom {
 	 * @see jtools.commons.model.MPom#getDependencies()
 	 */
 	@Override
-	public JxCollection<JxPomDependency> getDependencies() {
+	public JxCollection<JxMavenPomDependency> getDependencies() {
 		return null;
 	}
 

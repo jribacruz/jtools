@@ -1,6 +1,6 @@
 package jtools.eclipse.core.internal.model.predicate;
 
-import jtools.eclipse.core.model.JxClassAttribute;
+import jtools.eclipse.core.model.JxJavaClassAttribute;
 
 import com.google.common.base.Predicate;
 
@@ -9,7 +9,7 @@ import com.google.common.base.Predicate;
  * @author jcruz
  *
  */
-public class PredicateJxClassAttributeHasName implements Predicate<JxClassAttribute> {
+public class PredicateJxClassAttributeHasName implements Predicate<JxJavaClassAttribute> {
 
 	private String attributeName;
 
@@ -19,7 +19,7 @@ public class PredicateJxClassAttributeHasName implements Predicate<JxClassAttrib
 	}
 
 	@Override
-	public boolean apply(JxClassAttribute input) {
+	public boolean apply(JxJavaClassAttribute input) {
 		return input.getName().equals(attributeName);
 	}
 

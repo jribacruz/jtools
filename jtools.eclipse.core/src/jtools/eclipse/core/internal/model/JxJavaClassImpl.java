@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.model.JxClass;
-import jtools.eclipse.core.model.JxClassAttribute;
-import jtools.eclipse.core.model.JxClassMethod;
+import jtools.eclipse.core.model.JxJavaClass;
+import jtools.eclipse.core.model.JxJavaClassAttribute;
+import jtools.eclipse.core.model.JxJavaClassMethod;
 import jtools.eclipse.core.util.JxCollection;
 
 import com.google.common.base.Predicate;
@@ -17,7 +17,7 @@ import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaSource;
 
-public class JxClassImpl implements JxClass {
+public class JxJavaClassImpl implements JxJavaClass {
 
 	/**
 	 * 
@@ -34,14 +34,14 @@ public class JxClassImpl implements JxClass {
 	/**
 	 * Lista de Atributos como map.
 	 */
-	private JxCollection<JxClassAttribute> attributes;
+	private JxCollection<JxJavaClassAttribute> attributes;
 
 	/**
 	 * Lista de Metodos como map.
 	 */
-	private JxCollection<JxClassMethod> methods;
+	private JxCollection<JxJavaClassMethod> methods;
 
-	public JxClassImpl(File javaFile) throws FileNotFoundException, IOException {
+	public JxJavaClassImpl(File javaFile) throws FileNotFoundException, IOException {
 		super();
 		this.javaFile = javaFile;
 		JavaDocBuilder builder = new JavaDocBuilder();
@@ -105,11 +105,11 @@ public class JxClassImpl implements JxClass {
 	 * @see tools4j.model.TClass#getAttributes()
 	 */
 	@Override
-	public JxCollection<JxClassAttribute> getAttributes() {
+	public JxCollection<JxJavaClassAttribute> getAttributes() {
 		if (this.attributes == null) {
 			this.attributes = new JxCollection<>();
 			for (JavaField javaField : this.javaClass.getFields()) {
-				this.attributes.add(new JxClassAttributeImpl(javaField));
+				this.attributes.add(new JxJavaClassAttributeImpl(javaField));
 			}
 		}
 		return this.attributes;
@@ -122,11 +122,11 @@ public class JxClassImpl implements JxClass {
 	 * @see tools4j.model.core.TClassModel#getMethods()
 	 */
 	@Override
-	public JxCollection<JxClassMethod> getMethods() {
+	public JxCollection<JxJavaClassMethod> getMethods() {
 		if (this.methods == null) {
 			this.methods = new JxCollection<>();
 			for (JavaMethod javaMethod : this.javaClass.getMethods()) {
-				this.methods.add(new JxClassMethodImpl(javaMethod));
+				this.methods.add(new JxJavaClassMethodImpl(javaMethod));
 			}
 		}
 		return this.methods;
@@ -153,10 +153,10 @@ public class JxClassImpl implements JxClass {
 	 * @see jtools.commons.model.TMClass#getAttributeByName(java.lang.String)
 	 */
 	@Override
-	public JxClassAttribute getAttributeByName(final String name) {
-		return getAttributes().find(new Predicate<JxClassAttribute>() {
+	public JxJavaClassAttribute getAttributeByName(final String name) {
+		return getAttributes().find(new Predicate<JxJavaClassAttribute>() {
 			@Override
-			public boolean apply(JxClassAttribute input) {
+			public boolean apply(JxJavaClassAttribute input) {
 				return input.getName().equals(name);
 			}
 		});

@@ -11,7 +11,7 @@ import jtools.eclipse.core.util.JxCollection;
  * @author jcruz
  *
  */
-public interface JxPackage {
+public interface JxJavaPackage {
 	
 	/**
 	 * 
@@ -19,38 +19,38 @@ public interface JxPackage {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	public JxCollection<JxClass> getClasses();
+	public JxCollection<JxJavaClass> getClasses();
 
 	/**
 	 * 
 	 * @param recursively
 	 * @return
 	 */
-	public JxCollection<JxClass> getClasses(boolean recursively);
+	public JxCollection<JxJavaClass> getClasses(boolean recursively);
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxPackage getParentPackage();
+	public JxJavaPackage getParentPackage();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxPackage> getChildPackages();
+	public JxCollection<JxJavaPackage> getChildPackages();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxPackage> getChildPackages(boolean recursively);
+	public JxCollection<JxJavaPackage> getChildPackages(boolean recursively);
 
 	/**
 	 * 
 	 * @param packageName
 	 * @return
 	 */
-	public JxPackage find(String packageName);
+	public JxJavaPackage find(String packageName);
 
 }

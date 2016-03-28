@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import jtools.eclipse.core.internal.model.predicate.PredicateJxJpaAttributeHasAnnotation;
-import jtools.eclipse.core.model.JxClassAttribute;
+import jtools.eclipse.core.model.JxJavaClassAttribute;
 import jtools.eclipse.core.model.JxJpaAttribute;
 import jtools.eclipse.core.model.JxJpaEntity;
 import jtools.eclipse.core.util.JxCollection;
@@ -15,7 +15,7 @@ import jtools.eclipse.core.util.JxCollection;
  * @author jcruz
  *
  */
-public class JxJpaEntityImpl extends JxClassImpl implements JxJpaEntity {
+public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	/**
 	 * 
 	 */
@@ -103,7 +103,7 @@ public class JxJpaEntityImpl extends JxClassImpl implements JxJpaEntity {
 	@Override
 	public JxCollection<JxJpaAttribute> getJpaAttributes() {
 		JxCollection<JxJpaAttribute> attributes = new JxCollection<>();
-		for (JxClassAttribute attribute : getAttributes()) {
+		for (JxJavaClassAttribute attribute : getAttributes()) {
 			attributes.add(new JxJpaAttributeImpl(attribute.getJavaField()));
 		}
 		return attributes;

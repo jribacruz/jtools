@@ -9,13 +9,13 @@ import jtools.eclipse.core.util.JxCollection;
  * @author jcruz
  *
  */
-public interface JxBean extends JxClass {
+public interface JxBean extends JxJavaClass {
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxClassAttribute> getInjectedAttributes();
+	public JxCollection<JxJavaClassAttribute> getInjectedAttributes();
 
 	/**
 	 * 

@@ -3,13 +3,13 @@ package jtools.eclipse.core.internal.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import jtools.eclipse.core.model.JxClassAttribute;
+import jtools.eclipse.core.model.JxJavaClassAttribute;
 
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 
-public class JxClassAttributeImpl implements JxClassAttribute {
+public class JxJavaClassAttributeImpl implements JxJavaClassAttribute {
 
 	/**
 	 * 
@@ -18,7 +18,7 @@ public class JxClassAttributeImpl implements JxClassAttribute {
 
 	private JavaField javaField;
 
-	public JxClassAttributeImpl(JavaField javaField) {
+	public JxJavaClassAttributeImpl(JavaField javaField) {
 		super();
 		this.javaField = javaField;
 	}

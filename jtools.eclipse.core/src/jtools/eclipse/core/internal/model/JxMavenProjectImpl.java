@@ -12,13 +12,13 @@ import jtools.eclipse.core.internal.model.filter.FilterXHTMLFile;
 import jtools.eclipse.core.internal.model.function.FunctionJxFileToJxClass;
 import jtools.eclipse.core.internal.model.function.FunctionJxFileToJxDir;
 import jtools.eclipse.core.internal.model.function.FunctionJxFileToJxPackage;
-import jtools.eclipse.core.model.JxClass;
+import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxDir;
 import jtools.eclipse.core.model.JxFile;
 import jtools.eclipse.core.model.JxMavenProject;
-import jtools.eclipse.core.model.JxPackage;
+import jtools.eclipse.core.model.JxJavaPackage;
 import jtools.eclipse.core.model.JxJpaPersistence;
-import jtools.eclipse.core.model.JxPom;
+import jtools.eclipse.core.model.JxMavenPom;
 import jtools.eclipse.core.model.JxPrettyConfig;
 import jtools.eclipse.core.util.JxCollection;
 
@@ -61,7 +61,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getPom()
 	 */
 	@Override
-	public JxPom getPom() {
+	public JxMavenPom getPom() {
 		return null;
 	}
 
@@ -103,7 +103,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcJavaMainClasses()
 	 */
 	@Override
-	public JxCollection<JxClass> getSrcMainJavaClasses() {
+	public JxCollection<JxJavaClass> getSrcMainJavaClasses() {
 		return getSrcMainJavaFiles().transform(new FunctionJxFileToJxClass());
 	}
 
@@ -113,7 +113,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcJavaTestClasses()
 	 */
 	@Override
-	public JxCollection<JxClass> getSrcTestJavaClasses() {
+	public JxCollection<JxJavaClass> getSrcTestJavaClasses() {
 		return getSrcTestJavaFiles().transform(new FunctionJxFileToJxClass());
 	}
 
@@ -123,7 +123,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcMainJavaPackages()
 	 */
 	@Override
-	public JxCollection<JxPackage> getSrcMainJavaPackages() {
+	public JxCollection<JxJavaPackage> getSrcMainJavaPackages() {
 		return getMavenProjectFile().find("src/main/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
 				.transform(new FunctionJxFileToJxPackage());
 	}
@@ -134,7 +134,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcTestJavaPackages()
 	 */
 	@Override
-	public JxCollection<JxPackage> getSrcTestJavaPackages() {
+	public JxCollection<JxJavaPackage> getSrcTestJavaPackages() {
 		return getMavenProjectFile().find("src/test/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
 				.transform(new FunctionJxFileToJxPackage());
 	}

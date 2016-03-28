@@ -7,7 +7,7 @@ import java.io.IOException;
 import jtools.eclipse.core.internal.model.predicate.PredicateJxBeanAttributeHasAnnotation;
 import jtools.eclipse.core.internal.model.predicate.PredicateJxClassAttributeHasName;
 import jtools.eclipse.core.model.JxBean;
-import jtools.eclipse.core.model.JxClassAttribute;
+import jtools.eclipse.core.model.JxJavaClassAttribute;
 import jtools.eclipse.core.util.JxCollection;
 
 /**
@@ -15,7 +15,7 @@ import jtools.eclipse.core.util.JxCollection;
  * @author jcruz
  *
  */
-public class JxBeanImpl extends JxClassImpl implements JxBean {
+public class JxBeanImpl extends JxJavaClassImpl implements JxBean {
 	/**
 	 * 
 	 */
@@ -32,7 +32,7 @@ public class JxBeanImpl extends JxClassImpl implements JxBean {
 	 * @see jtools.commons.model.TMBean#getAttributeInjections()
 	 */
 	@Override
-	public JxCollection<JxClassAttribute> getInjectedAttributes() {
+	public JxCollection<JxJavaClassAttribute> getInjectedAttributes() {
 		return getAttributes().filter(new PredicateJxBeanAttributeHasAnnotation("Inject"));
 	}
 

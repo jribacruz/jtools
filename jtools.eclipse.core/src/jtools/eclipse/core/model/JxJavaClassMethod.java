@@ -10,7 +10,7 @@ import com.thoughtworks.qdox.model.JavaMethod;
  * @author jcruz
  *
  */
-public interface JxClassMethod extends Serializable {
+public interface JxJavaClassMethod extends Serializable {
 
 	/**
 	 * Nome do método.

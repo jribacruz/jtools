@@ -7,7 +7,7 @@ import jtools.eclipse.core.util.JxCollection;
  * @author jcruz
  *
  */
-public interface JxJpaEntity extends JxClass {
+public interface JxJpaEntity extends JxJavaClass {
 
 	/**
 	 * Retorna o atributo Id

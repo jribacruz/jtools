@@ -28,7 +28,7 @@ public interface JxMavenProject extends Serializable {
 	 * 
 	 * @return
 	 */
-	public JxPom getPom();
+	public JxMavenPom getPom();
 
 	/**
 	 * 
@@ -63,26 +63,26 @@ public interface JxMavenProject extends Serializable {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxClass> getSrcMainJavaClasses();
+	public JxCollection<JxJavaClass> getSrcMainJavaClasses();
 
 	/**
 	 * Coleção com todos os modelos das classes de src/test/java
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxClass> getSrcTestJavaClasses();
+	public JxCollection<JxJavaClass> getSrcTestJavaClasses();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxPackage> getSrcMainJavaPackages();
+	public JxCollection<JxJavaPackage> getSrcMainJavaPackages();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxPackage> getSrcTestJavaPackages();
+	public JxCollection<JxJavaPackage> getSrcTestJavaPackages();
 
 	/**
 	 * 

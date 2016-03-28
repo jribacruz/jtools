@@ -7,7 +7,7 @@ import jtools.eclipse.core.util.Strings;
 
 import com.thoughtworks.qdox.model.JavaField;
 
-public class JxJpaAttributeImpl extends JxClassAttributeImpl implements JxJpaAttribute {
+public class JxJpaAttributeImpl extends JxJavaClassAttributeImpl implements JxJpaAttribute {
 
 	/**
 	 * 

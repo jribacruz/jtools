@@ -11,7 +11,7 @@ import com.thoughtworks.qdox.model.JavaField;
  * @author jcruz
  *
  */
-public interface JxClassAttribute extends Serializable {
+public interface JxJavaClassAttribute extends Serializable {
 
 	/**
 	 * 

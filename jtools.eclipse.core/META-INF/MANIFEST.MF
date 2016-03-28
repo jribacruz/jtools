@@ -5,8 +5,8 @@ Bundle-SymbolicName: jtools.eclipse.core
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: jtools.eclipse.core.Activator
 Require-Bundle: org.eclipse.core.runtime,
- com.google.guava;bundle-version="15.0.0",
  jtools.qdox;bundle-version="1.12.1",
- jtools.commons.io;bundle-version="2.4.0"
+ jtools.commons.io;bundle-version="2.4.0",
+ jtools.google.guava;bundle-version="19.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

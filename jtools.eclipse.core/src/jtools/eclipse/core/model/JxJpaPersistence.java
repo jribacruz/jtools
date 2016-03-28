@@ -12,7 +12,7 @@ import jtools.eclipse.core.util.JxCollection;
  * @author jcruz
  *
  */
-public interface JxPersistence extends JxXml {
+public interface JxJpaPersistence extends JxXml {
 
 	/**
 	 * 

@@ -6,6 +6,6 @@ package jtools.eclipse.core.model;
  * @author jcruz
  *
  */
-public interface JxFacadeController extends JxBean {
+public interface JxDemoiselleListViewController extends JxBean {
 
 }

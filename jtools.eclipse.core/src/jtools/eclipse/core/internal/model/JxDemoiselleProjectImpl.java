@@ -1,21 +1,21 @@
 package jtools.eclipse.core.internal.model;
 
-import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxBusinessController;
-import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxEditViewController;
+import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxDemoiselleBusinessController;
+import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxDemoiselleEditViewController;
 import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxJpaEntity;
-import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxListViewController;
-import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxPersistenceController;
-import jtools.eclipse.core.internal.model.predicate.PredicateIsJxBusinessController;
-import jtools.eclipse.core.internal.model.predicate.PredicateIsJxEditViewController;
+import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxDemoiselleListViewController;
+import jtools.eclipse.core.internal.model.function.FunctionJxClassToJxDemoisellePersistenceController;
+import jtools.eclipse.core.internal.model.predicate.PredicateIsJxDemoiselleBusinessController;
+import jtools.eclipse.core.internal.model.predicate.PredicateIsJxDemoiselleEditViewController;
 import jtools.eclipse.core.internal.model.predicate.PredicateIsJxJpaEntity;
-import jtools.eclipse.core.internal.model.predicate.PredicateIsJxListViewController;
-import jtools.eclipse.core.internal.model.predicate.PredicateIsJxPersistenceController;
-import jtools.eclipse.core.model.JxBusinessController;
+import jtools.eclipse.core.internal.model.predicate.PredicateIsJxDemoiselleListViewController;
+import jtools.eclipse.core.internal.model.predicate.PredicateIsJxDemoisellePersistenceController;
+import jtools.eclipse.core.model.JxDemoiselleBusinessController;
 import jtools.eclipse.core.model.JxDemoiselleProject;
-import jtools.eclipse.core.model.JxEditViewController;
+import jtools.eclipse.core.model.JxDemoiselleEditViewController;
 import jtools.eclipse.core.model.JxJpaEntity;
-import jtools.eclipse.core.model.JxListViewController;
-import jtools.eclipse.core.model.JxPersistenceController;
+import jtools.eclipse.core.model.JxDemoiselleListViewController;
+import jtools.eclipse.core.model.JxDemoisellePersistenceController;
 import jtools.eclipse.core.util.JxCollection;
 
 /**
@@ -51,9 +51,9 @@ public class JxDemoiselleProjectImpl extends JxMavenProjectImpl implements JxDem
 	 * getAllPersistenceControllers()
 	 */
 	@Override
-	public JxCollection<JxPersistenceController> getAllPersistenceControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxPersistenceController(),
-				new FunctionJxClassToJxPersistenceController());
+	public JxCollection<JxDemoisellePersistenceController> getAllPersistenceControllers() {
+		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoisellePersistenceController(),
+				new FunctionJxClassToJxDemoisellePersistenceController());
 	}
 
 	/*
@@ -64,8 +64,8 @@ public class JxDemoiselleProjectImpl extends JxMavenProjectImpl implements JxDem
 	 * ()
 	 */
 	@Override
-	public JxCollection<JxBusinessController> getAllBusinessControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxBusinessController(), new FunctionJxClassToJxBusinessController());
+	public JxCollection<JxDemoiselleBusinessController> getAllBusinessControllers() {
+		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoiselleBusinessController(), new FunctionJxClassToJxDemoiselleBusinessController());
 	}
 
 	/*
@@ -76,8 +76,8 @@ public class JxDemoiselleProjectImpl extends JxMavenProjectImpl implements JxDem
 	 * ()
 	 */
 	@Override
-	public JxCollection<JxEditViewController> getAllEditViewControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxEditViewController(), new FunctionJxClassToJxEditViewController());
+	public JxCollection<JxDemoiselleEditViewController> getAllEditViewControllers() {
+		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoiselleEditViewController(), new FunctionJxClassToJxDemoiselleEditViewController());
 	}
 
 	/*
@@ -88,8 +88,8 @@ public class JxDemoiselleProjectImpl extends JxMavenProjectImpl implements JxDem
 	 * ()
 	 */
 	@Override
-	public JxCollection<JxListViewController> getAllListViewControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxListViewController(), new FunctionJxClassToJxListViewController());
+	public JxCollection<JxDemoiselleListViewController> getAllListViewControllers() {
+		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoiselleListViewController(), new FunctionJxClassToJxDemoiselleListViewController());
 	}
 
 }

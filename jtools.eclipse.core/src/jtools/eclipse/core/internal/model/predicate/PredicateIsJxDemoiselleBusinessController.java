@@ -4,11 +4,11 @@ import jtools.eclipse.core.model.JxClass;
 
 import com.google.common.base.Predicate;
 
-public class PredicateIsJxListViewController implements Predicate<JxClass> {
+public class PredicateIsJxDemoiselleBusinessController implements Predicate<JxClass> {
 
 	@Override
 	public boolean apply(JxClass input) {
-		return input.extendsOf("br.gov.frameworkdemoiselle.template.AbstractListPageBean");
+		return input.hasAnnotation("BusinessController");
 	}
 
 }

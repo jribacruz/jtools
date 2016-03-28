@@ -4,11 +4,11 @@ import jtools.eclipse.core.model.JxClass;
 
 import com.google.common.base.Predicate;
 
-public class PredicateIsJxBusinessController implements Predicate<JxClass> {
+public class PredicateIsJxDemoisellePersistenceController implements Predicate<JxClass> {
 
 	@Override
 	public boolean apply(JxClass input) {
-		return input.hasAnnotation("BusinessController");
+		return input.hasAnnotation("PersistenceController");
 	}
 
 }

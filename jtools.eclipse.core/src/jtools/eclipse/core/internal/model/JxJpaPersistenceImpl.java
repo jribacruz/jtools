@@ -9,7 +9,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 
-import jtools.eclipse.core.model.JxPersistence;
+import jtools.eclipse.core.model.JxJpaPersistence;
 import jtools.eclipse.core.util.JxCollection;
 
 import org.w3c.dom.Node;
@@ -21,7 +21,7 @@ import org.xml.sax.SAXException;
  * @author jcruz
  *
  */
-public class JxPersistenceImpl extends JxXmlImpl implements JxPersistence {
+public class JxJpaPersistenceImpl extends JxXmlImpl implements JxJpaPersistence {
 
 	/**
 	 * 
@@ -30,7 +30,7 @@ public class JxPersistenceImpl extends JxXmlImpl implements JxPersistence {
 	 * @throws SAXException
 	 * @throws IOException
 	 */
-	public JxPersistenceImpl(File xmlFile) throws ParserConfigurationException, SAXException, IOException {
+	public JxJpaPersistenceImpl(File xmlFile) throws ParserConfigurationException, SAXException, IOException {
 		super(xmlFile);
 	}
 

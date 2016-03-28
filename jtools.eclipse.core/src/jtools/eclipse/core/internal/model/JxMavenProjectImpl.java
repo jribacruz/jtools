@@ -17,7 +17,7 @@ import jtools.eclipse.core.model.JxDir;
 import jtools.eclipse.core.model.JxFile;
 import jtools.eclipse.core.model.JxMavenProject;
 import jtools.eclipse.core.model.JxPackage;
-import jtools.eclipse.core.model.JxPersistence;
+import jtools.eclipse.core.model.JxJpaPersistence;
 import jtools.eclipse.core.model.JxPom;
 import jtools.eclipse.core.model.JxPrettyConfig;
 import jtools.eclipse.core.util.JxCollection;
@@ -81,9 +81,9 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#gePersistence()
 	 */
 	@Override
-	public JxPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
+	public JxJpaPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
 		File filePersistence = getMavenProjectFile().find("src/main/resources/META-INF/persistence.xml").getFile();
-		return new JxPersistenceImpl(filePersistence);
+		return new JxJpaPersistenceImpl(filePersistence);
 	}
 
 	/*
@@ -92,9 +92,9 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#geSrcTestResourcesPersistence()
 	 */
 	@Override
-	public JxPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
+	public JxJpaPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
 		File filePersistence = getMavenProjectFile().find("src/test/resources/META-INF/persistence.xml").getFile();
-		return new JxPersistenceImpl(filePersistence);
+		return new JxJpaPersistenceImpl(filePersistence);
 	}
 
 	/*

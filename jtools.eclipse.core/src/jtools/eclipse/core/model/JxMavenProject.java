@@ -46,7 +46,7 @@ public interface JxMavenProject extends Serializable {
 	 * @throws SAXException
 	 * @throws ParserConfigurationException
 	 */
-	public JxPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
+	public JxJpaPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
 
 	/**
 	 * 
@@ -55,7 +55,7 @@ public interface JxMavenProject extends Serializable {
 	 * @throws SAXException
 	 * @throws IOException
 	 */
-	public JxPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
+	public JxJpaPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
 
 	/**
 	 * 

@@ -1,5 +1,5 @@
 package jtools.eclipse.core.model;
 
-public interface JxDialog {
+public interface JxPrimefacesDialog {
 
 }

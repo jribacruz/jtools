@@ -6,7 +6,6 @@ import java.io.IOException;
 import javax.xml.parsers.ParserConfigurationException;
 
 import jtools.eclipse.core.XCollection;
-import jtools.eclipse.core.internal.model.base.JxXmlImpl;
 import jtools.eclipse.core.model.JxPom;
 import jtools.eclipse.core.model.JxPomDependency;
 

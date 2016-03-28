@@ -5,11 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import jtools.eclipse.core.XCollection;
-import jtools.eclipse.core.internal.model.base.JxDirImpl;
 import jtools.eclipse.core.model.JxClass;
+import jtools.eclipse.core.model.JxDir;
+import jtools.eclipse.core.model.JxFile;
 import jtools.eclipse.core.model.JxPackage;
-import jtools.eclipse.core.model.base.JxDir;
-import jtools.eclipse.core.model.base.JxFile;
 
 public class JxPackageImpl extends JxDirImpl implements JxPackage {
 

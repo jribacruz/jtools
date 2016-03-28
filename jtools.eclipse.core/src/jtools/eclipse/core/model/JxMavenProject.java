@@ -6,8 +6,6 @@ import java.io.Serializable;
 import javax.xml.parsers.ParserConfigurationException;
 
 import jtools.eclipse.core.XCollection;
-import jtools.eclipse.core.model.base.JxDir;
-import jtools.eclipse.core.model.base.JxFile;
 
 import org.xml.sax.SAXException;
 

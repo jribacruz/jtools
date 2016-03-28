@@ -1,7 +1,6 @@
 package jtools.eclipse.core.model;
 
 import jtools.eclipse.core.XCollection;
-import jtools.eclipse.core.model.base.JxXml;
 
 /**
  * Classe que representa um arquivo pom.xml

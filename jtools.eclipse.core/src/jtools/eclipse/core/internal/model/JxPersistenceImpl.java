@@ -10,7 +10,6 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 
 import jtools.eclipse.core.XCollection;
-import jtools.eclipse.core.internal.model.base.JxXmlImpl;
 import jtools.eclipse.core.model.JxPersistence;
 
 import org.w3c.dom.Node;

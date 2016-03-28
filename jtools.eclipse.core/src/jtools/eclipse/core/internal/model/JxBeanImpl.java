@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import jtools.eclipse.core.XCollection;
-import jtools.eclipse.core.internal.predicate.PredicateJxBeanAttributeHasAnnotation;
-import jtools.eclipse.core.internal.predicate.PredicateJxClassAttributeHasName;
+import jtools.eclipse.core.internal.model.predicate.PredicateJxBeanAttributeHasAnnotation;
+import jtools.eclipse.core.internal.model.predicate.PredicateJxClassAttributeHasName;
 import jtools.eclipse.core.model.JxBean;
 import jtools.eclipse.core.model.JxClassAttribute;
 

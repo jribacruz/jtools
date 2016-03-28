@@ -1,6 +1,6 @@
 package jtools.eclipse.core.model;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 
 /**
  * 
@@ -32,31 +32,31 @@ public interface JxJpaEntity extends JxClass {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxJpaAttribute> getUniOneToMany();
+	public JxCollection<JxJpaAttribute> getUniOneToMany();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxJpaAttribute> getUniOneToOne();
+	public JxCollection<JxJpaAttribute> getUniOneToOne();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxJpaAttribute> getUniManyToOne();
+	public JxCollection<JxJpaAttribute> getUniManyToOne();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxJpaAttribute> getUniManyToMany();
+	public JxCollection<JxJpaAttribute> getUniManyToMany();
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxJpaAttribute> getJpaAttributes();
+	public JxCollection<JxJpaAttribute> getJpaAttributes();
 	
 	/**
 	 * 

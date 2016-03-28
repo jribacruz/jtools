@@ -4,7 +4,7 @@ import java.util.Map;
 
 import javax.xml.xpath.XPathExpressionException;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 
 /**
  * Classe que representa um arquivo persistence.xml
@@ -46,7 +46,7 @@ public interface JxPersistence extends JxXml {
 	 * @return
 	 * @throws XPathExpressionException
 	 */
-	public XCollection<String> getClasses();
+	public JxCollection<String> getClasses();
 
 	/**
 	 * 

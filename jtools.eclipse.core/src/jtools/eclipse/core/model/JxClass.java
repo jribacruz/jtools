@@ -3,7 +3,7 @@ package jtools.eclipse.core.model;
 import java.io.File;
 import java.io.Serializable;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 
 import com.thoughtworks.qdox.model.JavaClass;
 
@@ -58,13 +58,13 @@ public interface JxClass extends Serializable {
 	 * 
 	 * @return Map com os atributos. key - Nome do Atributo value - TAttribute
 	 */
-	public XCollection<JxClassAttribute> getAttributes();
+	public JxCollection<JxClassAttribute> getAttributes();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxClassMethod> getMethods();
+	public JxCollection<JxClassMethod> getMethods();
 
 	/**
 	 * 

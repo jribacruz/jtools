@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.internal.model.filter.FilterCSSFile;
 import jtools.eclipse.core.internal.model.filter.FilterJSFile;
 import jtools.eclipse.core.internal.model.filter.FilterJavaFile;
@@ -103,7 +103,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcJavaMainClasses()
 	 */
 	@Override
-	public XCollection<JxClass> getSrcMainJavaClasses() {
+	public JxCollection<JxClass> getSrcMainJavaClasses() {
 		return getSrcMainJavaFiles().transform(new FunctionJxFileToJxClass());
 	}
 
@@ -113,7 +113,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcJavaTestClasses()
 	 */
 	@Override
-	public XCollection<JxClass> getSrcTestJavaClasses() {
+	public JxCollection<JxClass> getSrcTestJavaClasses() {
 		return getSrcTestJavaFiles().transform(new FunctionJxFileToJxClass());
 	}
 
@@ -123,7 +123,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcMainJavaPackages()
 	 */
 	@Override
-	public XCollection<JxPackage> getSrcMainJavaPackages() {
+	public JxCollection<JxPackage> getSrcMainJavaPackages() {
 		return getMavenProjectFile().find("src/main/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
 				.transform(new FunctionJxFileToJxPackage());
 	}
@@ -134,7 +134,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcTestJavaPackages()
 	 */
 	@Override
-	public XCollection<JxPackage> getSrcTestJavaPackages() {
+	public JxCollection<JxPackage> getSrcTestJavaPackages() {
 		return getMavenProjectFile().find("src/test/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
 				.transform(new FunctionJxFileToJxPackage());
 	}
@@ -145,7 +145,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcMainJavaFiles()
 	 */
 	@Override
-	public XCollection<JxFile> getSrcMainJavaFiles() {
+	public JxCollection<JxFile> getSrcMainJavaFiles() {
 		return getMavenProjectFile().find("src/main/java").filter(new FilterJavaFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -155,7 +155,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcTestJavaFiles()
 	 */
 	@Override
-	public XCollection<JxFile> getSrcTestJavaFiles() {
+	public JxCollection<JxFile> getSrcTestJavaFiles() {
 		return getMavenProjectFile().find("src/test/java").filter(new FilterJavaFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -165,7 +165,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappDirs()
 	 */
 	@Override
-	public XCollection<JxDir> getSrcMainWebappDirs() {
+	public JxCollection<JxDir> getSrcMainWebappDirs() {
 		return getMavenProjectFile().find("src/main/webapp").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
 				.transform(new FunctionJxFileToJxDir());
 	}
@@ -176,7 +176,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappFiles()
 	 */
 	@Override
-	public XCollection<JxFile> getSrcMainWebappFiles() {
+	public JxCollection<JxFile> getSrcMainWebappFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(FileFileFilter.FILE, TrueFileFilter.INSTANCE);
 	}
 
@@ -186,7 +186,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappCSSFiles()
 	 */
 	@Override
-	public XCollection<JxFile> getSrcMainWebappCSSFiles() {
+	public JxCollection<JxFile> getSrcMainWebappCSSFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(new FilterCSSFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -196,7 +196,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappJSFiles()
 	 */
 	@Override
-	public XCollection<JxFile> getSrcMainWebappJSFiles() {
+	public JxCollection<JxFile> getSrcMainWebappJSFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(new FilterJSFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -206,7 +206,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappXHTMLFiles()
 	 */
 	@Override
-	public XCollection<JxFile> getSrcMainWebappXHTMLFiles() {
+	public JxCollection<JxFile> getSrcMainWebappXHTMLFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(new FilterXHTMLFile(), TrueFileFilter.INSTANCE);
 	}
 

@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 
 import org.xml.sax.SAXException;
 
@@ -63,68 +63,68 @@ public interface JxMavenProject extends Serializable {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxClass> getSrcMainJavaClasses();
+	public JxCollection<JxClass> getSrcMainJavaClasses();
 
 	/**
 	 * Coleção com todos os modelos das classes de src/test/java
 	 * 
 	 * @return
 	 */
-	public XCollection<JxClass> getSrcTestJavaClasses();
+	public JxCollection<JxClass> getSrcTestJavaClasses();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxPackage> getSrcMainJavaPackages();
+	public JxCollection<JxPackage> getSrcMainJavaPackages();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxPackage> getSrcTestJavaPackages();
+	public JxCollection<JxPackage> getSrcTestJavaPackages();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxFile> getSrcMainJavaFiles();
+	public JxCollection<JxFile> getSrcMainJavaFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxFile> getSrcTestJavaFiles();
+	public JxCollection<JxFile> getSrcTestJavaFiles();
 
 	/**
 	 * Coleção com todos os modelos de arquivos de src/main/webapp
 	 * 
 	 * @return
 	 */
-	public XCollection<JxDir> getSrcMainWebappDirs();
+	public JxCollection<JxDir> getSrcMainWebappDirs();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxFile> getSrcMainWebappFiles();
+	public JxCollection<JxFile> getSrcMainWebappFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxFile> getSrcMainWebappCSSFiles();
+	public JxCollection<JxFile> getSrcMainWebappCSSFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxFile> getSrcMainWebappJSFiles();
+	public JxCollection<JxFile> getSrcMainWebappJSFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxFile> getSrcMainWebappXHTMLFiles();
+	public JxCollection<JxFile> getSrcMainWebappXHTMLFiles();
 
 }

@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.internal.model.predicate.PredicateJxBeanAttributeHasAnnotation;
 import jtools.eclipse.core.internal.model.predicate.PredicateJxClassAttributeHasName;
 import jtools.eclipse.core.model.JxBean;
@@ -32,7 +32,7 @@ public class JxBeanImpl extends JxClassImpl implements JxBean {
 	 * @see jtools.commons.model.TMBean#getAttributeInjections()
 	 */
 	@Override
-	public XCollection<JxClassAttribute> getInjectedAttributes() {
+	public JxCollection<JxClassAttribute> getInjectedAttributes() {
 		return getAttributes().filter(new PredicateJxBeanAttributeHasAnnotation("Inject"));
 	}
 

@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.model.JxClass;
 import jtools.eclipse.core.model.JxDir;
 import jtools.eclipse.core.model.JxFile;
@@ -22,7 +22,7 @@ public class JxPackageImpl extends JxDirImpl implements JxPackage {
 	 * @see jtools.commons.model.TMPackage#getClasses()
 	 */
 	@Override
-	public XCollection<JxClass> getClasses() {
+	public JxCollection<JxClass> getClasses() {
 		return getClasses(false);
 	}
 
@@ -32,8 +32,8 @@ public class JxPackageImpl extends JxDirImpl implements JxPackage {
 	 * @see jtools.commons.model.TMPackage#getClasses(boolean)
 	 */
 	@Override
-	public XCollection<JxClass> getClasses(boolean recursively) {
-		XCollection<JxClass> classes = new XCollection<>();
+	public JxCollection<JxClass> getClasses(boolean recursively) {
+		JxCollection<JxClass> classes = new JxCollection<>();
 		for (JxFile file : super.getAllFiles(recursively)) {
 			if (file.isJavaFile()) {
 				try {
@@ -64,7 +64,7 @@ public class JxPackageImpl extends JxDirImpl implements JxPackage {
 	 * @see jtools.commons.model.TMPackage#getChildPackages()
 	 */
 	@Override
-	public XCollection<JxPackage> getChildPackages() {
+	public JxCollection<JxPackage> getChildPackages() {
 		return getChildPackages(false);
 	}
 
@@ -74,8 +74,8 @@ public class JxPackageImpl extends JxDirImpl implements JxPackage {
 	 * @see jtools.commons.model.TMPackage#getChildPackages(boolean)
 	 */
 	@Override
-	public XCollection<JxPackage> getChildPackages(boolean recursively) {
-		XCollection<JxPackage> packages = new XCollection<>();
+	public JxCollection<JxPackage> getChildPackages(boolean recursively) {
+		JxCollection<JxPackage> packages = new JxCollection<>();
 		for (JxDir dir : getChildDirs(recursively)) {
 			packages.add(new JxPackageImpl(dir.getFileDir()));
 		}

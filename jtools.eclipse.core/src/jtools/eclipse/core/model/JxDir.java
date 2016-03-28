@@ -2,7 +2,7 @@ package jtools.eclipse.core.model;
 
 import java.io.File;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 
 import org.apache.commons.io.filefilter.IOFileFilter;
 
@@ -21,7 +21,7 @@ public interface JxDir {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxFile> getAllFiles();
+	public JxCollection<JxFile> getAllFiles();
 
 	/**
 	 * 
@@ -29,7 +29,7 @@ public interface JxDir {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxFile> getAllFiles(boolean recursively);
+	public JxCollection<JxFile> getAllFiles(boolean recursively);
 
 	/**
 	 * Retorna o diretório pai
@@ -44,7 +44,7 @@ public interface JxDir {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxDir> getChildDirs();
+	public JxCollection<JxDir> getChildDirs();
 
 	/**
 	 * 
@@ -52,7 +52,7 @@ public interface JxDir {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxDir> getChildDirs(boolean recursively);
+	public JxCollection<JxDir> getChildDirs(boolean recursively);
 
 	/**
 	 * 
@@ -78,7 +78,7 @@ public interface JxDir {
 	 * @param filter
 	 * @return
 	 */
-	public <F extends IOFileFilter> XCollection<JxFile> filter(F filter);
+	public <F extends IOFileFilter> JxCollection<JxFile> filter(F filter);
 
 	/**
 	 * 
@@ -90,6 +90,6 @@ public interface JxDir {
 	 *            Flag de recursividade
 	 * @return Lista de TMFiles filtrados.
 	 */
-	public <F extends IOFileFilter> XCollection<JxFile> filter(F filter, boolean recursively);
+	public <F extends IOFileFilter> JxCollection<JxFile> filter(F filter, boolean recursively);
 
 }

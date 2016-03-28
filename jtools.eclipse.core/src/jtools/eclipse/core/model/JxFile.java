@@ -2,7 +2,7 @@ package jtools.eclipse.core.model;
 
 import java.io.File;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 
 import org.apache.commons.io.filefilter.IOFileFilter;
 
@@ -88,6 +88,6 @@ public interface JxFile {
 	 * @param dirFileFilter
 	 * @return
 	 */
-	public XCollection<JxFile> filter(IOFileFilter fileFilter, IOFileFilter dirFileFilter);
+	public JxCollection<JxFile> filter(IOFileFilter fileFilter, IOFileFilter dirFileFilter);
 
 }

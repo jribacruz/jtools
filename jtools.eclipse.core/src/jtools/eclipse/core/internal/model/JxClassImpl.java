@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.model.JxClass;
 import jtools.eclipse.core.model.JxClassAttribute;
 import jtools.eclipse.core.model.JxClassMethod;
@@ -34,12 +34,12 @@ public class JxClassImpl implements JxClass {
 	/**
 	 * Lista de Atributos como map.
 	 */
-	private XCollection<JxClassAttribute> attributes;
+	private JxCollection<JxClassAttribute> attributes;
 
 	/**
 	 * Lista de Metodos como map.
 	 */
-	private XCollection<JxClassMethod> methods;
+	private JxCollection<JxClassMethod> methods;
 
 	public JxClassImpl(File javaFile) throws FileNotFoundException, IOException {
 		super();
@@ -105,9 +105,9 @@ public class JxClassImpl implements JxClass {
 	 * @see tools4j.model.TClass#getAttributes()
 	 */
 	@Override
-	public XCollection<JxClassAttribute> getAttributes() {
+	public JxCollection<JxClassAttribute> getAttributes() {
 		if (this.attributes == null) {
-			this.attributes = new XCollection<>();
+			this.attributes = new JxCollection<>();
 			for (JavaField javaField : this.javaClass.getFields()) {
 				this.attributes.add(new JxClassAttributeImpl(javaField));
 			}
@@ -122,9 +122,9 @@ public class JxClassImpl implements JxClass {
 	 * @see tools4j.model.core.TClassModel#getMethods()
 	 */
 	@Override
-	public XCollection<JxClassMethod> getMethods() {
+	public JxCollection<JxClassMethod> getMethods() {
 		if (this.methods == null) {
-			this.methods = new XCollection<>();
+			this.methods = new JxCollection<>();
 			for (JavaMethod javaMethod : this.javaClass.getMethods()) {
 				this.methods.add(new JxClassMethodImpl(javaMethod));
 			}

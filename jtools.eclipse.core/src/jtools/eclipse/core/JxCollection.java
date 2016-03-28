@@ -12,19 +12,19 @@ import com.google.common.base.Predicate;
  *
  * @param <E>
  */
-public class XCollection<E> extends ArrayList<E> {
+public class JxCollection<E> extends ArrayList<E> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public XCollection() {
+	public JxCollection() {
 		super();
 
 	}
 
-	public XCollection(Collection<? extends E> c) {
+	public JxCollection(Collection<? extends E> c) {
 		super(c);
 
 	}
@@ -34,8 +34,8 @@ public class XCollection<E> extends ArrayList<E> {
 	 * @param predicate
 	 * @return
 	 */
-	public XCollection<E> filter(Predicate<E> predicate) {
-		XCollection<E> cache = new XCollection<>();
+	public JxCollection<E> filter(Predicate<E> predicate) {
+		JxCollection<E> cache = new JxCollection<>();
 		for (E model : this) {
 			if (predicate.apply(model)) {
 				cache.add(model);
@@ -64,8 +64,8 @@ public class XCollection<E> extends ArrayList<E> {
 	 * @param function
 	 * @return
 	 */
-	public <X> XCollection<X> transform(Function<E, X> function) {
-		XCollection<X> transformedList = new XCollection<>();
+	public <X> JxCollection<X> transform(Function<E, X> function) {
+		JxCollection<X> transformedList = new JxCollection<>();
 		for (E e : this) {
 			if (e != null) {
 				transformedList.add(function.apply(e));
@@ -74,7 +74,7 @@ public class XCollection<E> extends ArrayList<E> {
 		return transformedList;
 	}
 
-	public <X> XCollection<X> filterAndTransform(Predicate<E> predicate, Function<E, X> function) {
+	public <X> JxCollection<X> filterAndTransform(Predicate<E> predicate, Function<E, X> function) {
 		return filter(predicate).transform(function);
 	}
 

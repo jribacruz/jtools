@@ -1,6 +1,6 @@
 package jtools.eclipse.core.model;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 
 /**
  * Classe que representa um arquivo pom.xml
@@ -39,7 +39,7 @@ public interface JxPom extends JxXml {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxPomDependency> getDependencies();
+	public JxCollection<JxPomDependency> getDependencies();
 
 	/**
 	 * 

@@ -9,7 +9,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.model.JxPersistence;
 
 import org.w3c.dom.Node;
@@ -77,8 +77,8 @@ public class JxPersistenceImpl extends JxXmlImpl implements JxPersistence {
 	 * @see jtools.commons.model.TMPersistence#getClasses()
 	 */
 	@Override
-	public XCollection<String> getClasses() {
-		XCollection<String> classes = new XCollection<>();
+	public JxCollection<String> getClasses() {
+		JxCollection<String> classes = new JxCollection<>();
 		try {
 			NodeList nodeList = (NodeList) super.evaluate("/persistence/persistence-unit/class", XPathConstants.NODESET);
 			for (int i = 0; i < nodeList.getLength(); i++) {

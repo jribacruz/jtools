@@ -1,6 +1,6 @@
 package jtools.eclipse.core.model;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 
 /**
  * Classe que reprensenta um arquivo pretty-config.xml
@@ -16,5 +16,5 @@ public interface JxPrettyConfig {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxPrettyConfigMapping> geMappings();
+	public JxCollection<JxPrettyConfigMapping> geMappings();
 }

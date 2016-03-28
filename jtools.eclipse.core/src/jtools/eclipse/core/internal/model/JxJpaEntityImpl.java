@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.internal.model.predicate.PredicateJxJpaAttributeHasAnnotation;
 import jtools.eclipse.core.model.JxClassAttribute;
 import jtools.eclipse.core.model.JxJpaAttribute;
@@ -61,7 +61,7 @@ public class JxJpaEntityImpl extends JxClassImpl implements JxJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getOneToManyRelationships()
 	 */
 	@Override
-	public XCollection<JxJpaAttribute> getUniOneToMany() {
+	public JxCollection<JxJpaAttribute> getUniOneToMany() {
 		return getJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("OneToMany"));
 	}
 
@@ -71,7 +71,7 @@ public class JxJpaEntityImpl extends JxClassImpl implements JxJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getUniOneToOne()
 	 */
 	@Override
-	public XCollection<JxJpaAttribute> getUniOneToOne() {
+	public JxCollection<JxJpaAttribute> getUniOneToOne() {
 		return getJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("OneToOne"));
 	}
 
@@ -81,7 +81,7 @@ public class JxJpaEntityImpl extends JxClassImpl implements JxJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getUniManyToOne()
 	 */
 	@Override
-	public XCollection<JxJpaAttribute> getUniManyToOne() {
+	public JxCollection<JxJpaAttribute> getUniManyToOne() {
 		return getJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("ManyToOne"));
 	}
 
@@ -91,7 +91,7 @@ public class JxJpaEntityImpl extends JxClassImpl implements JxJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getUniManyToMany()
 	 */
 	@Override
-	public XCollection<JxJpaAttribute> getUniManyToMany() {
+	public JxCollection<JxJpaAttribute> getUniManyToMany() {
 		return getJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("ManyToMany"));
 	}
 
@@ -101,8 +101,8 @@ public class JxJpaEntityImpl extends JxClassImpl implements JxJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getJpaAttributes()
 	 */
 	@Override
-	public XCollection<JxJpaAttribute> getJpaAttributes() {
-		XCollection<JxJpaAttribute> attributes = new XCollection<>();
+	public JxCollection<JxJpaAttribute> getJpaAttributes() {
+		JxCollection<JxJpaAttribute> attributes = new JxCollection<>();
 		for (JxClassAttribute attribute : getAttributes()) {
 			attributes.add(new JxJpaAttributeImpl(attribute.getJavaField()));
 		}

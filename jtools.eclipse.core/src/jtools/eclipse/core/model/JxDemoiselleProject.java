@@ -1,6 +1,6 @@
 package jtools.eclipse.core.model;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 
 /**
  * Classe que representa um arquivo maven demoiselle.
@@ -16,7 +16,7 @@ public interface JxDemoiselleProject extends JxMavenProject {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxJpaEntity> getAllJpaEntities();
+	public JxCollection<JxJpaEntity> getAllJpaEntities();
 
 	/**
 	 * 
@@ -24,7 +24,7 @@ public interface JxDemoiselleProject extends JxMavenProject {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxPersistenceController> getAllPersistenceControllers();
+	public JxCollection<JxPersistenceController> getAllPersistenceControllers();
 
 	/**
 	 * 
@@ -32,7 +32,7 @@ public interface JxDemoiselleProject extends JxMavenProject {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxBusinessController> getAllBusinessControllers();
+	public JxCollection<JxBusinessController> getAllBusinessControllers();
 
 	/**
 	 * 
@@ -40,7 +40,7 @@ public interface JxDemoiselleProject extends JxMavenProject {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxEditViewController> getAllEditViewControllers();
+	public JxCollection<JxEditViewController> getAllEditViewControllers();
 
 	/**
 	 * 
@@ -48,5 +48,5 @@ public interface JxDemoiselleProject extends JxMavenProject {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxListViewController> getAllListViewControllers();
+	public JxCollection<JxListViewController> getAllListViewControllers();
 }

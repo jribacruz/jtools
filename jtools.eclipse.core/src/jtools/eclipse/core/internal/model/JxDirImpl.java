@@ -2,7 +2,7 @@ package jtools.eclipse.core.internal.model;
 
 import java.io.File;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.model.JxDir;
 import jtools.eclipse.core.model.JxFile;
 
@@ -34,7 +34,7 @@ public class JxDirImpl implements JxDir {
 	 * @see jtools.commons.model.TMDir#getFiles()
 	 */
 	@Override
-	public XCollection<JxFile> getAllFiles() {
+	public JxCollection<JxFile> getAllFiles() {
 		return getAllFiles(null);
 	}
 
@@ -44,7 +44,7 @@ public class JxDirImpl implements JxDir {
 	 * @see jtools.commons.model.TMDir#getAllFiles(boolean)
 	 */
 	@Override
-	public XCollection<JxFile> getAllFiles(boolean recursively) {
+	public JxCollection<JxFile> getAllFiles(boolean recursively) {
 		return recursively ? getAllFiles(TrueFileFilter.INSTANCE) : getAllFiles();
 	}
 
@@ -64,7 +64,7 @@ public class JxDirImpl implements JxDir {
 	 * @see jtools.commons.model.TMDir#getChildDirs()
 	 */
 	@Override
-	public XCollection<JxDir> getChildDirs() {
+	public JxCollection<JxDir> getChildDirs() {
 		return getChildDirs(null);
 	}
 
@@ -74,7 +74,7 @@ public class JxDirImpl implements JxDir {
 	 * @see jtools.commons.model.TMDir#getChildDirs(boolean)
 	 */
 	@Override
-	public XCollection<JxDir> getChildDirs(boolean recursively) {
+	public JxCollection<JxDir> getChildDirs(boolean recursively) {
 		return recursively ? getChildDirs(TrueFileFilter.INSTANCE) : getChildDirs(null);
 	}
 
@@ -101,7 +101,7 @@ public class JxDirImpl implements JxDir {
 	 * AbstractFileFilter)
 	 */
 	@Override
-	public <F extends IOFileFilter> XCollection<JxFile> filter(F filter) {
+	public <F extends IOFileFilter> JxCollection<JxFile> filter(F filter) {
 		return filter(filter, TrueFileFilter.INSTANCE);
 	}
 
@@ -112,7 +112,7 @@ public class JxDirImpl implements JxDir {
 	 * AbstractFileFilter, boolean)
 	 */
 	@Override
-	public <F extends IOFileFilter> XCollection<JxFile> filter(F filter, boolean recursively) {
+	public <F extends IOFileFilter> JxCollection<JxFile> filter(F filter, boolean recursively) {
 		return recursively ? filter(filter, TrueFileFilter.INSTANCE) : filter(filter, null);
 	}
 
@@ -129,8 +129,8 @@ public class JxDirImpl implements JxDir {
 	/*
 	 * 
 	 */
-	private <F extends IOFileFilter, D extends IOFileFilter> XCollection<JxFile> filter(F fileFilter, D dirFilter) {
-		XCollection<JxFile> ffiles = new XCollection<>();
+	private <F extends IOFileFilter, D extends IOFileFilter> JxCollection<JxFile> filter(F fileFilter, D dirFilter) {
+		JxCollection<JxFile> ffiles = new JxCollection<>();
 		for (File filteredFile : FileUtils.listFilesAndDirs(getFileDir(), fileFilter, dirFilter)) {
 			ffiles.add(new JxFileImpl(filteredFile));
 		}
@@ -140,8 +140,8 @@ public class JxDirImpl implements JxDir {
 	/*
 	 * 
 	 */
-	private XCollection<JxFile> getAllFiles(IOFileFilter dirFilter) {
-		XCollection<JxFile> files = new XCollection<>();
+	private JxCollection<JxFile> getAllFiles(IOFileFilter dirFilter) {
+		JxCollection<JxFile> files = new JxCollection<>();
 		for (JxFile file : filter(FileFileFilter.FILE, dirFilter)) {
 			files.add(file);
 		}
@@ -151,8 +151,8 @@ public class JxDirImpl implements JxDir {
 	/*
 	 * 
 	 */
-	private XCollection<JxDir> getChildDirs(IOFileFilter dirFilter) {
-		XCollection<JxDir> files = new XCollection<>();
+	private JxCollection<JxDir> getChildDirs(IOFileFilter dirFilter) {
+		JxCollection<JxDir> files = new JxCollection<>();
 		for (JxFile file : filter(DirectoryFileFilter.DIRECTORY, dirFilter)) {
 			files.add(new JxDirImpl(file.getFile()));
 		}

@@ -1,6 +1,6 @@
 package jtools.eclipse.core.model;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 
 
 /**
@@ -15,7 +15,7 @@ public interface JxBean extends JxClass {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxClassAttribute> getInjectedAttributes();
+	public JxCollection<JxClassAttribute> getInjectedAttributes();
 
 	/**
 	 * 

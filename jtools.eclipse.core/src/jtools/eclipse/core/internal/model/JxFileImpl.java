@@ -2,7 +2,7 @@ package jtools.eclipse.core.internal.model;
 
 import java.io.File;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 import jtools.eclipse.core.model.JxDir;
 import jtools.eclipse.core.model.JxFile;
 
@@ -139,8 +139,8 @@ public class JxFileImpl implements JxFile {
 	 * .IOFileFilter, org.apache.commons.io.filefilter.IOFileFilter)
 	 */
 	@Override
-	public XCollection<JxFile> filter(IOFileFilter fileFilter, IOFileFilter dirFilter) {
-		XCollection<JxFile> files = new XCollection<>();
+	public JxCollection<JxFile> filter(IOFileFilter fileFilter, IOFileFilter dirFilter) {
+		JxCollection<JxFile> files = new JxCollection<>();
 		for (File file : FileUtils.listFiles(getFile(), fileFilter, dirFilter)) {
 			files.add(new JxFileImpl(file));
 		}

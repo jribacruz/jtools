@@ -3,7 +3,7 @@ package jtools.eclipse.core.model;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.XCollection;
+import jtools.eclipse.core.JxCollection;
 
 /**
  * Classe que representa um pacote Java.
@@ -19,14 +19,14 @@ public interface JxPackage {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	public XCollection<JxClass> getClasses();
+	public JxCollection<JxClass> getClasses();
 
 	/**
 	 * 
 	 * @param recursively
 	 * @return
 	 */
-	public XCollection<JxClass> getClasses(boolean recursively);
+	public JxCollection<JxClass> getClasses(boolean recursively);
 
 	/**
 	 * 
@@ -38,13 +38,13 @@ public interface JxPackage {
 	 * 
 	 * @return
 	 */
-	public XCollection<JxPackage> getChildPackages();
+	public JxCollection<JxPackage> getChildPackages();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public XCollection<JxPackage> getChildPackages(boolean recursively);
+	public JxCollection<JxPackage> getChildPackages(boolean recursively);
 
 	/**
 	 * 

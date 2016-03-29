@@ -8,6 +8,7 @@ Require-Bundle: org.eclipse.core.runtime,
  jtools.qdox;bundle-version="1.12.1",
  jtools.commons.io;bundle-version="2.4.0",
  jtools.google.guava;bundle-version="19.0.0",
- org.eclipse.ui;bundle-version="3.106.1"
+ org.eclipse.ui;bundle-version="3.106.1",
+ jtools.jtwig.core;bundle-version="3.1.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

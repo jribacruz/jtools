@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="jtools.eclipse.feature"
+      label="jtools.eclipse.feature"
+      version="1.0.0.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="jtools.qdox" version="1.12.1" match="greaterOrEqual"/>
+      <import plugin="jtools.commons.io" version="2.4.0" match="greaterOrEqual"/>
+      <import plugin="jtools.google.guava" version="19.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.106.1" match="greaterOrEqual"/>
+      <import plugin="jtools.jtwig.core" version="3.1.1" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="jtools.commons.io"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="jtools.eclipse.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="jtools.google.guava"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="jtools.jtwig.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="jtools.qdox"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="jtools.roaster.api"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="jtools.roaster.jdt"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

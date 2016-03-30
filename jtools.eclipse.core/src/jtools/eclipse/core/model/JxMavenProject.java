@@ -36,7 +36,7 @@ public interface JxMavenProject extends Serializable {
 	 * 
 	 * @return
 	 */
-	public JxPrettyConfig gePrettyConfig();
+	public JxPrettyConfig getPrettyConfig();
 
 	/**
 	 * Modelo do persistence.xml de src/main/resources
@@ -46,7 +46,7 @@ public interface JxMavenProject extends Serializable {
 	 * @throws SAXException
 	 * @throws ParserConfigurationException
 	 */
-	public JxJpaPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
+	public JxJpaPersistence getSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
 
 	/**
 	 * 
@@ -55,7 +55,7 @@ public interface JxMavenProject extends Serializable {
 	 * @throws SAXException
 	 * @throws IOException
 	 */
-	public JxJpaPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
+	public JxJpaPersistence getSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException;
 
 	/**
 	 * 
@@ -63,68 +63,68 @@ public interface JxMavenProject extends Serializable {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxJavaClass> getSrcMainJavaClasses();
+	public JxCollection<JxJavaClass> findAllSrcMainJavaClasses();
 
 	/**
 	 * Coleção com todos os modelos das classes de src/test/java
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxJavaClass> getSrcTestJavaClasses();
+	public JxCollection<JxJavaClass> findAllSrcTestJavaClasses();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxJavaPackage> getSrcMainJavaPackages();
+	public JxCollection<JxJavaPackage> findAllSrcMainJavaPackages();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxJavaPackage> getSrcTestJavaPackages();
+	public JxCollection<JxJavaPackage> findAllSrcTestJavaPackages();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxFile> getSrcMainJavaFiles();
+	public JxCollection<JxFile> findAllSrcMainJavaFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxFile> getSrcTestJavaFiles();
+	public JxCollection<JxFile> findAllSrcTestJavaFiles();
 
 	/**
 	 * Coleção com todos os modelos de arquivos de src/main/webapp
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxDir> getSrcMainWebappDirs();
+	public JxCollection<JxDir> findAllSrcMainWebappDirs();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxFile> getSrcMainWebappFiles();
+	public JxCollection<JxFile> findAllSrcMainWebappFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxFile> getSrcMainWebappCSSFiles();
+	public JxCollection<JxFile> findAllSrcMainWebappCSSFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxFile> getSrcMainWebappJSFiles();
+	public JxCollection<JxFile> findAllSrcMainWebappJSFiles();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxFile> getSrcMainWebappXHTMLFiles();
+	public JxCollection<JxFile> findAllSrcMainWebappXHTMLFiles();
 
 }

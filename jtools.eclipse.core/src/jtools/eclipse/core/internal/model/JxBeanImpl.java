@@ -32,8 +32,8 @@ public class JxBeanImpl extends JxJavaClassImpl implements JxBean {
 	 * @see jtools.commons.model.TMBean#getAttributeInjections()
 	 */
 	@Override
-	public JxCollection<JxJavaClassAttribute> getInjectedAttributes() {
-		return getAttributes().filter(new PredicateJxBeanAttributeHasAnnotation("Inject"));
+	public JxCollection<JxJavaClassAttribute> findAllInjectedAttributes() {
+		return findAllAttributes().filter(new PredicateJxBeanAttributeHasAnnotation("Inject"));
 	}
 
 	/*
@@ -43,7 +43,7 @@ public class JxBeanImpl extends JxJavaClassImpl implements JxBean {
 	 */
 	@Override
 	public boolean isInjectedAttribute(String attributeName) {
-		return !getAttributes().filter(new PredicateJxClassAttributeHasName(attributeName)).isEmpty();
+		return !findAllAttributes().filter(new PredicateJxClassAttributeHasName(attributeName)).isEmpty();
 	}
 
 }

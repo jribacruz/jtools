@@ -105,7 +105,7 @@ public class JxJavaClassImpl implements JxJavaClass {
 	 * @see tools4j.model.TClass#getAttributes()
 	 */
 	@Override
-	public JxCollection<JxJavaClassAttribute> getAttributes() {
+	public JxCollection<JxJavaClassAttribute> findAllAttributes() {
 		if (this.attributes == null) {
 			this.attributes = new JxCollection<>();
 			for (JavaField javaField : this.javaClass.getFields()) {
@@ -122,7 +122,7 @@ public class JxJavaClassImpl implements JxJavaClass {
 	 * @see tools4j.model.core.TClassModel#getMethods()
 	 */
 	@Override
-	public JxCollection<JxJavaClassMethod> getMethods() {
+	public JxCollection<JxJavaClassMethod> findAllMethods() {
 		if (this.methods == null) {
 			this.methods = new JxCollection<>();
 			for (JavaMethod javaMethod : this.javaClass.getMethods()) {
@@ -153,8 +153,8 @@ public class JxJavaClassImpl implements JxJavaClass {
 	 * @see jtools.commons.model.TMClass#getAttributeByName(java.lang.String)
 	 */
 	@Override
-	public JxJavaClassAttribute getAttributeByName(final String name) {
-		return getAttributes().find(new Predicate<JxJavaClassAttribute>() {
+	public JxJavaClassAttribute findAttributeByName(final String name) {
+		return findAllAttributes().find(new Predicate<JxJavaClassAttribute>() {
 			@Override
 			public boolean apply(JxJavaClassAttribute input) {
 				return input.getName().equals(name);

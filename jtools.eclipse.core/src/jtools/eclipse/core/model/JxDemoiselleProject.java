@@ -16,7 +16,7 @@ public interface JxDemoiselleProject extends JxMavenProject {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxJpaEntity> getAllJpaEntities();
+	public JxCollection<JxJpaEntity> findAllJpaEntities();
 
 	/**
 	 * 
@@ -24,7 +24,7 @@ public interface JxDemoiselleProject extends JxMavenProject {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxDemoisellePersistenceController> getAllPersistenceControllers();
+	public JxCollection<JxDemoisellePersistenceController> findAllPersistenceControllers();
 
 	/**
 	 * 
@@ -32,7 +32,7 @@ public interface JxDemoiselleProject extends JxMavenProject {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxDemoiselleBusinessController> getAllBusinessControllers();
+	public JxCollection<JxDemoiselleBusinessController> findAllBusinessControllers();
 
 	/**
 	 * 
@@ -40,7 +40,7 @@ public interface JxDemoiselleProject extends JxMavenProject {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxDemoiselleEditViewController> getAllEditViewControllers();
+	public JxCollection<JxDemoiselleEditViewController> findAllEditViewControllers();
 
 	/**
 	 * 
@@ -48,5 +48,5 @@ public interface JxDemoiselleProject extends JxMavenProject {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxDemoiselleListViewController> getAllListViewControllers();
+	public JxCollection<JxDemoiselleListViewController> findAllListViewControllers();
 }

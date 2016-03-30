@@ -16,5 +16,5 @@ public interface JxPrettyConfig {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxPrettyConfigMapping> geMappings();
+	public JxCollection<JxPrettyConfigMapping> findAllMappings();
 }

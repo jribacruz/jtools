@@ -77,7 +77,7 @@ public class JxJpaPersistenceImpl extends JxXmlImpl implements JxJpaPersistence 
 	 * @see jtools.commons.model.TMPersistence#getClasses()
 	 */
 	@Override
-	public JxCollection<String> getClasses() {
+	public JxCollection<String> findAllClasses() {
 		JxCollection<String> classes = new JxCollection<>();
 		try {
 			NodeList nodeList = (NodeList) super.evaluate("/persistence/persistence-unit/class", XPathConstants.NODESET);
@@ -96,7 +96,7 @@ public class JxJpaPersistenceImpl extends JxXmlImpl implements JxJpaPersistence 
 	 * @see jtools.commons.model.TMPersistence#getProperties()
 	 */
 	@Override
-	public Map<String, String> getProperties() {
+	public Map<String, String> findAllProperties() {
 		Map<String, String> properties = new HashMap<>();
 		try {
 			NodeList nodeList = (NodeList) super.evaluate("/persistence/persistence-unit/properties/property", XPathConstants.NODESET);

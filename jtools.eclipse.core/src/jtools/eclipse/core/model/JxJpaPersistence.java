@@ -46,7 +46,7 @@ public interface JxJpaPersistence extends JxXml {
 	 * @return
 	 * @throws XPathExpressionException
 	 */
-	public JxCollection<String> getClasses();
+	public JxCollection<String> findAllClasses();
 
 	/**
 	 * 
@@ -55,6 +55,6 @@ public interface JxJpaPersistence extends JxXml {
 	 * @return
 	 * @throws XPathExpressionException
 	 */
-	public Map<String, String> getProperties();
+	public Map<String, String> findAllProperties();
 
 }

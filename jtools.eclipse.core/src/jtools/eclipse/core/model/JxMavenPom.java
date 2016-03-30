@@ -39,7 +39,7 @@ public interface JxMavenPom extends JxXml {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxMavenPomDependency> getDependencies();
+	public JxCollection<JxMavenPomDependency> findAllDependencies();
 
 	/**
 	 * 

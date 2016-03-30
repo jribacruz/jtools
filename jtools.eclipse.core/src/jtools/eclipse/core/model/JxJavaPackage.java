@@ -19,14 +19,14 @@ public interface JxJavaPackage {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	public JxCollection<JxJavaClass> getClasses();
+	public JxCollection<JxJavaClass> findAllClasses();
 
 	/**
 	 * 
 	 * @param recursively
 	 * @return
 	 */
-	public JxCollection<JxJavaClass> getClasses(boolean recursively);
+	public JxCollection<JxJavaClass> findAllClasses(boolean recursively);
 
 	/**
 	 * 
@@ -38,13 +38,13 @@ public interface JxJavaPackage {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxJavaPackage> getChildPackages();
+	public JxCollection<JxJavaPackage> findAllChildPackages();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxJavaPackage> getChildPackages(boolean recursively);
+	public JxCollection<JxJavaPackage> findAllChildPackages(boolean recursively);
 
 	/**
 	 * 

@@ -71,7 +71,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#gePrettyConfig()
 	 */
 	@Override
-	public JxPrettyConfig gePrettyConfig() {
+	public JxPrettyConfig getPrettyConfig() {
 		return null;
 	}
 
@@ -81,7 +81,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#gePersistence()
 	 */
 	@Override
-	public JxJpaPersistence geSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
+	public JxJpaPersistence getSrcMainResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
 		File filePersistence = getMavenProjectFile().find("src/main/resources/META-INF/persistence.xml").getFile();
 		return new JxJpaPersistenceImpl(filePersistence);
 	}
@@ -92,7 +92,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#geSrcTestResourcesPersistence()
 	 */
 	@Override
-	public JxJpaPersistence geSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
+	public JxJpaPersistence getSrcTestResourcesPersistence() throws ParserConfigurationException, SAXException, IOException {
 		File filePersistence = getMavenProjectFile().find("src/test/resources/META-INF/persistence.xml").getFile();
 		return new JxJpaPersistenceImpl(filePersistence);
 	}
@@ -103,8 +103,8 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcJavaMainClasses()
 	 */
 	@Override
-	public JxCollection<JxJavaClass> getSrcMainJavaClasses() {
-		return getSrcMainJavaFiles().transform(new FunctionJxFileToJxClass());
+	public JxCollection<JxJavaClass> findAllSrcMainJavaClasses() {
+		return findAllSrcMainJavaFiles().transform(new FunctionJxFileToJxClass());
 	}
 
 	/*
@@ -113,8 +113,8 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcJavaTestClasses()
 	 */
 	@Override
-	public JxCollection<JxJavaClass> getSrcTestJavaClasses() {
-		return getSrcTestJavaFiles().transform(new FunctionJxFileToJxClass());
+	public JxCollection<JxJavaClass> findAllSrcTestJavaClasses() {
+		return findAllSrcTestJavaFiles().transform(new FunctionJxFileToJxClass());
 	}
 
 	/*
@@ -123,7 +123,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcMainJavaPackages()
 	 */
 	@Override
-	public JxCollection<JxJavaPackage> getSrcMainJavaPackages() {
+	public JxCollection<JxJavaPackage> findAllSrcMainJavaPackages() {
 		return getMavenProjectFile().find("src/main/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
 				.transform(new FunctionJxFileToJxPackage());
 	}
@@ -134,7 +134,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcTestJavaPackages()
 	 */
 	@Override
-	public JxCollection<JxJavaPackage> getSrcTestJavaPackages() {
+	public JxCollection<JxJavaPackage> findAllSrcTestJavaPackages() {
 		return getMavenProjectFile().find("src/test/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
 				.transform(new FunctionJxFileToJxPackage());
 	}
@@ -145,7 +145,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcMainJavaFiles()
 	 */
 	@Override
-	public JxCollection<JxFile> getSrcMainJavaFiles() {
+	public JxCollection<JxFile> findAllSrcMainJavaFiles() {
 		return getMavenProjectFile().find("src/main/java").filter(new FilterJavaFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -155,7 +155,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.MMavenProject#getSrcTestJavaFiles()
 	 */
 	@Override
-	public JxCollection<JxFile> getSrcTestJavaFiles() {
+	public JxCollection<JxFile> findAllSrcTestJavaFiles() {
 		return getMavenProjectFile().find("src/test/java").filter(new FilterJavaFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -165,7 +165,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappDirs()
 	 */
 	@Override
-	public JxCollection<JxDir> getSrcMainWebappDirs() {
+	public JxCollection<JxDir> findAllSrcMainWebappDirs() {
 		return getMavenProjectFile().find("src/main/webapp").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
 				.transform(new FunctionJxFileToJxDir());
 	}
@@ -176,7 +176,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappFiles()
 	 */
 	@Override
-	public JxCollection<JxFile> getSrcMainWebappFiles() {
+	public JxCollection<JxFile> findAllSrcMainWebappFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(FileFileFilter.FILE, TrueFileFilter.INSTANCE);
 	}
 
@@ -186,7 +186,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappCSSFiles()
 	 */
 	@Override
-	public JxCollection<JxFile> getSrcMainWebappCSSFiles() {
+	public JxCollection<JxFile> findAllSrcMainWebappCSSFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(new FilterCSSFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -196,7 +196,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappJSFiles()
 	 */
 	@Override
-	public JxCollection<JxFile> getSrcMainWebappJSFiles() {
+	public JxCollection<JxFile> findAllSrcMainWebappJSFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(new FilterJSFile(), TrueFileFilter.INSTANCE);
 	}
 
@@ -206,7 +206,7 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	 * @see jtools.commons.model.TMMavenProject#getSrcMainWebappXHTMLFiles()
 	 */
 	@Override
-	public JxCollection<JxFile> getSrcMainWebappXHTMLFiles() {
+	public JxCollection<JxFile> findAllSrcMainWebappXHTMLFiles() {
 		return getMavenProjectFile().find("src/main/webapp").filter(new FilterXHTMLFile(), TrueFileFilter.INSTANCE);
 	}
 

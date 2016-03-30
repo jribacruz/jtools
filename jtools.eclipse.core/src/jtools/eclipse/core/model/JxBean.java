@@ -15,7 +15,7 @@ public interface JxBean extends JxJavaClass {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxJavaClassAttribute> getInjectedAttributes();
+	public JxCollection<JxJavaClassAttribute> findAllInjectedAttributes();
 
 	/**
 	 * 

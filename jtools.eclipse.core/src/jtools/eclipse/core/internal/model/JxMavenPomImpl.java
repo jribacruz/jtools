@@ -59,7 +59,7 @@ public class JxMavenPomImpl extends JxXmlImpl implements JxMavenPom {
 	 * @see jtools.commons.model.MPom#getDependencies()
 	 */
 	@Override
-	public JxCollection<JxMavenPomDependency> getDependencies() {
+	public JxCollection<JxMavenPomDependency> findAllDependencies() {
 		return null;
 	}
 

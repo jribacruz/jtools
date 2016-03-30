@@ -40,8 +40,8 @@ public class JxDemoiselleProjectImpl extends JxMavenProjectImpl implements JxDem
 	 * @see jtools.commons.model.demoiselle.TMDemoiselleProject#getAllEntities()
 	 */
 	@Override
-	public JxCollection<JxJpaEntity> getAllJpaEntities() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxJpaEntity(), new FunctionJxClassToJxJpaEntity());
+	public JxCollection<JxJpaEntity> findAllJpaEntities() {
+		return findAllSrcMainJavaClasses().filterAndTransform(new PredicateIsJxJpaEntity(), new FunctionJxClassToJxJpaEntity());
 	}
 
 	/*
@@ -51,8 +51,8 @@ public class JxDemoiselleProjectImpl extends JxMavenProjectImpl implements JxDem
 	 * getAllPersistenceControllers()
 	 */
 	@Override
-	public JxCollection<JxDemoisellePersistenceController> getAllPersistenceControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoisellePersistenceController(),
+	public JxCollection<JxDemoisellePersistenceController> findAllPersistenceControllers() {
+		return findAllSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoisellePersistenceController(),
 				new FunctionJxClassToJxDemoisellePersistenceController());
 	}
 
@@ -64,8 +64,8 @@ public class JxDemoiselleProjectImpl extends JxMavenProjectImpl implements JxDem
 	 * ()
 	 */
 	@Override
-	public JxCollection<JxDemoiselleBusinessController> getAllBusinessControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoiselleBusinessController(), new FunctionJxClassToJxDemoiselleBusinessController());
+	public JxCollection<JxDemoiselleBusinessController> findAllBusinessControllers() {
+		return findAllSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoiselleBusinessController(), new FunctionJxClassToJxDemoiselleBusinessController());
 	}
 
 	/*
@@ -76,8 +76,8 @@ public class JxDemoiselleProjectImpl extends JxMavenProjectImpl implements JxDem
 	 * ()
 	 */
 	@Override
-	public JxCollection<JxDemoiselleEditViewController> getAllEditViewControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoiselleEditViewController(), new FunctionJxClassToJxDemoiselleEditViewController());
+	public JxCollection<JxDemoiselleEditViewController> findAllEditViewControllers() {
+		return findAllSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoiselleEditViewController(), new FunctionJxClassToJxDemoiselleEditViewController());
 	}
 
 	/*
@@ -88,8 +88,8 @@ public class JxDemoiselleProjectImpl extends JxMavenProjectImpl implements JxDem
 	 * ()
 	 */
 	@Override
-	public JxCollection<JxDemoiselleListViewController> getAllListViewControllers() {
-		return getSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoiselleListViewController(), new FunctionJxClassToJxDemoiselleListViewController());
+	public JxCollection<JxDemoiselleListViewController> findAllListViewControllers() {
+		return findAllSrcMainJavaClasses().filterAndTransform(new PredicateIsJxDemoiselleListViewController(), new FunctionJxClassToJxDemoiselleListViewController());
 	}
 
 }

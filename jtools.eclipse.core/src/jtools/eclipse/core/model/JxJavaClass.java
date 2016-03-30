@@ -58,13 +58,13 @@ public interface JxJavaClass extends Serializable {
 	 * 
 	 * @return Map com os atributos. key - Nome do Atributo value - TAttribute
 	 */
-	public JxCollection<JxJavaClassAttribute> getAttributes();
+	public JxCollection<JxJavaClassAttribute> findAllAttributes();
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxJavaClassMethod> getMethods();
+	public JxCollection<JxJavaClassMethod> findAllMethods();
 
 	/**
 	 * 
@@ -78,7 +78,7 @@ public interface JxJavaClass extends Serializable {
 	 * @param name
 	 * @return
 	 */
-	public JxJavaClassAttribute getAttributeByName(String name);
+	public JxJavaClassAttribute findAttributeByName(String name);
 
 	/**
 	 * 

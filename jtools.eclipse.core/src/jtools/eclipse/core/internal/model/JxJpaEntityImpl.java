@@ -103,7 +103,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	@Override
 	public JxCollection<JxJpaAttribute> getJpaAttributes() {
 		JxCollection<JxJpaAttribute> attributes = new JxCollection<>();
-		for (JxJavaClassAttribute attribute : getAttributes()) {
+		for (JxJavaClassAttribute attribute : findAllAttributes()) {
 			attributes.add(new JxJpaAttributeImpl(attribute.getJavaField()));
 		}
 		return attributes;
@@ -118,7 +118,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 */
 	@Override
 	public JxJpaAttribute getJpaAttributeByName(String name) {
-		return new JxJpaAttributeImpl(this.getAttributeByName(name).getJavaField());
+		return new JxJpaAttributeImpl(this.findAttributeByName(name).getJavaField());
 	}
 
 }

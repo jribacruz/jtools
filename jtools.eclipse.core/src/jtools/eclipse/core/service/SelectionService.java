@@ -16,9 +16,20 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 
 public class SelectionService {
 
+	/**
+	 * 
+	 * @return
+	 */
+	public static IStructuredSelection getCurrentSelection() {
+		return (IStructuredSelection) Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getSelectionService().getSelection();
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
 	public static IProject getProjectFromSelection() {
-		IStructuredSelection selection = (IStructuredSelection) Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
-				.getSelectionService().getSelection();
+		IStructuredSelection selection = SelectionService.getCurrentSelection();
 		if (selection != null) {
 			IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
 
@@ -56,4 +67,75 @@ public class SelectionService {
 		}
 		return null;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static boolean isSelectionFile() {
+		IStructuredSelection selection = SelectionService.getCurrentSelection();
+		IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
+		return selection != null && adaptable instanceof IFile;
+	}
+		
+	/**
+	 * 
+	 * @return
+	 */
+	public static boolean isSelectionFolder() {
+		IStructuredSelection selection = SelectionService.getCurrentSelection();
+		IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
+		return selection != null && adaptable instanceof IFolder;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static boolean isSelectionCompilationUnit() {
+		IStructuredSelection selection = SelectionService.getCurrentSelection();
+		IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
+		return selection != null && adaptable instanceof ICompilationUnit;
+	}
+		
+	/**
+	 * 
+	 * @return
+	 */
+	public static boolean isSelectionPackageFragment() {
+		IStructuredSelection selection = SelectionService.getCurrentSelection();
+		IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
+		return selection != null && adaptable instanceof IPackageFragment;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static boolean isSelectionPackageFragmentRoot() {
+		IStructuredSelection selection = SelectionService.getCurrentSelection();
+		IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
+		return selection != null && adaptable instanceof IPackageFragmentRoot;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static boolean isSelectionJavaProject() {
+		IStructuredSelection selection = SelectionService.getCurrentSelection();
+		IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
+		return selection != null && adaptable instanceof IJavaProject;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static boolean isSelectionProject() {
+		IStructuredSelection selection = SelectionService.getCurrentSelection();
+		IAdaptable adaptable = (IAdaptable) selection.getFirstElement();
+		return selection != null && adaptable instanceof IProject;
+	}
+	
 }

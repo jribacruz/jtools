@@ -35,7 +35,7 @@ public class JxDirImpl implements JxDir {
 	 * @see jtools.commons.model.TMDir#getFiles()
 	 */
 	@Override
-	public JxCollection<JxFile> getAllFiles() {
+	public JxCollection<JxFile> findAllFiles() {
 		return getAllFiles(null);
 	}
 
@@ -45,8 +45,8 @@ public class JxDirImpl implements JxDir {
 	 * @see jtools.commons.model.TMDir#getAllFiles(boolean)
 	 */
 	@Override
-	public JxCollection<JxFile> getAllFiles(boolean recursively) {
-		return recursively ? getAllFiles(TrueFileFilter.INSTANCE) : getAllFiles();
+	public JxCollection<JxFile> findAllFiles(boolean recursively) {
+		return recursively ? getAllFiles(TrueFileFilter.INSTANCE) : findAllFiles();
 	}
 
 	/*
@@ -65,7 +65,7 @@ public class JxDirImpl implements JxDir {
 	 * @see jtools.commons.model.TMDir#getChildDirs()
 	 */
 	@Override
-	public JxCollection<JxDir> getChildDirs() {
+	public JxCollection<JxDir> findChildDirs() {
 		return getChildDirs(null);
 	}
 
@@ -75,7 +75,7 @@ public class JxDirImpl implements JxDir {
 	 * @see jtools.commons.model.TMDir#getChildDirs(boolean)
 	 */
 	@Override
-	public JxCollection<JxDir> getChildDirs(boolean recursively) {
+	public JxCollection<JxDir> findChildDirs(boolean recursively) {
 		return recursively ? getChildDirs(TrueFileFilter.INSTANCE) : getChildDirs(null);
 	}
 
@@ -85,8 +85,8 @@ public class JxDirImpl implements JxDir {
 	 * @see jtools.commons.model.TMDir#getChild(java.lang.String)
 	 */
 	@Override
-	public JxDir getChild(final String dir) throws JxElementNotFoundException {
-		JxDir tmDir = getChildDirs(true).find(new Predicate<JxDir>() {
+	public JxDir findChild(final String dir) throws JxElementNotFoundException {
+		JxDir tmDir = findChildDirs(true).find(new Predicate<JxDir>() {
 			@Override
 			public boolean apply(JxDir input) {
 				return input.getFileDir().getName().equals(dir);

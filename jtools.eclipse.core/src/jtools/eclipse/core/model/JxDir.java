@@ -22,7 +22,7 @@ public interface JxDir {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxFile> getAllFiles();
+	public JxCollection<JxFile> findAllFiles();
 
 	/**
 	 * 
@@ -30,7 +30,7 @@ public interface JxDir {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxFile> getAllFiles(boolean recursively);
+	public JxCollection<JxFile> findAllFiles(boolean recursively);
 
 	/**
 	 * Retorna o diretório pai
@@ -45,7 +45,7 @@ public interface JxDir {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxDir> getChildDirs();
+	public JxCollection<JxDir> findChildDirs();
 
 	/**
 	 * 
@@ -53,7 +53,7 @@ public interface JxDir {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxDir> getChildDirs(boolean recursively);
+	public JxCollection<JxDir> findChildDirs(boolean recursively);
 
 	/**
 	 * 
@@ -63,7 +63,7 @@ public interface JxDir {
 	 * @return
 	 * @throws JxElementNotFoundException 
 	 */
-	public JxDir getChild(String dir) throws JxElementNotFoundException;
+	public JxDir findChild(String dir) throws JxElementNotFoundException;
 
 	/**
 	 * 

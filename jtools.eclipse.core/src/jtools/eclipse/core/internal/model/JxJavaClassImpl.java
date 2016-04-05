@@ -1,16 +1,10 @@
 package jtools.eclipse.core.internal.model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import com.google.common.base.Predicate;
-import com.thoughtworks.qdox.JavaDocBuilder;
 import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
-import com.thoughtworks.qdox.model.JavaSource;
 
 import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxJavaClassAttribute;
@@ -24,8 +18,6 @@ public class JxJavaClassImpl implements JxJavaClass {
 	 * 
 	 */
 	private static final long serialVersionUID = 5105473730117718494L;
-
-	private File javaFile;
 
 	/**
 	 * qdox JavaClass
@@ -41,15 +33,6 @@ public class JxJavaClassImpl implements JxJavaClass {
 	 * Lista de Metodos como map.
 	 */
 	private JxCollection<JxJavaClassMethod> methods;
-	
-	
-	public JxJavaClassImpl(File javaFile) throws FileNotFoundException, IOException {
-		super();
-		this.javaFile = javaFile;
-		JavaDocBuilder builder = new JavaDocBuilder();
-		JavaSource source = builder.addSource(javaFile);
-		this.javaClass = source.getClasses()[0];
-	}
 
 	public JxJavaClassImpl(JavaClass javaClass) {
 		super();
@@ -64,16 +47,6 @@ public class JxJavaClassImpl implements JxJavaClass {
 	@Override
 	public String getName() {
 		return javaClass.getName();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see tools4j.model.TClass#getFile()
-	 */
-	@Override
-	public File getFile() {
-		return this.javaFile;
 	}
 
 	/*
@@ -186,7 +159,7 @@ public class JxJavaClassImpl implements JxJavaClass {
 	 */
 	@Override
 	public JxJavaPackage getParentPackage() {
-		return new JxJavaPackageImpl(getFile().getParentFile());
+		return new JxJavaPackageImpl(getJavaClass().getPackage());
 	}
 
 	@Override

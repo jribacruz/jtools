@@ -1,5 +1,8 @@
 package jtools.eclipse.core.service;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
 
 import org.eclipse.core.resources.IFile;
@@ -16,7 +19,12 @@ import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 
+import com.thoughtworks.qdox.JavaDocBuilder;
+import com.thoughtworks.qdox.model.JavaSource;
+
 import jtools.eclipse.core.Activator;
+import jtools.eclipse.core.internal.model.JxJavaClassImpl;
+import jtools.eclipse.core.model.JxJavaClass;
 
 /**
  * 
@@ -124,8 +132,20 @@ public class JtoolService implements Serializable {
 	 * @return
 	 */
 	public static IStructuredSelection getCurrentSelection() {
-		return (IStructuredSelection) Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
-				.getSelectionService().getSelection();
+		return (IStructuredSelection) Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getSelectionService().getSelection();
+	}
+
+	/**
+	 * 
+	 * @param javaFile
+	 * @return
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	public static JxJavaClass create(File javaFile) throws FileNotFoundException, IOException {
+		JavaDocBuilder builder = new JavaDocBuilder();
+		JavaSource source = builder.addSource(javaFile);
+		return new JxJavaClassImpl(source.getClasses()[0]);
 	}
 
 }

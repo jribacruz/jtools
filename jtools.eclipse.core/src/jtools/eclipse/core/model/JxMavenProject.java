@@ -72,17 +72,6 @@ public interface JxMavenProject extends Serializable {
 	 */
 	public JxCollection<JxJavaClass> findAllSrcTestJavaClasses();
 
-	/**
-	 * 
-	 * @return
-	 */
-	public JxCollection<JxJavaPackage> findAllSrcMainJavaPackages();
-
-	/**
-	 * 
-	 * @return
-	 */
-	public JxCollection<JxJavaPackage> findAllSrcTestJavaPackages();
 
 	/**
 	 * 

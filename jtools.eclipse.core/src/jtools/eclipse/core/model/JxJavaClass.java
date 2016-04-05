@@ -24,13 +24,6 @@ public interface JxJavaClass extends Serializable {
 	public String getName();
 
 	/**
-	 * Arquivo da classe Java.
-	 * 
-	 * @return
-	 */
-	public File getFile();
-
-	/**
 	 * Objeto qdox JavaClass.
 	 * 
 	 * @return

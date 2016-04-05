@@ -1,23 +1,16 @@
 package jtools.eclipse.core.internal.model.function;
 
-import java.io.IOException;
+import com.google.common.base.Function;
 
 import jtools.eclipse.core.internal.model.JxDemoisellePersistenceControllerImpl;
-import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxDemoisellePersistenceController;
-
-import com.google.common.base.Function;
+import jtools.eclipse.core.model.JxJavaClass;
 
 public class FunctionJxClassToJxDemoisellePersistenceController implements Function<JxJavaClass, JxDemoisellePersistenceController> {
 
 	@Override
 	public JxDemoisellePersistenceController apply(JxJavaClass input) {
-		try {
-			return new JxDemoisellePersistenceControllerImpl(input.getFile());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+		return new JxDemoisellePersistenceControllerImpl(input.getJavaClass());
 	}
 
 }

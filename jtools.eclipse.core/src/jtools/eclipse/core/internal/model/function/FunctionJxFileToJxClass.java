@@ -1,24 +1,27 @@
 package jtools.eclipse.core.internal.model.function;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.internal.model.JxJavaClassImpl;
-import jtools.eclipse.core.model.JxJavaClass;
-import jtools.eclipse.core.model.JxFile;
-
 import com.google.common.base.Function;
+import com.thoughtworks.qdox.JavaDocBuilder;
+import com.thoughtworks.qdox.model.JavaSource;
 
-/**
- * 
- * @author jcruz
- *
- */
+import jtools.eclipse.core.internal.model.JxBeanImpl;
+import jtools.eclipse.core.model.JxFile;
+import jtools.eclipse.core.model.JxJavaClass;
+
 public class FunctionJxFileToJxClass implements Function<JxFile, JxJavaClass> {
 
 	@Override
-	public JxJavaClass apply(JxFile input) {
+	public JxJavaClass apply(JxFile arg0) {
 		try {
-			return new JxJavaClassImpl(input.getFile());
+			JavaDocBuilder builder = new JavaDocBuilder();
+			JavaSource source = builder.addSource(arg0.getFile());
+			return new JxBeanImpl(source.getClasses()[0]);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

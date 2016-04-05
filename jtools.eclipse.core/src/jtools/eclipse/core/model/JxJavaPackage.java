@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.google.common.base.Predicate;
+import com.thoughtworks.qdox.model.JavaPackage;
 
 import jtools.eclipse.core.util.JxCollection;
 
@@ -61,5 +62,11 @@ public interface JxJavaPackage {
 	 * @return
 	 */
 	public JxJavaClass findChildClass(Predicate<JxJavaClass> predicate);
+
+	/**
+	 * 
+	 * @return
+	 */
+	public JavaPackage getJavaPackage();
 
 }

@@ -1,12 +1,10 @@
 package jtools.eclipse.core.internal.model.function;
 
-import java.io.IOException;
+import com.google.common.base.Function;
 
 import jtools.eclipse.core.internal.model.JxDemoiselleListViewControllerImpl;
-import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxDemoiselleListViewController;
-
-import com.google.common.base.Function;
+import jtools.eclipse.core.model.JxJavaClass;
 
 /**
  * 
@@ -17,12 +15,7 @@ public class FunctionJxClassToJxDemoiselleListViewController implements Function
 
 	@Override
 	public JxDemoiselleListViewController apply(JxJavaClass input) {
-		try {
-			return new JxDemoiselleListViewControllerImpl(input.getFile());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+		return new JxDemoiselleListViewControllerImpl(input.getJavaClass());
 	}
 
 }

@@ -1,8 +1,6 @@
 package jtools.eclipse.core.internal.model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import com.thoughtworks.qdox.model.JavaClass;
 
 import jtools.eclipse.core.model.JxDemoiselleEditViewController;
 
@@ -18,9 +16,9 @@ public class JxDemoiselleEditViewControllerImpl extends JxBeanImpl implements Jx
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public JxDemoiselleEditViewControllerImpl(File javaFile) throws FileNotFoundException, IOException {
-		super(javaFile);
-
+	public JxDemoiselleEditViewControllerImpl(JavaClass javaClass) {
+		super(javaClass);
+		// TODO Auto-generated constructor stub
 	}
 
 }

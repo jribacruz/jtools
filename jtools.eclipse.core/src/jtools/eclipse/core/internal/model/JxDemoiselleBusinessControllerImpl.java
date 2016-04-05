@@ -1,8 +1,6 @@
 package jtools.eclipse.core.internal.model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import com.thoughtworks.qdox.model.JavaClass;
 
 import jtools.eclipse.core.model.JxDemoiselleBusinessController;
 import jtools.eclipse.core.model.JxDemoisellePersistenceController;
@@ -20,9 +18,9 @@ public class JxDemoiselleBusinessControllerImpl extends JxBeanImpl implements Jx
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public JxDemoiselleBusinessControllerImpl(File javaFile) throws FileNotFoundException, IOException {
-		super(javaFile);
-
+	public JxDemoiselleBusinessControllerImpl(JavaClass javaClass) {
+		super(javaClass);
+		// TODO Auto-generated constructor stub
 	}
 
 	/*

@@ -5,27 +5,25 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.commons.io.filefilter.DirectoryFileFilter;
+import org.apache.commons.io.filefilter.FileFileFilter;
+import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.xml.sax.SAXException;
+
 import jtools.eclipse.core.internal.model.filter.FilterCSSFile;
 import jtools.eclipse.core.internal.model.filter.FilterJSFile;
 import jtools.eclipse.core.internal.model.filter.FilterJavaFile;
 import jtools.eclipse.core.internal.model.filter.FilterXHTMLFile;
 import jtools.eclipse.core.internal.model.function.FunctionJxFileToJxClass;
 import jtools.eclipse.core.internal.model.function.FunctionJxFileToJxDir;
-import jtools.eclipse.core.internal.model.function.FunctionJxFileToJxPackage;
-import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxDir;
 import jtools.eclipse.core.model.JxFile;
-import jtools.eclipse.core.model.JxMavenProject;
-import jtools.eclipse.core.model.JxJavaPackage;
+import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxJpaPersistence;
 import jtools.eclipse.core.model.JxMavenPom;
+import jtools.eclipse.core.model.JxMavenProject;
 import jtools.eclipse.core.model.JxPrettyConfig;
 import jtools.eclipse.core.util.JxCollection;
-
-import org.apache.commons.io.filefilter.DirectoryFileFilter;
-import org.apache.commons.io.filefilter.FileFileFilter;
-import org.apache.commons.io.filefilter.TrueFileFilter;
-import org.xml.sax.SAXException;
 
 /**
  * 
@@ -115,28 +113,6 @@ public class JxMavenProjectImpl implements JxMavenProject {
 	@Override
 	public JxCollection<JxJavaClass> findAllSrcTestJavaClasses() {
 		return findAllSrcTestJavaFiles().transform(new FunctionJxFileToJxClass());
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see jtools.commons.model.MMavenProject#getSrcMainJavaPackages()
-	 */
-	@Override
-	public JxCollection<JxJavaPackage> findAllSrcMainJavaPackages() {
-		return getMavenProjectFile().find("src/main/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
-				.transform(new FunctionJxFileToJxPackage());
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see jtools.commons.model.MMavenProject#getSrcTestJavaPackages()
-	 */
-	@Override
-	public JxCollection<JxJavaPackage> findAllSrcTestJavaPackages() {
-		return getMavenProjectFile().find("src/test/java").filter(DirectoryFileFilter.DIRECTORY, TrueFileFilter.INSTANCE)
-				.transform(new FunctionJxFileToJxPackage());
 	}
 
 	/*

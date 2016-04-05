@@ -1,14 +1,9 @@
 package jtools.eclipse.core.internal.model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import com.google.common.base.Predicate;
+import com.thoughtworks.qdox.model.JavaClass;
 
 import jtools.eclipse.core.internal.model.predicate.PredicateJxJpaAttributeHasAnnotation;
 import jtools.eclipse.core.model.JxDemoisellePersistenceController;
-import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxJavaClassAttribute;
 import jtools.eclipse.core.model.JxJpaAttribute;
 import jtools.eclipse.core.model.JxJpaEntity;
@@ -25,8 +20,9 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public JxJpaEntityImpl(File javaFile) throws FileNotFoundException, IOException {
-		super(javaFile);
+	public JxJpaEntityImpl(JavaClass javaClass) {
+		super(javaClass);
+		// TODO Auto-generated constructor stub
 	}
 
 	/*

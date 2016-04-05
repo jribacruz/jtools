@@ -1,7 +1,9 @@
 package jtools.eclipse.core.service;
 
+import java.io.File;
 import java.io.Serializable;
 
+import org.apache.commons.io.FilenameUtils;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -17,6 +19,8 @@ import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 
 import jtools.eclipse.core.Activator;
+import jtools.eclipse.core.internal.model.JxDemoiselleProjectImpl;
+import jtools.eclipse.core.model.JxDemoiselleProject;
 
 /**
  * 
@@ -125,6 +129,28 @@ public class JtoolService implements Serializable {
 	 */
 	public static IStructuredSelection getCurrentSelection() {
 		return (IStructuredSelection) Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getSelectionService().getSelection();
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public static JxDemoiselleProject getSelectedDemoiselleProject() {
+		IProject project = SelectionService.getProjectFromSelection();
+		if (project != null) {
+			return new JxDemoiselleProjectImpl(project.getFullPath().toString());
+		}
+		return null;
+	}
+
+	/**
+	 * 
+	 * @param path
+	 * @return
+	 */
+	public static boolean isMavenProject(IProject project) {
+		return new File(String.format("%s/%s", FilenameUtils.normalizeNoEndSeparator(project.getFullPath().toString()), "pom.xml"))
+				.exists();
 	}
 
 }

@@ -9,6 +9,7 @@
 		<non-jta-data-source>java:jboss/datasources/ExampleDS</non-jta-data-source>
 
 		<class>jtools.eclipse.demoiselle.test.domain.Bookmark</class>
+		<class>jtools.eclipse.demoiselle.test.domain.Foo</class>
 
 		<properties>
 			<property name="hibernate.show_sql" value="true" />

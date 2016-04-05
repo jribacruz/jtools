@@ -59,7 +59,7 @@ public interface JxJpaEntity extends JxJavaClass {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxJpaAttribute> getJpaAttributes();
+	public JxCollection<JxJpaAttribute> findAllJpaAttributes();
 
 	/**
 	 * 

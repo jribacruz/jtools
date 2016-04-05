@@ -39,7 +39,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 */
 	@Override
 	public JxJpaAttribute getId() throws JxElementNotFoundException {
-		return getJpaAttributes().find(new PredicateJxJpaAttributeHasAnnotation("Id"));
+		return findAllJpaAttributes().find(new PredicateJxJpaAttributeHasAnnotation("Id"));
 	}
 
 	/*
@@ -49,7 +49,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 */
 	@Override
 	public boolean isInheritance() throws JxElementNotFoundException {
-		return getJpaAttributes().find(new PredicateJxJpaAttributeHasAnnotation("Inheritance")) != null;
+		return hasAnnotation("Inheritance");
 	}
 
 	/*
@@ -69,7 +69,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 */
 	@Override
 	public JxCollection<JxJpaAttribute> getUniOneToMany() {
-		return getJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("OneToMany"));
+		return findAllJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("OneToMany"));
 	}
 
 	/*
@@ -79,7 +79,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 */
 	@Override
 	public JxCollection<JxJpaAttribute> getUniOneToOne() {
-		return getJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("OneToOne"));
+		return findAllJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("OneToOne"));
 	}
 
 	/*
@@ -89,7 +89,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 */
 	@Override
 	public JxCollection<JxJpaAttribute> getUniManyToOne() {
-		return getJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("ManyToOne"));
+		return findAllJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("ManyToOne"));
 	}
 
 	/*
@@ -99,7 +99,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 */
 	@Override
 	public JxCollection<JxJpaAttribute> getUniManyToMany() {
-		return getJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("ManyToMany"));
+		return findAllJpaAttributes().filter(new PredicateJxJpaAttributeHasAnnotation("ManyToMany"));
 	}
 
 	/*
@@ -108,7 +108,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getJpaAttributes()
 	 */
 	@Override
-	public JxCollection<JxJpaAttribute> getJpaAttributes() {
+	public JxCollection<JxJpaAttribute> findAllJpaAttributes() {
 		JxCollection<JxJpaAttribute> attributes = new JxCollection<>();
 		for (JxJavaClassAttribute attribute : findAllAttributes()) {
 			attributes.add(new JxJpaAttributeImpl(attribute.getJavaField()));

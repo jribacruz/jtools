@@ -49,7 +49,7 @@ public class JxDemoiselleBusinessControllerImpl extends JxBeanImpl implements Jx
 		return demoiselleProject.findAllJpaEntities().find(new Predicate<JxJpaEntity>() {
 			@Override
 			public boolean apply(JxJpaEntity arg0) {
-				return arg0.getFullyQualifiedName().equals(businessController.getSuperClassGenericTypeArgument(0).getFullyQualifiedName());
+				return arg0.getFullyQualifiedName().equals(businessController.getSuperClassGenericTypeArgumentByIndex(0).getFullyQualifiedName());
 			}
 		});
 	}
@@ -65,7 +65,7 @@ public class JxDemoiselleBusinessControllerImpl extends JxBeanImpl implements Jx
 		return demoiselleProject.findAllPersistenceControllers().find(new Predicate<JxDemoisellePersistenceController>() {
 			@Override
 			public boolean apply(JxDemoisellePersistenceController arg0) {
-				return arg0.getFullyQualifiedName().equals(businessController.getSuperClassGenericTypeArgument(2).getFullyQualifiedName());
+				return arg0.getFullyQualifiedName().equals(businessController.getSuperClassGenericTypeArgumentByIndex(2).getFullyQualifiedName());
 			}
 		});
 	}

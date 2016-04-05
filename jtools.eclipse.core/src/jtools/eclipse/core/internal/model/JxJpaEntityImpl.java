@@ -138,8 +138,8 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 		return demoiselleProject.findAllPersistenceControllers().find(new Predicate<JxDemoisellePersistenceController>() {
 			@Override
 			public boolean apply(JxDemoisellePersistenceController arg0) {
-				if (arg0.getSuperClassGenericTypeArgument(0) != null) {
-					return arg0.getSuperClassGenericTypeArgument(0).getFullyQualifiedName().equals(jpaEntity.getFullyQualifiedName());
+				if (arg0.getSuperClassGenericTypeArgumentByIndex(0) != null) {
+					return arg0.getSuperClassGenericTypeArgumentByIndex(0).getFullyQualifiedName().equals(jpaEntity.getFullyQualifiedName());
 				}
 				return false;
 			}
@@ -158,8 +158,8 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 		return demoiselleProject.findAllBusinessControllers().find(new Predicate<JxDemoiselleBusinessController>() {
 			@Override
 			public boolean apply(JxDemoiselleBusinessController arg0) {
-				if (arg0.getSuperClassGenericTypeArgument(0) != null) {
-					return arg0.getSuperClassGenericTypeArgument(0).getFullyQualifiedName().equals(jpaEntity.getFullyQualifiedName());
+				if (arg0.getSuperClassGenericTypeArgumentByIndex(0) != null) {
+					return arg0.getSuperClassGenericTypeArgumentByIndex(0).getFullyQualifiedName().equals(jpaEntity.getFullyQualifiedName());
 				}
 				return false;
 			}

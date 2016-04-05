@@ -56,7 +56,7 @@ public class JxDemoiselleEditViewControllerImpl extends JxBeanImpl implements Jx
 		return demoiselleProject.findAllJpaEntities().find(new Predicate<JxJpaEntity>() {
 			@Override
 			public boolean apply(JxJpaEntity arg0) {
-				return arg0.getFullyQualifiedName().equals(editViewController.getSuperClassGenericTypeArgument(0).getFullyQualifiedName());
+				return arg0.getFullyQualifiedName().equals(editViewController.getSuperClassGenericTypeArgumentByIndex(0).getFullyQualifiedName());
 			}
 		});
 	}

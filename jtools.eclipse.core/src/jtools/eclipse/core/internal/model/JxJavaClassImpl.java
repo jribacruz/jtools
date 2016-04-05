@@ -164,7 +164,7 @@ public class JxJavaClassImpl implements JxJavaClass {
 	}
 
 	@Override
-	public JxJavaClass getSuperClassGenericTypeArgument(int idx) {
+	public JxJavaClass getSuperClassGenericTypeArgumentByIndex(int idx) {
 		return new JxJavaClassImpl(getJavaClass().getSuperClass().getActualTypeArguments()[idx].getJavaClass());
 	}
 

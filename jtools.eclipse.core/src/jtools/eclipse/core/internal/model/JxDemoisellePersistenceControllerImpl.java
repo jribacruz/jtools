@@ -56,8 +56,8 @@ public class JxDemoisellePersistenceControllerImpl extends JxBeanImpl implements
 		return demoiselleProject.findAllBusinessControllers().find(new Predicate<JxDemoiselleBusinessController>() {
 			@Override
 			public boolean apply(JxDemoiselleBusinessController arg0) {
-				if (arg0.getSuperClassGenericTypeArgument(2) != null) {
-					return arg0.getSuperClassGenericTypeArgument(2).getFullyQualifiedName()
+				if (arg0.getSuperClassGenericTypeArgumentByIndex(2) != null) {
+					return arg0.getSuperClassGenericTypeArgumentByIndex(2).getFullyQualifiedName()
 							.equals(persistenceController.getFullyQualifiedName());
 				}
 				return false;
@@ -77,7 +77,7 @@ public class JxDemoisellePersistenceControllerImpl extends JxBeanImpl implements
 			@Override
 			public boolean apply(JxJpaEntity arg0) {
 				return arg0.getFullyQualifiedName()
-						.equals(persistenceController.getSuperClassGenericTypeArgument(0).getFullyQualifiedName());
+						.equals(persistenceController.getSuperClassGenericTypeArgumentByIndex(0).getFullyQualifiedName());
 			}
 		});
 	}

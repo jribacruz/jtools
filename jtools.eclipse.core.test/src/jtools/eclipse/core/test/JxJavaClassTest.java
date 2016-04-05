@@ -18,8 +18,8 @@ public class JxJavaClassTest {
 	public void getBCGenericTypeArgument_Test() throws FileNotFoundException, IOException {
 		JxDemoiselleProject demoiselleProject = DemoiselleProject.create();
 		JxJavaClass javaClass = demoiselleProject.findSrcMainJavaClassByFullyQualifiedName("jtools.eclipse.demoiselle.test.business.FooBC");
-		System.out.println(javaClass.getSuperClassGenericTypeArgument(0));
-		System.out.println(javaClass.getSuperClassGenericTypeArgument(1));
+		System.out.println(javaClass.getSuperClassGenericTypeArgumentByIndex(0));
+		System.out.println(javaClass.getSuperClassGenericTypeArgumentByIndex(1));
 	}
 
 	@Test

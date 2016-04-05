@@ -92,7 +92,7 @@ public interface JxJavaClass extends Serializable {
 	 * @param idx
 	 * @return
 	 */
-	public JxJavaClass getSuperClassGenericTypeArgument(int idx);
+	public JxJavaClass getSuperClassGenericTypeArgumentByIndex(int idx);
 
 	/**
 	 * 

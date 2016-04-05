@@ -1,5 +1,6 @@
 package jtools.eclipse.core.model;
 
+import jtools.eclipse.core.exception.JxElementNotFoundException;
 import jtools.eclipse.core.util.JxCollection;
 
 /**
@@ -13,14 +14,16 @@ public interface JxJpaEntity extends JxJavaClass {
 	 * Retorna o atributo Id
 	 * 
 	 * @return
+	 * @throws JxElementNotFoundException
 	 */
-	public JxJpaAttribute getId();
+	public JxJpaAttribute getId() throws JxElementNotFoundException;
 
 	/**
 	 * 
 	 * @return
+	 * @throws JxElementNotFoundException
 	 */
-	public boolean isInheritance();
+	public boolean isInheritance() throws JxElementNotFoundException;
 
 	/**
 	 * 
@@ -62,13 +65,28 @@ public interface JxJpaEntity extends JxJavaClass {
 	 * 
 	 * @param name
 	 * @return
+	 * @throws JxElementNotFoundException
 	 */
-	public JxJpaAttribute getJpaAttributeByName(String name);
+	public JxJpaAttribute findJpaAttributeByName(String name) throws JxElementNotFoundException;
+
+	/**
+	 * 
+	 * @return
+	 * @throws JxElementNotFoundException
+	 */
+	public JxDemoisellePersistenceController findPersitenceController() throws JxElementNotFoundException;
+
+	/**
+	 * 
+	 * @return
+	 * @throws JxElementNotFoundException
+	 */
+	public JxDemoiselleBusinessController findBusinessController() throws JxElementNotFoundException;
 
 	/**
 	 * 
 	 * @return
 	 */
-	public JxDemoisellePersistenceController findPersitenceController();
+	public JxMavenProject getMavenProject();
 
 }

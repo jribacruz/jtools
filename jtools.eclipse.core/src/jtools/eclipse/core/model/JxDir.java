@@ -2,6 +2,7 @@ package jtools.eclipse.core.model;
 
 import java.io.File;
 
+import jtools.eclipse.core.exception.JxElementNotFoundException;
 import jtools.eclipse.core.util.JxCollection;
 
 import org.apache.commons.io.filefilter.IOFileFilter;
@@ -60,8 +61,9 @@ public interface JxDir {
 	 * 
 	 * @param dir
 	 * @return
+	 * @throws JxElementNotFoundException 
 	 */
-	public JxDir getChild(String dir);
+	public JxDir getChild(String dir) throws JxElementNotFoundException;
 
 	/**
 	 * 

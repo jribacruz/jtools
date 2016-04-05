@@ -6,5 +6,9 @@ package jtools.eclipse.core.model;
  *
  */
 public interface JxDemoiselleEditViewController extends JxBean {
-
+	/**
+	 * 
+	 * @return
+	 */
+	public JxDemoiselleProject getDemoiselleProject();
 }

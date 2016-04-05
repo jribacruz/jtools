@@ -6,6 +6,8 @@ import java.util.Collection;
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 
+import jtools.eclipse.core.exception.JxElementNotFoundException;
+
 /**
  * 
  * @author jcruz
@@ -49,14 +51,15 @@ public class JxCollection<E> extends ArrayList<E> {
 	 * 
 	 * @param predicate
 	 * @return
+	 * @throws JxElementNotFoundException 
 	 */
-	public E find(Predicate<E> predicate) {
+	public E find(Predicate<E> predicate) throws JxElementNotFoundException {
 		for (E model : this) {
 			if (predicate.apply(model)) {
 				return model;
 			}
 		}
-		return null;
+		throw new JxElementNotFoundException();
 	}
 
 	/**

@@ -4,6 +4,7 @@ import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaPackage;
 
+import jtools.eclipse.core.exception.JxElementNotFoundException;
 import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxJavaPackage;
 import jtools.eclipse.core.util.JxCollection;
@@ -85,7 +86,7 @@ public class JxJavaPackageImpl implements JxJavaPackage {
 	 * @see jtools.eclipse.core.model.JxJavaPackage#findClass(com.google.common.base.Predicate)
 	 */
 	@Override
-	public JxJavaClass findClass(Predicate<JxJavaClass> predicate) {
+	public JxJavaClass findClass(Predicate<JxJavaClass> predicate) throws JxElementNotFoundException {
 		return findAllClasses().find(predicate);
 	}
 

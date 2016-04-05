@@ -8,4 +8,9 @@ package jtools.eclipse.core.model;
  */
 public interface JxDemoiselleListViewController extends JxBean {
 
+	/**
+	 * 
+	 * @return
+	 */
+	public JxDemoiselleProject getDemoiselleProject();
 }

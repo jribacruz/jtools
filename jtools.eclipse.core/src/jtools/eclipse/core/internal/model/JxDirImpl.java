@@ -2,6 +2,7 @@ package jtools.eclipse.core.internal.model;
 
 import java.io.File;
 
+import jtools.eclipse.core.exception.JxElementNotFoundException;
 import jtools.eclipse.core.model.JxDir;
 import jtools.eclipse.core.model.JxFile;
 import jtools.eclipse.core.util.JxCollection;
@@ -84,7 +85,7 @@ public class JxDirImpl implements JxDir {
 	 * @see jtools.commons.model.TMDir#getChild(java.lang.String)
 	 */
 	@Override
-	public JxDir getChild(final String dir) {
+	public JxDir getChild(final String dir) throws JxElementNotFoundException {
 		JxDir tmDir = getChildDirs(true).find(new Predicate<JxDir>() {
 			@Override
 			public boolean apply(JxDir input) {

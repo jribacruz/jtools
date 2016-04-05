@@ -7,7 +7,7 @@ import com.google.common.base.Function;
 import com.thoughtworks.qdox.JavaDocBuilder;
 import com.thoughtworks.qdox.model.JavaSource;
 
-import jtools.eclipse.core.internal.model.JxBeanImpl;
+import jtools.eclipse.core.internal.model.JxJavaClassImpl;
 import jtools.eclipse.core.model.JxFile;
 import jtools.eclipse.core.model.JxJavaClass;
 
@@ -18,9 +18,8 @@ public class FunctionJxFileToJxClass implements Function<JxFile, JxJavaClass> {
 		try {
 			JavaDocBuilder builder = new JavaDocBuilder();
 			JavaSource source = builder.addSource(arg0.getFile());
-			return new JxBeanImpl(source.getClasses()[0]);
+			return new JxJavaClassImpl(source.getClasses()[0]);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();

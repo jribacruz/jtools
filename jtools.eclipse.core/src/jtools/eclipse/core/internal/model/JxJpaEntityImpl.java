@@ -1,12 +1,17 @@
 package jtools.eclipse.core.internal.model;
 
+import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.model.JavaClass;
 
+import jtools.eclipse.core.exception.JxElementNotFoundException;
 import jtools.eclipse.core.internal.model.predicate.PredicateJxJpaAttributeHasAnnotation;
+import jtools.eclipse.core.model.JxDemoiselleBusinessController;
 import jtools.eclipse.core.model.JxDemoisellePersistenceController;
+import jtools.eclipse.core.model.JxDemoiselleProject;
 import jtools.eclipse.core.model.JxJavaClassAttribute;
 import jtools.eclipse.core.model.JxJpaAttribute;
 import jtools.eclipse.core.model.JxJpaEntity;
+import jtools.eclipse.core.model.JxMavenProject;
 import jtools.eclipse.core.util.JxCollection;
 
 /**
@@ -20,9 +25,11 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public JxJpaEntityImpl(JavaClass javaClass) {
+	private JxMavenProject mavenProject;
+
+	public JxJpaEntityImpl(JxMavenProject mavenProject, JavaClass javaClass) {
 		super(javaClass);
-		// TODO Auto-generated constructor stub
+		this.mavenProject = mavenProject;
 	}
 
 	/*
@@ -31,7 +38,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 * @see jtools.commons.model.TMJpaEntity#getId()
 	 */
 	@Override
-	public JxJpaAttribute getId() {
+	public JxJpaAttribute getId() throws JxElementNotFoundException {
 		return getJpaAttributes().find(new PredicateJxJpaAttributeHasAnnotation("Id"));
 	}
 
@@ -41,7 +48,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 * @see jtools.commons.model.jpa.TMJpaEntity#isInheritance()
 	 */
 	@Override
-	public boolean isInheritance() {
+	public boolean isInheritance() throws JxElementNotFoundException {
 		return getJpaAttributes().find(new PredicateJxJpaAttributeHasAnnotation("Inheritance")) != null;
 	}
 
@@ -115,7 +122,7 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 * @see jtools.commons.model.jpa.TMJpaEntity#getJpaAttributeByName(java.lang. String)
 	 */
 	@Override
-	public JxJpaAttribute getJpaAttributeByName(String name) {
+	public JxJpaAttribute findJpaAttributeByName(String name) throws JxElementNotFoundException {
 		return new JxJpaAttributeImpl(this.findAttributeByName(name).getJavaField());
 	}
 
@@ -125,8 +132,48 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	 * @see jtools.eclipse.core.model.JxJpaEntity#findPersitenceController()
 	 */
 	@Override
-	public JxDemoisellePersistenceController findPersitenceController() {
-		return null;
+	public JxDemoisellePersistenceController findPersitenceController() throws JxElementNotFoundException {
+		final JxJpaEntity jpaEntity = this;
+		JxDemoiselleProject demoiselleProject = new JxDemoiselleProjectImpl(mavenProject);
+		return demoiselleProject.findAllPersistenceControllers().find(new Predicate<JxDemoisellePersistenceController>() {
+			@Override
+			public boolean apply(JxDemoisellePersistenceController arg0) {
+				if (arg0.getSuperClassGenericTypeArgument(0) != null) {
+					return arg0.getSuperClassGenericTypeArgument(0).getFullyQualifiedName().equals(jpaEntity.getFullyQualifiedName());
+				}
+				return false;
+			}
+		});
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.eclipse.core.model.JxJpaEntity#findBusinessController()
+	 */
+	@Override
+	public JxDemoiselleBusinessController findBusinessController() throws JxElementNotFoundException {
+		final JxJpaEntity jpaEntity = this;
+		JxDemoiselleProject demoiselleProject = new JxDemoiselleProjectImpl(mavenProject);
+		return demoiselleProject.findAllBusinessControllers().find(new Predicate<JxDemoiselleBusinessController>() {
+			@Override
+			public boolean apply(JxDemoiselleBusinessController arg0) {
+				if (arg0.getSuperClassGenericTypeArgument(0) != null) {
+					return arg0.getSuperClassGenericTypeArgument(0).getFullyQualifiedName().equals(jpaEntity.getFullyQualifiedName());
+				}
+				return false;
+			}
+		});
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.eclipse.core.model.JxJpaEntity#getMavenProject()
+	 */
+	@Override
+	public JxMavenProject getMavenProject() {
+		return getMavenProject();
 	}
 
 }

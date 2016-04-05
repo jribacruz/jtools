@@ -6,6 +6,7 @@ import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 
+import jtools.eclipse.core.exception.JxElementNotFoundException;
 import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxJavaClassAttribute;
 import jtools.eclipse.core.model.JxJavaClassMethod;
@@ -133,7 +134,7 @@ public class JxJavaClassImpl implements JxJavaClass {
 	 * @see jtools.commons.model.TMClass#getAttributeByName(java.lang.String)
 	 */
 	@Override
-	public JxJavaClassAttribute findAttributeByName(final String name) {
+	public JxJavaClassAttribute findAttributeByName(final String name) throws JxElementNotFoundException {
 		return findAllAttributes().find(new Predicate<JxJavaClassAttribute>() {
 			@Override
 			public boolean apply(JxJavaClassAttribute input) {
@@ -163,7 +164,7 @@ public class JxJavaClassImpl implements JxJavaClass {
 	}
 
 	@Override
-	public JxJavaClass getGenericTypeArgument(int idx) {
+	public JxJavaClass getSuperClassGenericTypeArgument(int idx) {
 		return new JxJavaClassImpl(getJavaClass().getSuperClass().getActualTypeArguments()[idx].getJavaClass());
 	}
 

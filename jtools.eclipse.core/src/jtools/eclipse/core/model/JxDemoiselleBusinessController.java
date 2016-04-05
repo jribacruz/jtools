@@ -23,4 +23,10 @@ public interface JxDemoiselleBusinessController extends JxBean {
 	 */
 	public JxJpaEntity getJpaEntity();
 
+	/**
+	 * 
+	 * @return
+	 */
+	public JxDemoiselleProject getDemoiselleProject();
+
 }

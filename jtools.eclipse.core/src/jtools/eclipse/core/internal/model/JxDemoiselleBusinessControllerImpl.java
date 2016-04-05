@@ -4,6 +4,7 @@ import com.thoughtworks.qdox.model.JavaClass;
 
 import jtools.eclipse.core.model.JxDemoiselleBusinessController;
 import jtools.eclipse.core.model.JxDemoisellePersistenceController;
+import jtools.eclipse.core.model.JxDemoiselleProject;
 import jtools.eclipse.core.model.JxJpaEntity;
 
 /**
@@ -18,8 +19,11 @@ public class JxDemoiselleBusinessControllerImpl extends JxBeanImpl implements Jx
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public JxDemoiselleBusinessControllerImpl(JavaClass javaClass) {
+	private JxDemoiselleProject demoiselleProject;
+
+	public JxDemoiselleBusinessControllerImpl(JxDemoiselleProject demoiselleProject, JavaClass javaClass) {
 		super(javaClass);
+		this.demoiselleProject = demoiselleProject;
 	}
 
 	/*
@@ -40,6 +44,11 @@ public class JxDemoiselleBusinessControllerImpl extends JxBeanImpl implements Jx
 	@Override
 	public JxJpaEntity getJpaEntity() {
 		return null;
+	}
+
+	@Override
+	public JxDemoiselleProject getDemoiselleProject() {
+		return this.demoiselleProject;
 	}
 
 }

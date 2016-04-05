@@ -16,6 +16,7 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: jtools.eclipse.core,
+ jtools.eclipse.core.exception,
  jtools.eclipse.core.generator,
  jtools.eclipse.core.helper,
  jtools.eclipse.core.internal.generator,

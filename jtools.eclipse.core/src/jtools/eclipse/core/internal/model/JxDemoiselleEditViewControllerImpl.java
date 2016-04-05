@@ -3,6 +3,7 @@ package jtools.eclipse.core.internal.model;
 import com.thoughtworks.qdox.model.JavaClass;
 
 import jtools.eclipse.core.model.JxDemoiselleEditViewController;
+import jtools.eclipse.core.model.JxDemoiselleProject;
 
 /**
  * 
@@ -16,9 +17,16 @@ public class JxDemoiselleEditViewControllerImpl extends JxBeanImpl implements Jx
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public JxDemoiselleEditViewControllerImpl(JavaClass javaClass) {
+	private JxDemoiselleProject demoiselleProject;
+
+	public JxDemoiselleEditViewControllerImpl(JxDemoiselleProject demoiselleProject, JavaClass javaClass) {
 		super(javaClass);
-		// TODO Auto-generated constructor stub
+		this.demoiselleProject = demoiselleProject;
+	}
+
+	@Override
+	public JxDemoiselleProject getDemoiselleProject() {
+		return this.demoiselleProject;
 	}
 
 }

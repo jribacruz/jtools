@@ -4,6 +4,7 @@ import com.google.common.base.Function;
 
 import jtools.eclipse.core.internal.model.JxDemoiselleListViewControllerImpl;
 import jtools.eclipse.core.model.JxDemoiselleListViewController;
+import jtools.eclipse.core.model.JxDemoiselleProject;
 import jtools.eclipse.core.model.JxJavaClass;
 
 /**
@@ -13,9 +14,16 @@ import jtools.eclipse.core.model.JxJavaClass;
  */
 public class FunctionJxClassToJxDemoiselleListViewController implements Function<JxJavaClass, JxDemoiselleListViewController> {
 
+	private JxDemoiselleProject demoiselleProject;
+
+	public FunctionJxClassToJxDemoiselleListViewController(JxDemoiselleProject demoiselleProject) {
+		super();
+		this.demoiselleProject = demoiselleProject;
+	}
+
 	@Override
 	public JxDemoiselleListViewController apply(JxJavaClass input) {
-		return new JxDemoiselleListViewControllerImpl(input.getJavaClass());
+		return new JxDemoiselleListViewControllerImpl(demoiselleProject, input.getJavaClass());
 	}
 
 }

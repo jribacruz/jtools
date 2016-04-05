@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import com.thoughtworks.qdox.model.JavaClass;
 
+import jtools.eclipse.core.exception.JxElementNotFoundException;
 import jtools.eclipse.core.util.JxCollection;
 
 /**
@@ -75,8 +76,9 @@ public interface JxJavaClass extends Serializable {
 	 * 
 	 * @param name
 	 * @return
+	 * @throws JxElementNotFoundException 
 	 */
-	public JxJavaClassAttribute findAttributeByName(String name);
+	public JxJavaClassAttribute findAttributeByName(String name) throws JxElementNotFoundException;
 
 	/**
 	 * 
@@ -90,7 +92,7 @@ public interface JxJavaClass extends Serializable {
 	 * @param idx
 	 * @return
 	 */
-	public JxJavaClass getGenericTypeArgument(int idx);
+	public JxJavaClass getSuperClassGenericTypeArgument(int idx);
 
 	/**
 	 * 

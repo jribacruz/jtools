@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import org.apache.commons.io.FilenameUtils;
+
+import com.google.common.base.Predicate;
+
 import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxDir;
 import jtools.eclipse.core.model.JxFile;
@@ -22,8 +26,8 @@ public class JxJavaPackageImpl extends JxDirImpl implements JxJavaPackage {
 	 * @see jtools.commons.model.TMPackage#getClasses()
 	 */
 	@Override
-	public JxCollection<JxJavaClass> findAllClasses() {
-		return findAllClasses(false);
+	public JxCollection<JxJavaClass> findAllChildClasses() {
+		return findAllChildClasses(false);
 	}
 
 	/*
@@ -32,7 +36,7 @@ public class JxJavaPackageImpl extends JxDirImpl implements JxJavaPackage {
 	 * @see jtools.commons.model.TMPackage#getClasses(boolean)
 	 */
 	@Override
-	public JxCollection<JxJavaClass> findAllClasses(boolean recursively) {
+	public JxCollection<JxJavaClass> findAllChildClasses(boolean recursively) {
 		JxCollection<JxJavaClass> classes = new JxCollection<>();
 		for (JxFile file : super.getAllFiles(recursively)) {
 			if (file.isJavaFile()) {
@@ -89,7 +93,17 @@ public class JxJavaPackageImpl extends JxDirImpl implements JxJavaPackage {
 	 */
 	@Override
 	public JxJavaPackage find(String packageName) {
-		return null;
+		return new JxJavaPackageImpl(new File(FilenameUtils.normalize(getFileDir().getAbsolutePath().concat("/persistence"))));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.eclipse.core.model.JxJavaPackage#findClass(com.google.common.base.Predicate)
+	 */
+	@Override
+	public JxJavaClass findChildClass(Predicate<JxJavaClass> predicate) {
+		return findAllChildClasses().find(predicate);
 	}
 
 }

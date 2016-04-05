@@ -4,11 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jtools.eclipse.core.model.JxJavaClass;
-import jtools.eclipse.core.model.JxJavaClassAttribute;
-import jtools.eclipse.core.model.JxJavaClassMethod;
-import jtools.eclipse.core.util.JxCollection;
-
 import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.JavaDocBuilder;
 import com.thoughtworks.qdox.model.Annotation;
@@ -16,6 +11,12 @@ import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaField;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaSource;
+
+import jtools.eclipse.core.model.JxJavaClass;
+import jtools.eclipse.core.model.JxJavaClassAttribute;
+import jtools.eclipse.core.model.JxJavaClassMethod;
+import jtools.eclipse.core.model.JxJavaPackage;
+import jtools.eclipse.core.util.JxCollection;
 
 public class JxJavaClassImpl implements JxJavaClass {
 
@@ -40,13 +41,19 @@ public class JxJavaClassImpl implements JxJavaClass {
 	 * Lista de Metodos como map.
 	 */
 	private JxCollection<JxJavaClassMethod> methods;
-
+	
+	
 	public JxJavaClassImpl(File javaFile) throws FileNotFoundException, IOException {
 		super();
 		this.javaFile = javaFile;
 		JavaDocBuilder builder = new JavaDocBuilder();
 		JavaSource source = builder.addSource(javaFile);
 		this.javaClass = source.getClasses()[0];
+	}
+
+	public JxJavaClassImpl(JavaClass javaClass) {
+		super();
+		this.javaClass = javaClass;
 	}
 
 	/*
@@ -162,14 +169,39 @@ public class JxJavaClassImpl implements JxJavaClass {
 		});
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.eclipse.core.model.JxJavaClass#extendsOf(java.lang.String)
+	 */
 	@Override
 	public boolean extendsOf(String className) {
 		return javaClass.isA(className);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.eclipse.core.model.JxJavaClass#getParentPackage()
+	 */
+	@Override
+	public JxJavaPackage getParentPackage() {
+		return new JxJavaPackageImpl(getFile().getParentFile());
+	}
+
+	@Override
+	public JxJavaClass getGenericTypeArgument(int idx) {
+		return new JxJavaClassImpl(getJavaClass().getSuperClass().getActualTypeArguments()[idx].getJavaClass());
+	}
+
+	@Override
+	public JxJavaClass getSuperClass() {
+		return new JxJavaClassImpl(getJavaClass().getSuperClass().getJavaClass());
+	}
+
 	@Override
 	public String toString() {
-		return "TMClassImpl [javaFile=" + javaFile.getName() + "]";
+		return "JxJavaClassImpl [javaClass=" + javaClass.getFullyQualifiedName() + "]";
 	}
 
 }

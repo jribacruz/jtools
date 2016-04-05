@@ -4,7 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import com.google.common.base.Predicate;
+
 import jtools.eclipse.core.internal.model.predicate.PredicateJxJpaAttributeHasAnnotation;
+import jtools.eclipse.core.model.JxDemoisellePersistenceController;
+import jtools.eclipse.core.model.JxJavaClass;
 import jtools.eclipse.core.model.JxJavaClassAttribute;
 import jtools.eclipse.core.model.JxJpaAttribute;
 import jtools.eclipse.core.model.JxJpaEntity;
@@ -112,13 +116,21 @@ public class JxJpaEntityImpl extends JxJavaClassImpl implements JxJpaEntity {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * jtools.commons.model.jpa.TMJpaEntity#getJpaAttributeByName(java.lang.
-	 * String)
+	 * @see jtools.commons.model.jpa.TMJpaEntity#getJpaAttributeByName(java.lang. String)
 	 */
 	@Override
 	public JxJpaAttribute getJpaAttributeByName(String name) {
 		return new JxJpaAttributeImpl(this.findAttributeByName(name).getJavaField());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.eclipse.core.model.JxJpaEntity#findPersitenceController()
+	 */
+	@Override
+	public JxDemoisellePersistenceController findPersitenceController() {
+		return null;
 	}
 
 }

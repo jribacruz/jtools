@@ -54,6 +54,12 @@ public interface JxJavaClass extends Serializable {
 	public String getPackageName();
 
 	/**
+	 * 
+	 * @return
+	 */
+	public JxJavaPackage getParentPackage();
+
+	/**
 	 * Mapa com os atributos da classe.
 	 * 
 	 * @return Map com os atributos. key - Nome do Atributo value - TAttribute
@@ -86,5 +92,18 @@ public interface JxJavaClass extends Serializable {
 	 * @return
 	 */
 	public boolean extendsOf(String className);
+
+	/**
+	 * 
+	 * @param idx
+	 * @return
+	 */
+	public JxJavaClass getGenericTypeArgument(int idx);
+
+	/**
+	 * 
+	 * @return
+	 */
+	public JxJavaClass getSuperClass();
 
 }

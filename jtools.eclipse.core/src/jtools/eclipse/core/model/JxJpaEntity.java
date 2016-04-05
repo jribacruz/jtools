@@ -15,7 +15,7 @@ public interface JxJpaEntity extends JxJavaClass {
 	 * @return
 	 */
 	public JxJpaAttribute getId();
-	
+
 	/**
 	 * 
 	 * @return
@@ -51,18 +51,24 @@ public interface JxJpaEntity extends JxJavaClass {
 	 * @return
 	 */
 	public JxCollection<JxJpaAttribute> getUniManyToMany();
-	
+
 	/**
 	 * 
 	 * @return
 	 */
 	public JxCollection<JxJpaAttribute> getJpaAttributes();
-	
+
 	/**
 	 * 
 	 * @param name
 	 * @return
 	 */
 	public JxJpaAttribute getJpaAttributeByName(String name);
+
+	/**
+	 * 
+	 * @return
+	 */
+	public JxDemoisellePersistenceController findPersitenceController();
 
 }

@@ -3,6 +3,8 @@ package jtools.eclipse.core.model;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import com.google.common.base.Predicate;
+
 import jtools.eclipse.core.util.JxCollection;
 
 /**
@@ -12,21 +14,21 @@ import jtools.eclipse.core.util.JxCollection;
  *
  */
 public interface JxJavaPackage {
-	
+
 	/**
 	 * 
 	 * @return
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	public JxCollection<JxJavaClass> findAllClasses();
+	public JxCollection<JxJavaClass> findAllChildClasses();
 
 	/**
 	 * 
 	 * @param recursively
 	 * @return
 	 */
-	public JxCollection<JxJavaClass> findAllClasses(boolean recursively);
+	public JxCollection<JxJavaClass> findAllChildClasses(boolean recursively);
 
 	/**
 	 * 
@@ -52,5 +54,12 @@ public interface JxJavaPackage {
 	 * @return
 	 */
 	public JxJavaPackage find(String packageName);
+
+	/**
+	 * 
+	 * @param predicate
+	 * @return
+	 */
+	public JxJavaClass findChildClass(Predicate<JxJavaClass> predicate);
 
 }

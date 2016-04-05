@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: jtools.eclipse.core.test
+Bundle-SymbolicName: jtools.eclipse.core.test;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: 
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Require-Bundle: org.eclipse.swtbot.go,
+ jtools.junit4;bundle-version="1.0.0",
+ jtools.eclipse.core;bundle-version="1.0.0",
+ jtools.qdox;bundle-version="1.12.1"

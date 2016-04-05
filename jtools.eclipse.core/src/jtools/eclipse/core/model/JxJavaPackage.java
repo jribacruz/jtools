@@ -1,8 +1,5 @@
 package jtools.eclipse.core.model;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.model.JavaPackage;
 
@@ -19,17 +16,15 @@ public interface JxJavaPackage {
 	/**
 	 * 
 	 * @return
-	 * @throws IOException
-	 * @throws FileNotFoundException
 	 */
-	public JxCollection<JxJavaClass> findAllChildClasses();
+	public String getPackageName();
 
 	/**
 	 * 
 	 * @param recursively
 	 * @return
 	 */
-	public JxCollection<JxJavaClass> findAllChildClasses(boolean recursively);
+	public JxCollection<JxJavaClass> findAllClasses();
 
 	/**
 	 * 
@@ -41,27 +36,28 @@ public interface JxJavaPackage {
 	 * 
 	 * @return
 	 */
-	public JxCollection<JxJavaPackage> findAllChildPackages();
-
-	/**
-	 * 
-	 * @return
-	 */
-	public JxCollection<JxJavaPackage> findAllChildPackages(boolean recursively);
+	public JxCollection<JxJavaPackage> findAllSubPackages();
 
 	/**
 	 * 
 	 * @param packageName
 	 * @return
 	 */
-	public JxJavaPackage find(String packageName);
+	public JxJavaPackage findSubPackageByName(String packageName);
+	
+	/**
+	 * 
+	 * @param packageName
+	 * @return
+	 */
+	public JxJavaPackage findSubPackageByName(Predicate<JxJavaPackage> predicate);
 
 	/**
 	 * 
 	 * @param predicate
 	 * @return
 	 */
-	public JxJavaClass findChildClass(Predicate<JxJavaClass> predicate);
+	public JxJavaClass findClass(Predicate<JxJavaClass> predicate);
 
 	/**
 	 * 

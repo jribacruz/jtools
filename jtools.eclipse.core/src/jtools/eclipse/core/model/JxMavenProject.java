@@ -72,7 +72,6 @@ public interface JxMavenProject extends Serializable {
 	 */
 	public JxCollection<JxJavaClass> findAllSrcTestJavaClasses();
 
-
 	/**
 	 * 
 	 * @return
@@ -115,5 +114,19 @@ public interface JxMavenProject extends Serializable {
 	 * @return
 	 */
 	public JxCollection<JxFile> findAllSrcMainWebappXHTMLFiles();
+
+	/**
+	 * 
+	 * @param fullyQualifiedName
+	 * @return
+	 */
+	public JxJavaClass findSrcMainJavaClassByFullyQualifiedName(String fullyQualifiedName);
+	
+	/**
+	 * 
+	 * @param fullyQualifiedName
+	 * @return
+	 */
+	public JxJavaClass findSrcTestJavaClassByFullyQualifiedName(String fullyQualifiedName);
 
 }

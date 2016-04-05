@@ -186,4 +186,24 @@ public class JxMavenProjectImpl implements JxMavenProject {
 		return getMavenProjectFile().find("src/main/webapp").filter(new FilterXHTMLFile(), TrueFileFilter.INSTANCE);
 	}
 
+	@Override
+	public JxJavaClass findSrcMainJavaClassByFullyQualifiedName(String fullyQualifiedName) {
+		for (JxJavaClass javaClass : findAllSrcMainJavaClasses()) {
+			if (javaClass.getFullyQualifiedName().equals(fullyQualifiedName)) {
+				return javaClass;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public JxJavaClass findSrcTestJavaClassByFullyQualifiedName(String fullyQualifiedName) {
+		for (JxJavaClass javaClass : findAllSrcTestJavaClasses()) {
+			if (javaClass.getFullyQualifiedName().equals(fullyQualifiedName)) {
+				return javaClass;
+			}
+		}
+		return null;
+	}
+
 }

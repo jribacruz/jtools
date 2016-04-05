@@ -20,7 +20,6 @@ public class JxDemoiselleBusinessControllerImpl extends JxBeanImpl implements Jx
 
 	public JxDemoiselleBusinessControllerImpl(JavaClass javaClass) {
 		super(javaClass);
-		// TODO Auto-generated constructor stub
 	}
 
 	/*

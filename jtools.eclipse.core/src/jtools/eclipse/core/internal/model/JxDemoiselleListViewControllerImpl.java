@@ -1,9 +1,13 @@
 package jtools.eclipse.core.internal.model;
 
+import com.google.common.base.Predicate;
 import com.thoughtworks.qdox.model.JavaClass;
 
+import jtools.eclipse.core.exception.JxElementNotFoundException;
+import jtools.eclipse.core.model.JxDemoiselleBusinessController;
 import jtools.eclipse.core.model.JxDemoiselleListViewController;
 import jtools.eclipse.core.model.JxDemoiselleProject;
+import jtools.eclipse.core.model.JxJpaEntity;
 
 /**
  * 
@@ -24,9 +28,30 @@ public class JxDemoiselleListViewControllerImpl extends JxBeanImpl implements Jx
 		this.demoiselleProject = demoiselleProject;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.eclipse.core.model.JxDemoiselleListViewController#getDemoiselleProject()
+	 */
 	@Override
 	public JxDemoiselleProject getDemoiselleProject() {
 		return this.demoiselleProject;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see jtools.eclipse.core.model.JxDemoiselleListViewController#findJpaEntity()
+	 */
+	@Override
+	public JxJpaEntity findJpaEntity() throws JxElementNotFoundException {
+		final JxDemoiselleListViewController listViewController = this;
+		return demoiselleProject.findAllJpaEntities().find(new Predicate<JxJpaEntity>() {
+			@Override
+			public boolean apply(JxJpaEntity arg0) {
+				return arg0.getFullyQualifiedName().equals(listViewController.getSuperClassGenericTypeArgument(0).getFullyQualifiedName());
+			}
+		});
 	}
 
 }

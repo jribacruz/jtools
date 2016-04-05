@@ -1,5 +1,6 @@
 package jtools.eclipse.core.model;
 
+import jtools.eclipse.core.exception.JxElementNotFoundException;
 
 /**
  * 
@@ -13,4 +14,11 @@ public interface JxDemoiselleListViewController extends JxBean {
 	 * @return
 	 */
 	public JxDemoiselleProject getDemoiselleProject();
+
+	/**
+	 * 
+	 * @return
+	 * @throws JxElementNotFoundException
+	 */
+	public JxJpaEntity findJpaEntity() throws JxElementNotFoundException;
 }

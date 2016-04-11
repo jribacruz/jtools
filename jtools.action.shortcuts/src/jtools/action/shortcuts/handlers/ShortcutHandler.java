@@ -55,18 +55,6 @@ public class ShortcutHandler extends AbstractHandler  {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
 
-	/*	try {
-			PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser().openURL(new URL(url));
-		} catch (PartInitException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-
-
-
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 
 

@@ -1,23 +1,15 @@
 package jtools.action.shortcuts.wizards;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Link;
-import org.eclipse.swt.widgets.Text;
 
 import jtools.action.shortcuts.Activator;
+import jtools.action.shortcuts.model.BookmarkLinkModel;
 import jtools.action.shortcuts.preferences.PreferenceConstants;
 
 /**
@@ -28,6 +20,7 @@ import jtools.action.shortcuts.preferences.PreferenceConstants;
 
 public class SampleNewWizardPage extends WizardPage {
 
+	public String urlLink;
 
 	private ISelection selection;
 
@@ -50,22 +43,19 @@ public class SampleNewWizardPage extends WizardPage {
 
 		String[] urls = StringUtils.split(url, ";");
 
-
 		Composite container = new Composite(parent, SWT.NULL);
 		GridLayout layout = new GridLayout();
 		container.setLayout(layout);
 		layout.numColumns = 1;
-	
-		
+
+
 
 		for (int i = 0; i < urls.length; i++) {
-			Label label = new Label(container, SWT.NULL);
-					label.setText(urls[i]);
+			urlLink = urls[i];
+			new BookmarkLinkModel(container, urlLink);
 
 		}
 
-		
-	
 		setControl(container);
 		setPageComplete(false);
 	}

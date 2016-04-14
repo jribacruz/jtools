@@ -4,6 +4,11 @@ import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
+/**
+ * 
+ * @author jcruz
+ *
+ */
 public class JtoolsPreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 
 	@Override

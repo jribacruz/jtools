@@ -18,7 +18,6 @@ Bundle-ActivationPolicy: lazy
 Export-Package: jtools.eclipse.core,
  jtools.eclipse.core.exception,
  jtools.eclipse.core.generator,
- jtools.eclipse.core.helper,
  jtools.eclipse.core.internal.generator,
  jtools.eclipse.core.internal.model;
   uses:="com.thoughtworks.qdox.model,
@@ -37,5 +36,4 @@ Export-Package: jtools.eclipse.core,
    com.google.common.base,
    javax.xml.namespace",
  jtools.eclipse.core.service;uses:="jtools.eclipse.core.model,org.eclipse.core.resources,org.eclipse.jface.viewers",
- jtools.eclipse.core.template,
  jtools.eclipse.core.util

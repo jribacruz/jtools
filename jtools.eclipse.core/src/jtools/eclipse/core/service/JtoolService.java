@@ -34,7 +34,7 @@ public class JtoolService implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private MessageConsole messageConsole;
+	private static MessageConsole messageConsole;
 
 	/**
 	 * 
@@ -43,7 +43,7 @@ public class JtoolService implements Serializable {
 	 * @param message
 	 * @param params
 	 */
-	public void printConsole(String message, Object... params) {
+	public static void printConsole(String message, Object... params) {
 		if (messageConsole == null) {
 			ConsolePlugin consolePlugin = ConsolePlugin.getDefault();
 			IConsoleManager consoleManager = consolePlugin.getConsoleManager();
@@ -55,6 +55,8 @@ public class JtoolService implements Serializable {
 
 	/**
 	 * 
+	 * Verifica se a seleção corrente é um arquivo.
+	 * 
 	 * @return
 	 */
 	public static boolean isFileSelected() {
@@ -64,6 +66,8 @@ public class JtoolService implements Serializable {
 	}
 
 	/**
+	 * 
+	 * Verifica se a seleção atual é um arquivo.
 	 * 
 	 * @return
 	 */
@@ -75,6 +79,8 @@ public class JtoolService implements Serializable {
 
 	/**
 	 * 
+	 * Verifica se a seleção atual é um arquivo java.
+	 * 
 	 * @return
 	 */
 	public static boolean isCompilationUnitSelected() {
@@ -84,6 +90,8 @@ public class JtoolService implements Serializable {
 	}
 
 	/**
+	 * 
+	 * Verifica se a seleção atual é um pacote java.
 	 * 
 	 * @return
 	 */
@@ -95,6 +103,8 @@ public class JtoolService implements Serializable {
 
 	/**
 	 * 
+	 * Verifica se a seleção atual é um source folder.
+	 * 
 	 * @return
 	 */
 	public static boolean isPackageFragmentRootSelected() {
@@ -104,6 +114,8 @@ public class JtoolService implements Serializable {
 	}
 
 	/**
+	 * 
+	 * Verifica se a seleção atual é um projeto java.
 	 * 
 	 * @return
 	 */
@@ -125,6 +137,8 @@ public class JtoolService implements Serializable {
 
 	/**
 	 * 
+	 * Retorna a seleção atual.
+	 * 
 	 * @return
 	 */
 	public static IStructuredSelection getCurrentSelection() {
@@ -132,6 +146,8 @@ public class JtoolService implements Serializable {
 	}
 
 	/**
+	 * 
+	 * Retorna o projeto Demoiselle selecionado.
 	 * 
 	 * @return
 	 */

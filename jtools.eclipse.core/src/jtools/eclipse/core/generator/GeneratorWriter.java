@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Map;
 
-import jtools.eclipse.core.model.JxJavaClass;
-
 import com.lyncode.jtwig.exception.CompileException;
 import com.lyncode.jtwig.exception.ParseException;
 import com.lyncode.jtwig.exception.RenderException;
@@ -17,7 +15,7 @@ public interface GeneratorWriter extends Serializable {
 	 * @param model
 	 * @return
 	 */
-	public <T extends JxJavaClass> GeneratorWriter model(T model);
+	public <T extends GeneratorModel> GeneratorWriter model(T model);
 
 	/**
 	 * 

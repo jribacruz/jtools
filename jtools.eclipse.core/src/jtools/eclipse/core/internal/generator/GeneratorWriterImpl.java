@@ -5,14 +5,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Map;
 
-import jtools.eclipse.core.generator.GeneratorWriter;
-import jtools.eclipse.core.model.JxJavaClass;
-
 import com.lyncode.jtwig.JtwigModelMap;
 import com.lyncode.jtwig.JtwigTemplate;
 import com.lyncode.jtwig.exception.CompileException;
 import com.lyncode.jtwig.exception.ParseException;
 import com.lyncode.jtwig.exception.RenderException;
+
+import jtools.eclipse.core.generator.GeneratorModel;
+import jtools.eclipse.core.generator.GeneratorWriter;
 
 /**
  * 
@@ -42,7 +42,7 @@ public class GeneratorWriterImpl implements GeneratorWriter {
 	 * TJavaModel)
 	 */
 	@Override
-	public <T extends JxJavaClass> GeneratorWriter model(T model) {
+	public <T extends GeneratorModel> GeneratorWriter model(T model) {
 		getContext().add("model", model);
 		return this;
 	}

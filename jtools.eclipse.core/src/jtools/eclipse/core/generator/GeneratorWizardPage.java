@@ -5,8 +5,11 @@ import org.eclipse.swt.widgets.Composite;
 
 public class GeneratorWizardPage<T extends GeneratorModel> extends WizardPage {
 
-	protected GeneratorWizardPage(String pageName) {
+	private T model;
+
+	protected GeneratorWizardPage(String pageName, T model) {
 		super(pageName);
+		this.model = model;
 	}
 
 	@Override

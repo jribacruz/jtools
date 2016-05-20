@@ -12,23 +12,15 @@ Require-Bundle: org.eclipse.core.runtime,
  jtools.jtwig.core;bundle-version="3.1.1",
  org.eclipse.core.resources;bundle-version="3.9.1",
  org.eclipse.jdt.core;bundle-version="3.10.0",
- org.eclipse.ui.console;bundle-version="3.5.300"
+ org.eclipse.ui.console;bundle-version="3.5.300",
+ org.codehaus.groovy;bundle-version="2.4.3"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: jtools.eclipse.core,
  jtools.eclipse.core.exception,
  jtools.eclipse.core.generator,
  jtools.eclipse.core.internal.generator,
- jtools.eclipse.core.internal.model;
-  uses:="com.thoughtworks.qdox.model,
-   jtools.eclipse.core.util,
-   org.apache.commons.io.filefilter,
-   jtools.eclipse.core.model,
-   com.google.common.base,
-   javax.xml.namespace",
  jtools.eclipse.core.internal.model.filter,
- jtools.eclipse.core.internal.model.function,
- jtools.eclipse.core.internal.model.predicate,
  jtools.eclipse.core.model;
   uses:="com.thoughtworks.qdox.model,
    jtools.eclipse.core.util,

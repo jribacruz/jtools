@@ -15,7 +15,7 @@ public interface GeneratorWriter extends Serializable {
 	 * @param model
 	 * @return
 	 */
-	public <T extends GeneratorModel> GeneratorWriter model(T model);
+	public <T> GeneratorWriter model(T model);
 
 	/**
 	 * 

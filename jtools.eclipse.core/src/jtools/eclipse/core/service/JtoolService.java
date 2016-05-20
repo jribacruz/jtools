@@ -19,8 +19,6 @@ import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 
 import jtools.eclipse.core.Activator;
-import jtools.eclipse.core.internal.model.JxDemoiselleProjectImpl;
-import jtools.eclipse.core.model.JxDemoiselleProject;
 
 /**
  * 
@@ -143,20 +141,6 @@ public class JtoolService implements Serializable {
 	 */
 	public static IStructuredSelection getCurrentSelection() {
 		return (IStructuredSelection) Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getSelectionService().getSelection();
-	}
-
-	/**
-	 * 
-	 * Retorna o projeto Demoiselle selecionado.
-	 * 
-	 * @return
-	 */
-	public static JxDemoiselleProject getSelectedDemoiselleProject() {
-		IProject project = SelectionService.getProjectFromSelection();
-		if (project != null) {
-			return new JxDemoiselleProjectImpl(project.getFullPath().toString());
-		}
-		return null;
 	}
 
 	/**

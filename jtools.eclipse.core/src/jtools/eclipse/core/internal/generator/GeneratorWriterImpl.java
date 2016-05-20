@@ -11,7 +11,6 @@ import com.lyncode.jtwig.exception.CompileException;
 import com.lyncode.jtwig.exception.ParseException;
 import com.lyncode.jtwig.exception.RenderException;
 
-import jtools.eclipse.core.generator.GeneratorModel;
 import jtools.eclipse.core.generator.GeneratorWriter;
 
 /**
@@ -42,7 +41,7 @@ public class GeneratorWriterImpl implements GeneratorWriter {
 	 * TJavaModel)
 	 */
 	@Override
-	public <T extends GeneratorModel> GeneratorWriter model(T model) {
+	public <T> GeneratorWriter model(T model) {
 		getContext().add("model", model);
 		return this;
 	}

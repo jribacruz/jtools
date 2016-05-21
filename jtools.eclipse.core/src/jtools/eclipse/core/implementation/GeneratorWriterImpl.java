@@ -1,4 +1,4 @@
-package jtools.eclipse.core.internal.generator;
+package jtools.eclipse.core.implementation;
 
 import java.io.File;
 import java.io.FileOutputStream;

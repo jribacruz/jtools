@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.URISyntaxException;
 
-import jtools.eclipse.core.internal.generator.GeneratorWriterImpl;
-
 import com.lyncode.jtwig.JtwigTemplate;
 import com.lyncode.jtwig.configuration.JtwigConfiguration;
+
+import jtools.eclipse.core.implementation.GeneratorWriterImpl;
 
 /**
  * 

@@ -6,6 +6,10 @@ package jtools.eclipse.core.model
  *
  */
 class EClass {
-
+	
 	String name
+
+	List<EAttribute> attributes
+
+	List<EMethod> methods
 }
